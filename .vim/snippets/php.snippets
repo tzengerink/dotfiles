@@ -1,0 +1,64 @@
+snippet class
+	class ${1:ClassName} {
+
+		${3:Contents}
+
+	} // End ${2:ClassName}
+snippet doc
+	/**
+	 * ${1:Comment}
+	 */${2}
+snippet docc
+	/**
+	 * ${1:Information}
+	 *
+	 * @package   ${2:Package}
+	 * @category  ${3:Category}
+	 * @author    ${4:Author}
+	 */${5}
+snippet docf
+	/**
+	 * ${1:Information}
+	 *
+	 * @param   ${2:ParamType}  ${3:ParamInfo}
+	 * @return  ${4:ReturnType} ${5:ReturnInfo}
+	 */${6}
+snippet docv
+	/**
+	 * @var  ${1:Type}  ${2:Information}
+	 */${3}
+snippet if
+	if (${1})
+	{
+		${2}
+	}
+snippet else
+	else
+	{
+		${1}
+	}
+snippet elseif
+	else if (${1})
+	{
+		${2}
+	}
+snippet ife
+	if (${1})
+	{
+		${2}
+	}
+	else
+	{
+		${3}
+	}
+snippet phpdef
+	<?php defined('${1:ConstantName}') or die('No direct access allowed.');${2}
+snippet try
+	try
+	{
+		${1:Try}
+	}
+	catch (Exception $e)
+	{
+		${2:Catch}
+	}
