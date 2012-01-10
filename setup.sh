@@ -12,3 +12,7 @@ ln -s "$DIR/.bash_aliases" ~/.bash_aliases
 # Vim files
 ln -s "$DIR/.vimrc" ~/.vimrc
 ln -s "$DIR/.vim" ~/.vim
+
+# Git files
+ln -s "$DIR/.gitconfig" ~/.gitconfig
+ln -s "$DIR/.gitignore" ~/.gitignore
