@@ -1,33 +1,23 @@
-### Configuration files for Bash and Vim
+### Bash files
 
-##### Bash files
+**.bash_profile** Login script that is run every time you login either sitting at the machine, or remotely via ssh.
 
-**.bash_profile**
-Login script that is run every time you login either sitting at the machine, or remotely via ssh.
+**.bashrc** Script that is run every time you start a new bash instance (eg. by opening a new Terminal tab).
 
-**.bashrc**
-Script that is run every time you start a new bash instance (eg. by opening a new Terminal tab).
+**.bash_aliases** Contains all aliases so it is easy to reload when modifications are made.
 
-**.bash_aliases**
-Contains all aliases so it is easy to reload when modifications are made.
+### Vim files
 
-##### Vim files
+**.vimrc** Vim configuration file.
 
-**.vimrc**
-Vim configuration file.
+**.vim** Vim plugins and more.
 
-**.vim**
-Vim plugins and more.
+### Git files
 
-##### Git files
+**.gitconfig** Git configuration file.
 
-**.gitconfig**
-Git configuration file.
+**.gitignore** Global ignore file.
 
-**.gitignore**
-Global ignore file.
+### Setup
 
-##### Setup
-
-**setup.sh**
-Create symbolic links to these files in your home folder.
+**setup.sh** Create symbolic links to these files in your home folder.
