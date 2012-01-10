@@ -1,3 +1,6 @@
+# ----------------------------------------------------------------------------
+# ALIASES
+# ----------------------------------------------------------------------------
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
@@ -7,8 +10,18 @@ alias ll='ls -lah'
 alias cp='cp -X' # Do NOT copy extended attributes
 alias rmallsvn='rm -rf `find . -type d -name .svn`'
 alias rmalldsstore='rm -rf `find . -type f -name .DS_Store`'
-alias mysql='/usr/local/mysql-5.5.18-osx10.5-x86_64/bin/mysql'
-alias dev='cd /Volumes/developers/teun'
 alias twc="find . -type f -name '*.php' -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'"
 alias ttree="find . -not \( -type d -name .svn -prune \) -print | sed -e 's;[^/]*/;|___;g;s;___|; |;g'"
 alias tip='curl ifconfig.me/ip'
+
+# ----------------------------------------------------------------------------
+# FUNCTIONS
+# ----------------------------------------------------------------------------
+function tgrep() {
+	if test "$1" = ""
+	then
+		echo "No string given.."
+	else
+		find . -type f \! -path "*.svn*" -exec egrep -Hn --color "$1" {} \;
+	fi
+}
