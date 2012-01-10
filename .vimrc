@@ -48,6 +48,9 @@ let g:user_zen_expandabbr_key = '<C-e>'
 " Quick save
 map <leader>s :update<CR>
 
+" Toggle line numbers
+map <leader>r :set number! number?<CR>
+
 " Tabs
 map <C-h> :tabp<CR>
 map <C-l> :tabn<CR>
