@@ -7,8 +7,9 @@ alias la='ls -A'
 alias ll='ls -lah'
 alias lsd='ls -l | grep "^d"'
 
-# Do NOT copy extended attributes
-alias cp='cp -X'
+alias cp='cp -X' # Do NOT copy extended attributes
+alias fn='find . -name'
+alias hi='history | tail -20'
 
 # Coding
 alias phplines="find . -type f -name '*.php' -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'"
