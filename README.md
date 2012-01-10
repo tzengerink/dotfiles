@@ -4,7 +4,7 @@
 
 **.bashrc** Script that is run every time you start a new bash instance (eg. by opening a new Terminal tab).
 
-**.exports** Contains all aliases
+**.exports** Contains all exports
 
 **.aliases** Contains all aliases
 

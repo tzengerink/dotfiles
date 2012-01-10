@@ -5,7 +5,7 @@ alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias la='ls -A'
 alias ll='ls -lah'
-alias ld='ls -l | grep "^d"'
+alias lsd='ls -l | grep "^d"'
 
 # Do NOT copy extended attributes
 alias cp='cp -X'
