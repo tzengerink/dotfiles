@@ -14,3 +14,6 @@ for FILE in $DIR/.{bashrc,bash_profile,exports,aliases,functions,vimrc,vim,gitco
 	fi
 	ln -s $FILE ~/$BASENAME
 done
+
+# Source .bashrc
+source ~/.bashrc
