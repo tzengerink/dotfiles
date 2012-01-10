@@ -9,7 +9,7 @@ function tgrep() {
 }
 
 # CLEANSVN - Recursively remove all .svn directories
-Function cleansvn() {
+function cleansvn() {
 	echo -e "THIS WILL RECURSIVELY REMOVE ALL SVN DIRECTORIES."
 	read -r -p "Do you want to continue? [yes/NO] " RESPONSE
 	case $RESPONSE in
