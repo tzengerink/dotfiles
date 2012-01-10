@@ -4,7 +4,11 @@
 
 **.bashrc** Script that is run every time you start a new bash instance (eg. by opening a new Terminal tab).
 
-**.bash_aliases** Contains all aliases so it is easy to reload when modifications are made.
+**.exports** Contains all aliases
+
+**.aliases** Contains all aliases
+
+**.functions** Contains all functions
 
 ### Vim files
 
