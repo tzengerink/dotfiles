@@ -12,12 +12,10 @@ unset FILE
 autoload -Uz compinit && compinit  # Auto complete
 
 # -- PROMPT & LSCOLORS -------------------------------------------------------
-COLORS=$(tput colors)
-if [ $COLORS -eq 256 ]; then
+if [ $TERM="xterm-256colors" ]; then
 	export PS1=$'%{\e[38;5;241m%}%n@%m:%{\e[0m%} %{\e[38;5;198m%}%~%{\e[0m%} %{\e[38;5;241m%}#%{\e[0m%} '
-elif [ $COLORS -eq 8 ]; then
+elif [ $TERM="xterm-colors" ]; then
 	export PS1=$'%{\e[1;37m%}%n@%m:%{\e[0m%} %{\e[1;35m%}%~%{\e[0m%} %{\e[1;37m%}#%{\e[0m%} '
 else
 	export PS1=$'%n@%m: %~ # '
 fi
-unset COLORS

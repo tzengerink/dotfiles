@@ -1,10 +1,9 @@
 # -- PROMPT & LSCOLORS -------------------------------------------------------
 export CLICOLOR=1
-COLORS=$(tput colors)
-if [ $COLORS -eq 256 ]; then
+if [ $TERM="xterm-256colors" ]; then
 	export PS1='\[\e[38;5;241m\]\u@\h:\[\e[m\] \[\e[38;5;198m\]\w\[\e[m\] \[\e[38;5;241m\]$\[\e[m\] '
 	export LSCOLORS=Axfxcxdxcxegedabagacbx
-elif [ $COLORS -eq 8 ]; then
+elif [ $TERM="xterm-colors" ]; then
 	export PS1='\[\e[1;37m\]\u@\h:\[\e[m\] \[\e[1;35m\]\w\[\e[m\] \[\e[1;37m\]$\[\e[m\] '
 	export LSCOLORS=Hxfxcxdxcxegedabagacbx
 else
