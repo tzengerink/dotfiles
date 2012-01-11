@@ -1,4 +1,4 @@
-# Prompt configuration & LSCOLORS
+# -- PROMPT & LSCOLORS -------------------------------------------------------
 export CLICOLOR=1
 COLORS=$(tput colors)
 if [ $COLORS -eq 256 ]; then
@@ -11,13 +11,11 @@ else
 	export PS1=$'%n@%m: %~ $ '
 fi
 
-# Color settings
-
-# Vim is the editor of choice
+# -- EDITOR ------------------------------------------------------------------
 export EDITOR=vi
 export SVN_EDITOR=vi
 
-# History settings
+# -- HISTORY -----------------------------------------------------------------
 export HISTCONTROL=ignoredups
 export HISTSIZE=1000
 export HISTFILESIZE=1000
