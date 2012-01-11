@@ -22,6 +22,10 @@
 
 **.gitignore** Global ignore file.
 
+### Z-Shell files
+
+**.zshrc** Z-Shell configuration file
+
 ### Setup
 
 **setup.sh** Create symbolic links to these files in your home folder.
