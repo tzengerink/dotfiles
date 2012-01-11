@@ -1,9 +1,17 @@
-# Prompt configuration
-export PS1='\u@\h:\[\e[1;33m\] \w\[\e[m\] $ '
+# Prompt configuration & LSCOLORS
+export CLICOLOR=1
+COLORS=$(tput colors)
+if [ $COLORS -eq 256 ]; then
+	export PS1='\[\e[38;5;241m\]\u@\h:\[\e[m\] \[\e[38;5;198m\]\w\[\e[m\] \[\e[38;5;241m\]$\[\e[m\] '
+	export LSCOLORS=Axfxcxdxcxegedabagacbx
+elif [ $COLORS -eq 8 ]; then
+	export PS1='\[\e[1;37m\]\u@\h:\[\e[m\] \[\e[1;35m\]\w\[\e[m\] \[\e[1;37m\]$\[\e[m\] '
+	export LSCOLORS=Hxfxcxdxcxegedabagacbx
+else
+	export PS1=$'%n@%m: %~ $ '
+fi
 
 # Color settings
-export CLICOLOR=1
-export LSCOLORS=dxfxcxdxbxegedabagacad
 
 # Vim is the editor of choice
 export EDITOR=vi

@@ -25,9 +25,12 @@ set directory=~/.vim/swap   " Where to put the swap files
 " --------------------------------------------------------------------------------
 " SYNTAX AND FILETYPE SETTINGS
 " --------------------------------------------------------------------------------
-set t_Co=256       " Turn on 256-colors
+if (&t_Co == 256)
+	set t_Co=256    " Turn on 256-colors
+	colors molokai  " Use molokai color scheme
+endif
+
 syntax on          " Turn on syntax highlighting
-colors molokai     " Use molokai color scheme
 filetype on        " Turn on filetype detection
 
 " Python
