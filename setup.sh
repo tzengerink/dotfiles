@@ -6,7 +6,7 @@ DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 # Loop and check if directory or file exists
 # Backup if so, then create symlink
-for FILE in $DIR/.{bashrc,bash_profile,exports,aliases,functions,vimrc,vim,gitconfig,gitignore}; do
+for FILE in $DIR/.{bashrc,bash_profile,exports,aliases,functions,vimrc,vim,gitconfig,gitignore,zshrc}; do
 	BASENAME=$(basename "$FILE")
 	if [ -f ~/$BASENAME ] || [ -d ~/$BASENAME ]; then
 		mv ~/$BASENAME ~/$BASENAME~
