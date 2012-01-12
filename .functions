@@ -17,6 +17,15 @@ function mkcd {
 	cd "$1"
 }
 
+# GLD - Pull a given Git directory
+function gld {
+	if [ ! -d "$1" ]; then
+		echo "First argument must be a directory containing a Git repository.."
+	else
+		cd "$1" && git pull && cd -
+	fi
+}
+
 # TGREP - Find string in files recursively
 function tgrep {
 	if test "$1" = ""
