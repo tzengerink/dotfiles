@@ -1,4 +1,5 @@
 # CLEANSVN - Recursively remove all .svn directories
+# TODO: make zshell compatible
 function cleansvn {
 	echo -e "THIS WILL RECURSIVELY REMOVE ALL SVN DIRECTORIES."
 	read -r -p "Do you want to continue? [yes/NO] " RESPONSE
