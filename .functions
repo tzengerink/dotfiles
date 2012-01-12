@@ -1,15 +1,5 @@
-# TGREP - Find string in files recursively
-function tgrep() {
-	if test "$1" = ""
-	then
-		echo "First argument must be a string to search for.."
-	else
-		find . -type f \! -path "*.svn*" -exec egrep -Hn --color "$1" {} \;
-	fi
-}
-
 # CLEANSVN - Recursively remove all .svn directories
-function cleansvn() {
+function cleansvn {
 	echo -e "THIS WILL RECURSIVELY REMOVE ALL SVN DIRECTORIES."
 	read -r -p "Do you want to continue? [yes/NO] " RESPONSE
 	case $RESPONSE in
@@ -19,4 +9,20 @@ function cleansvn() {
 		*)
 			;;
 	esac
+}
+
+# MKCD - Create a directory and change to it
+function mkcd {
+	mkdir "$1"
+	cd "$1"
+}
+
+# TGREP - Find string in files recursively
+function tgrep {
+	if test "$1" = ""
+	then
+		echo "First argument must be a string to search for.."
+	else
+		find . -type f \! -path "*.svn*" -exec egrep -Hn --color "$1" {} \;
+	fi
 }
