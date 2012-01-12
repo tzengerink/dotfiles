@@ -1,0 +1,5 @@
+if [ ! -d "$1" ]; then
+	echo "First argument must be a directory containing a Git repository.."
+else
+	cd "$1" && git pull && cd -
+fi

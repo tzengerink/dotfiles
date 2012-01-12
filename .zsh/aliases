@@ -35,4 +35,4 @@ alias ips="localip && ip"
 # Other
 alias cp='cp -X' # Do NOT copy extended attributes
 alias fn='find . -name'
-alias hi='history | tail -20'
+alias hi='history -d | tail -20'

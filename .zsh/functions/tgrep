@@ -1,0 +1,6 @@
+if test "$1" = ""
+then
+	echo "First argument must be a string to search for.."
+else
+	find . -type f \! -path "*.svn*" -exec egrep -Hni --color "$1" {} \;
+fi

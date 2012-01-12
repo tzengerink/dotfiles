@@ -1,0 +1,12 @@
+function cleansvn {
+	echo -e "THIS WILL RECURSIVELY REMOVE ALL SVN DIRECTORIES."
+	echo -e "Do you want to continue? [yes/NO] "
+	read RESPONSE
+	case "$RESPONSE" in
+		([yY][eE][sS]|[yY]) 
+			rm -rf `find . -type d -name .svn`;
+			;;
+		(*) 
+			;;
+	esac
+}

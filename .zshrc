@@ -1,15 +1,15 @@
-# -- LOAD EXTERNAL FILES -----------------------------------------------------
-# ~/.exports     - exports
-# ~/.aliases     - aliases
-# ~/.functions   - functions
-# ~/.localrc     - used for commands you do not want to commit
-for FILE in ~/.{exports,aliases,functions,localrc}; do
-	[ -r "$FILE" ] && source "$FILE"
-done
-unset FILE
-
 # -- AUTO COMPLETION ---------------------------------------------------------
-autoload -Uz compinit && compinit  # Auto complete
+autoload -Uz compinit && compinit
+
+# -- FUNCTIONS & EXTERNAL FILES ----------------------------------------------
+fpath=(~/.zsh/functions $fpath)
+autoload -U ~/.zsh/functions/*(:t) # load all function in directory
+source ~/.zsh/aliases              # aliases
+source ~/.localrc                  # used for machine specific commands
+
+# -- EDITOR ------------------------------------------------------------------
+export EDITOR=vi
+export SVN_EDITOR=vi
 
 # -- PROMPT & LSCOLORS -------------------------------------------------------
 if [ $TERM="xterm-256colors" ]; then

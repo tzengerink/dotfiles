@@ -26,6 +26,8 @@
 
 **.zshrc** Z-Shell configuration file
 
+**.zsh** Directory containing functions, alias file and more.
+
 ### Setup
 
 **setup.sh** Create symbolic links to these files in your home folder.
