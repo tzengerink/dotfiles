@@ -2,10 +2,5 @@
 	name = T. Zengerink
 	email = t.zengerink@gmail.com
 
-[alias]
-	st    = status
-	ci    = commit -a
-	up    = pull
-
 [color]
 	ui = auto

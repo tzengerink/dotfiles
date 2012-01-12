@@ -1,4 +1,4 @@
-# Naviation
+# Navigation
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
@@ -8,16 +8,29 @@ alias l='ls -lh'
 alias ll='ls -lah'
 alias lsd='ls -l | grep "^d"'
 
-alias cp='cp -X' # Do NOT copy extended attributes
-alias fn='find . -name'
-alias hi='history | tail -20'
-
 # Coding
 alias phplines="find . -type f -name '*.php' -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'"
 alias cleanup='rm -rf `find . -type f -name .DS_Store`'
 alias dirtree="find . -not \( -type d -name .svn -prune \) -print | sed -e 's;[^/]*/;|___;g;s;___|; |;g'"
 
+# Git
+alias gl='git pull'
+alias gp='git push'
+alias gd='git diff'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gb='git branch'
+alias gs='git status'
+alias gss='git status -s'
+alias grm='git status | grep deleted | awk "{print \$3}" | xargs git rm'
+alias glog='git log --pretty=oneline --graph'
+
 # IP-addresses
 alias ip="curl ifconfig.me/ip"
 alias localip="ipconfig getifaddr en0"
 alias ips="localip && ip"
+
+# Other
+alias cp='cp -X' # Do NOT copy extended attributes
+alias fn='find . -name'
+alias hi='history | tail -20'
