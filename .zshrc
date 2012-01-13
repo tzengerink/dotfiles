@@ -9,7 +9,9 @@ autoload -U ~/.zsh/functions/*(:t) # Load all function in directory
 source ~/.zsh/aliases              # Load aliases
 source ~/.localrc                  # Used for machine specific commands
 
-# -- EDITOR ------------------------------------------------------------------
+# -- EXPORTS -----------------------------------------------------------------
+export PAGER=less
+export CLICOLOR=1
 export EDITOR=vi
 export SVN_EDITOR=vi
 
@@ -19,7 +21,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 # -- PROMPT & LSCOLORS -------------------------------------------------------
-export CLICOLOR=1
 if [ $TERM="xterm-256colors" ]; then
 	export PS1=$'%{\e[38;5;241m%}%n@%m:%{\e[0m%} %{\e[38;5;198m%}%~%{\e[0m%} %{\e[38;5;241m%}#%{\e[0m%} '
 	export LSCOLORS=cxAxgxdxbxegedabagacbx
