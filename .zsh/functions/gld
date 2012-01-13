@@ -1,3 +1,6 @@
+# GLD
+# Git pull a specified directory
+
 if [ ! -d "$1" ]; then
 	echo "First argument must be a directory containing a Git repository.."
 else

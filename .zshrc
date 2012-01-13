@@ -1,15 +1,22 @@
 # -- AUTO COMPLETION ---------------------------------------------------------
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit                    # Load
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # Match uppercase
+zstyle ':completion:*' instert-tab pending           # Disable when pasting tab
 
 # -- FUNCTIONS & EXTERNAL FILES ----------------------------------------------
 fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t) # load all function in directory
-source ~/.zsh/aliases              # aliases
-source ~/.localrc                  # used for machine specific commands
+autoload -U ~/.zsh/functions/*(:t) # Load all function in directory
+source ~/.zsh/aliases              # Load aliases
+source ~/.localrc                  # Used for machine specific commands
 
 # -- EDITOR ------------------------------------------------------------------
 export EDITOR=vi
 export SVN_EDITOR=vi
+
+# -- HISTORY -----------------------------------------------------------------
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
 
 # -- PROMPT & LSCOLORS -------------------------------------------------------
 if [ $TERM="xterm-256colors" ]; then
