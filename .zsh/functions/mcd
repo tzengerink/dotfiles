@@ -1,5 +1,4 @@
-# MKCD
+# MCD
 # Create directory & change to it
 
-mkdir "$1"
-cd "$1"
+mkdir -p "$1" && cd "$1"
