@@ -1,6 +1,9 @@
+[color]
+	ui = auto
+
+[http]
+	sslVerify = false
+
 [user]
 	name = T. Zengerink
 	email = t.zengerink@gmail.com
-
-[color]
-	ui = auto

@@ -1,8 +1,8 @@
-# GLD
-# Git pull a specified directory
+# GPD
+# Git push a specified directory
 
 if [ ! -d "$1" ]; then
 	echo "First argument must be a directory.."
 else
-	cd "$1" && git pull && cd -
+	cd "$1" && git push && cd -
 fi
