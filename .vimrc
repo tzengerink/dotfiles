@@ -30,13 +30,14 @@ set directory=~/.vim/swap   " Where to put the swap files
 " --------------------------------------------------------------------------------
 " SYNTAX AND FILETYPE SETTINGS
 " --------------------------------------------------------------------------------
-if (&t_Co == 256)
-	set t_Co=256    " Turn on 256-colors
-	colors molokai  " Use molokai color scheme
-endif
+syntax on               " Turn on syntax highlighting
+filetype on             " Turn on filetype detection
 
-syntax on          " Turn on syntax highlighting
-filetype on        " Turn on filetype detection
+if (&t_Co == 256)
+	set t_Co=256         " Turn on 256-colors
+	set background=dark  " Terminal has dark background
+	colors molokai       " Use molokai color scheme
+endif
 
 " Python
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab|set textwidth=79
