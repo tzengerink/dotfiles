@@ -5,9 +5,9 @@ zstyle ':completion:*' instert-tab pending           # Disable when pasting tab
 
 # -- FUNCTIONS & EXTERNAL FILES ----------------------------------------------
 fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t) # Load all function in directory
-source ~/.zsh/aliases              # Load aliases
-source ~/.localrc                  # Used for machine specific commands
+autoload -U ~/.zsh/functions/*(:t)                # Load all function in directory
+[[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases  # Load aliases
+[[ -f ~/.localrc ]] && source ~/.localrc          # Used for machine specific commands
 
 # -- EXPORTS -----------------------------------------------------------------
 export PAGER=less
