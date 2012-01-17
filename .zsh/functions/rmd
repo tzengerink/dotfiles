@@ -1,0 +1,19 @@
+# RMD
+# Remove a directory recursively
+
+if [ -d $1 ]; then
+	echo -e "THIS WILL RECURSIVELY REMOVE THE DIRECTORY [$1]."
+	echo -e "Do you want to continue? [yes/NO] "
+	read RESPONSE
+	case "$RESPONSE" in
+		([yY][eE][sS])
+			rm -rf "$1";
+			;;
+		([yY])
+			echo -e "Please type 'yes'.."
+		(*)
+			;;
+	esac
+else
+	echo -e "$1 must be a directory"
+fi
