@@ -6,16 +6,19 @@ set shiftwidth=3               " Shift width
 set ruler                      " Position info
 set autoindent                 " Autoindenting
 set cindent                    " Use auto C-indenting
-set number                     " Add line numbers
+set nonumber                   " No line numbers
 set wildmode=longest,list,full " Bash like path completion
 
 " Other cursor shape if in insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" Highlight active line
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+" Different settings for active window
+setlocal number
+autocmd BufEnter * setlocal number
+autocmd BufLeave * setlocal nonumber
+autocmd BufEnter * setlocal cursorline
+autocmd BufLeave * setlocal nocursorline
 
 " --------------------------------------------------------------------------------
 " SEARCH SETTINGS
@@ -73,12 +76,14 @@ set statusline+=\ %P                              " Percent through file
 " --------------------------------------------------------------------------------
 " KEY MAPPINGS
 " --------------------------------------------------------------------------------
-" Quick save
+" Quick save / Quick command line access
 map <leader>s :update<CR>
+nore ; :
+nore , ;
 
 " Toggle line numbers / cursorline
-map <leader>r :set number! number?<CR>
-map <leader>c :set cursorline! cursorline?<CR>
+map <leader>R :set number! number?<CR>
+map <leader>C :set cursorline! cursorline?<CR>
 
 " Toggle search highlight
 map <leader>h :noh<CR>
