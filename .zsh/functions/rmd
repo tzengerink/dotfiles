@@ -9,9 +9,8 @@ if [ -d $1 ]; then
 		([yY][eE][sS])
 			rm -rf "$1";
 			;;
-		([yY])
-			echo -e "Please type 'yes'.."
 		(*)
+			echo "Canceled.."
 			;;
 	esac
 else

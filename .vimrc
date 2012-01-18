@@ -13,6 +13,10 @@ set wildmode=longest,list,full " Bash like path completion
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
+" Highlight active line
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+
 " --------------------------------------------------------------------------------
 " SEARCH SETTINGS
 " --------------------------------------------------------------------------------
@@ -53,13 +57,31 @@ let g:user_zen_leader_key     = '<C-y>'
 let g:user_zen_expandabbr_key = '<C-e>'
 
 " --------------------------------------------------------------------------------
+" STATUS LINE
+" --------------------------------------------------------------------------------
+set statusline=%t                                 " Tail of the filename
+set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, " File encoding
+set statusline+=%{&ff}]                           " File format
+set statusline+=\ %y                              " Filetype
+set statusline+=\ %m                              " Modified flag
+set statusline+=\ %r                              " Read only flag
+set statusline+=%=                                " Left/right separator
+set statusline+=\ %c,                             " Cursor column
+set statusline+=\ %l/%L                           " Cursor line/total lines
+set statusline+=\ %P                              " Percent through file
+
+" --------------------------------------------------------------------------------
 " KEY MAPPINGS
 " --------------------------------------------------------------------------------
 " Quick save
 map <leader>s :update<CR>
 
-" Toggle line numbers
+" Toggle line numbers / cursorline
 map <leader>r :set number! number?<CR>
+map <leader>c :set cursorline! cursorline?<CR>
+
+" Toggle search highlight
+map <leader>h :noh<CR>
 
 " Tabs
 map <C-h> :tabp<CR>
