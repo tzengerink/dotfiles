@@ -1,6 +1,7 @@
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " VISUAL SETTINGS
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
+set nocompatible               " Filetype detection works better this way
 set tabstop=3                  " Tab stop
 set shiftwidth=3               " Shift width
 set ruler                      " Position info
@@ -8,6 +9,8 @@ set autoindent                 " Autoindenting
 set cindent                    " Use auto C-indenting
 set nonumber                   " No line numbers
 set wildmode=longest,list,full " Bash like path completion
+set showcmd                    " Show command in status line
+set nohidden                   " Closing tabs / windows also closes buffer
 
 " Other cursor shape if in insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -20,26 +23,28 @@ autocmd BufLeave * setlocal nonumber
 autocmd BufEnter * setlocal cursorline
 autocmd BufLeave * setlocal nocursorline
 
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " SEARCH SETTINGS
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 set ignorecase     " Search is case insensitive
 set hlsearch       " Highlight Search
 set incsearch      " Incremental Search
 
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " BACKUP SETTINGS
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 set backup
 set backupdir=~/.vim/backup " Where to put the backup files
 set directory=~/.vim/swap   " Where to put the swap files
 
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " SYNTAX AND FILETYPE SETTINGS
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 syntax on               " Turn on syntax highlighting
 filetype on             " Turn on filetype detection
+filetype plugin on      " Turn on filetype plugin
 
+" Color(scheme)
 if (&t_Co == 256)
 	set t_Co=256         " Turn on 256-colors
 	set background=dark  " Terminal has dark background
@@ -47,11 +52,11 @@ if (&t_Co == 256)
 endif
 
 " Python
-autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab|set textwidth=79
+autocmd FileType python set ts=4|set sw=4|set et|set tw=79
 
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
@@ -59,9 +64,9 @@ map <C-n> :NERDTreeToggle<CR>
 let g:user_zen_leader_key     = '<C-y>'
 let g:user_zen_expandabbr_key = '<C-e>'
 
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " STATUS LINE
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 set statusline=%t                                 " Tail of the filename
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, " File encoding
 set statusline+=%{&ff}]                           " File format
@@ -73,13 +78,12 @@ set statusline+=\ %c,                             " Cursor column
 set statusline+=\ %l/%L                           " Cursor line/total lines
 set statusline+=\ %P                              " Percent through file
 
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " KEY MAPPINGS
-" --------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Quick save / Quick command line access
 map <leader>s :update<CR>
-nore ; :
-nore , ;
+map ; :
 
 " Toggle line numbers / cursorline
 map <leader>R :set number! number?<CR>
@@ -88,9 +92,14 @@ map <leader>C :set cursorline! cursorline?<CR>
 " Toggle search highlight
 map <leader>h :noh<CR>
 
+" Folding / Unfolding
+map <leader>f :set foldmethod=indent<CR>zM<CR>
+map <leader>F :set foldmethod=manual<CR>zR<CR>
+
 " Tabs
 map <C-h> :tabp<CR>
 map <C-l> :tabn<CR>
+map <C-t> :tabnew<CR>
 
 " Adjust horizontal / vertical split size
 map = <C-W>+
