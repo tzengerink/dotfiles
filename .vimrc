@@ -9,7 +9,8 @@ set autoindent                 " Autoindenting
 set cindent                    " Use auto C-indenting
 set nonumber                   " No line numbers
 set wildmode=longest,list,full " Bash like path completion
-set showcmd                    " Show command in status line
+set showcmd                    " Show command in StatusLine
+set laststatus=2               " Always show the StatusLine
 set nohidden                   " Closing tabs / windows also closes buffer
 
 " Other cursor shape if in insert mode
@@ -42,7 +43,7 @@ set directory=~/.vim/swap   " Where to put the swap files
 " ------------------------------------------------------------------------------
 syntax on               " Turn on syntax highlighting
 filetype on             " Turn on filetype detection
-filetype plugin on      " Turn on filetype plugin
+" filetype plugin on    " Causes errors in filetype detection
 
 " Color(scheme)
 if (&t_Co == 256)
