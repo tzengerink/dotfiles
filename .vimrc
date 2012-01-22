@@ -54,6 +54,13 @@ endif
 " Python
 autocmd FileType python set ts=4|set sw=4|set et|set tw=79
 
+" Markdown
+augroup markdown
+	autocmd!
+	autocmd BufNewFile,BufRead *.markdown,*.mkdn,*.mdown,*.md,*.mkd set filetype=markdown
+	autocmd FileType markdown set ts=4|set sw=4|set et
+augroup END
+
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
