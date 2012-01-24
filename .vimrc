@@ -50,6 +50,8 @@ if (&t_Co == 256)
 	set t_Co=256         " Turn on 256-colors
 	set background=dark  " Terminal has dark background
 	colors molokai       " Use molokai color scheme
+else
+	highlight Comment ctermfg=lightgrey
 endif
 
 " Python
