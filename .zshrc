@@ -21,12 +21,5 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 # -- PROMPT & LSCOLORS -------------------------------------------------------
-if [ $TERM="xterm-256colors" ]; then
-	export PS1=$'%{\e[38;5;241m%}%n@%m:%{\e[0m%} %{\e[38;5;198m%}%~%{\e[0m%} %{\e[38;5;241m%}#%{\e[0m%} '
-	export LSCOLORS=cxAxgxdxbxegedabagacbx
-elif [ $TERM="xterm-colors" ]; then
-	export PS1=$'%{\e[1;37m%}%n@%m:%{\e[0m%} %{\e[1;35m%}%~%{\e[0m%} %{\e[1;37m%}#%{\e[0m%} '
-	export LSCOLORS=cxHxgxdxbxegedabagacbx
-else
-	export PS1=$'%n@%m: %~ # '
-fi
+export LSCOLORS=cxAxgxdxbxegedabagacbx
+export PS1=$'%{\e[1;30m%}%n@%m:%{\e[0m%} %{\e[1;31m%}%~%{\e[0m%} %{\e[1;30m%}#%{\e[0m%} '
