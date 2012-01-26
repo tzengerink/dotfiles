@@ -60,7 +60,7 @@ highlight OverLength ctermbg=red ctermfg=white
 match OverLength /\%81v.\+/
 
 " Python
-autocmd FileType python 
+autocmd FileType python
 	\ set tabstop=4 |
 	\ set shiftwidth=4 |
 	\ set expandtab
@@ -68,7 +68,7 @@ autocmd FileType python
 " Markdown
 augroup markdown
 	autocmd!
-	autocmd BufNewFile,BufRead *.markdown, *.mkdn, *.mdown, *.md, *.mkd 
+	autocmd BufNewFile,BufRead *.markdown, *.mkdn, *.mdown, *.md, *.mkd
 		\ set filetype=markdown
 	autocmd FileType markdown
 		\ set tabstop=4 |
@@ -77,7 +77,7 @@ augroup markdown
 augroup END
 
 " Plist
-autocmd BufNewFile,BufRead *.plist 
+autocmd BufNewFile,BufRead *.plist
 	\ set filetype=xml
 
 " ------------------------------------------------------------------------------
