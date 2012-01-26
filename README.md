@@ -4,12 +4,6 @@
 
 **.bashrc** Script that is run every time you start a new bash instance (eg. by opening a new Terminal tab).
 
-**.exports** Contains all exports
-
-**.aliases** Contains all aliases
-
-**.functions** Contains all functions
-
 ### Vim files
 
 **.vimrc** Vim configuration file.
@@ -24,10 +18,12 @@
 
 ### Z-Shell files
 
-**.zshrc** Z-Shell configuration file
+**.zshrc** Z-Shell configuration file.
 
-**.zsh** Directory containing functions, alias file and more.
+**.zsh** Directory containing functions and alias file.
 
 ### Setup
 
 **setup.sh** Create symbolic links to these files in your home folder.
+
+**.localrc** Can be added for machine specific configuration
