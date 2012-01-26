@@ -64,6 +64,9 @@ augroup markdown
 	autocmd FileType markdown set ts=4|set sw=4|set et
 augroup END
 
+" Plist
+autocmd BufNewFile,BufRead *.plist set filetype=xml
+
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
