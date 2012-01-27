@@ -26,66 +26,14 @@ autocmd BufEnter * setlocal cursorline
 autocmd BufLeave * setlocal nocursorline
 
 " ------------------------------------------------------------------------------
-" SEARCH SETTINGS
+" SEARCH & BACKUP SETTINGS
 " ------------------------------------------------------------------------------
-set ignorecase  " Search is case insensitive
-set hlsearch    " Highlight Search
-set incsearch   " Incremental Search
-
-" ------------------------------------------------------------------------------
-" BACKUP SETTINGS
-" ------------------------------------------------------------------------------
+set ignorecase               " Search is case insensitive
+set hlsearch                 " Highlight Search
+set incsearch                " Incremental Search
 set backup                   " Turn on backup
 set backupdir=~/.vim/backup  " Where to put the backup files
 set directory=~/.vim/swap    " Where to put the swap files
-
-" ------------------------------------------------------------------------------
-" SYNTAX SETTINGS
-" ------------------------------------------------------------------------------
-syntax on              " Turn on syntax highlighting
-filetype on            " Turn on filetype detection
-" filetype plugin on   " Causes errors in filetype detection
-
-" Color(scheme)
-if (&t_Co == 256)
-	set t_Co=256         " Turn on 256-colors
-	set background=dark  " Terminal has dark background
-	colors molokai       " Use molokai color scheme
-else
-	highlight Comment ctermfg=lightgrey
-endif
-
-" Overlength
-highlight OverLength ctermbg=red ctermfg=white
-
-" ------------------------------------------------------------------------------
-" FILETYPE SETTINGS
-" ------------------------------------------------------------------------------
-" PHP
-autocmd FileType php
-	\ match OverLength /\%81v.\+/
-
-" Python
-autocmd FileType python
-	\ set tabstop=4 |
-	\ set shiftwidth=4 |
-	\ set expandtab |
-	\ match OverLength /\%81v.\+/
-
-" Markdown
-augroup markdown
-	autocmd!
-	autocmd BufNewFile,BufRead *.markdown, *.mkdn, *.mdown, *.md, *.mkd
-		\ set filetype=markdown
-	autocmd FileType markdown
-		\ set tabstop=4 |
-		\ set shiftwidth=4 |
-		\ set expandtab
-augroup END
-
-" Plist
-autocmd BufNewFile,BufRead *.plist
-	\ set filetype=xml
 
 " ------------------------------------------------------------------------------
 " STATUS LINE
@@ -100,6 +48,33 @@ set statusline+=%=                                 " Left/right separator
 set statusline+=\ %c,                              " Cursor column
 set statusline+=\ %l/%L                            " Cursor line/total lines
 set statusline+=\ %P                               " Percent through file
+
+" ------------------------------------------------------------------------------
+" SYNTAX SETTINGS
+" ------------------------------------------------------------------------------
+syntax on           " Turn on syntax highlighting
+filetype on         " Turn on filetype detection
+filetype plugin on  " Causes errors in filetype detection
+
+" Color(scheme)
+if (&t_Co == 256)
+	set t_Co=256         " Turn on 256-colors
+	set background=dark  " Terminal has dark background
+	colors molokai       " Use molokai color scheme
+else
+	highlight Comment ctermfg=lightgrey
+endif
+
+" Overlength
+highlight OverLength ctermbg=red ctermfg=white
+
+" ------------------------------------------------------------------------------
+" SET FILETYPES
+" ------------------------------------------------------------------------------
+autocmd BufNewFile,BufRead *.markdown,*.mkdn,*.mdown,*.md,*.mkd
+	\ set filetype=markdown
+autocmd BufNewFile,BufRead *.plist
+	\ set filetype=xml
 
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
@@ -135,14 +110,16 @@ map <C-h> :tabp<CR>
 map <C-l> :tabn<CR>
 map <C-t> :tabnew<CR>
 
-" Adjust horizontal / vertical split size
+" Window size adjustments
 map = <C-W>+
 map - <C-W>-
 map _ <C-W><
 map + <C-W>>
+map <leader>\ :vertical resize 85<CR>
 
-" Copy clipboard support
+" Copy to clipboard / Remove leading whitespace
 vmap <C-c> !pbcopy<CR>:undo<CR>
+map <leader><< :%s/^\s\+//g<CR>:noh<CR>
 
 " Edit & reload .vimrc
 map <leader>v :e $MYVIMRC<CR>
