@@ -141,6 +141,9 @@ map - <C-W>-
 map _ <C-W><
 map + <C-W>>
 
+" Copy clipboard support
+vmap <C-c> !pbcopy<CR>:undo<CR>
+
 " Edit & reload .vimrc
 map <leader>v :e $MYVIMRC<CR>
 map <leader>V :exec 'tabdo windo source $MYVIMRC'<CR>
