@@ -40,7 +40,7 @@ set backupdir=~/.vim/backup " Where to put the backup files
 set directory=~/.vim/swap   " Where to put the swap files
 
 " ------------------------------------------------------------------------------
-" SYNTAX AND FILETYPE SETTINGS
+" SYNTAX SETTINGS
 " ------------------------------------------------------------------------------
 syntax on               " Turn on syntax highlighting
 filetype on             " Turn on filetype detection
@@ -55,15 +55,21 @@ else
 	highlight Comment ctermfg=lightgrey
 endif
 
-" Change background color if over 80 columns
-highlight OverLength ctermbg=red ctermfg=white
-match OverLength /\%81v.\+/
+" ------------------------------------------------------------------------------
+" FILETYPE SETTINGS
+" ------------------------------------------------------------------------------
+" PHP
+autocmd FileType php
+	\ highlight OverLength ctermbg=red ctermfg=white |
+	\ match OverLength /\%81v.\+/
 
 " Python
 autocmd FileType python
 	\ set tabstop=4 |
 	\ set shiftwidth=4 |
-	\ set expandtab
+	\ set expandtab |
+	\ highlight OverLength ctermbg=red ctermfg=white |
+	\ match OverLength /\%81v.\+/
 
 " Markdown
 augroup markdown
@@ -81,16 +87,6 @@ autocmd BufNewFile,BufRead *.plist
 	\ set filetype=xml
 
 " ------------------------------------------------------------------------------
-" PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-
-" ZenCoding
-let g:user_zen_leader_key     = '<C-y>'
-let g:user_zen_expandabbr_key = '<C-e>'
-
-" ------------------------------------------------------------------------------
 " STATUS LINE
 " ------------------------------------------------------------------------------
 set statusline=%t                                 " Tail of the filename
@@ -103,6 +99,16 @@ set statusline+=%=                                " Left/right separator
 set statusline+=\ %c,                             " Cursor column
 set statusline+=\ %l/%L                           " Cursor line/total lines
 set statusline+=\ %P                              " Percent through file
+
+" ------------------------------------------------------------------------------
+" PLUGIN SETTINGS
+" ------------------------------------------------------------------------------
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" ZenCoding
+let g:user_zen_leader_key     = '<C-y>'
+let g:user_zen_expandabbr_key = '<C-e>'
 
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS
