@@ -1,18 +1,18 @@
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-set autoindent                 " Autoindenting
-set cindent                    " Use auto C-indenting
-set laststatus=2               " Always show the StatusLine
-set nocompatible               " Filetype detection works better this way
-set nohidden                   " Closing tabs / windows also closes buffer
-set nonumber                   " No line numbers
-set nowrap                     " Do not wrap lines
-set ruler                      " Position info
-set shiftwidth=2               " Shift width
-set showcmd                    " Show command in StatusLine
-set tabstop=2                  " Tab stop
-set wildmode=longest,list,full " Bash like path completion
+set autoindent                  " Autoindenting
+set cindent                     " Use auto C-indenting
+set laststatus=2                " Always show the StatusLine
+set nocompatible                " Filetype detection works better this way
+set nohidden                    " Closing tabs / windows also closes buffer
+set nonumber                    " No line numbers
+set nowrap                      " Do not wrap lines
+set ruler                       " Position info
+set shiftwidth=2                " Shift width
+set showcmd                     " Show command in StatusLine
+set tabstop=2                   " Tab stop
+set wildmode=longest,list,full  " Bash like path completion
 
 " Other cursor shape if in insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -28,23 +28,23 @@ autocmd BufLeave * setlocal nocursorline
 " ------------------------------------------------------------------------------
 " SEARCH SETTINGS
 " ------------------------------------------------------------------------------
-set ignorecase     " Search is case insensitive
-set hlsearch       " Highlight Search
-set incsearch      " Incremental Search
+set ignorecase  " Search is case insensitive
+set hlsearch    " Highlight Search
+set incsearch   " Incremental Search
 
 " ------------------------------------------------------------------------------
 " BACKUP SETTINGS
 " ------------------------------------------------------------------------------
-set backup
-set backupdir=~/.vim/backup " Where to put the backup files
-set directory=~/.vim/swap   " Where to put the swap files
+set backup                   " Turn on backup
+set backupdir=~/.vim/backup  " Where to put the backup files
+set directory=~/.vim/swap    " Where to put the swap files
 
 " ------------------------------------------------------------------------------
 " SYNTAX SETTINGS
 " ------------------------------------------------------------------------------
-syntax on               " Turn on syntax highlighting
-filetype on             " Turn on filetype detection
-" filetype plugin on    " Causes errors in filetype detection
+syntax on              " Turn on syntax highlighting
+filetype on            " Turn on filetype detection
+" filetype plugin on   " Causes errors in filetype detection
 
 " Color(scheme)
 if (&t_Co == 256)
@@ -55,12 +55,14 @@ else
 	highlight Comment ctermfg=lightgrey
 endif
 
+" Overlength
+highlight OverLength ctermbg=red ctermfg=white
+
 " ------------------------------------------------------------------------------
 " FILETYPE SETTINGS
 " ------------------------------------------------------------------------------
 " PHP
 autocmd FileType php
-	\ highlight OverLength ctermbg=red ctermfg=white |
 	\ match OverLength /\%81v.\+/
 
 " Python
@@ -68,7 +70,6 @@ autocmd FileType python
 	\ set tabstop=4 |
 	\ set shiftwidth=4 |
 	\ set expandtab |
-	\ highlight OverLength ctermbg=red ctermfg=white |
 	\ match OverLength /\%81v.\+/
 
 " Markdown
@@ -89,16 +90,16 @@ autocmd BufNewFile,BufRead *.plist
 " ------------------------------------------------------------------------------
 " STATUS LINE
 " ------------------------------------------------------------------------------
-set statusline=%t                                 " Tail of the filename
-set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, " File encoding
-set statusline+=%{&ff}]                           " File format
-set statusline+=\ %y                              " Filetype
-set statusline+=\ %m                              " Modified flag
-set statusline+=\ %r                              " Read only flag
-set statusline+=%=                                " Left/right separator
-set statusline+=\ %c,                             " Cursor column
-set statusline+=\ %l/%L                           " Cursor line/total lines
-set statusline+=\ %P                              " Percent through file
+set statusline=%t                                  " Tail of the filename
+set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},  " File encoding
+set statusline+=%{&ff}]                            " File format
+set statusline+=\ %y                               " Filetype
+set statusline+=\ %m                               " Modified flag
+set statusline+=\ %r                               " Read only flag
+set statusline+=%=                                 " Left/right separator
+set statusline+=\ %c,                              " Cursor column
+set statusline+=\ %l/%L                            " Cursor line/total lines
+set statusline+=\ %P                               " Percent through file
 
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
