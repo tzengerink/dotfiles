@@ -97,13 +97,11 @@ let g:user_zen_expandabbr_key = '<C-e>'
 map <leader>s :update<CR>
 map ; :
 
-" Toggle line numbers / cursorline / wrap
-map <leader>R :set number! number?<CR>
+" Toggle stuff
 map <leader>C :set cursorline! cursorline?<CR>
+map <leader>H :set hlsearch! hlsearch?<CR>
+map <leader>R :set number! number?<CR>
 map <leader>W :set wrap! wrap?<CR>
-
-" Toggle search highlight
-map <leader>h :noh<CR>
 
 " Folding / Unfolding
 map <leader>f :set foldmethod=indent<CR>zM<CR>
