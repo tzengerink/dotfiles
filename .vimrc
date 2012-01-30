@@ -71,6 +71,10 @@ highlight OverLength ctermbg=red ctermfg=white
 " ------------------------------------------------------------------------------
 " SET FILETYPES
 " ------------------------------------------------------------------------------
+autocmd BufNewFile,BufRead *.css
+	\ set filetype=css
+autocmd BufNewFile,BufRead *.html,*.htm
+	\ set filetype=html
 autocmd BufNewFile,BufRead *.markdown,*.mkdn,*.mdown,*.md,*.mkd
 	\ set filetype=markdown
 autocmd BufNewFile,BufRead *.plist
