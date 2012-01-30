@@ -103,6 +103,19 @@ map <leader>H :set hlsearch! hlsearch?<CR>
 map <leader>R :set number! number?<CR>
 map <leader>W :set wrap! wrap?<CR>
 
+" Toggle OverLength
+let s:overLengthIsVisible = 1
+fun! ToggleOverLength()
+	if (s:overLengthIsVisible)
+		let s:overLengthIsVisible = 0
+		return "colors ".g:colors_name
+	else
+		let s:overLengthIsVisible = 1
+		return "highlight OverLength ctermbg=red ctermfg=white"
+	endif
+endf
+map <leader>O :exe ToggleOverLength()<CR>
+
 " Folding / Unfolding
 map <leader>f :set foldmethod=indent<CR>zM<CR>
 map <leader>F :set foldmethod=manual<CR>zR<CR>
