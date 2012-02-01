@@ -1,7 +1,7 @@
 # RMD
 # Remove a directory recursively
 
-if [ -d $1 ]; then
+if [[ -d $1 && $1 != '' ]]; then
 	echo -e "THIS WILL RECURSIVELY REMOVE THE DIRECTORY [$1]."
 	echo -e "Do you want to continue? [yes/NO] "
 	read RESPONSE
@@ -14,5 +14,9 @@ if [ -d $1 ]; then
 			;;
 	esac
 else
-	echo -e "$1 must be a directory"
+	if [[ $1 == '' ]]; then
+		echo -e "Usage: rmd /directory/to/remove"
+	else
+		echo -e "$1 must be a directory"
+	fi
 fi
