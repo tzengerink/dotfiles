@@ -36,7 +36,11 @@ alias localip="ipconfig getifaddr en0"
 alias ips="localip && ip"
 
 # Other
-alias cp='cp -X' # Do NOT copy extended attributes
 alias fn='find . -name'
 alias hi='history -d | tail -20'
 alias dwn='curl -O'
+
+# OSX Specific
+if [[ $(uname) == Darwin ]]; then
+	alias cp='cp -X' # Do NOT copy extended attributes
+fi
