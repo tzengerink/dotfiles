@@ -1,0 +1,4 @@
+# IPINFO
+# Get info on an IP-address
+
+curl -G "http://api.hostip.info/get_html.php?ip=$1"
