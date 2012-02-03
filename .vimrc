@@ -93,13 +93,12 @@ let g:user_zen_expandabbr_key = '<C-e>'
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS
 " ------------------------------------------------------------------------------
-" Quick save / Quick command line access
-map <leader>s :update<CR>
+" Quick command line access
 map ; :
 
 " Toggle stuff
 map <leader>C :set cursorline! cursorline?<CR>
-map <leader>H :set hlsearch! hlsearch?<CR>
+map <leader>H :noh<CR>
 map <leader>R :set number! number?<CR>
 map <leader>W :set wrap! wrap?<CR>
 
