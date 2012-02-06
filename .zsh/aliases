@@ -37,7 +37,7 @@ alias dwn='curl -O'
 
 # OSX Specific
 if [[ $(uname) == Darwin ]]; then
-  # Do NOT copy extended attributes
+	# Do NOT copy extended attributes
 	alias cp='cp -X'
 	# IP-addresses
 	alias ip="curl ifconfig.me/ip"
