@@ -44,3 +44,8 @@ if [[ $(uname) == Darwin ]]; then
 	alias localip="ipconfig getifaddr en0"
 	alias ips="localip && ip"
 fi
+
+# Linux Specific
+if [[ $(uname) == Linux ]]; then
+	alias ls="ls --color=auto"
+fi
