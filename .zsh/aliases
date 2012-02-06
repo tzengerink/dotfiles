@@ -30,11 +30,6 @@ alias grev='git status | grep modified | awk "{print \$3}" | xargs git checkout 
 alias grm='git status | grep deleted | awk "{print \$3}" | xargs git rm'
 alias glog='git log --pretty=oneline --graph'
 
-# IP-addresses
-alias ip="curl ifconfig.me/ip"
-alias localip="ipconfig getifaddr en0"
-alias ips="localip && ip"
-
 # Other
 alias fn='find . -name'
 alias hi='history -d | tail -20'
@@ -42,5 +37,10 @@ alias dwn='curl -O'
 
 # OSX Specific
 if [[ $(uname) == Darwin ]]; then
-	alias cp='cp -X' # Do NOT copy extended attributes
+  # Do NOT copy extended attributes
+	alias cp='cp -X'
+	# IP-addresses
+	alias ip="curl ifconfig.me/ip"
+	alias localip="ipconfig getifaddr en0"
+	alias ips="localip && ip"
 fi
