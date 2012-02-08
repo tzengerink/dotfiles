@@ -60,7 +60,7 @@ filetype plugin on  " Causes errors in filetype detection
 if (&t_Co == 256)
 	set t_Co=256         " Turn on 256-colors
 	set background=dark  " Terminal has dark background
-	colors molokai       " Use molokai color scheme
+	colors solarized     " Use solarized color scheme
 else
 	highlight Comment ctermfg=lightgrey
 endif
@@ -137,4 +137,4 @@ map <leader><< :%s/^\s\+//g<CR>:noh<CR>
 
 " Edit & reload .vimrc
 map <leader>v :e $MYVIMRC<CR>
-map <leader>V :exec 'tabdo windo source $MYVIMRC'<CR>
+map <leader>V :exec 'tabdo windo source $MYVIMRC'<CR>:noh<CR>

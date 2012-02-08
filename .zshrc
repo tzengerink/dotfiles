@@ -21,6 +21,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 # -- PROMPT & LSCOLORS -------------------------------------------------------
-export LSCOLORS=cxAxgxdxbxegedabagacbx
-export LS_COLORS="di=00;32:ln=00;90:ex=00;31"
-export PS1=$'%{\e[1;30m%}%n@%m:%{\e[0m%} %{\e[0;31m%}%~%{\e[0m%} %{\e[1;30m%}#%{\e[0m%} '
+export LSCOLORS=exAxbxdxgxegedabagacbx
+export LS_COLORS="di=34;32:ln=00;90:so:00;31:pi=00;33:ex=00;36"
+export PS1=$'%{\e[1;30m%}%n@%m:%{\e[0m%} %{\e[0;36m%}%~%{\e[0m%} %{\e[1;30m%}#%{\e[0m%} '
