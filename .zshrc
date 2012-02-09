@@ -10,11 +10,12 @@ autoload -U ~/.zsh/functions/*(:t)                # Load all function in directo
 [[ -f ~/.localrc ]] && source ~/.localrc          # Used for machine specific commands
 
 # -- EXPORTS -----------------------------------------------------------------
-export PAGER=less
 export CLICOLOR=1
 export EDITOR=vi
-export SVN_EDITOR=vi
 export LANG=en_US.UTF-8
+export PAGER=less
+export SVN_EDITOR=vi
+export TERM=xterm-256color
 
 # -- HISTORY -----------------------------------------------------------------
 HISTFILE=~/.zsh_history
@@ -25,3 +26,6 @@ SAVEHIST=1000
 export LSCOLORS=gxexbxdxAxegedabagacbx
 export LS_COLORS="di=00;36:ln=34;32:so=00;31:pi=00;33:ex=00;90"
 export PS1=$'%{\e[1;30m%}%n@%m:%{\e[0m%} %{\e[0;36m%}%~%{\e[0m%} %{\e[1;30m%}#%{\e[0m%} '
+if [ -f "/bin/dircolors" ]; then
+	eval `/bin/dircolors ~/.dircolors`
+fi
