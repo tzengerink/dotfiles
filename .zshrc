@@ -22,5 +22,5 @@ SAVEHIST=1000
 
 # -- PROMPT & LSCOLORS -------------------------------------------------------
 export LSCOLORS=gxexbxdxAxegedabagacbx
-export LS_COLORS="di=00;36:ln=34;32:so:00;31:pi=00;33:ex=00;90"
+export LS_COLORS="di=00;36:ln=34;32:so=00;31:pi=00;33:ex=00;90"
 export PS1=$'%{\e[1;30m%}%n@%m:%{\e[0m%} %{\e[0;36m%}%~%{\e[0m%} %{\e[1;30m%}#%{\e[0m%} '
