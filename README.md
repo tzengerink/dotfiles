@@ -4,17 +4,21 @@
 
 **.bashrc** Script that is run every time you start a new bash instance (eg. by opening a new Terminal tab).
 
-### Vim files
-
-**.vimrc** Vim configuration file.
-
-**.vim** Vim plugins and more.
-
 ### Git files
 
 **.gitconfig** Git configuration file.
 
 **.gitignore** Global ignore file.
+
+### Mutt
+
+**.mutt** Mutt configuration directory.
+
+### Vim files
+
+**.vimrc** Vim configuration file.
+
+**.vim** Vim configuration directory.
 
 ### Z-Shell files
 

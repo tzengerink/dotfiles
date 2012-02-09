@@ -1,0 +1,89 @@
+# ------------------------------------------------------------------------------
+# ACCOUNT SETTINGS
+# ------------------------------------------------------------------------------
+# CLEAR
+account-hook .\
+		"unset\
+		from\
+		realname\
+		hostname\
+		folder\
+		imap_user\
+		imap_pass\
+		spoolfile\
+		postponed\
+		smtp_url\
+		ssl_force_tls\
+		ssl_verify_host"
+# HOOKS
+account-hook "imaps://imap.gmail.com"\
+		"source ~/.mutt/accounts/gmail.com"
+account-hook "imaps://imap.zengerink.com"\
+		"source ~/.mutt/accounts/zengerink.com"
+# DEFAULT
+source "~/.mutt/accounts/gmail.com"
+
+# ------------------------------------------------------------------------------
+# SOURCE EXTERNAL FILES
+# ------------------------------------------------------------------------------
+source ~/.mutt/aliases
+source ~/.mutt/colors
+
+# ------------------------------------------------------------------------------
+# GENERAL CONFIGURATION
+# ------------------------------------------------------------------------------
+# FOLDERS
+set alias_file            = ~/.mutt/aliases               # Aliases
+set certificate_file      = ~/.mutt/certificates          # Certificates
+set message_cachedir      = ~/.mutt/cache/bodies          # Cached message bodies
+# MAIN
+set imap_check_subscribed = yes                           # Check all IMAP folders
+set imap_keepalive        = 300                           # Keep alive for 5 min.
+set imap_passive          = no                            # Not passive
+set mail_check            = 30                            # Check mail often
+set markers               = no                            # No markers please
+set timeout               = 300                           # Timeout after 5 min.
+# INDEX
+set move                  = no                            # Don't move read messages
+set sort                  = "threads"                     # Sort by thread
+set sort_aux              = "reverse-last-date-received"  # Sort 'newest-first'
+# PAGER
+set pager_index_lines     = 10                            # Numner of index lines
+set pager_context         = 5                             # Number of contect lines
+set pager_stop            = no                            # Don't auto leave message
+# COMPOSING
+set askcc                 = yes                           # Ask for 'CC:'
+set copy                  = no                            # Do NOT save sent messages
+set edit_headers          = yes                           # Editable headers
+set envelope_from         = yes                           # Envelope is the same
+set fast_reply            = yes                           # Skip to composing
+set forward_decode        = yes                           # Decode when forwarding
+set forward_quote         = yes                           # Include message in forward
+set include               = yes                           # Include message in reply
+set mime_forward          = no                            # Attachments in body
+set reply_to              = yes                           # Reply to 'Reply to:'
+set reverse_name          = yes                           # Reply to whom is was to
+set sig_dashes            = yes                           # Dashes before my signature
+# HEADERS
+ignore *                                                  # Ignore all headers
+unignore from: to: cc: bcc: date: subject:                # Do NOT ignore these
+hdr_order from: to: cc: bcc: date: subject:               # In this order please
+# FORMATS & EDITOR
+set editor         = 'vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "?^$"'
+set attribution    = "On %d, %n wrote:"
+set date_format    = "%b %d"
+set forward_format = "Fwd: %s"
+set index_format   = "[%Z]  %d  %-20.20F  %s"
+set status_format  = "-%r- %v ---[Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>- (%P) ---"
+set alias_format   = "%4n %t %-20a  %r"
+
+# ------------------------------------------------------------------------------
+# SHORTCUTS
+# ------------------------------------------------------------------------------
+# BINDINGS
+bind index gg    first-entry
+bind index G     last-entry
+# MACROS
+macro index g1   "<change-folder>imaps://imap.gmail.com<enter>"       "Changing account"
+macro index g2   "<change-folder>imaps://imap.zengerink.com<enter>"   "Changing account"
+macro index gi   "<change-folder>=INBOX<enter>"                       "Go to Inbox"
