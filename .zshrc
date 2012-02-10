@@ -28,5 +28,5 @@ export PS1=$'%{\e[1;30m%}%n@%m:%{\e[0m%} %{\e[1;34m%}%~%{\e[0m%} %{\e[1;30m%}#%{
 if [ -f "/bin/dircolors" ]; then
 	export TERM=xterm-256color
 	eval `/bin/dircolors ~/.dircolors`
-	export TERM=xterm-256color
+	export PS1=$'%{\e[;38;5;244m%}%n@%m:%{\e[0m%} %{\e[01;38;5;33m%}%~%{\e[0m%} %{\e[;38;5;244m%}#%{\e[0m%} '
 fi
