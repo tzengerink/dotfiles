@@ -14,6 +14,7 @@ export PAGER=less
 export CLICOLOR=1
 export EDITOR=vi
 export SVN_EDITOR=vi
+export LANG=en_US.UTF-8
 
 # -- HISTORY -----------------------------------------------------------------
 HISTFILE=~/.zsh_history
