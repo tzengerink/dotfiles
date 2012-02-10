@@ -6,6 +6,8 @@ account-hook . "unset from hostname folder imap_user imap_pass spoolfile\
 account-hook "imaps://imap.gmail.com" "source ~/.mutt/accounts/gmail.com"
 account-hook "imaps://imap.zengerink.com" "source ~/.mutt/accounts/zengerink.com"
 
+folder-hook . "push <collapse-all>"
+
 # ------------------------------------------------------------------------------
 # SOURCE EXTERNAL FILES
 # ------------------------------------------------------------------------------
@@ -24,24 +26,25 @@ set header_cache          = ~/.mutt/cache/headers        # Cached message bodies
 set message_cachedir      = ~/.mutt/cache/bodies         # Cached message bodies
 # MAIN
 set realname              = "Teun Zengerink"             # Realname
-set imap_check_subscribed = yes                          # Check all IMAP folders
+set imap_check_subscribed = yes                          # Use all IMAP folders
 set confirmappend         = no                           # Do NOT ask to append
 set imap_keepalive        = 300                          # Keep alive for 5 min.
 set imap_passive          = no                           # Not passive
 set mail_check            = 30                           # Check mail often
-set markers               = no                           # No markers please
+set quit                  = "ask-yes"                    # Confirm quit
 set timeout               = 300                          # Timeout after 5 min.
 # INDEX
-set move                  = no                           # Don't move read messages
+set collapse_unread       = no                           # Do NOT collapse unread
+set move                  = no                           # Do NOT move read
 set sort                  = "threads"                    # Sort by thread
 set sort_aux              = "reverse-last-date-received" # Sort 'newest-first'
 # PAGER
-set pager_index_lines     = 10                           # Numner of index lines
-set pager_context         = 5                            # Number of contect lines
-set pager_stop            = no                           # Don't auto leave message
+set pager_index_lines     = 8                            # Number of index lines
+set pager_context         = 3                            # Context lines
+set pager_stop            = no                           # Do NOT leave message
 # COMPOSING
 set askcc                 = yes                          # Ask for 'CC:'
-set copy                  = no                           # Do NOT save sent messages
+set copy                  = no                           # Do NOT copy messages
 set edit_headers          = yes                          # Editable headers
 set envelope_from         = yes                          # Envelope is the same
 set fast_reply            = yes                          # Skip to composing
@@ -50,7 +53,7 @@ set forward_quote         = yes                          # Include message in fo
 set include               = yes                          # Include message in reply
 set mime_forward          = no                           # Attachments in body
 set reply_to              = yes                          # Reply to 'Reply to:'
-set reverse_name          = yes                          # Reply to whom is was to
+set reverse_name          = yes                          # Reply to whom it was to
 set sig_dashes            = yes                          # Dashes before my signature
 # HEADERS
 ignore *                                                 # Ignore all headers
