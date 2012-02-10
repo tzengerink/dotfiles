@@ -20,6 +20,7 @@ source ~/.mutt/colors
 # FOLDERS
 set alias_file            = ~/.mutt/aliases              # Aliases
 set certificate_file      = ~/.mutt/certificates         # Certificates
+set header_cache          = ~/.mutt/cache/headers        # Cached message bodies
 set message_cachedir      = ~/.mutt/cache/bodies         # Cached message bodies
 # MAIN
 set realname              = "Teun Zengerink"             # Realname
