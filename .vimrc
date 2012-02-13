@@ -107,7 +107,7 @@ let s:overLengthIsVisible = 1
 fun! ToggleOverLength()
 	if (s:overLengthIsVisible)
 		let s:overLengthIsVisible = 0
-		return "colors ".g:colors_name
+		return "set background=dark | colors ".g:colors_name
 	else
 		let s:overLengthIsVisible = 1
 		return "highlight OverLength ctermbg=red ctermfg=white"
