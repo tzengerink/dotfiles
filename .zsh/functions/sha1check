@@ -1,4 +1,4 @@
-# SHA1
+# SHA1CHECK
 # Check the SHA-1 checksum provided
 
 hash=$(openssl sha1 $1)

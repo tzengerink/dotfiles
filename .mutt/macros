@@ -1,3 +1,5 @@
+# INDEX, PAGER
+macro  index,pager  ra       "<group-reply>"                                                        "Reply all"
 #INDEX
 macro  index        -        "<collapse-thread>"                                                    "Collapse thread"
 macro  index        _        "<collapse-all>"                                                       "Collapse all"
