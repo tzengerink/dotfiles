@@ -1,6 +1,9 @@
 [color]
 	ui = auto
 
+[core]
+	excludesfile = ~/.gitignore
+
 [http]
 	sslVerify = false
 
