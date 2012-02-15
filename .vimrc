@@ -77,6 +77,8 @@ autocmd BufNewFile,BufRead *.html,*.htm
 	\ set filetype=html
 autocmd BufNewFile,BufRead *.markdown,*.mkdn,*.mdown,*.md,*.mkd
 	\ set filetype=markdown
+autocmd BufNewFile,BufRead *.mustache
+	\ set filetype=mustache
 autocmd BufNewFile,BufRead *.plist
 	\ set filetype=xml
 
