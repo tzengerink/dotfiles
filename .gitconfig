@@ -4,6 +4,12 @@
 [core]
 	excludesfile = ~/.gitignore
 
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
 [http]
 	sslVerify = false
 
