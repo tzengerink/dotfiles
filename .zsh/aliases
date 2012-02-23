@@ -31,9 +31,10 @@ alias glog='git log --pretty=oneline --graph'
 
 # Subversion
 alias sup='svn update'
+alias sad='svn add'
 alias sci='svn commit'
 alias scim='svn commit -m'
-alias sd='svn diff --diff-cmd ~/.subversion/diff.sh --'
+alias sd='svn diff --diff-cmd ~/.subversion/diff --'
 alias ss='svn status'
 
 # Other

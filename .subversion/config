@@ -1,11 +1,12 @@
 [auth]
 
 [helpers]
-diff-cmd = ~/.subversion/diff.sh
+	editor-cmd = vi
 
 [tunnels]
 
 [miscellany]
+	global-ignores .*~ *~ .DS_Store
 
 [auto-props]
 
