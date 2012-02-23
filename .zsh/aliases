@@ -18,7 +18,7 @@ alias dirtree="find . -not \( -type d -name .svn -prune \) -print | sed -e 's;[^
 alias gl='git pull'
 alias gp='git push'
 alias gd='git diff'
-alias gdt='git difftool'
+alias gdd='git difftool'
 alias ga='git add'
 alias gc='git commit'
 alias gca='git commit -a'
@@ -37,7 +37,7 @@ alias sad='svn add'
 alias sci='svn commit'
 alias scim='svn commit -m'
 alias sd='svn diff'
-alias sdt='svn diff --diff-cmd ~/.subversion/diff --'
+alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
 alias ss='svn status'
 
 # Other
