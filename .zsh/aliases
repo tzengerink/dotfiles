@@ -29,6 +29,13 @@ alias grev='git status | grep modified | awk "{print \$3}" | xargs git checkout 
 alias grm='git status | grep deleted | awk "{print \$3}" | xargs git rm'
 alias glog='git log --pretty=oneline --graph'
 
+# Subversion
+alias sup='svn update'
+alias sci='svn commit'
+alias scim='svn commit -m'
+alias sd='svn diff --diff-cmd ~/.subversion/diff.sh --'
+alias ss='svn status'
+
 # Other
 alias fn='find . -name'
 alias hi='history -d | tail -20'

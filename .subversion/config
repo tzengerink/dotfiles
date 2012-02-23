@@ -1,0 +1,11 @@
+[auth]
+
+[helpers]
+diff-cmd = ~/.subversion/diff.sh
+
+[tunnels]
+
+[miscellany]
+
+[auto-props]
+
