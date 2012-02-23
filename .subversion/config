@@ -1,12 +1,5 @@
-[auth]
-
 [helpers]
-	editor-cmd = vi
-
-[tunnels]
+editor-cmd = vi
 
 [miscellany]
-	global-ignores .*~ *~ .DS_Store
-
-[auto-props]
-
+global-ignores = .*~ *~ .DS_Store
