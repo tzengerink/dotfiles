@@ -40,6 +40,9 @@ alias sd='svn diff'
 alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
 alias ss='svn status'
 
+# MySQL
+alias mysql='mysql -p'
+
 # Other
 alias fn='find . -name'
 alias hi='history -d | tail -20'
