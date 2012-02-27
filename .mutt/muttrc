@@ -24,6 +24,7 @@ set alias_file            = ~/.mutt/aliases              # Aliases
 set certificate_file      = ~/.mutt/certificates         # Certificates
 set header_cache          = ~/.mutt/cache/headers        # Cached message bodies
 set message_cachedir      = ~/.mutt/cache/bodies         # Cached message bodies
+set tmpdir                = ~/.mutt/tmp                  # Temporary files
 # MAIN
 set realname              = "Teun Zengerink"             # Realname
 set imap_check_subscribed = yes                          # Use all IMAP folders
