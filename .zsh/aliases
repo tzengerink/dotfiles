@@ -15,6 +15,7 @@ alias cleanup='rm -rf `find . -type f -name .DS_Store`'
 alias dirtree="find . -not \( -type d -name .svn -prune \) -print | sed -e 's;[^/]*/;|___;g;s;___|; |;g'"
 
 # Git
+alias gcl='git clone'
 alias gl='git pull'
 alias gp='git push'
 alias gd='git diff'
@@ -32,6 +33,7 @@ alias grm='git status | grep deleted | awk "{print \$3}" | xargs git rm'
 alias glog='git log --pretty=oneline --graph'
 
 # Subversion
+alias sco='svn checkout'
 alias sup='svn update'
 alias sad='svn add'
 alias sci='svn commit'

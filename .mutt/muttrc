@@ -60,7 +60,7 @@ ignore *                                                 # Ignore all headers
 unignore from: to: cc: bcc: date: subject:               # Do NOT ignore these
 hdr_order from: to: cc: bcc: date: subject:              # In this order please
 # FORMATS & EDITOR
-set editor         = 'vim + -c "set textwidth=0" -c "set nocp" -c "?^$"'
+set editor         = 'vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "?^$"'
 set attribution    = "On %d, %n wrote:"
 set date_format    = "%b %d"
 set forward_format = "Fwd: %s"
