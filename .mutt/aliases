@@ -5,3 +5,5 @@ alias  henk   hmavanleeuwen@gmail.com   (Henrik van Leeuwen)
 alias  theo   t.myronidis@gmail.com     (Theo Myronidis)
 alias  dick   holtman@gmail.com         (Dick Holtman)
 alias  riso   rikvansommeren@gmail.com  (Rik van Sommeren)
+# Groups
+alias  boys   riso, henk, dick, theo
