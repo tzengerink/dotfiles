@@ -38,7 +38,7 @@ set directory=~/.vim/swap    " Where to put the swap files
 " ------------------------------------------------------------------------------
 " STATUS LINE
 " ------------------------------------------------------------------------------
-set statusline=%t                                  " Tail of the filename
+set statusline=%F                                  " Filename and path
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},  " File encoding
 set statusline+=%{&ff}]                            " File format
 set statusline+=\ %y                               " Filetype
