@@ -1,9 +1,13 @@
 # MD5CHECK
 # Check the MD5 checksum provided
 
-hash=$(openssl md5 $1)
-if [ "MD5(${1})= $2" = "${hash}" ]; then
-	echo "\e[00;32mCORRECT\e[00m"
+if [ $# -ne 2 ]; then
+	echo -e "Usage: $0 [file] [hash]"
 else
-	echo "\e[00;31mINCORRECT\e[00m"
+	hash=$(openssl md5 $1)
+	if [ "MD5(${1})= $2" = "${hash}" ]; then
+		echo "\e[00;32mCORRECT\e[00m"
+	else
+		echo "\e[00;31mINCORRECT\e[00m"
+	fi
 fi
