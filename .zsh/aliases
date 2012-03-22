@@ -35,12 +35,14 @@ alias glog='git log --pretty=oneline --graph'
 # Subversion
 alias sco='svn checkout'
 alias sup='svn update'
-alias sad='svn add'
+alias sa='svn add'
 alias sci='svn commit'
 alias scm='svn commit -m'
 alias sd='svn diff'
 alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
 alias ss='svn status'
+alias srm='svn st | grep \! | awk "{print \$2}" | xargs svn rm'
+alias sad='svn st | grep \? | awk "{print \$2}" | xargs svn add'
 
 # MySQL
 alias mysql='mysql -p'
