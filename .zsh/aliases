@@ -41,6 +41,7 @@ alias scm='svn commit -m'
 alias sd='svn diff'
 alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
 alias ss='svn status'
+alias srev='svn st | grep \M | awk "{print \$2}" | xargs svn revert'
 alias srm='svn st | grep \! | awk "{print \$2}" | xargs svn rm'
 alias sad='svn st | grep \? | awk "{print \$2}" | xargs svn add'
 
