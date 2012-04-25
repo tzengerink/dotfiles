@@ -63,5 +63,5 @@ fi
 
 # Linux Specific
 if [[ $(uname) == Linux ]]; then
-	alias ls="ls --color=auto"
+	alias ls="ls --color=auto --group-directories-first"
 fi
