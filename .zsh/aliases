@@ -8,6 +8,7 @@ alias l='ls -lh'
 alias ll='ls -lah'
 alias lsd='ls -l | grep "^d"'
 alias old='echo $OLDPWD'
+alias real='cd $(pwd -P)'
 
 # Coding
 alias phplines="find . -type f -name '*.php' -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'"
