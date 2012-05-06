@@ -31,9 +31,9 @@ set imap_check_subscribed = yes                          # Use all IMAP folders
 set confirmappend         = no                           # Do NOT ask to append
 set imap_keepalive        = 300                          # Keep alive for 5 min.
 set imap_passive          = no                           # Not passive
-set mail_check            = 30                           # Check mail often
+set mail_check            = 120                          # Check mail frequency
 set quit                  = "ask-yes"                    # Confirm quit
-set timeout               = 300                          # Timeout after 5 min.
+set timeout               = 600                          # Timeout after 10 min.
 # INDEX
 set collapse_unread       = no                           # Do NOT collapse unread
 set move                  = no                           # Do NOT move read

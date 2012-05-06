@@ -8,6 +8,7 @@ alias l='ls -lh'
 alias ll='ls -lah'
 alias lsd='ls -l | grep "^d"'
 alias old='echo $OLDPWD'
+alias real='cd $(pwd -P)'
 
 # Coding
 alias phplines="find . -type f -name '*.php' -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'"
@@ -35,12 +36,15 @@ alias glog='git log --pretty=oneline --graph'
 # Subversion
 alias sco='svn checkout'
 alias sup='svn update'
-alias sad='svn add'
+alias sa='svn add'
 alias sci='svn commit'
 alias scm='svn commit -m'
 alias sd='svn diff'
 alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
 alias ss='svn status'
+alias srev='svn st | grep \M | awk "{print \$2}" | xargs svn revert'
+alias srm='svn st | grep \! | awk "{print \$2}" | xargs svn rm'
+alias sad='svn st | grep \? | awk "{print \$2}" | xargs svn add'
 
 # MySQL
 alias mysql='mysql -p'
@@ -60,5 +64,5 @@ fi
 
 # Linux Specific
 if [[ $(uname) == Linux ]]; then
-	alias ls="ls --color=auto"
+	alias ls="ls --color=auto --group-directories-first"
 fi
