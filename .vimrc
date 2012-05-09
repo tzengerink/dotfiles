@@ -9,6 +9,7 @@ set nocompatible                         " Filetype detection works better this 
 set nohidden                             " Closing tabs / windows also closes buffer
 set nonumber                             " No line numbers
 set nowrap                               " Do not wrap lines
+set nopaste                              " Do not disable autoindent etc. when pasting
 set ruler                                " Position info
 set shiftwidth=2                         " Shift width
 set showcmd                              " Show command in StatusLine
@@ -103,9 +104,15 @@ let g:user_zen_expandabbr_key = '<C-e>'
 " Quick command line access
 map ; :
 
+" Save mappings
+map <leader>s :w<CR>
+map <leader>S :wa<CR>
+cmap w!! %!sudo tee > /dev/null %
+
 " Toggle stuff
 map <leader>C :set cursorline! cursorline?<CR>
 map <leader>H :noh<CR>
+map <leader>P :set paste! paste?<CR>
 map <leader>R :set number! number?<CR>
 map <leader>W :set wrap! wrap?<CR>
 
