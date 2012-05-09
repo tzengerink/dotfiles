@@ -9,6 +9,7 @@ set nocompatible                         " Filetype detection works better this 
 set nohidden                             " Closing tabs / windows also closes buffer
 set nonumber                             " No line numbers
 set nowrap                               " Do not wrap lines
+set paste                                " Improve pasting from other sources
 set ruler                                " Position info
 set shiftwidth=2                         " Shift width
 set showcmd                              " Show command in StatusLine
@@ -106,6 +107,7 @@ map ; :
 " Toggle stuff
 map <leader>C :set cursorline! cursorline?<CR>
 map <leader>H :noh<CR>
+map <leader>P :set paste! paste?<CR>
 map <leader>R :set number! number?<CR>
 map <leader>W :set wrap! wrap?<CR>
 
