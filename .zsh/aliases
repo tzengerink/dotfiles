@@ -11,6 +11,7 @@ alias old='echo $OLDPWD'
 alias real='cd $(pwd -P)'
 
 # Coding
+alias phpfiles="find . -type f -name '*.php' | wc -l"
 alias phplines="find . -type f -name '*.php' -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'"
 alias cleanup='rm -rf `find . -type f -name .DS_Store`'
 alias dirtree="find . -not \( -type d -name .svn -prune \) -print | sed -e 's;[^/]*/;|___;g;s;___|; |;g'"
@@ -53,6 +54,7 @@ alias mysql='mysql -p'
 alias fn='find . -name'
 alias hi='history -d | tail -20'
 alias dwn='curl -O'
+alias vd='vimdiff'
 
 # OSX Specific
 if [[ $(uname) == Darwin ]]; then
