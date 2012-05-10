@@ -11,7 +11,6 @@ alias old='echo $OLDPWD'
 alias real='cd $(pwd -P)'
 
 # Coding
-alias phplines="find . -type f -name '*.php' -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'"
 alias cleanup='rm -rf `find . -type f -name .DS_Store`'
 alias dirtree="find . -not \( -type d -name .svn -prune \) -print | sed -e 's;[^/]*/;|___;g;s;___|; |;g'"
 
@@ -31,6 +30,7 @@ alias gss='git status'
 alias gche='git checkout --'
 alias grev='git status | grep modified | awk "{print \$3}" | xargs git checkout --'
 alias grm='git status | grep deleted | awk "{print \$3}" | xargs git rm'
+alias gad='git status -s | grep \?\? | awk "{print \$2}" | xargs git add '
 alias glog='git log --pretty=oneline --graph'
 
 # Subversion

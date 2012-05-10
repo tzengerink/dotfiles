@@ -104,12 +104,17 @@ let g:user_zen_expandabbr_key = '<C-e>'
 " Quick command line access
 map ; :
 
+" Quit/Save mappings
+map <leader>w :w<CR>
+map <leader>W :wa<CR>
+map <leader>WW :%!sudo tee > /dev/null %<CR>
+
 " Toggle stuff
 map <leader>C :set cursorline! cursorline?<CR>
 map <leader>H :noh<CR>
+map <leader>N :set wrap! wrap?<CR>
 map <leader>P :set paste! paste?<CR>
 map <leader>R :set number! number?<CR>
-map <leader>W :set wrap! wrap?<CR>
 
 " Toggle OverLength
 let s:overLengthIsVisible = 1
