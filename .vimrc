@@ -104,9 +104,11 @@ let g:user_zen_expandabbr_key = '<C-e>'
 " Quick command line access
 map ; :
 
-" Save mappings
+" Save/Quit mappings
 map <leader>w :w<CR>
-map <leader>W :wa<CR>
+map <leader>wa :wa<CR>
+map <leader>wq :wq<CR>
+map <leader>qa :qa<CR>
 map <leader>WW :%!sudo tee > /dev/null %<CR>
 
 " Toggle stuff
