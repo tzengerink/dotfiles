@@ -50,6 +50,12 @@ alias sad='svn st | grep \? | awk "{print \$2}" | xargs svn add'
 # MySQL
 alias mysql='mysql -p'
 
+# Virtualenv
+alias ve='virtualenv .env'
+alias ve2='virtualenv .env --python=python2'
+alias vea='source .env/bin/activate'
+alias ved='deactivate'
+
 # Other
 alias fn='find . -name'
 alias hi='history -d | tail -20'
