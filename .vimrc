@@ -6,6 +6,7 @@ set completeopt=longest,menuone,preview  " Show menu and preview window
 set cindent                              " Use auto C-indenting
 set laststatus=2                         " Always show the StatusLine
 set nocompatible                         " Filetype detection works better this way
+set nocursorline                         " No cursorline by default
 set nohidden                             " Closing tabs / windows also closes buffer
 set nonumber                             " No line numbers
 set nowrap                               " Do not wrap lines
@@ -16,16 +17,13 @@ set showcmd                              " Show command in StatusLine
 set tabstop=2                            " Tab stop
 set wildmode=longest,list,full           " Bash like path completion
 
-" Other cursor shape if in insert mode
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+" Toggle cursorline when entering/leaving insert mode
+autocmd InsertEnter,InsertLeave * set cursorline!
 
 " Different settings for active window
 setlocal number
 autocmd BufEnter * setlocal number
 autocmd BufLeave * setlocal nonumber
-autocmd BufEnter * setlocal cursorline
-autocmd BufLeave * setlocal nocursorline
 
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
@@ -112,7 +110,6 @@ map <leader>qa :qa<CR>
 map <leader>WW :%!sudo tee > /dev/null %<CR>
 
 " Toggle stuff
-map <leader>C :set cursorline! cursorline?<CR>
 map <leader>H :noh<CR>
 map <leader>N :set wrap! wrap?<CR>
 map <leader>P :set paste! paste?<CR>
