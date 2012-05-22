@@ -35,9 +35,9 @@ alias gb='git branch'
 alias gs='git status -s'
 alias gss='git status'
 alias gche='git checkout --'
-alias grev='git reset --hard HEAD'
+alias grev='git reset -q --hard HEAD'
 alias grm='git status | grep deleted | awk "{ print \$3}" | xargs git rm'
-alias gad='git status -s | grep \?\? | awk "{ print \$2}" | xargs git add '
+alias gad='git status -s | egrep "^\?\?\ |^\ M\ " | awk "{ print \$2}" | xargs git add'
 alias glog='git log --pretty=oneline --graph'
 
 # Subversion
