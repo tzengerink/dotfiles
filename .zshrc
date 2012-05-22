@@ -15,6 +15,7 @@ export EDITOR=vi
 export LANG=en_US.UTF-8
 export PAGER=less
 export SVN_EDITOR=vi
+export SUDO_EDITOR='/usr/bin/vi -p -X'
 
 # -- HISTORY -----------------------------------------------------------------
 HISTFILE=~/.zsh_history
