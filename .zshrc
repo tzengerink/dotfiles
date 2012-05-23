@@ -7,7 +7,6 @@ zstyle ':completion:*' instert-tab pending           # Disable when pasting tab
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)                # Load all function in directory
 [[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases  # Load aliases
-[[ -f ~/.localrc ]] && source ~/.localrc          # Used for machine specific commands
 
 # -- EXPORTS -----------------------------------------------------------------
 export CLICOLOR=1
@@ -31,3 +30,6 @@ if [ -f "/usr/bin/dircolors" ]; then
 	eval `/usr/bin/dircolors ~/.dircolors`
 	export PS1=$'%{\e[;38;5;244m%}%n@%m:%{\e[0m%} %{\e[01;38;5;33m%}%~%{\e[0m%} %{\e[;38;5;244m%}#%{\e[0m%} '
 fi
+
+# -- LOAD MACHINE SPECIFIC COMMANDS ------------------------------------------
+[[ -f ~/.localrc ]] && source ~/.localrc
