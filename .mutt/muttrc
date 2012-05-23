@@ -4,7 +4,6 @@
 account-hook . "unset from hostname folder imap_user imap_pass spoolfile\
 		postponed smtp_url ssl_force_tls ssl_verify_host"
 account-hook "imaps://imap.gmail.com" "source ~/.mutt/accounts/gmail.com"
-account-hook "imaps://imap.zengerink.com" "source ~/.mutt/accounts/zengerink.com"
 
 folder-hook . "push <collapse-all>"
 
