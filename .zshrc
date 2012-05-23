@@ -15,6 +15,7 @@ export EDITOR=vi
 export LANG=en_US.UTF-8
 export PAGER=less
 export SVN_EDITOR=vi
+export SUDO_EDITOR='/usr/bin/vi -p -X'
 
 # -- HISTORY -----------------------------------------------------------------
 HISTFILE=~/.zsh_history
@@ -25,8 +26,8 @@ SAVEHIST=1000
 export LSCOLORS=ExGxCxaCAxaGhEaBaBbhbh
 export LS_COLORS="di=1;;40:ln=1;;40:so=1;;40:pi=0;:ex=1;;40:bd=0;:cd=37;:su=0;:sg=0;:tw=31;47:ow=31;47:"
 export PS1=$'%{\e[1;30m%}%n@%m:%{\e[0m%} %{\e[1;34m%}%~%{\e[0m%} %{\e[1;30m%}#%{\e[0m%} '
-if [ -f "/bin/dircolors" ]; then
+if [ -f "/usr/bin/dircolors" ]; then
 	export TERM=xterm-256color
-	eval `/bin/dircolors ~/.dircolors`
+	eval `/usr/bin/dircolors ~/.dircolors`
 	export PS1=$'%{\e[;38;5;244m%}%n@%m:%{\e[0m%} %{\e[01;38;5;33m%}%~%{\e[0m%} %{\e[;38;5;244m%}#%{\e[0m%} '
 fi

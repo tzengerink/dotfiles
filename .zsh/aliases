@@ -8,11 +8,18 @@ alias l='ls -lh'
 alias ll='ls -lah'
 alias lsd='ls -l | grep "^d"'
 alias old='echo $OLDPWD'
+alias real='cd $(pwd -P)'
 
-# Coding
-alias phplines="find . -type f -name '*.php' -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'"
-alias cleanup='rm -rf `find . -type f -name .DS_Store`'
-alias dirtree="find . -not \( -type d -name .svn -prune \) -print | sed -e 's;[^/]*/;|___;g;s;___|; |;g'"
+# OSX Specific
+if [[ $(uname) == Darwin ]]; then
+	alias locip='ipconfig getifaddr en0'
+fi
+
+# Linux Specific
+if [[ $(uname) == Linux ]]; then
+	alias ls='ls --color=auto --group-directories-first'
+	alias locip='ip addr show eth0 | egrep "inet\ " | awk "{ print \$2}" | sed "s#/[0-9]*##g"'
+fi
 
 # Git
 alias gcl='git clone'
@@ -28,37 +35,37 @@ alias gb='git branch'
 alias gs='git status -s'
 alias gss='git status'
 alias gche='git checkout --'
-alias grev='git status | grep modified | awk "{print \$3}" | xargs git checkout --'
-alias grm='git status | grep deleted | awk "{print \$3}" | xargs git rm'
+alias grev='git reset -q --hard HEAD'
+alias grm='git status | grep deleted | awk "{ print \$3}" | xargs git rm'
+alias gad='git status -s | egrep "^\?\?\ |^\ M\ " | awk "{ print \$2}" | xargs git add'
 alias glog='git log --pretty=oneline --graph'
 
 # Subversion
 alias sco='svn checkout'
 alias sup='svn update'
-alias sad='svn add'
+alias sa='svn add'
 alias sci='svn commit'
 alias scm='svn commit -m'
 alias sd='svn diff'
 alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
 alias ss='svn status'
+alias srev='svn st | grep \M | awk "{ print \$2}" | xargs svn revert'
+alias srm='svn st | grep \! | awk "{ print \$2}" | xargs svn rm'
+alias sad='svn st | grep \? | awk "{ print \$2}" | xargs svn add'
 
-# MySQL
-alias mysql='mysql -p'
+# Virtualenv
+alias ve='virtualenv .env'
+alias ve2='virtualenv .env --python=python2'
+alias vea='source .env/bin/activate'
+alias ved='deactivate'
 
 # Other
+alias cleanup='find . -type f -name ".DS_Store" -delete'
+alias dirtree='find . -not \( -type d -name .svn -prune \) -print | sed -e "s;[^/]*/;|___;g;s;___|; |;g"'
+alias dwn='curl -O'
+alias extip='curl ifconfig.me/ip'
 alias fn='find . -name'
 alias hi='history -d | tail -20'
-alias dwn='curl -O'
-
-# OSX Specific
-if [[ $(uname) == Darwin ]]; then
-	# IP-addresses
-	alias ip="curl ifconfig.me/ip"
-	alias localip="ipconfig getifaddr en0"
-	alias ips="localip && ip"
-fi
-
-# Linux Specific
-if [[ $(uname) == Linux ]]; then
-	alias ls="ls --color=auto"
-fi
+alias ips='locip && extip'
+alias mysql='mysql -p'
+alias vd='vimdiff'
