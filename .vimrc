@@ -135,10 +135,12 @@ map <leader>F :set foldmethod=manual<CR>zR<CR>
 " OmniComplete
 imap <C-o> <C-x><C-o>
 
-" Tabs
-map <C-h> :tabp<CR>
-map <C-l> :tabn<CR>
-map <C-t> :tabnew<CR>
+" Tabs & Buffers
+map <C-h>   :tabp<CR>
+map <C-l>   :tabn<CR>
+map <C-t>   :tabnew<CR>
+map <right> :bnext<CR>
+map <left>  :bprevious<CR>
 
 " Window size adjustments
 map = <C-W>+

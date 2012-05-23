@@ -1,0 +1,15 @@
+# MVSVNREPO
+# Move (rename) an SVN Repository
+# 
+
+if [ "$#" != 2 ]; then
+	echo -e "Usage: $0 [/path/to/repo] [path/to/new/repo]"
+
+# Create new repo
+svnadmin create "$2"
+
+# Dump old repo
+svnadmin dump -q "$1" > "$1.old"
+
+# Load old repo in new repo
+svnamdin load -q "$2" < "1.old"
