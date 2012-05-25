@@ -103,7 +103,7 @@ let g:user_zen_expandabbr_key = '<C-e>'
 map ; :
 
 " Save/Quit mappings
-map <leader>w :w<CR>
+map <leader>s :w<CR>
 map <leader>wa :wa<CR>
 map <leader>wq :wq<CR>
 map <leader>qa :qa<CR>
