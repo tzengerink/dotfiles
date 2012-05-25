@@ -127,6 +127,10 @@ fun! ToggleOverLength()
 endf
 map <leader>O :exe ToggleOverLength()<CR>
 
+" Cycle throught changelist
+map <up>   g;<CR>
+map <down> g,<CR>
+
 " Folding / Unfolding
 map <leader>f :set foldmethod=indent<CR>zM<CR>
 map <leader>F :set foldmethod=manual<CR>zR<CR>
