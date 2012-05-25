@@ -1,21 +1,21 @@
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-set autoindent                           " Autoindenting
-set completeopt=longest,menuone,preview  " Show menu and preview window
-set cindent                              " Use auto C-indenting
-set laststatus=2                         " Always show the StatusLine
-set nocompatible                         " Filetype detection works better this way
-set nocursorline                         " No cursorline by default
-set nohidden                             " Closing tabs / windows also closes buffer
-set nonumber                             " No line numbers
-set nowrap                               " Do not wrap lines
-set nopaste                              " Do not disable autoindent etc. when pasting
-set ruler                                " Position info
-set shiftwidth=2                         " Shift width
-set showcmd                              " Show command in StatusLine
-set tabstop=2                            " Tab stop
-set wildmode=longest,list,full           " Bash like path completion
+set autoindent                   " Autoindenting
+set completeopt=longest,menuone  " Show menu and preview window
+set cindent                      " Use auto C-indenting
+set laststatus=2                 " Always show the StatusLine
+set nocompatible                 " Filetype detection works better this way
+set nocursorline                 " No cursorline by default
+set nohidden                     " Closing tabs / windows also closes buffer
+set nonumber                     " No line numbers
+set nowrap                       " Do not wrap lines
+set nopaste                      " Do not disable autoindent etc. when pasting
+set ruler                        " Position info
+set shiftwidth=2                 " Shift width
+set showcmd                      " Show command in StatusLine
+set tabstop=2                    " Tab stop
+set wildmode=longest,list,full   " Bash like path completion
 
 " Toggle cursorline when entering/leaving insert mode
 autocmd InsertEnter,InsertLeave * set cursorline!
@@ -89,8 +89,7 @@ autocmd BufNewFile,BufRead *.plist
 map <C-n> :NERDTreeToggle<CR>
 
 " OmniComplete
-autocmd InsertLeave *
-	\ if pumvisible() == 0|pclose|endif
+imap <C-o> <C-x><C-o>
 
 " ZenCoding
 let g:user_zen_leader_key     = '<C-y>'
@@ -131,9 +130,6 @@ map <leader>O :exe ToggleOverLength()<CR>
 " Folding / Unfolding
 map <leader>f :set foldmethod=indent<CR>zM<CR>
 map <leader>F :set foldmethod=manual<CR>zR<CR>
-
-" OmniComplete
-imap <C-o> <C-x><C-o>
 
 " Tabs & Buffers
 map <C-h>   :tabp<CR>
