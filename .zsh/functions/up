@@ -1,0 +1,14 @@
+# UP
+# Go up in the directory hierarchy
+
+local D=""
+LIMIT=$1
+for i in {1..$LIMIT}
+	do
+		D=$D/..
+	done
+D=$(echo $D | sed 's/^\///')
+if [ -z "$D" ]; then
+	D=..
+fi
+cd $D
