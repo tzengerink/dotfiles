@@ -67,10 +67,9 @@ else
 endif
 
 " Overlength & Trailing whitespace
-highlight OverLength ctermbg=red ctermfg=white
-highlight ExtraWhiteSpace ctermbg=red ctermfg=white
-autocmd BufEnter,InsertEnter,InsertLeave *
-  \ match ExtraWhiteSpace /\s\+$/
+highlight OverLength ctermbg=red ctermfg=white 
+highlight ExtraWhitespace ctermbg=red ctermfg=white
+autocmd BufEnter,InsertEnter,InsertLeave * 2match ExtraWhitespace /\s\+$/
 
 " ------------------------------------------------------------------------------
 " SET FILETYPES
