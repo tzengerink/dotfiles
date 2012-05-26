@@ -66,8 +66,11 @@ else
 	highlight Comment ctermfg=lightgrey
 endif
 
-" Overlength
+" Overlength & Trailing whitespace
 highlight OverLength ctermbg=red ctermfg=white
+highlight ExtraWhiteSpace ctermbg=red ctermfg=white
+autocmd BufEnter,InsertEnter,InsertLeave *
+  \ match ExtraWhiteSpace /\s\+$/
 
 " ------------------------------------------------------------------------------
 " SET FILETYPES
