@@ -8,4 +8,4 @@ set tabstop=4                " Tab stop
 " Highlight invalid style, example:
 " - Over 80 character in a single line
 autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *
-	\ 2match OverLength /\%81v.\+/
+	\ 2match InvalidStyle /\%81v.\+/
