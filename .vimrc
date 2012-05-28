@@ -126,18 +126,18 @@ map <leader>N :set wrap! wrap?<CR>
 map <leader>P :set paste! paste?<CR>
 map <leader>R :set number! number?<CR>
 
-" Toggle OverLength
-let s:overLengthIsVisible = 1
-fun! ToggleOverLength()
-	if (s:overLengthIsVisible)
-		let s:overLengthIsVisible = 0
+" Toggle InvalidStyle
+let s:invalidStyleIsVisible = 1
+fun! ToggleInvalidStyle()
+	if (s:invalidStyleIsVisible)
+		let s:invalidStyleIsVisible = 0
 		return "set background=dark | colors ".g:colors_name
 	else
-		let s:overLengthIsVisible = 1
-		return "highlight OverLength ctermbg=red ctermfg=white"
+		let s:invalidStyleIsVisible = 1
+		return "highlight InvalidStyle ctermbg=red ctermfg=white"
 	endif
 endf
-map <leader>O :exe ToggleOverLength()<CR>
+map <leader>I :exe ToggleInvalidStyle()<CR>
 
 " Cycle throught changelist
 map <up>   g;<CR>
