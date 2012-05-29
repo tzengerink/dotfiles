@@ -7,6 +7,7 @@ alias lz='ll -rS'              # Sort by size
 alias lt='ll -rt'              # Sort by date
 alias lsd='ls -l | grep "^d"'  # List directories
 alias real='cd $(pwd -P)'      # Go to real path of symlink
+alias ..='up'                  # Alias for the up function
 
 # OSX Specific
 if [[ $(uname) == Darwin ]]; then
