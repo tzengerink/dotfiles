@@ -67,7 +67,7 @@ else
 endif
 
 " Overlength & Trailing whitespace
-highlight OverLength ctermbg=red ctermfg=white 
+highlight OverLength ctermbg=red ctermfg=white
 highlight ExtraWhitespace ctermbg=red ctermfg=white
 autocmd BufEnter,InsertEnter,InsertLeave * 2match ExtraWhitespace /\s\+$/
 
