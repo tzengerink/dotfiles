@@ -58,9 +58,10 @@ else
 	highlight Comment ctermfg=lightgrey
 endif
 
-" Overlength & Trailing whitespace
+" Overlength / Trailing whitespace / Invalid Style
 highlight OverLength ctermbg=red ctermfg=white
-highlight ExtraWhitespace ctermbg=red ctermfg=white
+highlight ExtraWhitespace ctermbg=green ctermfg=white
+highlight InvalidStyle ctermbg=blue ctermfg=white
 
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
