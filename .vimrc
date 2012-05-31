@@ -59,9 +59,7 @@ else
 endif
 
 " Overlength / Trailing whitespace / Invalid Style
-highlight OverLength ctermbg=red ctermfg=white
-highlight ExtraWhitespace ctermbg=lightgrey ctermfg=white
-highlight InvalidStyle ctermbg=blue ctermfg=white
+highlight InvalidStyle ctermbg=red ctermfg=lightred
 
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -74,6 +72,10 @@ autocmd InsertEnter,InsertLeave * set cursorline!
 setlocal number
 autocmd BufEnter * setlocal number
 autocmd BufLeave * setlocal nonumber
+
+" Highlight inline tabs as invalid style
+autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *
+	\ match InvalidStyle /[^\t]\zs\t\+/
 
 " Check for trailing whitespaces / remove them when saving
 autocmd BufWritePre * :%s/\s\+$//e

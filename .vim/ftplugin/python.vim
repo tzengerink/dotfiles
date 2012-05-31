@@ -4,4 +4,8 @@
 set expandtab                " Tabs are spaces
 set shiftwidth=4             " Shift width
 set tabstop=4                " Tab stop
-match OverLength /\%81v.\+/  " Set OverLength at character 81
+
+" Highlight invalid style, example:
+" - Over 80 character in a single line
+autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *
+	\ 2match OverLength /\%81v.\+/
