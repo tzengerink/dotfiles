@@ -60,7 +60,7 @@ endif
 
 " Overlength / Trailing whitespace / Invalid Style
 highlight OverLength ctermbg=red ctermfg=white
-highlight ExtraWhitespace ctermbg=green ctermfg=white
+highlight ExtraWhitespace ctermbg=lightgrey ctermfg=white
 highlight InvalidStyle ctermbg=blue ctermfg=white
 
 " ------------------------------------------------------------------------------
@@ -75,10 +75,7 @@ setlocal number
 autocmd BufEnter * setlocal number
 autocmd BufLeave * setlocal nonumber
 
-" Check for trailing whitespaces
-autocmd BufEnter,InsertEnter,InsertLeave * 2match ExtraWhitespace /\s\+$/
-
-" Automatically remove whitespaces when saving a buffer
+" Check for trailing whitespaces / remove them when saving
 autocmd BufWritePre * :%s/\s\+$//e
 
 " ------------------------------------------------------------------------------

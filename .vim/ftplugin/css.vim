@@ -11,5 +11,5 @@ match OverLength /\%81v.\+/           " Set OverLength at character 81
 " #ffffff => #fff
 " 0px     => 0
 " 0.9     => .9
-autocmd BufEnter,InsertEnter,InsertLeave *
-	\ 3match InvalidStyle /\(#\([a-f0-9]\)\2\{5}\|:\s*0\(px\|\.\d\+\)\|\s0px\|\s0\.\d\+\)/
+autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *
+	\	2match InvalidStyle /\(#\([a-f0-9]\)\2\{5}\|:\s*0\(px\|\.\d\+\)\|\s0px\|\s0\.\d\+\)/
