@@ -17,14 +17,6 @@ set showcmd                      " Show command in StatusLine
 set tabstop=2                    " Tab stop
 set wildmode=longest,list,full   " Bash like path completion
 
-" Toggle cursorline when entering/leaving insert mode
-autocmd InsertEnter,InsertLeave * set cursorline!
-
-" Different settings for active window
-setlocal number
-autocmd BufEnter * setlocal number
-autocmd BufLeave * setlocal nonumber
-
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
 " ------------------------------------------------------------------------------
@@ -69,7 +61,24 @@ endif
 " Overlength & Trailing whitespace
 highlight OverLength ctermbg=red ctermfg=white
 highlight ExtraWhitespace ctermbg=red ctermfg=white
+
+" ------------------------------------------------------------------------------
+" AUTO COMMANDS
+" ------------------------------------------------------------------------------
+
+" Toggle cursorline when entering/leaving insert mode
+autocmd InsertEnter,InsertLeave * set cursorline!
+
+" Different settings for active window
+setlocal number
+autocmd BufEnter * setlocal number
+autocmd BufLeave * setlocal nonumber
+
+" Check for trailing whitespaces
 autocmd BufEnter,InsertEnter,InsertLeave * 2match ExtraWhitespace /\s\+$/
+
+" Automatically remove whitespaces when saving a buffer
+autocmd BufWritePre * :%s/\s\+$//e
 
 " ------------------------------------------------------------------------------
 " SET FILETYPES
