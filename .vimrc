@@ -58,7 +58,7 @@ else
 	highlight Comment ctermfg=lightgrey
 endif
 
-" Overlength / Trailing whitespace / Invalid Style
+" Highlight Invalid Style / Cursor
 highlight InvalidStyle ctermbg=red ctermfg=lightred
 
 " ------------------------------------------------------------------------------

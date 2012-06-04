@@ -1,0 +1,4 @@
+# CVTIME
+# Convert a timestamp to a readable time.
+
+echo $1 | awk '{print strftime("%c", $1)}'
