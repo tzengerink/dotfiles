@@ -6,7 +6,7 @@ set omnifunc=csscomplete#CompleteCSS  " Enable autocomplete
 set shiftwidth=2                      " Shift width
 set tabstop=2                         " Tab stop
 
-" Highlight invalid style, examples:
+" Highlight invalid style:
 " - To long hexadecimal colors
 " - To long rgba colors
 " - Mentioning pixels after a zero
