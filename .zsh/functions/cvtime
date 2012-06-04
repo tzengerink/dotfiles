@@ -1,4 +1,8 @@
 # CVTIME
 # Convert a timestamp to a readable time.
 
-echo $1 | awk '{print strftime("%c", $1)}'
+if [[ $(uname) == Linux ]]; then
+	echo $1 | awk '{print strftime("%c", $1)}'
+else
+	echo -e "Only supported by Linux Operating Systems"
+fi
