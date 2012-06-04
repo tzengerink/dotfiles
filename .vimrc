@@ -20,7 +20,7 @@ set wildmode=longest,list,full   " Bash like path completion
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
 " ------------------------------------------------------------------------------
-set ignorecase               " Search is case insensitive
+set smartcase                " Search using smart case
 set hlsearch                 " Highlight Search
 set incsearch                " Incremental Search
 set backup                   " Turn on backup
