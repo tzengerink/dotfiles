@@ -58,7 +58,7 @@ else
 	highlight Comment ctermfg=lightgrey
 endif
 
-" Highlight Invalid Style / Cursor
+" Highlight Invalid Style
 highlight InvalidStyle ctermbg=red ctermfg=lightred
 
 " ------------------------------------------------------------------------------
