@@ -20,9 +20,9 @@ set wildmode=longest,list,full   " Bash like path completion
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
 " ------------------------------------------------------------------------------
-set smartcase                " Search using smart case
 set hlsearch                 " Highlight Search
 set incsearch                " Incremental Search
+set smartcase                " Search using smart case
 set backup                   " Turn on backup
 set backupdir=~/.vim/backup  " Where to put the backup files
 set directory=~/.vim/swap    " Where to put the swap files
@@ -111,7 +111,8 @@ let g:user_zen_expandabbr_key = '<C-e>'
 " KEY MAPPINGS
 " ------------------------------------------------------------------------------
 " Quick command line access
-map ; :
+noremap ; :
+noremap : ;
 
 " Save/Quit mappings
 map <leader>s :w<CR>
