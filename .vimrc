@@ -112,7 +112,7 @@ let g:user_zen_expandabbr_key = '<C-e>'
 " ------------------------------------------------------------------------------
 " Quick command line access
 noremap ; :
-noremap : ;
+noremap :: ;
 
 " Save/Quit mappings
 map <leader>s :w<CR>
