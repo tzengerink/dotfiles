@@ -1,10 +1,13 @@
 " ------------------------------------------------------------------------------
-" VISUAL SETTINGS
+" GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 set autoindent                   " Autoindenting
 set completeopt=longest,menuone  " Show menu and preview window
 set cindent                      " Use auto C-indenting
+set esckeys                      " Map missed escape sequeces (enables keypad)
 set laststatus=2                 " Always show the StatusLine
+set matchtime=2                  " Show matching bracket for .X seconds
+set matchpairs+=<:>              " Add HTML brackets to matching pairs
 set nocompatible                 " Filetype detection works better this way
 set nocursorline                 " No cursorline by default
 set nohidden                     " Closing tabs / windows also closes buffer
@@ -12,10 +15,13 @@ set nonumber                     " No line numbers
 set nowrap                       " Do not wrap lines
 set nopaste                      " Do not disable autoindent etc. when pasting
 set ruler                        " Position info
+set scrolloff=5                  " Keep a margin of X lines when scrolling
 set shiftwidth=2                 " Shift width
 set showcmd                      " Show command in StatusLine
+set showmatch                    " Show matching brackets
 set tabstop=2                    " Tab stop
 set wildmode=longest,list,full   " Bash like path completion
+set wildignore=.svn,*.pyc        " Ignore files in wildmode
 
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
@@ -140,20 +146,18 @@ fun! ToggleOverLength()
 endf
 map <leader>O :exe ToggleOverLength()<CR>
 
-" Cycle throught changelist
-map <up>   g;<CR>
-map <down> g,<CR>
-
 " Folding / Unfolding
 map <leader>f :set foldmethod=indent<CR>zM<CR>
 map <leader>F :set foldmethod=manual<CR>zR<CR>
 
-" Tabs & Buffers
+" Tabs / Buffers / Changelist
 map <C-h>   :tabp<CR>
 map <C-l>   :tabn<CR>
 map <C-t>   :tabnew<CR>
 map <right> :bnext<CR>
 map <left>  :bprevious<CR>
+map <up>    g;<CR>
+map <down>  g,<CR>
 
 " Window size adjustments
 map = <C-W>+
@@ -161,6 +165,10 @@ map - <C-W>-
 map _ <C-W><
 map + <C-W>>
 map <leader>\ :vertical resize 85<CR>
+
+" Sessions
+nmap SS :wa<CR>:mksession! ~/.vim/sessions/default
+nmap SO :wa<CR>:so ~/.vim/sessions/default
 
 " Copy to clipboard / Remove leading whitespace
 vmap <C-c> !pbcopy<CR>:undo<CR>
