@@ -6,7 +6,7 @@ set completeopt=longest,menuone  " Show menu and preview window
 set cindent                      " Use auto C-indenting
 set esckeys                      " Map missed escape sequeces (enables keypad)
 set laststatus=2                 " Always show the StatusLine
-set matchtime=2                  " Show matching bracket for .X seconds
+set matchtime=1                  " Show matching bracket for .X seconds
 set matchpairs+=<:>              " Add HTML brackets to matching pairs
 set nocompatible                 " Filetype detection works better this way
 set nocursorline                 " No cursorline by default
@@ -165,6 +165,12 @@ map - <C-W>-
 map _ <C-W><
 map + <C-W>>
 map <leader>\ :vertical resize 85<CR>
+
+" New windows
+nmap WH :leftabove vnew<CR>
+nmap WJ :leftabove new<CR>
+nmap WL :rightbelow vnew<CR>
+nmap WK :rightbelow new<CR>
 
 " Sessions
 nmap SS :wa<CR>:mksession! ~/.vim/sessions/default
