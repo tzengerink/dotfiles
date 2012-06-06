@@ -6,6 +6,6 @@ set omnifunc=phpcomplete#CompletePHP  " Enable autocomplete
 "
 " Highlight invalid style:
 " - Do not use && and ||
-" - No single ! without some space surrounding it
+" - Booleans must be in uppercase
 autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *
-	\ 2match InvalidStyle /\(&&\|||\|[^\ \'\"\[\!]\!\|\![^\ \=\'\"\]\!]\|\C[fF]alse\|\C[Tt]rue\)/
+	\ 2match InvalidStyle /\(&&\|||\|\C[fF]alse\|\C[Tt]rue\)/
