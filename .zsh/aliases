@@ -2,6 +2,7 @@
 alias la='ls -A'
 alias l='ls -lh'
 alias ll='ls -lah'
+alias lr='ls -lR'              # Recursively list
 alias lx='ll -Bx'              # Sort by extension
 alias lz='ll -rS'              # Sort by size
 alias lt='ll -rt'              # Sort by date
