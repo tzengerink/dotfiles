@@ -3,7 +3,6 @@
 " ------------------------------------------------------------------------------
 set autoindent                   " Autoindenting
 set completeopt=longest,menuone  " Show menu and preview window
-set cindent                      " Use auto C-indenting
 set esckeys                      " Map missed escape sequeces (enables keypad)
 set laststatus=2                 " Always show the StatusLine
 set matchtime=1                  " Show matching bracket for .X seconds
@@ -19,6 +18,7 @@ set scrolloff=5                  " Keep a margin of X lines when scrolling
 set shiftwidth=2                 " Shift width
 set showcmd                      " Show command in StatusLine
 set showmatch                    " Show matching brackets
+set smartindent                  " Use smart indenting
 set tabstop=2                    " Tab stop
 set wildmode=longest,list,full   " Bash like path completion
 set wildignore=.svn,*.pyc        " Ignore files in wildmode
