@@ -66,12 +66,14 @@ endif
 " Highlight Invalid Style
 highlight InvalidStyle ctermbg=red ctermfg=lightred
 
+" Change cursor / Toggle cursorline when entering/leaving insert mode
+autocmd InsertEnter,InsertLeave * set cursorline!
+let &t_SI = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
-
-" Toggle cursorline when entering/leaving insert mode
-autocmd InsertEnter,InsertLeave * set cursorline!
 
 " Different settings for active window
 setlocal number

@@ -1,5 +1,5 @@
 #!/bin/bash
-# 
+#
 # Automatically create symbolic links to the dotfiles in your home folder
 
 DIR="$( cd "$( dirname "$0" )" && pwd )"
