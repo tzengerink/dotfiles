@@ -3,7 +3,6 @@
 " ------------------------------------------------------------------------------
 set autoindent                   " Autoindenting
 set completeopt=longest,menuone  " Show menu and preview window
-set esckeys                      " Map missed escape sequeces (enables keypad)
 set laststatus=2                 " Always show the StatusLine
 set matchtime=1                  " Show matching bracket for .X seconds
 set matchpairs+=<:>              " Add HTML brackets to matching pairs
@@ -14,7 +13,7 @@ set nonumber                     " No line numbers
 set nowrap                       " Do not wrap lines
 set nopaste                      " Do not disable autoindent etc. when pasting
 set ruler                        " Position info
-set scrolloff=5                  " Keep a margin of X lines when scrolling
+set scrolloff=3                  " Keep a margin of X lines when scrolling
 set shiftwidth=2                 " Shift width
 set showcmd                      " Show command in StatusLine
 set showmatch                    " Show matching brackets
@@ -121,17 +120,18 @@ noremap ; :
 noremap :: ;
 
 " Save/Quit mappings
-map <leader>s :w<CR>
-map <leader>wa :wa<CR>
-map <leader>wq :wq<CR>
-map <leader>qa :qa<CR>
-map <leader>WW :%!sudo tee > /dev/null %<CR>
+map <LEADER>s :w<CR>
+map <LEADER>wa :wa<CR>
+map <LEADER>wq :wq<CR>
+map <LEADER>qa :qa<CR>
+map <LEADER>qq :q<CR>
+map <LEADER>WW :%!sudo tee > /dev/null %<CR>
 
 " Toggle stuff
-map <leader>H :noh<CR>
-map <leader>N :set wrap! wrap?<CR>
-map <leader>P :set paste! paste?<CR>
-map <leader>R :set number! number?<CR>
+map <LEADER>H :noh<CR>
+map <LEADER>N :set wrap! wrap?<CR>
+map <LEADER>P :set paste! paste?<CR>
+map <LEADER>R :set number! number?<CR>
 
 " Toggle InvalidStyle
 let s:invalidStyleIsVisible = 1
@@ -144,27 +144,44 @@ fun! ToggleInvalidStyle()
 		return "highlight InvalidStyle ctermbg=red ctermfg=white"
 	endif
 endf
-map <leader>I :exe ToggleInvalidStyle()<CR>
+map <LEADER>I :exe ToggleInvalidStyle()<CR>
+
+" Enable numpad
+inoremap <ESC>Oq 1
+inoremap <ESC>Or 2
+inoremap <ESC>Os 3
+inoremap <ESC>Ot 4
+inoremap <ESC>Ou 5
+inoremap <ESC>Ov 6
+inoremap <ESC>Ow 7
+inoremap <ESC>Ox 8
+inoremap <ESC>Oy 9
+inoremap <ESC>Op 0
+inoremap <ESC>On .
+inoremap <ESC>OR *
+inoremap <ESC>OQ /
+inoremap <ESC>Ol +
+inoremap <ESC>OS -
 
 " Folding / Unfolding
-map <leader>f :set foldmethod=indent<CR>zM<CR>
-map <leader>F :set foldmethod=manual<CR>zR<CR>
+map <LEADER>f :set foldmethod=indent<CR>zM<CR>
+map <LEADER>F :set foldmethod=manual<CR>zR<CR>
 
 " Tabs / Buffers / Changelist
 map <C-h>   :tabp<CR>
 map <C-l>   :tabn<CR>
 map <C-t>   :tabnew<CR>
-map <right> :bnext<CR>
-map <left>  :bprevious<CR>
-map <up>    g;<CR>
-map <down>  g,<CR>
+map <RIGHT> :bnext<CR>
+map <LEFT>  :bprevious<CR>
+map <UP>    g;<CR>
+map <DOWN>  g,<CR>
 
 " Window size adjustments
 map = <C-W>+
 map - <C-W>-
 map _ <C-W><
 map + <C-W>>
-map <leader>\ :vertical resize 85<CR>
+map <LEADER>\ :vertical resize 85<CR>
 
 " New windows
 nmap WH :leftabove vnew<CR>
@@ -178,8 +195,10 @@ nmap SO :wa<CR>:so ~/.vim/sessions/default
 
 " Copy to clipboard / Remove leading whitespace
 vmap <C-c> !pbcopy<CR>:undo<CR>
-map <leader><< :%s/^\s\+//g<CR>:noh<CR>
+map <LEADER><< :%s/^\s\+//g<CR>:noh<CR>
 
 " Edit & reload .vimrc
-map <leader>v :e $MYVIMRC<CR>
-map <leader>V :exec 'tabdo windo source $MYVIMRC'<CR>:noh<CR>
+map <LEADER>v :e $MYVIMRC<CR>
+map <LEADER>V :exec 'tabdo windo source $MYVIMRC'<CR>:noh<CR>
+
+
