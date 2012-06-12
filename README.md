@@ -1,8 +1,8 @@
 Configuration Files
 -------------------
 
-Configuration file for Bash, Mutt, Subversion, Vim, Git, Zsh and more..
+Configuration files for Bash, Git, Mutt, Subversion, Vim, Zsh and more..
 
 ### Setup
 
-To install run the `setup.sh`. It will automatically create symbolic links to these files in your home folder.
+To install run the `setup.sh`. It will automatically create symbolic links to these configuration files in your home folder.
