@@ -22,4 +22,4 @@ export HISTCONTROL=ignoredups
 export HISTSIZE=1000
 export HISTFILESIZE=1000
 export HISTTIMEFORMAT="%T  "
-export HISTIGNORE="ls:ls *:ll:la:ld:cd:cd -:pwd:* --help" 
+export HISTIGNORE="ls:ls *:ll:la:ld:cd:cd -:pwd:* --help"
