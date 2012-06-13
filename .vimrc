@@ -192,8 +192,8 @@ nmap WL :rightbelow vnew<CR>
 nmap WK :rightbelow new<CR>
 
 " Sessions
-nmap SS :wa<CR>:mksession! ~/.vim/sessions/default
-nmap SO :wa<CR>:so ~/.vim/sessions/default
+nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
+nmap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
 
 " Copy to clipboard / Remove leading whitespace
 vmap <C-c> !pbcopy<CR>:undo<CR>

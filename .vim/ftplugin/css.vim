@@ -12,5 +12,5 @@ set tabstop=2                         " Tab stop
 " - Mentioning pixels after a zero
 " - A zero in front of a dot
 " - Overlength of more then 80 characters
-autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *
+autocmd BufEnter,BufLeave,InsertEnter,InsertLeave
 	\ 2match InvalidStyle /\c\(#\([a-f0-9]\)\2\{1}\([a-f0-9]\)\3\{1}\([a-f0-9]\)\4\{1}\|\d\+\,\s\+\d\+\,\s\+\d\+\|\(:\|,\)\s*0\(px\|\.\d\+\)\|\s0px\|\s0\.\d\+\)/
