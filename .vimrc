@@ -202,5 +202,3 @@ map <LEADER><< :%s/^\s\+//g<CR>:noh<CR>
 " Edit & reload .vimrc
 map <LEADER>v :e $MYVIMRC<CR>
 map <LEADER>V :exec 'tabdo windo source $MYVIMRC'<CR>:noh<CR>
-
-
