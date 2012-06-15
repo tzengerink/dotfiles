@@ -148,6 +148,16 @@ fun! ToggleInvalidStyle()
 endf
 map <LEADER>I :exe ToggleInvalidStyle()<CR>
 
+" SmartIndent on blank line
+function! IndentWithI()
+    if len(getline('.')) == 0
+        return "\"_ddO"
+    else
+        return "i"
+    endif
+endfunction
+nnoremap <expr> i IndentWithI()
+
 " Enable numpad
 inoremap <ESC>Oq 1
 inoremap <ESC>Or 2
@@ -169,35 +179,44 @@ inoremap <ESC>OS -
 map <LEADER>f :set foldmethod=indent<CR>zM<CR>
 map <LEADER>F :set foldmethod=manual<CR>zR<CR>
 
-" Tabs / Buffers / Changelist
-map <C-h>   :tabp<CR>
-map <C-l>   :tabn<CR>
-map <C-t>   :tabnew<CR>
-map <RIGHT> :bnext<CR>
-map <LEFT>  :bprevious<CR>
-map <UP>    g;<CR>
-map <DOWN>  g,<CR>
+" Tabs
+nmap <C-h> :tabp<CR>
+nmap <C-l> :tabn<CR>
+nmap <C-t> :tabnew<CR>
 
-" Window size adjustments
+" Buffers
+nmap <RIGHT>    :bnext<CR>
+nmap <LEFT>     :bprevious<CR>
+nmap <LEADER>b  :buffers<CR>:buffer<SPACE>
+nmap <LEADER>BD :bd<CR>
+cmap <ESC>Oq    1
+cmap <ESC>Or    2
+cmap <ESC>Os    3
+cmap <ESC>Ot    4
+cmap <ESC>Ou    5
+cmap <ESC>Ov    6
+cmap <ESC>Ow    7
+cmap <ESC>Ox    8
+cmap <ESC>Oy    9
+
+" Windows
 map = <C-W>+
 map - <C-W>-
 map _ <C-W><
 map + <C-W>>
 map <LEADER>\ :vertical resize 85<CR>
-
-" New windows
 nmap WH :leftabove vnew<CR>
 nmap WJ :leftabove new<CR>
 nmap WL :rightbelow vnew<CR>
 nmap WK :rightbelow new<CR>
 
+" Cycle through changelist
+nmap <UP>   g;<CR>
+nmap <DOWN> g,<CR>
+
 " Sessions
 nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
 nmap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
-
-" Copy to clipboard / Remove leading whitespace
-vmap <C-c> !pbcopy<CR>:undo<CR>
-map <LEADER><< :%s/^\s\+//g<CR>:noh<CR>
 
 " Edit & reload .vimrc
 map <LEADER>v :e $MYVIMRC<CR>
