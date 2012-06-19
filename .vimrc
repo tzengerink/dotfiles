@@ -98,6 +98,8 @@ autocmd BufNewFile,BufRead *.markdown,*.mkdn,*.mdown,*.md,*.mkd
 	\ set filetype=markdown
 autocmd BufNewFile,BufRead *.mustache
 	\ set filetype=mustache
+autocmd BufNewFile,BufRead *.sql
+	\ set filetype=mysql
 autocmd BufNewFile,BufRead *.plist
 	\ set filetype=xml
 
