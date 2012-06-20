@@ -74,7 +74,6 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
-
 " Different settings for active window
 setlocal number
 autocmd BufEnter * setlocal number
@@ -88,7 +87,7 @@ autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *
 autocmd BufWritePre * :%s/\s\+$//e
 
 " ------------------------------------------------------------------------------
-" SET FILETYPES
+" FILETYPES
 " ------------------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.css
 	\ set filetype=css
@@ -103,6 +102,13 @@ autocmd BufNewFile,BufRead *.sql
 autocmd BufNewFile,BufRead *.plist
 	\ set filetype=xml
 
+" Easy filetype switching
+nnoremap <LEADER>Th :set filetype=html<CR>
+nnoremap <LEADER>Tj :set filetype=htmljinja<CR>
+nnoremap <LEADER>Tm :set filetype=mysql<CR>
+nnoremap <LEADER>Ts :set filetype=sql<CR>
+
+
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
@@ -115,6 +121,12 @@ imap <C-o> <C-x><C-o>
 " ZenCoding
 let g:user_zen_leader_key     = '<C-y>'
 let g:user_zen_expandabbr_key = '<C-e>'
+
+" Closetag
+" Usage: <C-_> closes current tag
+let g:closetag_default_xml=1
+autocmd FileType html,htmljinja let b:closetag_html_style=1
+autocmd FileType html,htmljinja,xml source ~/.vim/scripts/closetag.vim
 
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS
