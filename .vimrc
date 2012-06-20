@@ -135,6 +135,9 @@ autocmd FileType html,htmljinja,xml source ~/.vim/scripts/closetag.vim
 noremap ; :
 noremap :: ;
 
+" Yank to end of line
+nmap Y y$
+
 " Save/Quit mappings
 map <LEADER>s :w<CR>
 map <LEADER>wa :wa<CR>
