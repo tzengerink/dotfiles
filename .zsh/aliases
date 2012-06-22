@@ -1,14 +1,14 @@
 # Navigation
-alias ..='cd ..'
-alias ..2='cd ../..'
-alias ..3='cd ../../..'
-alias ..4='cd ../../../..'
 alias la='ls -A'
 alias l='ls -lh'
 alias ll='ls -lah'
-alias lsd='ls -l | grep "^d"'
-alias old='echo $OLDPWD'
-alias real='cd $(pwd -P)'
+alias lr='ls -lR'              # Recursively list
+alias lx='ll -Bx'              # Sort by extension
+alias lz='ll -rS'              # Sort by size
+alias lt='ll -rt'              # Sort by date
+alias lsd='ls -l | grep "^d"'  # List directories
+alias real='cd $(pwd -P)'      # Go to real path of symlink
+alias ..='up'                  # Alias for the up function
 
 # OSX Specific
 if [[ $(uname) == Darwin ]]; then
@@ -61,11 +61,15 @@ alias ved='deactivate'
 
 # Other
 alias cleanup='find . -type f -name ".DS_Store" -delete'
+alias df='df -h'
 alias dirtree='find . -not \( -type d -name .svn -prune \) -print | sed -e "s;[^/]*/;|___;g;s;___|; |;g"'
 alias dwn='curl -O'
+alias du='du -c -h'
+alias du1='du -d 1'
 alias extip='curl ifconfig.me/ip'
 alias fn='find . -name'
 alias hi='history -d | tail -20'
 alias ips='locip && extip'
 alias mysql='mysql -p'
 alias vd='vimdiff'
+alias vis='vim -S ~/.vim/sessions/default'

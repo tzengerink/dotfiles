@@ -9,12 +9,13 @@ autoload -U ~/.zsh/functions/*(:t)                # Load all function in directo
 [[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases  # Load aliases
 
 # -- EXPORTS -----------------------------------------------------------------
-export CLICOLOR=1
-export EDITOR=vi
 export LANG=en_US.UTF-8
 export PAGER=less
+export EDITOR=vi
 export SVN_EDITOR=vi
 export SUDO_EDITOR='/usr/bin/vi -p -X'
+export CLICOLOR=1
+export GREP_OPTIONS='--color=auto'
 
 # -- HISTORY -----------------------------------------------------------------
 HISTFILE=~/.zsh_history

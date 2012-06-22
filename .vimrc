@@ -1,36 +1,33 @@
 " ------------------------------------------------------------------------------
-" VISUAL SETTINGS
+" GENERAL SETTINGS
 " ------------------------------------------------------------------------------
-set autoindent                           " Autoindenting
-set completeopt=longest,menuone,preview  " Show menu and preview window
-set cindent                              " Use auto C-indenting
-set laststatus=2                         " Always show the StatusLine
-set nocompatible                         " Filetype detection works better this way
-set nocursorline                         " No cursorline by default
-set nohidden                             " Closing tabs / windows also closes buffer
-set nonumber                             " No line numbers
-set nowrap                               " Do not wrap lines
-set nopaste                              " Do not disable autoindent etc. when pasting
-set ruler                                " Position info
-set shiftwidth=2                         " Shift width
-set showcmd                              " Show command in StatusLine
-set tabstop=2                            " Tab stop
-set wildmode=longest,list,full           " Bash like path completion
-
-" Toggle cursorline when entering/leaving insert mode
-autocmd InsertEnter,InsertLeave * set cursorline!
-
-" Different settings for active window
-setlocal number
-autocmd BufEnter * setlocal number
-autocmd BufLeave * setlocal nonumber
+set autoindent                   " Autoindenting
+set completeopt=longest,menuone  " Show menu and preview window
+set laststatus=2                 " Always show the StatusLine
+set matchtime=1                  " Show matching bracket for .X seconds
+set matchpairs+=<:>              " Add HTML brackets to matching pairs
+set nocompatible                 " Filetype detection works better this way
+set nocursorline                 " No cursorline by default
+set nohidden                     " Closing tabs / windows also closes buffer
+set nonumber                     " No line numbers
+set nowrap                       " Do not wrap lines
+set nopaste                      " Do not disable autoindent etc. when pasting
+set ruler                        " Position info
+set scrolloff=3                  " Keep a margin of X lines when scrolling
+set shiftwidth=2                 " Shift width
+set showcmd                      " Show command in StatusLine
+set showmatch                    " Show matching brackets
+set smartindent                  " Use smart indenting
+set tabstop=2                    " Tab stop
+set wildmode=longest,list,full   " Bash like path completion
+set wildignore=.svn,*.pyc        " Ignore files in wildmode
 
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
 " ------------------------------------------------------------------------------
-set ignorecase               " Search is case insensitive
 set hlsearch                 " Highlight Search
 set incsearch                " Incremental Search
+set smartcase                " Search using smart case
 set backup                   " Turn on backup
 set backupdir=~/.vim/backup  " Where to put the backup files
 set directory=~/.vim/swap    " Where to put the swap files
@@ -61,15 +58,36 @@ if (&t_Co == 256)
 	set t_Co=256         " Turn on 256-colors
 	set background=dark  " Terminal has dark background
 	colors solarized     " Use solarized color scheme
+	map <leader>C :colors solarized<CR>
 else
 	highlight Comment ctermfg=lightgrey
 endif
 
-" Overlength
-highlight OverLength ctermbg=red ctermfg=white
+" Highlight Invalid Style
+highlight InvalidStyle ctermbg=red ctermfg=lightred
+
+" Change cursor / Toggle cursorline when entering/leaving insert mode
+autocmd InsertEnter,InsertLeave * set cursorline!
+let &t_SI = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " ------------------------------------------------------------------------------
-" SET FILETYPES
+" AUTO COMMANDS
+" ------------------------------------------------------------------------------
+" Different settings for active window
+setlocal number
+autocmd BufEnter * setlocal number
+autocmd BufLeave * setlocal nonumber
+
+" Highlight inline tabs as invalid style
+autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *
+	\ match InvalidStyle /[^\t]\zs\t\+/
+
+" Check for trailing whitespaces / remove them when saving
+autocmd BufWritePre * :%s/\s\+$//e
+
+" ------------------------------------------------------------------------------
+" FILETYPES
 " ------------------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.css
 	\ set filetype=css
@@ -79,8 +97,17 @@ autocmd BufNewFile,BufRead *.markdown,*.mkdn,*.mdown,*.md,*.mkd
 	\ set filetype=markdown
 autocmd BufNewFile,BufRead *.mustache
 	\ set filetype=mustache
+autocmd BufNewFile,BufRead *.sql
+	\ set filetype=mysql
 autocmd BufNewFile,BufRead *.plist
 	\ set filetype=xml
+
+" Easy filetype switching
+nnoremap <LEADER>Th :set filetype=html<CR>
+nnoremap <LEADER>Tj :set filetype=htmljinja<CR>
+nnoremap <LEADER>Tm :set filetype=mysql<CR>
+nnoremap <LEADER>Ts :set filetype=sql<CR>
+
 
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
@@ -89,70 +116,125 @@ autocmd BufNewFile,BufRead *.plist
 map <C-n> :NERDTreeToggle<CR>
 
 " OmniComplete
-autocmd InsertLeave *
-	\ if pumvisible() == 0|pclose|endif
+imap <C-o> <C-x><C-o>
 
 " ZenCoding
 let g:user_zen_leader_key     = '<C-y>'
 let g:user_zen_expandabbr_key = '<C-e>'
 
+" Closetag
+" Usage: <C-_> closes current tag
+let g:closetag_default_xml=1
+autocmd FileType html,htmljinja let b:closetag_html_style=1
+autocmd FileType html,htmljinja,xml source ~/.vim/scripts/closetag.vim
+
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS
 " ------------------------------------------------------------------------------
 " Quick command line access
-map ; :
+noremap ; :
+noremap :: ;
+
+" Yank to end of line
+nmap Y y$
 
 " Save/Quit mappings
-map <leader>s :w<CR>
-map <leader>wa :wa<CR>
-map <leader>wq :wq<CR>
-map <leader>qa :qa<CR>
-map <leader>WW :%!sudo tee > /dev/null %<CR>
+map <LEADER>s :w<CR>
+map <LEADER>wa :wa<CR>
+map <LEADER>wq :wq<CR>
+map <LEADER>qa :qa<CR>
+map <LEADER>qq :q<CR>
+map <LEADER>WW :%!sudo tee > /dev/null %<CR>
 
 " Toggle stuff
-map <leader>H :noh<CR>
-map <leader>N :set wrap! wrap?<CR>
-map <leader>P :set paste! paste?<CR>
-map <leader>R :set number! number?<CR>
+map <LEADER>H :noh<CR>
+map <LEADER>N :set wrap! wrap?<CR>
+map <LEADER>P :set paste! paste?<CR>
+map <LEADER>R :set number! number?<CR>
 
-" Toggle OverLength
-let s:overLengthIsVisible = 1
-fun! ToggleOverLength()
-	if (s:overLengthIsVisible)
-		let s:overLengthIsVisible = 0
+" Toggle InvalidStyle
+let s:invalidStyleIsVisible = 1
+fun! ToggleInvalidStyle()
+	if (s:invalidStyleIsVisible)
+		let s:invalidStyleIsVisible = 0
 		return "set background=dark | colors ".g:colors_name
 	else
-		let s:overLengthIsVisible = 1
-		return "highlight OverLength ctermbg=red ctermfg=white"
+		let s:invalidStyleIsVisible = 1
+		return "highlight InvalidStyle ctermbg=red ctermfg=white"
 	endif
 endf
-map <leader>O :exe ToggleOverLength()<CR>
+map <LEADER>I :exe ToggleInvalidStyle()<CR>
+
+" SmartIndent on blank line
+function! IndentWithI()
+    if len(getline('.')) == 0
+        return "\"_ddO"
+    else
+        return "i"
+    endif
+endfunction
+nnoremap <expr> i IndentWithI()
+
+" Enable numpad
+inoremap <ESC>Oq 1
+inoremap <ESC>Or 2
+inoremap <ESC>Os 3
+inoremap <ESC>Ot 4
+inoremap <ESC>Ou 5
+inoremap <ESC>Ov 6
+inoremap <ESC>Ow 7
+inoremap <ESC>Ox 8
+inoremap <ESC>Oy 9
+inoremap <ESC>Op 0
+inoremap <ESC>On .
+inoremap <ESC>OR *
+inoremap <ESC>OQ /
+inoremap <ESC>Ol +
+inoremap <ESC>OS -
 
 " Folding / Unfolding
-map <leader>f :set foldmethod=indent<CR>zM<CR>
-map <leader>F :set foldmethod=manual<CR>zR<CR>
+map <LEADER>f :set foldmethod=indent<CR>zM<CR>
+map <LEADER>F :set foldmethod=manual<CR>zR<CR>
 
-" OmniComplete
-imap <C-o> <C-x><C-o>
+" Tabs
+nmap <C-h> :tabp<CR>
+nmap <C-l> :tabn<CR>
+nmap <C-t> :tabnew<CR>
 
-" Tabs & Buffers
-map <C-h>   :tabp<CR>
-map <C-l>   :tabn<CR>
-map <C-t>   :tabnew<CR>
-map <right> :bnext<CR>
-map <left>  :bprevious<CR>
+" Buffers
+nmap <RIGHT>    :bnext<CR>
+nmap <LEFT>     :bprevious<CR>
+nmap <LEADER>b  :buffers<CR>:buffer<SPACE>
+nmap <LEADER>BD :bd<CR>
+cmap <ESC>Oq    1
+cmap <ESC>Or    2
+cmap <ESC>Os    3
+cmap <ESC>Ot    4
+cmap <ESC>Ou    5
+cmap <ESC>Ov    6
+cmap <ESC>Ow    7
+cmap <ESC>Ox    8
+cmap <ESC>Oy    9
 
-" Window size adjustments
+" Windows
 map = <C-W>+
 map - <C-W>-
 map _ <C-W><
 map + <C-W>>
-map <leader>\ :vertical resize 85<CR>
+map <LEADER>\ :vertical resize 85<CR>
+nmap WH :leftabove vnew<CR>
+nmap WJ :leftabove new<CR>
+nmap WL :rightbelow vnew<CR>
+nmap WK :rightbelow new<CR>
 
-" Copy to clipboard / Remove leading whitespace
-vmap <C-c> !pbcopy<CR>:undo<CR>
-map <leader><< :%s/^\s\+//g<CR>:noh<CR>
+" Cycle through changelist
+nmap <UP>   g;<CR>
+nmap <DOWN> g,<CR>
+
+" Sessions
+nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
+nmap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
 
 " Edit & reload .vimrc
-map <leader>v :e $MYVIMRC<CR>
-map <leader>V :exec 'tabdo windo source $MYVIMRC'<CR>:noh<CR>
+map <LEADER>v :e $MYVIMRC<CR>
+map <LEADER>V :exec 'tabdo windo source $MYVIMRC'<CR>:noh<CR>
