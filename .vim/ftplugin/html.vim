@@ -1,7 +1,9 @@
 " ------------------------------------------------------------------------------
 " HTML
 " ------------------------------------------------------------------------------
-set noexpandtab  " Tabs are not spaces
+set noexpandtab   " Tabs are not spaces
+set shiftwidth=2  " Shift width
+set tabstop=2     " Tab stop
 
 " ------------------------------------------------------------------------------
 " MATCHTAGS (https://raw.github.com/gregsexton/MatchTag/master/ftplugin/html.vim)
