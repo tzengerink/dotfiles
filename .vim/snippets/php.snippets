@@ -1,13 +1,18 @@
+snippet array
+	array(
+		${2}
+	)${1}
 snippet class
 	class ${1:ClassName} {
 
-		${3:Contents}
+		${3}
 
-	} // End ${2:ClassName}
+	} // End ${2}
 snippet doc
 	/**
 	 * ${1:Comment}
-	 */${2}
+	 */
+	${2}
 snippet docc
 	/**
 	 * ${1:Information}
@@ -15,33 +20,45 @@ snippet docc
 	 * @package   ${2:Package}
 	 * @category  ${3:Category}
 	 * @author    ${4:Author}
-	 */${5}
+	 */
+	${5}
 snippet docf
 	/**
 	 * ${1:Information}
 	 *
-	 * @param   ${2:ParamType}  ${3:ParamInfo}
-	 * @return  ${4:ReturnType} ${5:ReturnInfo}
-	 */${6}
+	 * @param   ${2:ParamType}   ${3:ParamInfo}
+	 * @return  ${4:ReturnType}  ${5:ReturnInfo}
+	 */
+	${6}
 snippet docv
 	/**
 	 * @var  ${1:Type}  ${2:Information}
-	 */${3}
-snippet if
-	if (${1})
+	 */
+	${3}
+snippet elif
+	else if (${1})
 	{
 		${2}
 	}
+	${3}
 snippet else
 	else
 	{
 		${1}
 	}
-snippet elseif
-	else if (${1})
+	${2}
+snippet foreach
+	foreach (${1})
 	{
 		${2}
 	}
+	${3}
+snippet if
+	if (${1})
+	{
+		${2}
+	}
+	${3}
 snippet ife
 	if (${1})
 	{
@@ -51,14 +68,27 @@ snippet ife
 	{
 		${3}
 	}
+	${4}
 snippet phpdef
-	<?php defined('${1:ConstantName}') or die('No direct access allowed.');${2}
+	<?php defined('${1:ConstantName}') or die('No direct access allowed.');
+	${2}
+snippet prifun
+	private function ${1:Name}(${2})
+	{
+		${3}
+	}
+snippet pubfun
+	public function ${1:Name}(${2})
+	{
+		${3}
+	}
 snippet try
 	try
 	{
-		${1:Try}
+		${1}
 	}
-	catch (Exception $e)
+	catch (${2:Exception} $e)
 	{
-		${2:Catch}
+		${3}
 	}
+	${4}
