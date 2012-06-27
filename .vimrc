@@ -125,8 +125,8 @@ let g:user_zen_expandabbr_key = '<C-e>'
 " Closetag
 " Usage: <C-_> closes current tag
 let g:closetag_default_xml=1
-autocmd FileType html,htmljinja let b:closetag_html_style=1
-autocmd FileType html,htmljinja,xml source ~/.vim/scripts/closetag.vim
+autocmd FileType html,htmljinja,php let b:closetag_html_style=1
+autocmd FileType html,htmljinja,php,xml source ~/.vim/scripts/closetag.vim
 
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS
