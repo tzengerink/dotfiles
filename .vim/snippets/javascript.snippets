@@ -1,3 +1,7 @@
+snippet :fun
+	${1:name}: function(${2:params}){
+		${3}
+	}${4:;}
 snippet doc
 	/**
 	 * ${1}
@@ -5,14 +9,16 @@ snippet doc
 snippet fun
 	function(${1}){
 		${2}
-	}${3}
+	}
 snippet if
 	if (${1}) {
 		${1}
-	}${2}
+	}
 snippet ifel
 	if (${1}) {
 		${2}
 	} else {
 		${3}
-	}${4}
+	}
+snippet ter
+	${1:condition} ? ${2} : ${3}
