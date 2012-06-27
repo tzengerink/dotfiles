@@ -52,6 +52,7 @@ alias ss='svn status'
 alias srev='svn st | grep \M | awk "{ print \$2}" | xargs svn revert'
 alias srm='svn st | grep \! | awk "{ print \$2}" | xargs svn rm'
 alias sad='svn st | grep \? | awk "{ print \$2}" | xargs svn add'
+alias slog='svn log | ~/.zsh/scripts/svn-short-log.sh'
 
 # Virtualenv
 alias ve='virtualenv .env'
