@@ -1,5 +1,5 @@
 #!/usr/bin/awk -f
-# https://gist.github.com/1485222
+# Personal modification of https://gist.github.com/1485222
 
 # Convert the "svn log" output into a one liner format, which is easier to grep
 # or use in scripts. Pipe "svn log" into this script
@@ -22,6 +22,6 @@
 # With every separator line, output what we stored before and reset the comment variable
 # To skip the first line we also check if we've already stored a revision
 /^-+$/ && rev {
-   print rev " | " user " | " date " | " time " | " comment
+   print rev "\t" user "\t" date " " time "\t" comment
    comment = ""
 }
