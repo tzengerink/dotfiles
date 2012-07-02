@@ -4,9 +4,9 @@
 " Quick jump to first item starting with X
 function! s:NERDJump(search, backwards)
 	if a:backwards
-		:silent! :exe '?\c\(\~\|+\|-\)'.a:search
+		:silent! :exe '?\c\(|\|`\)\(\~\|+\|-\)'.a:search
 	else
-		:silent! :exe '/\c\(\~\|+\|-\)'.a:search
+		:silent! :exe '/\c\(|\|`\)\(\~\|+\|-\)'.a:search
 	end
 endfunction
 command! -nargs=* NERDJump call s:NERDJump(<f-args>)
