@@ -1,6 +1,8 @@
 " ------------------------------------------------------------------------------
 " NERDTREE
 " ------------------------------------------------------------------------------
+" Ignore some filetypes
+let NerdTreeIgnore = ['\.pyc']
 " Quick jump to first item starting with X
 function! s:NERDJump(search, backwards)
 	if a:backwards
