@@ -27,7 +27,8 @@ set wildignore=.svn,*.pyc        " Ignore files in wildmode
 " ------------------------------------------------------------------------------
 set hlsearch                 " Highlight Search
 set incsearch                " Incremental Search
-set smartcase                " Search using smart case
+set ignorecase               " Ignore cases when searching ..
+set smartcase                " .. unless uppercase in term
 set backup                   " Turn on backup
 set backupdir=~/.vim/backup  " Where to put the backup files
 set directory=~/.vim/swap    " Where to put the swap files
