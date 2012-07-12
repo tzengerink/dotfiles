@@ -174,7 +174,7 @@ function! IndentWithI()
         return "i"
     endif
 endfunction
-nnoremap <expr> i IndentWithI()
+nnoremap <EXPR> i IndentWithI()
 
 " Enable numpad
 inoremap <ESC>Oq 1
