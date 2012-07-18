@@ -1,13 +1,13 @@
 # NAVIGATION
 # ----------
-alias la='ls -A'
 alias l='ls -lh'
+alias la='ls -A'
 alias ll='ls -lah'
 alias lr='ls -lR'              # Recursively list
+alias lsd='ls -l | grep "^d"'  # List directories
+alias lt='ll -rt'              # Sort by date
 alias lx='ll -Bx'              # Sort by extension
 alias lz='ll -rS'              # Sort by size
-alias lt='ll -rt'              # Sort by date
-alias lsd='ls -l | grep "^d"'  # List directories
 alias real='cd $(pwd -P)'      # Go to real path of symlink
 alias ..='up'                  # Alias for the up function
 
@@ -26,43 +26,43 @@ fi
 
 # GIT
 # ---
-alias gcl='git clone'
-alias gl='git pull'
-alias gp='git push'
-alias gd='git diff'
-alias gdd='git difftool'
 alias ga='git add'
+alias gad='git status -s | egrep "^\?\?\ |^\ M\ " | awk "{ print \$2}" | xargs git add'
+alias gb='git checkout -b'
+alias gbd='git branch -d'
 alias gc='git commit'
 alias gca='git commit -a'
-alias gm='git commit -am'
-alias gb='git checkout -b'
-alias gbr='git branch'
-alias gs='git status -s'
-alias gss='git status'
-alias gche='git checkout --'
+alias gch='git checkout'
+alias gcl='git clone'
+alias gd='git diff'
+alias gdd='git difftool'
+alias gl='git pull'
+alias glog='git log --pretty=oneline --graph'
+alias gm='git merge'
+alias gp='git push'
 alias grev='git reset -q --hard HEAD'
 alias grm='git status | grep deleted | awk "{ print \$3}" | xargs git rm'
-alias gad='git status -s | egrep "^\?\?\ |^\ M\ " | awk "{ print \$2}" | xargs git add'
-alias glog='git log --pretty=oneline --graph'
+alias gs='git status -s'
+alias gss='git status'
 
 # SUBVERSION
 # ----------
-alias sco='svn checkout'
-alias sup='svn update'
 alias sa='svn add'
+alias sad='svn st | grep \? | awk "{ print \$2}" | xargs svn add'
 alias sci='svn commit'
 alias scm='svn commit -m'
+alias sco='svn checkout'
 alias sd='svn diff'
 alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
-alias ss='svn status'
 alias srev='svn st | grep \M | awk "{ print \$2}" | xargs svn revert'
 alias srm='svn st | grep \! | awk "{ print \$2}" | xargs svn rm'
-alias sad='svn st | grep \? | awk "{ print \$2}" | xargs svn add'
+alias ss='svn status'
+alias sup='svn update'
 
 # VIRTUALENV
 # ----------
-alias ve='virtualenv .env'
 alias ve2='virtualenv .env --python=python2'
+alias ve='virtualenv .env'
 alias vea='source .env/bin/activate'
 alias ved='deactivate'
 
@@ -71,9 +71,9 @@ alias ved='deactivate'
 alias cleanup='find . -type f -name ".DS_Store" -delete'
 alias df='df -h'
 alias dirtree='find . -not \( -type d -name .svn -prune \) -print | sed -e "s;[^/]*/;|___;g;s;___|; |;g"'
-alias dwn='curl -O'
-alias du='du -c -h'
 alias du1='du -d 1'
+alias du='du -c -h'
+alias dwn='curl -O'
 alias extip='curl ifconfig.me/ip'
 alias fn='find . -name'
 alias hi='history -d | tail -20'

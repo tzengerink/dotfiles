@@ -13,6 +13,9 @@
 [http]
 	sslVerify = false
 
+[merge]
+	tool = vimdiff
+
 [user]
 	name = T. Zengerink
 	email = t.zengerink@gmail.com
