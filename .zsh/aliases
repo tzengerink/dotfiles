@@ -1,4 +1,5 @@
-# Navigation
+# NAVIGATION
+# ----------
 alias la='ls -A'
 alias l='ls -lh'
 alias ll='ls -lah'
@@ -10,18 +11,21 @@ alias lsd='ls -l | grep "^d"'  # List directories
 alias real='cd $(pwd -P)'      # Go to real path of symlink
 alias ..='up'                  # Alias for the up function
 
-# OSX Specific
+# OSX SPECIFIC
+# ------------
 if [[ $(uname) == Darwin ]]; then
 	alias locip='ipconfig getifaddr en0'
 fi
 
-# Linux Specific
+# LINUX SPECIFIC
+# --------------
 if [[ $(uname) == Linux ]]; then
 	alias ls='ls --color=auto --group-directories-first'
 	alias locip='ip addr show eth0 | egrep "inet\ " | awk "{ print \$2}" | sed "s#/[0-9]*##g"'
 fi
 
-# Git
+# GIT
+# ---
 alias gcl='git clone'
 alias gl='git pull'
 alias gp='git push'
@@ -31,7 +35,8 @@ alias ga='git add'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gm='git commit -am'
-alias gb='git branch'
+alias gb='git checkout -b'
+alias gbr='git branch'
 alias gs='git status -s'
 alias gss='git status'
 alias gche='git checkout --'
@@ -40,7 +45,8 @@ alias grm='git status | grep deleted | awk "{ print \$3}" | xargs git rm'
 alias gad='git status -s | egrep "^\?\?\ |^\ M\ " | awk "{ print \$2}" | xargs git add'
 alias glog='git log --pretty=oneline --graph'
 
-# Subversion
+# SUBVERSION
+# ----------
 alias sco='svn checkout'
 alias sup='svn update'
 alias sa='svn add'
@@ -53,13 +59,15 @@ alias srev='svn st | grep \M | awk "{ print \$2}" | xargs svn revert'
 alias srm='svn st | grep \! | awk "{ print \$2}" | xargs svn rm'
 alias sad='svn st | grep \? | awk "{ print \$2}" | xargs svn add'
 
-# Virtualenv
+# VIRTUALENV
+# ----------
 alias ve='virtualenv .env'
 alias ve2='virtualenv .env --python=python2'
 alias vea='source .env/bin/activate'
 alias ved='deactivate'
 
-# Other
+# OTHER
+# -----
 alias cleanup='find . -type f -name ".DS_Store" -delete'
 alias df='df -h'
 alias dirtree='find . -not \( -type d -name .svn -prune \) -print | sed -e "s;[^/]*/;|___;g;s;___|; |;g"'
