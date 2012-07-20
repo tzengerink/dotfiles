@@ -1,6 +1,7 @@
 " ------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
+
 set autoindent                   " Autoindenting
 set completeopt=longest,menuone  " Show menu and preview window
 set foldlevel=1                  " Use X leves of folding
@@ -29,6 +30,7 @@ set wildmode=longest,list,full   " Bash like path completion
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
 " ------------------------------------------------------------------------------
+
 set hlsearch                 " Highlight Search
 set incsearch                " Incremental Search
 set ignorecase               " Ignore cases when searching ..
@@ -40,6 +42,7 @@ set directory=~/.vim/swap    " Where to put the swap files
 " ------------------------------------------------------------------------------
 " STATUS LINE
 " ------------------------------------------------------------------------------
+
 set statusline=%F                                  " Filename and path
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},  " File encoding
 set statusline+=%{&ff}]                            " File format
@@ -54,6 +57,7 @@ set statusline+=\ %P                               " Percent through file
 " ------------------------------------------------------------------------------
 " SYNTAX SETTINGS
 " ------------------------------------------------------------------------------
+
 syntax on           " Turn on syntax highlighting
 filetype on         " Turn on filetype detection
 filetype plugin on  " Causes errors in filetype detection
@@ -79,6 +83,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
+
 " Different settings for active window
 setlocal number
 autocmd BufEnter * setlocal number
@@ -94,6 +99,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " ------------------------------------------------------------------------------
 " FILETYPES
 " ------------------------------------------------------------------------------
+
 autocmd BufNewFile,BufRead *.css
 	\ set filetype=css
 autocmd BufNewFile,BufRead *.html,*.htm
@@ -113,12 +119,12 @@ nnoremap <LEADER>Tj :set filetype=htmljinja<CR>
 nnoremap <LEADER>Tm :set filetype=mysql<CR>
 nnoremap <LEADER>Ts :set filetype=sql<CR>
 
-
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
+
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
 
 " OmniComplete
 imap <C-o> <C-x><C-o>
@@ -134,28 +140,8 @@ autocmd FileType html,htmljinja,php let b:closetag_html_style=1
 autocmd FileType html,htmljinja,php,xml source ~/.vim/scripts/closetag.vim
 
 " ------------------------------------------------------------------------------
-" KEY MAPPINGS
+" FUNCTIONS
 " ------------------------------------------------------------------------------
-" Quick command line access
-noremap ; :
-noremap :: ;
-
-" Yank to end of line
-nmap Y y$
-
-" Save/Quit mappings
-map <LEADER>s :w<CR>
-map <LEADER>wa :wa<CR>
-map <LEADER>wq :wq<CR>
-map <LEADER>qa :qa<CR>
-map <LEADER>qq :q<CR>
-map <LEADER>WW :%!sudo tee > /dev/null %<CR>
-
-" Toggle stuff
-map <LEADER>H :noh<CR>
-map <LEADER>N :set wrap! wrap?<CR>
-map <LEADER>P :set paste! paste?<CR>
-map <LEADER>R :set number! number?<CR>
 
 " Toggle InvalidStyle
 let s:invalidStyleIsVisible = 1
@@ -168,7 +154,6 @@ fun! ToggleInvalidStyle()
 		return "highlight InvalidStyle ctermbg=red ctermfg=white"
 	endif
 endf
-map <LEADER>I :exe ToggleInvalidStyle()<CR>
 
 " SmartIndent on blank line
 function! IndentWithI()
@@ -178,7 +163,98 @@ function! IndentWithI()
         return "i"
     endif
 endfunction
+
+" ------------------------------------------------------------------------------
+" KEY MAPPINGS (NORMAL MODE)
+" ------------------------------------------------------------------------------
+
+" Quick command line access
+noremap ; :
+noremap :: ;
+
+" Yank to end of line
+nmap Y y$
+
+" SmartIndent on blank line
 nnoremap <EXPR> i IndentWithI()
+
+" Save/Quit mappings
+nmap <LEADER>s  :w<CR>
+nmap <LEADER>wa :wa<CR>
+nmap <LEADER>wq :wq<CR>
+nmap <LEADER>qa :qa<CR>
+nmap <LEADER>qq :q<CR>
+nmap <LEADER>WW :%!sudo tee > /dev/null %<CR>
+
+" Toggle stuff
+nmap <LEADER>H :noh<CR>
+nmap <LEADER>N :set wrap! wrap?<CR>
+nmap <LEADER>P :set paste! paste?<CR>
+nmap <LEADER>R :set number! number?<CR>
+nmap <LEADER>I :exe ToggleInvalidStyle()<CR>
+
+" Folding / Unfolding
+nmap <LEADER>f      :set foldmethod=marker<CR>zM<CR>
+nmap <LEADER>F      :set foldmethod=marker<CR>zR<CR>
+nmap <SPACE>        @=(foldlevel('.')?'zA':'')<CR>
+nmap <SPACE><SPACE> @=(foldlevel('.')?'za':'')<CR>
+
+" Tabs
+nmap <C-h> :tabp<CR>
+nmap <C-l> :tabn<CR>
+nmap <C-t> :tabnew<CR>
+
+" Buffers
+nmap <RIGHT>    :bnext<CR>
+nmap <LEFT>     :bprevious<CR>
+nmap <LEADER>b  :buffers<CR>:buffer<SPACE>
+nmap <LEADER>BD :bd<CR>
+
+" Windows
+nmap =         <C-W>+
+nmap -         <C-W>-
+nmap _         <C-W><
+nmap +         <C-W>>
+nmap WH        :leftabove vnew<CR>
+nmap WJ        :leftabove new<CR>
+nmap WL        :rightbelow vnew<CR>
+nmap WK        :rightbelow new<CR>
+nmap <LEADER>\ :vertical resize 85<CR>
+
+" Cycle through changelist
+nmap <UP>   g;<CR>
+nmap <DOWN> g,<CR>
+
+" Sessions
+nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
+nmap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
+
+" Quick `.vimrc` handling
+nmap <LEADER>v :e $MYVIMRC<CR>
+nmap <LEADER>V :exec 'tabdo windo source $MYVIMRC'<CR>:noh<CR>
+
+" ------------------------------------------------------------------------------
+" KEY MAPPINGS (VISUAL MODE)
+" ------------------------------------------------------------------------------
+
+" Sort visual selection
+vnoremap <LEADER>s :sort<CR>
+
+" Search visual selection
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+" ------------------------------------------------------------------------------
+" KEY MAPPINGS (INSERT MODE)
+" ------------------------------------------------------------------------------
 
 " Enable numpad
 inoremap <ESC>Oq 1
@@ -197,63 +273,22 @@ inoremap <ESC>OQ /
 inoremap <ESC>Ol +
 inoremap <ESC>OS -
 
-" Folding / Unfolding
-nmap <LEADER>f :set foldmethod=marker<CR>zM<CR>
-nmap <LEADER>F :set foldmethod=marker<CR>zR<CR>
-nmap <SPACE> @=(foldlevel('.')?'zA':'')<CR>
-nmap <SPACE><SPACE> @=(foldlevel('.')?'za':'')<CR>
+" ------------------------------------------------------------------------------
+" KEY MAPPINGS (COMMAND MODE)
+" ------------------------------------------------------------------------------
 
-" Tabs
-nmap <C-h> :tabp<CR>
-nmap <C-l> :tabn<CR>
-nmap <C-t> :tabnew<CR>
-
-" Buffers
-nmap <RIGHT>    :bnext<CR>
-nmap <LEFT>     :bprevious<CR>
-nmap <LEADER>b  :buffers<CR>:buffer<SPACE>
-nmap <LEADER>BD :bd<CR>
-cmap <ESC>Oq    1
-cmap <ESC>Or    2
-cmap <ESC>Os    3
-cmap <ESC>Ot    4
-cmap <ESC>Ou    5
-cmap <ESC>Ov    6
-cmap <ESC>Ow    7
-cmap <ESC>Ox    8
-cmap <ESC>Oy    9
-
-" Windows
-map = <C-W>+
-map - <C-W>-
-map _ <C-W><
-map + <C-W>>
-map <LEADER>\ :vertical resize 85<CR>
-nmap WH :leftabove vnew<CR>
-nmap WJ :leftabove new<CR>
-nmap WL :rightbelow vnew<CR>
-nmap WK :rightbelow new<CR>
-
-" Cycle through changelist
-nmap <UP>   g;<CR>
-nmap <DOWN> g,<CR>
-
-" Search visual selection
-vnoremap <silent> * :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy/<C-R><C-R>=substitute(
-  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-
-" Sessions
-nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
-nmap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
-
-" Edit & reload .vimrc
-map <LEADER>v :e $MYVIMRC<CR>
-map <LEADER>V :exec 'tabdo windo source $MYVIMRC'<CR>:noh<CR>
+" Enable numpad
+cmap <ESC>Oq 1
+cmap <ESC>Or 2
+cmap <ESC>Os 3
+cmap <ESC>Ot 4
+cmap <ESC>Ou 5
+cmap <ESC>Ov 6
+cmap <ESC>Ow 7
+cmap <ESC>Ox 8
+cmap <ESC>Oy 9
+cmap <ESC>On .
+cmap <ESC>OR *
+cmap <ESC>OQ /
+cmap <ESC>Ol +
+cmap <ESC>OS -
