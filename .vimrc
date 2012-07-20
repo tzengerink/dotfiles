@@ -6,7 +6,9 @@ set autoindent                   " Autoindenting
 set completeopt=longest,menuone  " Show menu and preview window
 set foldlevel=1                  " Use X leves of folding
 set foldmarker={,}               " Set brackets as default fold marker
-set foldmethod=marker            " Fold by marker
+set foldmethod=indent            " Fold by marker
+set foldminlines=3               " Do not fold when less then X lines
+set foldnestmax=2                " Maximum of X nested folds
 set laststatus=2                 " Always show the StatusLine
 set matchpairs+=<:>              " Add HTML brackets to matching pairs
 set matchtime=1                  " Show matching bracket for .X seconds
@@ -72,8 +74,10 @@ else
 	highlight Comment ctermfg=lightgrey
 endif
 
-" Highlight Invalid Style
+" Highlight Invalid Style (not for help files)
 highlight InvalidStyle ctermbg=red ctermfg=lightred
+autocmd FileType help
+	\ highlight InvalidStyle ctermbg=bg ctermfg=fg
 
 " Change cursor / Toggle cursorline when entering/leaving insert mode
 autocmd InsertEnter,InsertLeave * set cursorline!
@@ -194,15 +198,15 @@ nmap <LEADER>R :set number! number?<CR>
 nmap <LEADER>I :exe ToggleInvalidStyle()<CR>
 
 " Folding / Unfolding
-nmap <LEADER>f      :set foldmethod=marker<CR>zM<CR>
-nmap <LEADER>F      :set foldmethod=marker<CR>zR<CR>
-nmap <SPACE>        @=(foldlevel('.')?'zA':'')<CR>
-nmap <SPACE><SPACE> @=(foldlevel('.')?'za':'')<CR>
+nmap <LEADER>f       zM
+nmap <LEADER>F       zR
+nmap <SPACE>         za
+nmap <LEADER><SPACE> zMzv
 
 " Tabs
-nmap <C-h> :tabp<CR>
-nmap <C-l> :tabn<CR>
-nmap <C-t> :tabnew<CR>
+nmap <C-H> :tabp<CR>
+nmap <C-L> :tabn<CR>
+nmap <C-J> :tabnew<CR>
 
 " Buffers
 nmap <RIGHT>    :bnext<CR>
@@ -211,15 +215,16 @@ nmap <LEADER>b  :buffers<CR>:buffer<SPACE>
 nmap <LEADER>BD :bd<CR>
 
 " Windows
-nmap =         <C-W>+
-nmap -         <C-W>-
-nmap _         <C-W><
-nmap +         <C-W>>
-nmap WH        :leftabove vnew<CR>
-nmap WJ        :leftabove new<CR>
-nmap WL        :rightbelow vnew<CR>
-nmap WK        :rightbelow new<CR>
-nmap <LEADER>\ :vertical resize 85<CR>
+nmap =          <C-W>+
+nmap -          <C-W>-
+nmap _          <C-W><
+nmap +          <C-W>>
+nmap WH         :leftabove vnew<CR>
+nmap WJ         :leftabove new<CR>
+nmap WL         :rightbelow vnew<CR>
+nmap WK         :rightbelow new<CR>
+nmap <LEADER>\  :vertical resize 85<CR>
+nmap <LEADER>\\ <C-W>=
 
 " Cycle through changelist
 nmap <UP>   g;<CR>
