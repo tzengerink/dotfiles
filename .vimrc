@@ -3,15 +3,19 @@
 " ------------------------------------------------------------------------------
 set autoindent                   " Autoindenting
 set completeopt=longest,menuone  " Show menu and preview window
+set foldlevel=1                  " Use X leves of folding
+set foldmarker={,}               " Set brackets as default fold marker
+set foldmethod=marker            " Fold by marker
 set laststatus=2                 " Always show the StatusLine
-set matchtime=1                  " Show matching bracket for .X seconds
 set matchpairs+=<:>              " Add HTML brackets to matching pairs
+set matchtime=1                  " Show matching bracket for .X seconds
 set nocompatible                 " Filetype detection works better this way
 set nocursorline                 " No cursorline by default
+set nofoldenable                 " Don't fold by default
 set nohidden                     " Closing tabs / windows also closes buffer
 set nonumber                     " No line numbers
-set nowrap                       " Do not wrap lines
 set nopaste                      " Do not disable autoindent etc. when pasting
+set nowrap                       " Do not wrap lines
 set ruler                        " Position info
 set scrolloff=3                  " Keep a margin of X lines when scrolling
 set shiftwidth=2                 " Shift width
@@ -19,8 +23,8 @@ set showcmd                      " Show command in StatusLine
 set showmatch                    " Show matching brackets
 set smartindent                  " Use smart indenting
 set tabstop=2                    " Tab stop
-set wildmode=longest,list,full   " Bash like path completion
 set wildignore=.svn,*.pyc        " Ignore files in wildmode
+set wildmode=longest,list,full   " Bash like path completion
 
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
@@ -194,8 +198,10 @@ inoremap <ESC>Ol +
 inoremap <ESC>OS -
 
 " Folding / Unfolding
-map <LEADER>f :set foldmethod=indent<CR>zM<CR>
-map <LEADER>F :set foldmethod=manual<CR>zR<CR>
+nmap <LEADER>f :set foldmethod=marker<CR>zM<CR>
+nmap <LEADER>F :set foldmethod=marker<CR>zR<CR>
+nmap <SPACE> @=(foldlevel('.')?'zA':'')<CR>
+nmap <SPACE><SPACE> @=(foldlevel('.')?'za':'')<CR>
 
 " Tabs
 nmap <C-h> :tabp<CR>
@@ -231,6 +237,18 @@ nmap WK :rightbelow new<CR>
 " Cycle through changelist
 nmap <UP>   g;<CR>
 nmap <DOWN> g,<CR>
+
+" Search visual selection
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " Sessions
 nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
