@@ -56,7 +56,7 @@ alias sd='svn diff'
 alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
 alias srev='svn st | grep \M | awk "{ print \$2}" | xargs svn revert'
 alias srm='svn st | grep \! | awk "{ print \$2}" | xargs svn rm'
-alias ss='svn status'
+alias ss='~/.zsh/scripts/svn-color.py status'
 alias sup='svn update'
 
 # VIRTUALENV
