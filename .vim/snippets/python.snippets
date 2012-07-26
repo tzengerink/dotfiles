@@ -1,0 +1,43 @@
+snippet #!
+	#!/usr/bin/env python
+snippet _
+	__${1:init}__${2}
+snippet class
+	class ${1:ClassName}(${2:object}):
+		"""${3:Docstring}"""
+		${4}
+snippet def
+	def ${1:name}(${2:`indent('.') ? 'self' : ''`}):
+		"""${3:docstring}"""
+		${4:pass}
+snippet el
+	else:
+		${1}
+snippet for
+	for ${1:needle} in ${2:haystack}:
+		${3:pass}
+snippet from
+	from ${1:module} import ${2:object}
+snippet if
+	if ${1:condition}:
+		${2}
+snippet ifel
+	if ${1:condition}:
+		${2}
+	else:
+		${3}
+snippet imp
+	import ${1:module}
+snippet ter
+	${1} if ${2:condition} else ${2}
+snippet main
+	def main():
+		${1:pass}
+
+	if __name__ == '__main__':
+		main()
+snippet utf8
+	# -*- coding: utf-8 -*-
+snippet wh
+	while ${1:condition}
+		${2:pass}

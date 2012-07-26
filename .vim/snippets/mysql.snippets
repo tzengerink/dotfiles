@@ -1,0 +1,17 @@
+snippet create
+	CREATE TABLE IF NOT EXISTS ${1} (
+		${2}
+	)
+	ENGINE = InnoDB
+	DEFAULT CHARSET = utf8;
+snippet constraint
+	ADD CONSTRAINT ${1}
+		FOREIGN KEY (${2})
+		REFERENCES ${3} (${4})
+		ON DELETE CASCADE${5}
+snippet drop
+	DROP TABLE IF EXISTS ${1};
+snippet insert
+	INSERT INTO ${1} (${2}) VALUES
+		(${3})${4};
+

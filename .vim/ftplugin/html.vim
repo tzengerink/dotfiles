@@ -1,11 +1,16 @@
 " ------------------------------------------------------------------------------
-" HTML
+" GENERAL SETTINGS
 " ------------------------------------------------------------------------------
-set noexpandtab  " Tabs are not spaces
+
+set foldnestmax=4 " Maximum of X nested folds
+set noexpandtab   " Tabs are not spaces
+set shiftwidth=2  " Shift width
+set tabstop=2     " Tab stop
 
 " ------------------------------------------------------------------------------
 " MATCHTAGS (https://raw.github.com/gregsexton/MatchTag/master/ftplugin/html.vim)
 " ------------------------------------------------------------------------------
+
 if exists("b:did_ftplugin")
     finish
 endif
