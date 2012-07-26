@@ -47,14 +47,15 @@ alias gss='git status'
 
 # SUBVERSION
 # ----------
-alias sa='svn add'
+alias sa='~/.zsh/scripts/svn-color.py add'
 alias sad='svn st | grep \? | awk "{ print \$2}" | xargs svn add'
 alias sci='svn commit'
 alias scm='svn commit -m'
 alias sco='svn checkout'
-alias sd='svn diff'
+alias sd='~/.zsh/scripts/svn-color.py diff'
 alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
 alias srev='svn st | grep \M | awk "{ print \$2}" | xargs svn revert'
+alias sr='~/.zsh/scripts/svn-color.py remove'
 alias srm='svn st | grep \! | awk "{ print \$2}" | xargs svn rm'
 alias ss='~/.zsh/scripts/svn-color.py status'
 alias sup='svn update'
