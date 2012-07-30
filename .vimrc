@@ -9,7 +9,6 @@ set matchpairs+=<:>              " Add HTML brackets to matching pairs
 set matchtime=1                  " Show matching bracket for .X seconds
 set nocompatible                 " Filetype detection works better this way
 set nocursorline                 " No cursorline by default
-set nofoldenable                 " Don't fold by default
 set nohidden                     " Closing tabs / windows also closes buffer
 set nonumber                     " No line numbers
 set nopaste                      " Do not disable autoindent etc. when pasting
@@ -28,9 +27,8 @@ set wildmode=longest,list,full   " Bash like path completion
 " FOLDING SETTINGS
 " ------------------------------------------------------------------------------
 
-set foldclose=all      " Close all folds
+set foldenable         " (Don't) fold by default (foldenable / nofoldenable)
 set foldlevel=1        " Use X levels of folding
-set foldlevelstart=1   " Start folding at level X
 set foldmarker={,}     " Set brackets as default fold marker
 set foldmethod=indent  " Fold by marker
 set foldminlines=3     " Do not fold when less then X lines
