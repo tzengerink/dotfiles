@@ -4,11 +4,6 @@
 
 set autoindent                   " Autoindenting
 set completeopt=longest,menuone  " Show menu and preview window
-set foldlevel=1                  " Use X leves of folding
-set foldmarker={,}               " Set brackets as default fold marker
-set foldmethod=indent            " Fold by marker
-set foldminlines=3               " Do not fold when less then X lines
-set foldnestmax=2                " Maximum of X nested folds
 set laststatus=2                 " Always show the StatusLine
 set matchpairs+=<:>              " Add HTML brackets to matching pairs
 set matchtime=1                  " Show matching bracket for .X seconds
@@ -28,6 +23,18 @@ set smartindent                  " Use smart indenting
 set tabstop=2                    " Tab stop
 set wildignore=.svn,*.pyc        " Ignore files in wildmode
 set wildmode=longest,list,full   " Bash like path completion
+
+" ------------------------------------------------------------------------------
+" FOLDING SETTINGS
+" ------------------------------------------------------------------------------
+
+set foldclose=all      " Close all folds
+set foldlevel=1        " Use X levels of folding
+set foldlevelstart=1   " Start folding at level X
+set foldmarker={,}     " Set brackets as default fold marker
+set foldmethod=indent  " Fold by marker
+set foldminlines=3     " Do not fold when less then X lines
+set foldnestmax=2      " Maximum of X nested folds
 
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
