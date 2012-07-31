@@ -26,6 +26,7 @@ statusColors = {
     "D"  : "31",    # bold red
     "M"  : "31",    # red
     "X"  : "37",    # grey
+    "\!" : "33",    # yellow
     "\+" : "32",    # green
     "\?" : "33",    # yellow
 }
