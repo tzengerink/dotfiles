@@ -181,6 +181,9 @@
 	noremap ; :
 	noremap :: ;
 
+	" Open file in default application
+	nmap <C-O> :! open %<CR><CR>
+
 	" Yank to end of line
 	nmap Y y$
 
