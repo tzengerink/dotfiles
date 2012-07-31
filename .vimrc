@@ -31,7 +31,7 @@
 	set foldlevel=1        " Use X levels of folding
 	set foldmarker={,}     " Set brackets as default fold marker
 	set foldmethod=indent  " Fold by marker
-	set foldminlines=0     " Do not fold when less then X lines
+	set foldminlines=1     " Do not fold when less then X lines
 	set foldnestmax=2      " Maximum of X nested folds
 
 " ------------------------------------------------------------------------------
