@@ -74,7 +74,7 @@
 		set t_Co=256         " Turn on 256-colors
 		set background=dark  " Terminal has dark background
 		colors solarized     " Use solarized color scheme
-		map <leader>C :colors solarized<CR>
+		nmap <LEADER>C :colors solarized<CR>
 	else
 		highlight Comment ctermfg=lightgrey
 	endif
