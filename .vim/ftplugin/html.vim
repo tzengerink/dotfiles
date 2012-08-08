@@ -8,9 +8,10 @@
 	set tabstop=2     " Tab stop
 
 " ------------------------------------------------------------------------------
-" MATCHTAGS (https://raw.github.com/gregsexton/MatchTag/master/ftplugin/html.vim)
+" FUNCTIONS
 " ------------------------------------------------------------------------------
 
+	" MATCHTAGS (https://raw.github.com/gregsexton/MatchTag/master/ftplugin/html.vim)
 	if exists("b:did_ftplugin")
 			finish
 	endif
