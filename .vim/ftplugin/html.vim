@@ -2,10 +2,15 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	set foldnestmax=4 " Maximum of X nested folds
 	set noexpandtab   " Tabs are not spaces
 	set shiftwidth=2  " Shift width
 	set tabstop=2     " Tab stop
+
+" ------------------------------------------------------------------------------
+" FOLDING SETTINGS
+" ------------------------------------------------------------------------------
+
+	set foldnestmax=3 " Maximum of X nested folds
 
 " ------------------------------------------------------------------------------
 " FUNCTIONS
