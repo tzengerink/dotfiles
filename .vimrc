@@ -97,6 +97,10 @@
 	autocmd BufEnter * setlocal number
 	autocmd BufLeave * setlocal nonumber
 
+	" Auto repeat comments
+	autocmd FileType * set formatoptions=croql
+	autocmd FileType * set comments=s1:/*,mb:*,ex:*/
+
 	" Highlight inline tabs as invalid style
 	autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *
 		\ match InvalidStyle /[^\t]\zs\t\+/
