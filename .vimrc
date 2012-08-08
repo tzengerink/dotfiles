@@ -30,7 +30,7 @@
 	set foldenable         " (Don't) fold by default (foldenable / nofoldenable)
 	set foldlevel=1        " Use X levels of folding
 	set foldmarker={,}     " Set brackets as default fold marker
-	set foldmethod=indent  " Fold by marker
+	set foldmethod=indent  " Method of folding
 	set foldminlines=1     " Do not fold when less then X lines
 	set foldnestmax=2      " Maximum of X nested folds
 
@@ -74,7 +74,6 @@
 		set t_Co=256         " Turn on 256-colors
 		set background=dark  " Terminal has dark background
 		colors solarized     " Use solarized color scheme
-		nmap <LEADER>C :colors solarized<CR>
 	else
 		highlight Comment ctermfg=lightgrey
 	endif
@@ -199,11 +198,12 @@
 	nmap <LEADER>WW :%!sudo tee > /dev/null %<CR>
 
 	" Toggle stuff
+	nmap <LEADER>C :colors solarized<CR>
 	nmap <LEADER>H :noh<CR>
+	nmap <LEADER>I :exe ToggleInvalidStyle()<CR>
 	nmap <LEADER>N :set wrap! wrap?<CR>
 	nmap <LEADER>P :set paste! paste?<CR>
 	nmap <LEADER>R :set number! number?<CR>
-	nmap <LEADER>I :exe ToggleInvalidStyle()<CR>
 
 	" Folding / Unfolding
 	nmap <LEADER>f       zM
