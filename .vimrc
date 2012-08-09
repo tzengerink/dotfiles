@@ -97,9 +97,12 @@
 	autocmd BufEnter * setlocal number
 	autocmd BufLeave * setlocal nonumber
 
-	" Auto repeat comments
+	" Repeat comments
 	autocmd FileType * set formatoptions=croql
 	autocmd FileType * set comments=s1:/*,mb:*,ex:*/
+
+	" Change directory
+	autocmd BufEnter * silent! lcd %:p:h
 
 	" Highlight inline tabs as invalid style
 	autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *

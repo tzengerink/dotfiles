@@ -1,3 +1,7 @@
+snippet /**
+	/**
+	 * ${1:Comment}
+	 */${2}
 snippet array
 	array(
 		${2}
@@ -10,32 +14,13 @@ snippet class
 	} // End ${2}
 snippet doc
 	/**
-	 * ${1:Comment}
-	 */
-	${2}
-snippet docc
-	/**
 	 * ${1:Information}
 	 *
 	 * @package    ${2:Package}
 	 * @category   ${3:Category}
 	 * @author     ${4:T. Zengerink}
 	 * @copyright  (c) ${5:T. Zengerink}
-	 */
-	${6}
-snippet docf
-	/**
-	 * ${1:Information}
-	 *
-	 * @param   ${2:ParamType}   ${3:ParamInfo}
-	 * @return  ${4:ReturnType}  ${5:ReturnInfo}
-	 */
-	${6}
-snippet docv
-	/**
-	 * @var  ${1:Type}  ${2:Information}
-	 */
-	${3}
+	 */${6}
 snippet elif
 	else if (${1})
 	{
