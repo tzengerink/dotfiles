@@ -24,6 +24,7 @@ alias ..='up'                  # Alias for the up function
 # ------------
 
 if [[ $(uname) == Darwin ]]; then
+	alias cleanup='find . -type f -name ".DS_Store" -delete'
 	alias locip='ipconfig getifaddr en0'
 fi
 
@@ -31,8 +32,8 @@ fi
 # --------------
 
 if [[ $(uname) == Linux ]]; then
-	alias ls='ls --color=auto --group-directories-first'
 	alias locip='ip addr show eth0 | egrep "inet\ " | awk "{ print \$2}" | sed "s#/[0-9]*##g"'
+	alias ls='ls --color=auto --group-directories-first'
 fi
 
 # GIT
@@ -83,7 +84,6 @@ alias ved='deactivate'
 # OTHER
 # -----
 
-alias cleanup='find . -type f -name ".DS_Store" -delete'
 alias df='df -h'
 alias dirtree='find . -not \( -type d -name .svn -prune \) -print | sed -e "s;[^/]*/;|___;g;s;___|; |;g"'
 alias du1='du -d 1'
