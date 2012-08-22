@@ -23,8 +23,9 @@
 " KEY MAPPINGS (NORMAL MODE)
 " ------------------------------------------------------------------------------
 
-	" Faster opening of directories
-	nmap <buffer> <SPACE> o
+	" Faster opening of directories/files
+	nmap <buffer> <SPACE>   o
+	nmap <buffer> <LEADER>x PX
 
 	" Search forwards
 	nmap <buffer> na :NERDJump a 0<CR>
@@ -81,5 +82,3 @@
 	nmap <buffer> Nx :NERDJump x 1<CR>
 	nmap <buffer> Ny :NERDJump y 1<CR>
 	nmap <buffer> Nz :NERDJump z 1<CR>
-
-
