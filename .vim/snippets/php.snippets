@@ -25,26 +25,22 @@ snippet elif
 	else if (${1})
 	{
 		${2}
-	}
-	${3}
+	}${3}
 snippet else
 	else
 	{
 		${1}
-	}
-	${2}
+	}${2}
 snippet foreach
 	foreach (${1})
 	{
 		${2}
-	}
-	${3}
+	}${3}
 snippet if
 	if (${1})
 	{
 		${2}
-	}
-	${3}
+	}${3}
 snippet ifel
 	if (${1})
 	{
@@ -53,8 +49,7 @@ snippet ifel
 	else
 	{
 		${3}
-	}
-	${4}
+	}${4}
 snippet p
 	<?php ${1:echo}${2} ?>
 snippet phpdef
@@ -64,22 +59,22 @@ snippet prif
 	private function ${1:Name}(${2})
 	{
 		${3}
-	}
+	}${4}
 snippet prof
 	protected function ${1:Name}(${2})
 	{
 		${3}
-	}
+	}${4}
 snippet pf
 	public function ${1:Name}(${2})
 	{
 		${3}
-	}
+	}${4}
 snippet psf
 	public static function ${1:Name}(${2})
 	{
 		${3}
-	}
+	}${4}
 snippet ter
 	${1} ? ${2} : ${3}
 snippet try
@@ -90,5 +85,4 @@ snippet try
 	catch (${2:Exception} $e)
 	{
 		${3}
-	}
-	${4}
+	}${4}
