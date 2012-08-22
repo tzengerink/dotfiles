@@ -2,6 +2,8 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
+	setlocal norelativenumber  " No relative numbers
+
 	" Ignore some filetypes
 	let NerdTreeIgnore = ['\.pyc']
 

@@ -52,4 +52,6 @@ fi
 # MACHINE SPECIFIC COMMANDS
 # -------------------------
 
+[[ $(uname) == Darwin ]] && source ~/.darwinrc
+[[ $(uname) == Linux ]] && source ~/.linuxrc
 [[ -f ~/.localrc ]] && source ~/.localrc

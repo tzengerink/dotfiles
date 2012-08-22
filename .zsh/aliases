@@ -20,22 +20,6 @@ alias lz='ll -rS'              # Sort by size
 alias real='cd $(pwd -P)'      # Go to real path of symlink
 alias ..='up'                  # Alias for the up function
 
-# OSX SPECIFIC
-# ------------
-
-if [[ $(uname) == Darwin ]]; then
-	alias cleanup='find . -type f -name ".DS_Store" -delete'
-	alias locip='ipconfig getifaddr en0'
-fi
-
-# LINUX SPECIFIC
-# --------------
-
-if [[ $(uname) == Linux ]]; then
-	alias locip='ip addr show eth0 | egrep "inet\ " | awk "{ print \$2}" | sed "s#/[0-9]*##g"'
-	alias ls='ls --color=auto --group-directories-first'
-fi
-
 # GIT
 # ---
 

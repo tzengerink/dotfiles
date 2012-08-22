@@ -9,6 +9,8 @@
 	set matchtime=1                  " Show matching bracket for .X seconds
 	set nocompatible                 " Filetype detection works better this way
 	set nocursorline                 " No cursorline by default
+	set noerrorbells                 " No errorbells
+	set novisualbell                 " No visualbell
 	set nohidden                     " Closing tabs / windows also closes buffer
 	set nonumber                     " No line numbers
 	set nopaste                      " Do not disable autoindent etc. when pasting
@@ -22,6 +24,22 @@
 	set tabstop=2                    " Tab stop
 	set wildignore=.svn,*.pyc        " Ignore files in wildmode
 	set wildmode=longest,list,full   " Bash like path completion
+
+" ------------------------------------------------------------------------------
+" GUI SETTINGS
+" ------------------------------------------------------------------------------
+
+	if has("gui_running")
+
+		" General
+		set guioptions-=L                  " Disable scrollbars
+		set guifont=Menlo\ Regular:h12     " Default font
+		set fuoptions=maxvert,maxhorz      " Fullscreen options
+
+		" Auto commands
+		autocmd GUIEnter * set fullscreen  " Automatically enter fullscreen mode
+
+	endif
 
 " ------------------------------------------------------------------------------
 " FOLDING SETTINGS
@@ -68,15 +86,7 @@
 	syntax on           " Turn on syntax highlighting
 	filetype on         " Turn on filetype detection
 	filetype plugin on  " Causes errors in filetype detection
-
-	" Color(scheme)
-	if (&t_Co == 256)
-		set t_Co=256         " Turn on 256-colors
-		set background=dark  " Terminal has dark background
-		colors solarized     " Use solarized color scheme
-	else
-		highlight Comment ctermfg=lightgrey
-	endif
+	colors molokai      " Colorscheme
 
 	" Highlight Invalid Style (not for help files)
 	highlight InvalidStyle ctermbg=red ctermfg=lightred
@@ -92,10 +102,12 @@
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
 
-	" Different settings for active window
-	setlocal number
-	autocmd BufEnter * setlocal number
-	autocmd BufLeave * setlocal nonumber
+	" Different settings for active/focussed window
+	setlocal relativenumber
+	autocmd BufEnter * setlocal relativenumber
+	autocmd BufLeave * setlocal norelativenumber
+	autocmd FocusLost * :set number
+	autocmd FocusGained * :set relativenumber
 
 	" Repeat comments
 	autocmd FileType * set formatoptions=croql
@@ -115,6 +127,7 @@
 " FILETYPES
 " ------------------------------------------------------------------------------
 
+	" Set filetypes for certain extensions
 	autocmd BufNewFile,BufRead *.css
 		\ set filetype=css
 	autocmd BufNewFile,BufRead *.html,*.htm
@@ -127,6 +140,10 @@
 		\ set filetype=mysql
 	autocmd BufNewFile,BufRead *.plist
 		\ set filetype=xml
+
+	" Override default PHP filetype settings
+	autocmd BufNewFile,BufRead *.php
+		\ set foldnestmax=2
 
 	" Easy filetype switching
 	nnoremap <LEADER>Th :set filetype=html<CR>
@@ -160,7 +177,7 @@
 
 	" Toggle InvalidStyle
 	let s:invalidStyleIsVisible = 1
-	fun! ToggleInvalidStyle()
+	function! ToggleInvalidStyle()
 		if (s:invalidStyleIsVisible)
 			let s:invalidStyleIsVisible = 0
 			return "set background=dark | colors ".g:colors_name
@@ -168,7 +185,7 @@
 			let s:invalidStyleIsVisible = 1
 			return "highlight InvalidStyle ctermbg=red ctermfg=white"
 		endif
-	endf
+	endfunction
 
 	" SmartIndent on blank line
 	function! IndentWithI()
@@ -176,6 +193,15 @@
 				return "\"_ddO"
 		else
 				return "i"
+		endif
+	endfunction
+
+	" Toggle Relative Number
+	function! ToggleRelativeNumber()
+		if(&relativenumber == 1)
+			set number
+		else
+			set relativenumber
 		endif
 	endfunction
 
@@ -193,6 +219,9 @@
 	" Yank to end of line
 	nmap Y y$
 
+	" Clear entire file
+	nmap <LEADER>C ggvG$c
+
 	" SmartIndent on blank line
 	nnoremap <EXPR> i IndentWithI()
 
@@ -205,12 +234,12 @@
 	nmap <LEADER>WW :%!sudo tee > /dev/null %<CR>
 
 	" Toggle stuff
-	nmap <LEADER>C :colors solarized<CR>
+	nmap <LEADER>A :set wrap! wrap?<CR>
 	nmap <LEADER>H :noh<CR>
 	nmap <LEADER>I :exe ToggleInvalidStyle()<CR>
-	nmap <LEADER>N :set wrap! wrap?<CR>
+	nmap <LEADER>N :set number! number?<CR>
 	nmap <LEADER>P :set paste! paste?<CR>
-	nmap <LEADER>R :set number! number?<CR>
+	nmap <LEADER>R :call ToggleRelativeNumber()<CR>
 
 	" Folding / Unfolding
 	nmap <LEADER>f       zM
@@ -248,6 +277,9 @@
 	" Sessions
 	nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
 	nmap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
+
+	" Temp SQL query
+	nmap <LEADER>tq :e /var/tmp/query.sql<CR>:set filetype=sql<CR>
 
 	" Quick `.vimrc` handling
 	nmap <LEADER>v :e $MYVIMRC<CR>

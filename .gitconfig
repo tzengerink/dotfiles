@@ -1,21 +1,21 @@
 [color]
 	ui = auto
-
 [core]
-	excludesfile = ~/.gitignore
-
-[diff]
-	tool = vimdiff
-
-[difftool]
-	prompt = false
-
+	excludefile = /Users/dev1/.gitignore
 [http]
 	sslVerify = false
-
-[merge]
-	tool = vimdiff
-
 [user]
 	name = T. Zengerink
 	email = t.zengerink@gmail.com
+[diff]
+	tool = gvimdiff
+[difftool]
+	prompt = false
+[difftool "gvimdiff"]
+	path = /usr/local/bin/mvimdiff
+[merge]
+	tool = gvimdiff
+[mergetool]
+	prompt = false
+[mergetool "gvimdiff"]
+	path = /usr/local/bin/mvimdiff
