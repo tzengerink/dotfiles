@@ -102,12 +102,18 @@
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
 
-	" Different settings for active/focussed window
-	setlocal relativenumber
-	autocmd BufEnter * setlocal relativenumber
-	autocmd BufLeave * setlocal norelativenumber
-	autocmd FocusLost * :set number
-	autocmd FocusGained * :set relativenumber
+		" Different settings for active/focussed window
+	if has("gui_running")
+		setlocal relativenumber
+		autocmd BufEnter * setlocal relativenumber
+		autocmd BufLeave * setlocal norelativenumber
+		autocmd FocusLost * :set number
+		autocmd FocusGained * :set relativenumber
+	else
+		setlocal number
+		autocmd BufEnter * setlocal number
+		autocmd BufLeave * setlocal nonumber
+	endif
 
 	" Repeat comments
 	autocmd FileType * set formatoptions=croql

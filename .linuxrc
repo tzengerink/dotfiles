@@ -8,6 +8,7 @@ alias ls='ls --color=auto --group-directories-first'
 # ---
 
 git config --global color.ui auto
+git config --global core.editor `which vim`
 git config --global core.excludefile ~/.gitignore
 git config --global http.sslVerify false
 git config --global user.name "T. Zengerink"
