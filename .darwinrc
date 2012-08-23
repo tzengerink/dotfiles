@@ -3,5 +3,9 @@
 
 alias cleanup='find . -type f -name ".DS_Store" -delete'
 alias locip='ipconfig getifaddr en0'
-alias vi='mvim'
-alias vimdiff='mvimdiff'
+
+# Use MacVim if installed
+if which mvim &> /dev/null; then
+	alias vi='mvim'
+	alias vimdiff='mvimdiff'
+fi
