@@ -277,8 +277,8 @@
 	nmap <LEADER>\\ <C-W>=
 
 	" Cycle through changelist
-	nmap <UP>   g;<CR>
-	nmap <DOWN> g,<CR>
+	nmap <UP>   g;<CR>k
+	nmap <DOWN> g,<CR>k
 
 	" Sessions
 	nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
