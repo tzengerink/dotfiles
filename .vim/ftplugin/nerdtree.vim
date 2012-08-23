@@ -2,7 +2,9 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	setlocal norelativenumber  " No relative numbers
+	if has("gui_running")
+		setlocal norelativenumber  " No relative numbers
+	endif
 
 	" Ignore some filetypes
 	let NerdTreeIgnore = ['\.pyc']
@@ -27,6 +29,7 @@
 
 	" Faster opening of directories/files
 	nmap <buffer> <SPACE>   o
+	nmap <buffer> <LEADER>P Pko
 	nmap <buffer> <LEADER>x PX
 
 	" Search forwards

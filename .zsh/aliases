@@ -91,7 +91,6 @@ alias -s js=vim
 alias -s markdown=vim
 alias -s md=vim
 alias -s php=vim
-alias -s py=vim
 alias -s sql=vim
 alias -s txt=vim
 alias -s vim=vim
