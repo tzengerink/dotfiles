@@ -3,6 +3,7 @@
 
 setopt auto_cd        # When command is a directory `cd` to it
 setopt SHARE_HISTORY  # Share the history file across sessions
+set -o vi             # Enable vim mode for command line movement
 
 # AUTO COMPLETION
 # ---------------
