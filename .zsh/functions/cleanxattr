@@ -1,0 +1,10 @@
+# CLEANXATTR
+# Remove all X attributes from a file
+
+if [[ -f $1 ]]; then
+	xattr -d com.apple.FinderInfo $1
+	xattr -d com.apple.metadata:kMDItemWhereFroms $1
+	xattr -d com.apple.quarantine $1
+else
+	echo "Usage: $0 [filepath]"
+fi
