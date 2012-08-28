@@ -284,8 +284,8 @@
 	nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
 	nmap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
 
-	" Temp SQL query
-	nmap <LEADER>tq :e /var/tmp/query.sql<CR>:set filetype=sql<CR>
+	" Temporary SQL query
+	nmap <LEADER>tq :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
 
 	" Quick `.vimrc` handling
 	nmap <LEADER>v :e $MYVIMRC<CR>

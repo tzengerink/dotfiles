@@ -29,7 +29,6 @@
 
 	" Faster opening of directories/files
 	nmap <buffer> <SPACE>   o
-	nmap <buffer> <LEADER>P Pko
 	nmap <buffer> <LEADER>x PX
 
 	" Search forwards
