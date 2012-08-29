@@ -1,8 +1,11 @@
 # RESTIME
 # Response time of a host
 
-OUT=`curl -o /dev/null -s -w "%{time_connect}\t%{time_starttransfer}\t%{time_total}" "$1"`
-
 echo -e "Connect\tStart\tTotal"
 echo -e "-------\t-----\t-----"
-echo -e $OUT
+
+for (( ; ; ))
+do
+	OUT=`curl -o /dev/null -s -w "%{time_connect}\t%{time_starttransfer}\t%{time_total}" "$1"`
+	echo -e $OUT
+done
