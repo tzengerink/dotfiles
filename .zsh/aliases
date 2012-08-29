@@ -1,5 +1,14 @@
+# GLOBAL
+# ------
+
+alias -g C='| wc -l'
+alias -g H='| head'
+alias -g L='| less'
+alias -g T='| tail'
+
 # NAVIGATION
 # ----------
+
 alias l='ls -lh'
 alias la='ls -A'
 alias ll='ls -lah'
@@ -11,21 +20,9 @@ alias lz='ll -rS'              # Sort by size
 alias real='cd $(pwd -P)'      # Go to real path of symlink
 alias ..='up'                  # Alias for the up function
 
-# OSX SPECIFIC
-# ------------
-if [[ $(uname) == Darwin ]]; then
-	alias locip='ipconfig getifaddr en0'
-fi
-
-# LINUX SPECIFIC
-# --------------
-if [[ $(uname) == Linux ]]; then
-	alias ls='ls --color=auto --group-directories-first'
-	alias locip='ip addr show eth0 | egrep "inet\ " | awk "{ print \$2}" | sed "s#/[0-9]*##g"'
-fi
-
 # GIT
 # ---
+
 alias ga='git add'
 alias gad='git status -s | egrep "^\?\?\ |^\ M\ " | awk "{ print \$2}" | xargs git add'
 alias gb='git checkout -b'
@@ -47,20 +44,22 @@ alias gss='git status'
 
 # SUBVERSION
 # ----------
-alias sa='svn add'
-alias sad='svn st | grep \? | awk "{ print \$2}" | xargs svn add'
-alias sci='svn commit'
+
+alias sa='python ~/.zsh/scripts/svn-color.py add'
+alias sad='svn st | grep \? | awk "{ print \$2}" | xargs python ~/.zsh/scripts/svn-color.py add'
+alias sc='svn commit'
 alias scm='svn commit -m'
 alias sco='svn checkout'
-alias sd='svn diff'
+alias sd='python ~/.zsh/scripts/svn-color.py diff'
 alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
-alias srev='svn st | grep \M | awk "{ print \$2}" | xargs svn revert'
-alias srm='svn st | grep \! | awk "{ print \$2}" | xargs svn rm'
-alias ss='~/.zsh/scripts/svn-color.py status'
+alias sr='python ~/.zsh/scripts/svn-color.py remove'
+alias srm='svn st | grep \! | awk "{ print \$2}" | xargs python ~/.zsh/scripts/svn-color.py remove'
+alias ss='python ~/.zsh/scripts/svn-color.py status'
 alias sup='svn update'
 
 # VIRTUALENV
 # ----------
+
 alias ve2='virtualenv .env --python=python2'
 alias ve='virtualenv .env'
 alias vea='source .env/bin/activate'
@@ -68,7 +67,7 @@ alias ved='deactivate'
 
 # OTHER
 # -----
-alias cleanup='find . -type f -name ".DS_Store" -delete'
+
 alias df='df -h'
 alias dirtree='find . -not \( -type d -name .svn -prune \) -print | sed -e "s;[^/]*/;|___;g;s;___|; |;g"'
 alias du1='du -d 1'
@@ -81,3 +80,18 @@ alias ips='locip && extip'
 alias mysql='mysql -p'
 alias vd='vimdiff'
 alias vis='vim -S ~/.vim/sessions/default'
+
+# SUFFIXES
+# --------
+
+alias -s css=vim
+alias -s htm=vim
+alias -s html=vim
+alias -s js=vim
+alias -s markdown=vim
+alias -s md=vim
+alias -s php=vim
+alias -s sql=vim
+alias -s txt=vim
+alias -s vim=vim
+alias -s xml=vim

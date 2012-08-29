@@ -1,37 +1,34 @@
 #!/usr/bin/env python
 
 """
- Author: Saophalkun Ponlu (http://phalkunz.com)
- Contact: phalkunz@gmail.com
- Date: May 23, 2009
- Modified: June 15, 2009
+    COLORED SVN COMMANDS
+    --------------------
+    Creates a colored output for some of the subcommands of SVN. Supported
+    subcommands include add, diff, remove and status.
 
- Additional modifications:
- Author: Phil Christensen (http://bubblehouse.org)
- Contact: phil@bubblehouse.org
- Date: February 22, 2010
+    Personal modification of https://gist.github.com/517913
 """
-
 import os, sys, re, subprocess
 
-tabsize = 4
+tabsize = 2
 
 colorizedSubcommands = (
-    'status',
     'add',
-    'remove',
     'diff',
+    'remove',
+    'status',
 )
 
 statusColors = {
-    "M"     : "31",     # red
-    "\?"    : "37",     # grey
-    "A"     : "32",     # green
-    "X"     : "33",     # yellow
-    "C"     : "30;41",  # black on red
-    "-"     : "31",     # red
-    "D"     : "31;1",   # bold red
-    "\+"    : "32",     # green
+    "-"  : "31",    # red
+    "A"  : "32",    # green
+    "C"  : "30;41", # black on red
+    "D"  : "31",    # bold red
+    "M"  : "31",    # red
+    "X"  : "37",    # grey
+    "\!" : "33",    # yellow
+    "\+" : "32",    # green
+    "\?" : "33",    # yellow
 }
 
 def colorize(line):
@@ -43,8 +40,8 @@ def colorize(line):
         return line
 
 def escape(s):
-    s = s.replace('$', r'\$')
     s = s.replace('"', r'\"')
+    s = s.replace('$', r'\$')
     s = s.replace('`', r'\`')
     return s
 

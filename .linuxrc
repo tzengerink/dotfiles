@@ -1,0 +1,5 @@
+# ALIASES
+# -------
+
+alias locip='ip addr show eth0 | egrep "inet\ " | awk "{ print \$2}" | sed "s#/[0-9]*##g"'
+alias ls='ls --color=auto --group-directories-first'

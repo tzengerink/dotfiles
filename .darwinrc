@@ -1,0 +1,5 @@
+# ALIASES
+# -------
+
+alias cleanup='find . -type f -name ".DS_Store" -delete'
+alias locip='ipconfig getifaddr en0'

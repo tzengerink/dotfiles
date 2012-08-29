@@ -1,0 +1,13 @@
+# SREV
+# Revert all edited files in a SVN repository.
+
+echo -e "THIS WILL REVERT ALL FILES IN THE SVN REPOSITORY."
+echo -e "Do you want to continue? [yes/NO]
+read RESPONSE
+case "$RESPONSE" in
+	([yY][eE][sE]|[yY])
+		svn st | grep \M | awk "{ print \$2}" | xargs svn revert
+		;;
+	(*)
+		;;
+esac
