@@ -16,7 +16,7 @@
 	set nopaste                      " Do not disable autoindent etc. when pasting
 	set nowrap                       " Do not wrap lines
 	set ruler                        " Position info
-	set scrolloff=3                  " Keep a margin of X lines when scrolling
+	set scrolloff=0                  " Keep a margin of X lines when scrolling
 	set shiftwidth=2                 " Shift width
 	set showcmd                      " Show command in StatusLine
 	set showmatch                    " Show matching brackets
