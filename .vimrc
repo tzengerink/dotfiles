@@ -88,6 +88,9 @@
 	filetype plugin on  " Causes errors in filetype detection
 	colors molokai      " Colorscheme
 
+  " Highlight Visual
+  highlight Visual ctermbg=lightblue ctermfg=black
+
 	" Highlight Invalid Style (not for help files)
 	highlight InvalidStyle ctermbg=red ctermfg=lightred
 	autocmd FileType help

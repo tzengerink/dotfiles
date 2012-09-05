@@ -30,6 +30,7 @@
 	" Faster opening of directories/files
 	nmap <buffer> <SPACE>   o
 	nmap <buffer> <LEADER>x PX
+	nmap <buffer> ..        Pko
 
 	" Search forwards
 	nmap <buffer> na :NERDJump a 0<CR>
