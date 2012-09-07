@@ -9,7 +9,7 @@ while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
 if [ -d .git ]; then
 
 	echo
-  echo "REMOTE URL"
+	echo "REMOTE URL"
 	echo "----------"
 	git remote -v
 
@@ -18,15 +18,15 @@ if [ -d .git ]; then
 	echo "---------------"
 	git branch -r
 
-  echo
-  echo "CONFIGURATION"
-  echo "-------------"
-  cat .git/config
+	echo
+	echo "CONFIGURATION"
+	echo "-------------"
+	cat .git/config
 
-  echo
-  echo "LOCAL BRANCHES"
-  echo "--------------"
-  git branch
+	echo
+	echo "LOCAL BRANCHES"
+	echo "--------------"
+	git branch
 
 	echo
 	echo "LAST COMMIT"
