@@ -273,9 +273,9 @@
 	nmap _          <C-W><
 	nmap +          <C-W>>
 	nmap WH         :leftabove vnew<CR>
-	nmap WJ         :leftabove new<CR>
+	nmap WJ         :rightbelow new<CR>
 	nmap WL         :rightbelow vnew<CR>
-	nmap WK         :rightbelow new<CR>
+	nmap WK         :leftabove new<CR>
 	nmap <LEADER>\  :vertical resize 85<CR>
 	nmap <LEADER>\\ <C-W>=
 
