@@ -2,9 +2,9 @@
 " FOLDING SETTINGS
 " ------------------------------------------------------------------------------
 
-	set foldenable         " (Don't) fold by default (foldenable / nofoldenable)
-	set foldlevel=0        " Use X levels of folding
-	set foldmarker={,}     " Set brackets as default fold marker
-	set foldmethod=indent  " Method of folding
-	set foldminlines=1     " Do not fold when less then X lines
-	set foldnestmax=2      " Maximum of X nested folds
+	setlocal foldenable         " (Don't) fold by default (foldenable / nofoldenable)
+	setlocal foldlevel=0        " Use X levels of folding
+	setlocal foldmarker={,}     " Set brackets as default fold marker
+	setlocal foldmethod=indent  " Method of folding
+	setlocal foldminlines=1     " Do not fold when less then X lines
+	setlocal foldnestmax=2      " Maximum of X nested folds

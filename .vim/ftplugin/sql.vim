@@ -2,6 +2,6 @@
 " FOLDING SETTINGS
 " ------------------------------------------------------------------------------
 
-	set foldlevel=0        " Use X levels of folding
-	set foldminlines=1     " Do not fold when less then X lines
-	set foldnestmax=1      " Do not fold when less then X lines
+	setlocal foldlevel=0        " Use X levels of folding
+	setlocal foldminlines=1     " Do not fold when less then X lines
+	setlocal foldnestmax=1      " Do not fold when less then X lines

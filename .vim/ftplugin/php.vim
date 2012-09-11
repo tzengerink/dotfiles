@@ -2,5 +2,5 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	set noexpandtab                       " Tabs are not spaces
-	set omnifunc=phpcomplete#CompletePHP  " Enable autocomplete
+	setlocal noexpandtab                       " Tabs are not spaces
+	setlocal omnifunc=phpcomplete#CompletePHP  " Enable autocomplete

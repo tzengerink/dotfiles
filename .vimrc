@@ -105,7 +105,7 @@
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
 
-		" Different settings for active/focussed window
+	" Different settings for active/focussed window
 	if has("gui_running")
 		setlocal relativenumber
 		autocmd BufEnter * setlocal relativenumber
@@ -316,6 +316,9 @@
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (INSERT MODE)
 " ------------------------------------------------------------------------------
+
+	" Exit insert mode
+	inoremap jj <ESC>
 
 	" Enable numpad
 	inoremap <ESC>Oq 1

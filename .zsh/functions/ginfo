@@ -33,6 +33,16 @@ if [ -d .git ]; then
 	echo "-----------"
 	git show --name-status
 
+	echo
+	echo "STATUS"
+	echo "------"
+	if [ -z "$(git status -s)" ]; then
+		echo "No revisions."
+	else
+		git status -s
+	fi
+	echo
+
 else
   echo "Not a git repository."
 fi
