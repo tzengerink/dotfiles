@@ -34,12 +34,12 @@ if [ -d .git ]; then
 	git show --name-status
 
 	echo
-	echo "STATUS"
-	echo "------"
-	if [ -z "$(git status -s)" ]; then
+	echo "DIFF STATS"
+	echo "----------"
+	if [ -z "$(git diff --stat)" ]; then
 		echo "No revisions."
 	else
-		git status -s
+		git diff --stat
 	fi
 	echo
 
