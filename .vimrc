@@ -88,6 +88,9 @@
 	filetype plugin on  " Causes errors in filetype detection
 	colors molokai      " Colorscheme
 
+  " Highlight Visual
+  highlight Visual ctermbg=lightblue ctermfg=black
+
 	" Highlight Invalid Style (not for help files)
 	highlight InvalidStyle ctermbg=red ctermfg=lightred
 	autocmd FileType help
@@ -102,7 +105,7 @@
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
 
-		" Different settings for active/focussed window
+	" Different settings for active/focussed window
 	if has("gui_running")
 		setlocal relativenumber
 		autocmd BufEnter * setlocal relativenumber
@@ -270,9 +273,9 @@
 	nmap _          <C-W><
 	nmap +          <C-W>>
 	nmap WH         :leftabove vnew<CR>
-	nmap WJ         :leftabove new<CR>
+	nmap WJ         :rightbelow new<CR>
 	nmap WL         :rightbelow vnew<CR>
-	nmap WK         :rightbelow new<CR>
+	nmap WK         :leftabove new<CR>
 	nmap <LEADER>\  :vertical resize 85<CR>
 	nmap <LEADER>\\ <C-W>=
 
@@ -313,6 +316,9 @@
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (INSERT MODE)
 " ------------------------------------------------------------------------------
+
+	" Exit insert mode
+	inoremap jj <ESC>
 
 	" Enable numpad
 	inoremap <ESC>Oq 1

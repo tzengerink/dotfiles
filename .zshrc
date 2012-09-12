@@ -1,14 +1,23 @@
+# LOAD MODULES
+# ------------
+
+autoload -Uz compinit && compinit  # Load and run compinit
+autoload -U zcalc                  # Load zcalc module
+
 # SET OPTIONS
 # -----------
 
-setopt auto_cd        # When command is a directory `cd` to it
-setopt SHARE_HISTORY  # Share the history file across sessions
-set -o vi             # Enable vim mode for command line movement
+setopt AUTO_CD                     # When command is a directory `cd` to it
+setopt SHARE_HISTORY               # Share the history file across sessions
+setopt AUTO_PUSHD                  # Previous dir is accessible through `popd`
+setopt PUSHD_SILENT                # No `pushd` messages
+setopt PUSHD_TO_HOME               # Blank `pushd` goes to home
+setopt IGNORE_EOF                  # Only exit when `exit` or `logout` is used
+set -o vi                          # Enable vim mode for command line movement
 
 # AUTO COMPLETION
 # ---------------
 
-autoload -Uz compinit && compinit                    # Load
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # Match uppercase
 zstyle ':completion:*' instert-tab pending           # Disable when pasting tab
 
@@ -18,6 +27,11 @@ zstyle ':completion:*' instert-tab pending           # Disable when pasting tab
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)                # Load all function in directory
 [[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases  # Load aliases
+
+# Insert `sudo` at the start (Esc-s)
+insert_sudo () { zle beginning-of-line; zle -U "sudo " }
+zle -N insert-sudo insert_sudo
+bindkey "^[s" insert-sudo
 
 # EXPORTS
 # -------
@@ -50,8 +64,8 @@ if [ -f "/usr/bin/dircolors" ]; then
 	export PS1=$'%{\e[;38;5;244m%}%n@%m:%{\e[0m%} %{\e[01;38;5;33m%}%~%{\e[0m%} %{\e[;38;5;244m%}#%{\e[0m%} '
 fi
 
-# MACHINE SPECIFIC COMMANDS
-# -------------------------
+# MACHINE SPECIFIC CONFIGURATION
+# ------------------------------
 
 [[ $(uname) == Darwin ]] && source ~/.darwinrc
 [[ $(uname) == Linux ]] && source ~/.linuxrc

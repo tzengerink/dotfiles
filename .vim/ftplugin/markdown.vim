@@ -2,7 +2,12 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	set nofoldenable  " Disable folding by default
-	set tabstop=4     " Tab stop
-	set shiftwidth=4  " Shift width
-	set expandtab     " Tabs are spaces
+	setlocal tabstop=4     " Tab stop
+	setlocal shiftwidth=4  " Shift width
+	setlocal expandtab     " Tabs are spaces
+
+" ------------------------------------------------------------------------------
+" FOLDING SETTINGS
+" ------------------------------------------------------------------------------
+
+	setlocal nofoldenable  " Disable folding by default

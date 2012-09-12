@@ -5,5 +5,5 @@ if test "$1" = ""
 then
 	echo "Usage: $0 'Search Term'"
 else
-	find . -type f \! -path "*.svn*" -exec grep -EHni --color=auto "$1" {} \;
+	find . -type f \! -path "*.svn*" \! -path "*.min.*" -exec grep -EHni --color=auto "$1" {} \;
 fi

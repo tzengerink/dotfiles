@@ -2,15 +2,15 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	set expandtab                " Tabs are spaces
-	set shiftwidth=4             " Shift width
-	set tabstop=4                " Tab stop
+	setlocal expandtab                " Tabs are spaces
+	setlocal shiftwidth=4             " Shift width
+	setlocal tabstop=4                " Tab stop
 
 " ------------------------------------------------------------------------------
 " FOLDING SETTINGS
 " ------------------------------------------------------------------------------
 
-	set foldlevel=0
+	setlocal foldlevel=0
 
 " ------------------------------------------------------------------------------
 " SYNTAX SETTINGS
