@@ -2,44 +2,30 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	set autoindent                   " Autoindenting
-	set completeopt=longest,menuone  " Show menu and preview window
-	set laststatus=2                 " Always show the StatusLine
-	set matchpairs+=<:>              " Add HTML brackets to matching pairs
-	set matchtime=1                  " Show matching bracket for .X seconds
-	set nocompatible                 " Filetype detection works better this way
-	set nocursorline                 " No cursorline by default
-	set noerrorbells                 " No errorbells
-	set novisualbell                 " No visualbell
-	set nohidden                     " Closing tabs / windows also closes buffer
-	set nonumber                     " No line numbers
-	set nopaste                      " Do not disable autoindent etc. when pasting
-	set nowrap                       " Do not wrap lines
-	set ruler                        " Position info
-	set scrolloff=0                  " Keep a margin of X lines when scrolling
-	set shiftwidth=2                 " Shift width
-	set showcmd                      " Show command in StatusLine
-	set showmatch                    " Show matching brackets
-	set smartindent                  " Use smart indenting
-	set tabstop=2                    " Tab stop
-	set wildignore=.svn,*.pyc        " Ignore files in wildmode
-	set wildmode=longest,list,full   " Bash like path completion
-
-" ------------------------------------------------------------------------------
-" GUI SETTINGS
-" ------------------------------------------------------------------------------
-
-	if has("gui_running")
-
-		" General
-		set guioptions-=L                  " Disable scrollbars
-		set guifont=Menlo\ Regular:h12     " Default font
-		set fuoptions=maxvert,maxhorz      " Fullscreen options
-
-		" Auto commands
-		autocmd GUIEnter * set fullscreen  " Automatically enter fullscreen mode
-
-	endif
+	set autoindent                      " Autoindenting
+	set completeopt=longest,menuone     " Show menu and preview window
+	set laststatus=2                    " Always show the StatusLine
+	set list                            " Show non text characters
+	set listchars=eol:¬,tab:•·,trail:·  " Characters to use for non text
+	set matchpairs+=<:>                 " Add HTML brackets to matching pairs
+	set matchtime=1                     " Show matching bracket for .X seconds
+	set nocompatible                    " Filetype detection works better this way
+	set nocursorline                    " No cursorline by default
+	set noerrorbells                    " No errorbells
+	set novisualbell                    " No visualbell
+	set nohidden                        " Closing tabs / windows also closes buffer
+	set nonumber                        " No line numbers
+	set nopaste                         " Do not disable autoindent etc. when pasting
+	set nowrap                          " Do not wrap lines
+	set ruler                           " Position info
+	set scrolloff=0                     " Keep a margin of X lines when scrolling
+	set shiftwidth=2                    " Shift width
+	set showcmd                         " Show command in StatusLine
+	set showmatch                       " Show matching brackets
+	set smartindent                     " Use smart indenting
+	set tabstop=2                       " Tab stop
+	set wildignore=.svn,*.pyc           " Ignore files in wildmode
+	set wildmode=longest,list,full      " Bash like path completion
 
 " ------------------------------------------------------------------------------
 " FOLDING SETTINGS
@@ -83,40 +69,37 @@
 " SYNTAX SETTINGS
 " ------------------------------------------------------------------------------
 
+	set t_Co=256        " Use 256 colors
 	syntax on           " Turn on syntax highlighting
 	filetype on         " Turn on filetype detection
 	filetype plugin on  " Causes errors in filetype detection
 	colors molokai      " Colorscheme
 
-  " Highlight Visual
-  highlight Visual ctermbg=lightblue ctermfg=black
-
-	" Highlight Invalid Style (not for help files)
-	highlight InvalidStyle ctermbg=red ctermfg=lightred
-	autocmd FileType help
-		\ highlight InvalidStyle ctermbg=bg ctermfg=fg
-
-	" Change cursor / Toggle cursorline when entering/leaving insert mode
-	autocmd InsertEnter,InsertLeave * set cursorline!
+	" Change cursor in insert-mode
 	let &t_SI = "\<Esc>]50;CursorShape=2\x7"
 	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+	" Highlight Visual
+	highlight CursorLine   ctermbg=234  ctermfg=none
+	highlight InvalidStyle ctermbg=none ctermfg=160
+	highlight LineNr       ctermbg=234  ctermfg=249
+	highlight NonText      ctermfg=236  ctermbg=none
+	highlight SpecialKey   ctermfg=236  ctermbg=none
+	highlight StatusLine   ctermfg=234  ctermbg=249
+	highlight StatusLineNC ctermfg=234  ctermbg=239
+	highlight Visual       ctermbg=45   ctermfg=0
 
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
 
 	" Different settings for active/focussed window
-	if has("gui_running")
-		setlocal relativenumber
-		autocmd BufEnter * setlocal relativenumber
-		autocmd BufLeave * setlocal norelativenumber
-		autocmd FocusLost * :set number
-		autocmd FocusGained * :set relativenumber
-	else
-		setlocal number
-		autocmd BufEnter * setlocal number
-		autocmd BufLeave * setlocal nonumber
-	endif
+	setlocal number
+	augroup WinToggleNumber
+		autocmd!
+		autocmd WinEnter * set number
+		autocmd WinLeave * set nonumber
+	augroup end
 
 	" Repeat comments
 	autocmd FileType * set formatoptions=croql
@@ -131,6 +114,12 @@
 
 	" Check for trailing whitespaces / remove them when saving
 	autocmd BufWritePre * :%s/\s\+$//e
+
+	" Do NOT higlight invalid style in help files
+	autocmd FileType help highlight InvalidStyle ctermbg=bg ctermfg=fg
+
+	" Toggle cursorline when entering/leaving insert mode
+	autocmd InsertEnter,InsertLeave * set cursorline!
 
 " ------------------------------------------------------------------------------
 " FILETYPES
@@ -246,6 +235,7 @@
 	nmap <LEADER>A :set wrap! wrap?<CR>
 	nmap <LEADER>H :noh<CR>
 	nmap <LEADER>I :exe ToggleInvalidStyle()<CR>
+	nmap <LEADER>L :set list! list?<CR>
 	nmap <LEADER>N :set number! number?<CR>
 	nmap <LEADER>P :set paste! paste?<CR>
 	nmap <LEADER>R :call ToggleRelativeNumber()<CR>
