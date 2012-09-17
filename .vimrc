@@ -17,6 +17,7 @@
 	set nonumber                        " No line numbers
 	set nopaste                         " Do not disable autoindent etc. when pasting
 	set nowrap                          " Do not wrap lines
+	set number                          " Show line numbers
 	set ruler                           " Position info
 	set scrolloff=0                     " Keep a margin of X lines when scrolling
 	set shiftwidth=2                    " Shift width
@@ -94,11 +95,10 @@
 " ------------------------------------------------------------------------------
 
 	" Different settings for active/focussed window
-	setlocal number
 	augroup WinToggleNumber
 		autocmd!
-		autocmd WinEnter * set number
-		autocmd WinLeave * set nonumber
+		autocmd WinEnter * setlocal number
+		autocmd WinLeave * setlocal nonumber
 	augroup end
 
 	" Repeat comments

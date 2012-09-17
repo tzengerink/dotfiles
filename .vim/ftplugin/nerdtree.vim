@@ -2,10 +2,6 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	if has("gui_running")
-		setlocal norelativenumber  " No relative numbers
-	endif
-
 	" Ignore some filetypes
 	let NerdTreeIgnore = ['\.pyc']
 
