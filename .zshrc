@@ -57,11 +57,11 @@ SAVEHIST=1000
 
 export LSCOLORS=ExGxCxaCAxaGhEaBaBbhbh
 export LS_COLORS="di=1;;40:ln=1;;40:so=1;;40:pi=0;:ex=1;;40:bd=0;:cd=37;:su=0;:sg=0;:tw=31;47:ow=31;47:"
-export PS1=$'%{\e[1;30m%}[%n]-(%{\e[1;34m%}%~%{\e[0m%}%{\e[1;30m%})-[%D{%H:%M %b %e}]-[%h]\n)->%{\e[0m%} '
+export PS1=$'%{\e[1;30m%}/[%n]-(%{\e[1;34m%}%~%{\e[0m%}%{\e[1;30m%})-[%D{%H:%M %b %e}]-[%h]\n\\_|%{\e[0m%} '
 if [ -f "/usr/bin/dircolors" ]; then
 	export TERM=xterm-256color
 	eval `/usr/bin/dircolors ~/.dircolors`
-	export PS1=$'%{\e[;38;5;244m%}[%n]-(%{\e[01;38;5;33m%}%~%{\e[;38;5;244m%})-[%D{%H:%M %b %e}]-[%h]\n)->%{\e[0m%} '
+	export PS1=$'%{\e[;38;5;244m%}/[%n]-(%{\e[01;38;5;33m%}%~%{\e[;38;5;244m%})-[%D{%H:%M %b %e}]-[%h]\n\\_|%{\e[0m%} '
 fi
 
 # MACHINE SPECIFIC CONFIGURATION
