@@ -61,7 +61,7 @@ export PS1=$'%{\e[1;30m%}[%n][ %{\e[1;34m%}%~ %{\e[1;30m%}][%D{%H:%M}][%h,%j]\n%
 if [ -f "/usr/bin/dircolors" ]; then
 	export TERM=xterm-256color
 	eval `/usr/bin/dircolors ~/.dircolors`
-	export PS1=$'%{\e[;38;5;244m%}/[%n][ %{\e[01;38;5;33m%}%~%{\e[;38;5;244m%} ][%D{%H:%M}][%h,%j]\n%{\e[01;38;5;33m%}$%{\e[0m%} '
+	export PS1=$'%{\e[;38;5;244m%}[%n][ %{\e[01;38;5;33m%}%~%{\e[;38;5;244m%} ][%D{%H:%M}][%h,%j]\n%{\e[01;38;5;33m%}$%{\e[0m%} '
 fi
 
 # MACHINE SPECIFIC CONFIGURATION
