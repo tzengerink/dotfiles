@@ -1,3 +1,10 @@
+# DIRCOLORS
+# ---------
+
+if [ -f "/usr/bin/dircolors" ]; then
+	eval `/usr/bin/dircolors ~/.dircolors`
+fi
+
 # ALIASES
 # -------
 
