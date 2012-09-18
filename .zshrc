@@ -60,12 +60,12 @@ SAVEHIST=1000
 # PROMPT
 # ------
 
-local highlight="blue"
+local prompt_highlight="blue"
 local prompt_name="%B%{$fg[black]%}[%n]%b%{$reset_color%}"
-local prompt_dir="%B%{$fg[black]%}[ %{$fg[$highlight]%}%~ %{$fg[black]%}]%b%{$reset_color%}"
 local prompt_time="%B%{$fg[black]%}[%D{%H:%M}]%b%{$reset_color%}"
 local prompt_info="%B%{$fg[black]%}[%h,%j]%b%{$reset_color%}"
 local prompt_branch='$(pre_prompt_branch)'
+local prompt_dir='$(pre_prompt_dir)'
 local prompt_shell='$(pre_prompt_shell)'
 
 function pre_prompt_branch {
@@ -77,11 +77,13 @@ function pre_prompt_branch {
 	fi
 }
 
-function pre_prompt_shell {
-	echo -e "\n%B%{$fg[$highlight]%}$%b%{$reset_color%}"
+function pre_prompt_dir {
+	echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}%~ %{$fg[black]%}]%b%{$reset_color%}"
 }
 
-export PS1="${prompt_name}${prompt_dir}${prompt_time}${prompt_info}${prompt_branch}${prompt_shell} "
+function pre_prompt_shell {
+	echo -e "\n%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
+}
 
 # MACHINE SPECIFIC CONFIGURATION
 # ------------------------------
@@ -89,3 +91,8 @@ export PS1="${prompt_name}${prompt_dir}${prompt_time}${prompt_info}${prompt_bran
 [[ $(uname) == Darwin ]] && source ~/.darwinrc
 [[ $(uname) == Linux ]] && source ~/.linuxrc
 [[ -f ~/.localrc ]] && source ~/.localrc
+
+# RENDER PROMPT
+# -------------
+
+export PS1="${prompt_name}${prompt_dir}${prompt_time}${prompt_info}${prompt_branch}${prompt_shell} "

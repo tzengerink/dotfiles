@@ -1,12 +1,9 @@
-# PROMPT & COLORS
-# ---------------
+# DIRCOLORS
+# ---------
 
 if [ -f "/usr/bin/dircolors" ]; then
 	eval `/usr/bin/dircolors ~/.dircolors`
 fi
-
-highlight="yellow"
-PS1=$PS1
 
 # ALIASES
 # -------
