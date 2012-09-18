@@ -72,7 +72,7 @@ nice_rotating_dash=1
 mcview_remember_file_position=0
 auto_fill_mkdir_name=1
 copymove_persistent_attr=1
-select_flags=6
+select_flags=7
 editor_backup_extension=~
 mcview_eof=
 ignore_ftp_chattr_errors=true
@@ -105,11 +105,9 @@ clipboard_store=
 clipboard_paste=
 
 [Colors]
-normal=
+base_color=
 xterm-256color=
 color_terminals=
-
-base_color=
 
 [Panels]
 simple_swap=false
@@ -130,6 +128,9 @@ filetype_mode=true
 permission_mode=true
 torben_fj_mode=false
 quick_search_mode=2
+
+[HotlistConfig]
+expanded_view_of_groups=0
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print
