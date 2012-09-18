@@ -1,0 +1,24 @@
+# GENERAL
+# -------
+
+--flush
+--follow
+--smart-case
+
+# IGNORE
+# ------
+
+--ignore-dir=tmp
+
+# COLOR
+# -----
+
+--color
+--color-filename=BOLD GREEN
+--color-lineno=BOLD BLACK
+--color-match=BOLD RED ON_RED
+
+# TYPES
+# -----
+
+--type-set=py=.py
