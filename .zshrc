@@ -50,8 +50,6 @@ export SUDO_EDITOR='/usr/bin/vi -p -X'
 export SVN_EDITOR=vi
 export TERM=xterm-256color
 
-local highlight="blue"
-
 # HISTORY
 # -------
 
@@ -59,16 +57,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 
-# MACHINE SPECIFIC CONFIGURATION
-# ------------------------------
-
-[[ $(uname) == Darwin ]] && source ~/.darwinrc
-[[ $(uname) == Linux ]] && source ~/.linuxrc
-[[ -f ~/.localrc ]] && source ~/.localrc
-
 # PROMPT
 # ------
 
+local highlight="blue"
 local prompt_name="%B%{$fg[black]%}[%n]%b%{$reset_color%}"
 local prompt_dir="%B%{$fg[black]%}[ %{$fg[$highlight]%}%~ %{$fg[black]%}]%b%{$reset_color%}"
 local prompt_time="%B%{$fg[black]%}[%D{%H:%M}]%b%{$reset_color%}"
@@ -90,3 +82,10 @@ function pre_prompt_shell {
 }
 
 export PS1="${prompt_name}${prompt_dir}${prompt_time}${prompt_info}${prompt_branch}${prompt_shell} "
+
+# MACHINE SPECIFIC CONFIGURATION
+# ------------------------------
+
+[[ $(uname) == Darwin ]] && source ~/.darwinrc
+[[ $(uname) == Linux ]] && source ~/.linuxrc
+[[ -f ~/.localrc ]] && source ~/.localrc
