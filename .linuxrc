@@ -1,3 +1,13 @@
+# PROMPT & COLORS
+# ---------------
+
+if [ -f "/usr/bin/dircolors" ]; then
+	eval `/usr/bin/dircolors ~/.dircolors`
+fi
+
+# export PS1=$'%{\e[;38;5;244m%}[%n][ %{\e[01;38;5;33m%}%~%{\e[;38;5;244m%} ][%D{%H:%M}][%h,%j]\n%{\e[01;38;5;33m%}$%{\e[0m%} '
+local highlight="244"
+
 # ALIASES
 # -------
 
