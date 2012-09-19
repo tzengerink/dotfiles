@@ -307,6 +307,9 @@
 " KEY MAPPINGS (INSERT MODE)
 " ------------------------------------------------------------------------------
 
+	" Exit insert mode and save document
+	inoremap <leader>s <ESC>:w<CR>
+
 	" Exit insert mode
 	inoremap jj <ESC>
 
