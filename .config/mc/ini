@@ -77,7 +77,7 @@ editor_backup_extension=~
 mcview_eof=
 ignore_ftp_chattr_errors=true
 keymap=mc.keymap
-skin=xoria256.ini
+skin=default.ini
 
 [Layout]
 message_visible=0
