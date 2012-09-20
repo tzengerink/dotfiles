@@ -78,10 +78,10 @@ alias extip='curl ifconfig.me/ip'
 alias fn='find . -name'
 alias hi='history -d | tail -20'
 alias ips='locip && extip'
-alias mc='mc -S ~/.config/mc/skins/elite_commander.ini -K ~/.config/mc/keymap'
 alias mysql='mysql -p'
 alias vd='vimdiff'
 alias vis='vim -S ~/.vim/sessions/default'
+alias R='ranger'
 
 # SUFFIXES
 # --------

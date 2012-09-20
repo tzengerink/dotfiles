@@ -77,11 +77,12 @@ local prompt_info="%B%{$fg[black]%}[%h,%j]%b%{$reset_color%}"
 local prompt_branch='$(pre_prompt_branch)'
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_shell='$(pre_prompt_shell)'
+local prompt_ranger='$(pre_prompt_ranger)'
 
 function pre_prompt_branch {
 	if [[ -d .git ]]; then
 		local BR=$(git rev-parse --abbrev-ref HEAD)
-		echo -e "%B%{$fg[black]%}[$BR]%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BR %{$fg[black]%}]%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -95,6 +96,14 @@ function pre_prompt_shell {
 	echo -e "\n%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
 }
 
+function pre_prompt_ranger {
+	if [[ -n "$RANGER_LEVEL" ]]; then
+		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}ranger %{$fg[black]%}]%b%{$reset_color%}"
+	else
+		echo ""
+	fi
+}
+
 # MACHINE SPECIFIC CONFIGURATION
 # ------------------------------
 
@@ -105,4 +114,4 @@ function pre_prompt_shell {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_time}${prompt_info}${prompt_branch}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_branch}${prompt_ranger}${prompt_time}${prompt_info}${prompt_shell} "
