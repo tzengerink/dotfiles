@@ -45,10 +45,20 @@ export GREP_OPTIONS='--color=auto'
 export LANG=en_US.UTF-8
 export LSCOLORS=ExGxCxaCAxaGhEaBaBbhbh
 export LS_COLORS="di=1;;40:ln=1;;40:so=1;;40:pi=0;:ex=1;;40:bd=0;:cd=37;:su=0;:sg=0;:tw=31;47:ow=31;47:"
-export PAGER=less
 export SUDO_EDITOR='/usr/bin/vi -p -X'
 export SVN_EDITOR=vi
 export TERM=xterm-256color
+
+# LESS
+# ----
+export PAGER=less                         # Use less for paging
+export LESS_TERMCAP_mb=$'\E[01;31m'       # Begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # Begin bold
+export LESS_TERMCAP_me=$'\E[0m'           # End mode
+export LESS_TERMCAP_se=$'\E[0m'           # End standout-mode
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # Begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'           # End underline
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # Begin underline
 
 # HISTORY
 # -------
