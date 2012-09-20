@@ -1,4 +1,5 @@
 # CVTIME
+# ------
 # Convert a timestamp to a readable time.
 
 if [[ $(uname) == Linux ]]; then

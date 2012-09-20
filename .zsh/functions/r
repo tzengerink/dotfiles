@@ -1,0 +1,6 @@
+# R
+# -
+# Shortcut for ranger and some improved functionality like change directory to
+# last directory viewed in ranger.
+
+$(which ranger) $@ && cd "$(grep \^\' ~/.config/ranger/bookmarks | cut -b3-)"

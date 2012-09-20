@@ -4,7 +4,7 @@
 # -------
 
 load_default_rc = True              # Do (not) load default rc
-column_ratios = (1, 3, 4)           # Ratio of the columns
+column_ratios = (1, 3, 6)           # Ratio of the columns
 show_hidden = True                  # Show hidden files
 colorscheme = 'default88'           # Colorscheme to use
 draw_borders = False                # Do not draw borders

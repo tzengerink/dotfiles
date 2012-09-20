@@ -79,7 +79,6 @@ alias fn='find . -name'
 alias hi='history -d | tail -20'
 alias ips='locip && extip'
 alias mysql='mysql -p'
-alias r='ranger'
 alias vd='vimdiff'
 alias vis='vim -S ~/.vim/sessions/default'
 

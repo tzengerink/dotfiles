@@ -1,4 +1,5 @@
 # CLEANPYC
-# Recursively remove all *.pyc files
+# --------
+# Recursively remove all *.pyc files.
 
 find . -type f -name \*.pyc -delete

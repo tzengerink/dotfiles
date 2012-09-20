@@ -1,5 +1,6 @@
 # GPD
-# Git push a specified directory
+# ---
+# Git push a specified directory.
 
 if [ ! -d "$1" ]; then
 	echo "First argument must be a directory.."

@@ -1,5 +1,6 @@
 # CLEANSVN
-# Recursively remove all .svn directories
+# --------
+# Recursively remove all .svn directories.
 
 echo -e "THIS WILL RECURSIVELY REMOVE ALL SVN DIRECTORIES."
 echo -e "Do you want to continue? [yes/NO] "

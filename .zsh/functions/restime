@@ -1,5 +1,6 @@
 # RESTIME
-# Response time of a host
+# -------
+# Response time of a host.
 
 echo -e "Connect\tStart\tTotal"
 echo -e "-------\t-----\t-----"

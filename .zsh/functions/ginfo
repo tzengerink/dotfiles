@@ -1,5 +1,6 @@
-#!/bin/bash
-# Show info on a given git repository
+# GITINFO
+# -------
+# Show info on a given git repository.
 
 pushd . >/dev/null
 

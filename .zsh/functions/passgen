@@ -1,5 +1,6 @@
 # PASSGEN
-# Generate random password string of X length
+# -------
+# Generate random password string of X length.
 
 if [[ $1 != '' ]]; then
 	local LANG=C

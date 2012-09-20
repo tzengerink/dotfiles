@@ -1,5 +1,6 @@
 # RMD
-# Remove a directory recursively
+# ---
+# Permanently remove a directory recursively.
 
 if [[ -d $1 && $1 != '' ]]; then
 	echo -e "THIS WILL RECURSIVELY REMOVE THE DIRECTORY [$1]."

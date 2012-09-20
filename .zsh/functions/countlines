@@ -1,5 +1,6 @@
 # COUNTLINES
-# Count lines of code (for a given extension)
+# ----------
+# Count lines of code (for a given extension).
 
 if [ ! "$1" ]; then
 	COUNT=`find . -type f \! -path "*svn*" -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'`

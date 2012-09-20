@@ -1,4 +1,5 @@
 # SREV
+# ----
 # Revert all edited files in a SVN repository.
 
 echo -e "THIS WILL REVERT ALL FILES IN THE SVN REPOSITORY."
