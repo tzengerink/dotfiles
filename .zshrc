@@ -14,7 +14,6 @@ setopt SHARE_HISTORY  # Share the history file across sessions
 setopt AUTO_PUSHD     # Previous dir is accessible through `popd`
 setopt PUSHD_SILENT   # No `pushd` messages
 setopt PUSHD_TO_HOME  # Blank `pushd` goes to home
-setopt IGNORE_EOF     # Only exit when `exit` or `logout` is used
 setopt PROMPT_SUBST   # Enable prompt substrings
 set -o vi             # Enable vim mode for command line movement
 
@@ -80,12 +79,15 @@ local prompt_shell='$(pre_prompt_shell)'
 local prompt_ranger='$(pre_prompt_ranger)'
 
 function pre_prompt_branch {
+	pushd . >/dev/null
+	while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
 	if [[ -d .git ]]; then
 		local BR=$(git rev-parse --abbrev-ref HEAD)
 		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BR %{$fg[black]%}]%{$reset_color%}"
 	else
 		echo ""
 	fi
+	popd >/dev/null
 }
 
 function pre_prompt_dir {
