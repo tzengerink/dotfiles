@@ -25,7 +25,7 @@ alias ..='up'                  # Alias for the up function
 
 alias ga='git add'
 alias gad='git status -s | egrep "^\?\?\ |^\ M\ " | awk "{ print \$2}" | xargs git add'
-alias gb='git checkout -bq'
+alias gb='git checkout -q -b'
 alias gbd='git branch -d'
 alias gc='git commit'
 alias gca='git commit -a'

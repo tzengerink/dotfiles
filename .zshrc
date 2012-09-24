@@ -14,7 +14,6 @@ setopt AUTO_PUSHD     # Previous dir is accessible through `popd`
 setopt PROMPT_SUBST   # Enable prompt substrings
 setopt PUSHD_SILENT   # No `pushd` messages
 setopt PUSHD_TO_HOME  # Blank `pushd` goes to home
-setopt SHARE_HISTORY  # Share the history file across sessions
 set -o vi             # Enable vim mode for command line movement
 
 # AUTO COMPLETION
@@ -30,6 +29,9 @@ fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)                # Load all function in directory
 [[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases  # Load aliases
 
+# WIDGETS
+# -------
+
 # Insert `sudo` at the start (Esc-s)
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
@@ -40,6 +42,8 @@ bindkey "^[s" insert-sudo
 
 HISTFILE=~/.zsh_history
 HISTSIZE=SAVEHIST=1000
+setopt EXTENDED_HISTORY  # Display time of use
+setopt SHARE_HISTORY     # Share the history file across sessions
 
 # EXPORTS
 # -------
@@ -71,9 +75,12 @@ export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 local prompt_highlight="blue"
 local prompt_branch='$(pre_prompt_branch)'
 local prompt_date="%B%{$fg[black]%}[%D{%b %d}]%b%{$reset_color%}"
+local prompt_datetime="%B%{$fg[black]%}[%D{%b %d, %H:%M}]%b%{$reset_color%}"
 local prompt_dir='$(pre_prompt_dir)'
-local prompt_info="%B%{$fg[black]%}[%h,%j]%b%{$reset_color%}"
+local prompt_history="%B%{$fg[black]%}[%h]%b%{$reset_color%}"
+local prompt_jobs='$(pre_prompt_jobs)'
 local prompt_name="%B%{$fg[black]%}[%n]%b%{$reset_color%}"
+local prompt_newline='$(pre_prompt_newline)'
 local prompt_ranger='$(pre_prompt_ranger)'
 local prompt_shell='$(pre_prompt_shell)'
 local prompt_time="%B%{$fg[black]%}[%D{%H:%M}]%b%{$reset_color%}"
@@ -94,8 +101,22 @@ function pre_prompt_dir {
 	echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}%~ %{$fg[black]%}]%b%{$reset_color%}"
 }
 
+function pre_prompt_jobs {
+	local JOBS="$(jobs -l | wc -l | awk '{print $1}')"
+	if [[ $JOBS != 0 ]]; then
+		[[ $JOBS = 1 ]] && STR='job' || STR='jobs'
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$JOBS $STR %{$fg[black]%}]%b%{$reset_color%}"
+	else
+		echo ""
+	fi
+}
+
+function pre_prompt_newline {
+	echo -e "\n\r"
+}
+
 function pre_prompt_shell {
-	echo -e "\n%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
+	echo -e "%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
 }
 
 function pre_prompt_ranger {
@@ -116,4 +137,4 @@ function pre_prompt_ranger {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_branch}${prompt_ranger}${prompt_time}${prompt_date}${prompt_info}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_branch}${prompt_ranger}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_history}${prompt_shell} "
