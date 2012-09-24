@@ -194,14 +194,15 @@
 		endif
 	endfunction
 
-	" Toggle Relative Number
-	function! ToggleRelativeNumber()
-		if(&relativenumber == 1)
-			set number
-		else
-			set relativenumber
+	" Choose file using ranger
+	function! RangerChooser()
+		exec "silent !ranger --choosefile=/tmp/chosenfile " . expand("%:p:h")
+		if filereadable('/tmp/chosenfile')
+			exec 'edit ' . system('cat /tmp/chosenfile')
+			call system('rm /tmp/chosenfile')
 		endif
-	endfunction
+		redraw!
+	endfun
 
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (NORMAL MODE)
@@ -220,8 +221,10 @@
 	" Clear entire file
 	nmap <LEADER>C ggvG$c
 
-	" SmartIndent on blank line
-	nnoremap <EXPR> i IndentWithI()
+	" Function calls
+	nnoremap <EXPR> i  IndentWithI()
+	nnoremap <LEADER>I :call ToggleInvalidStyle()<CR>
+	nnoremap <LEADER>r :call RangerChooser()<CR>
 
 	" Save/Quit mappings
 	nmap <LEADER>s  :w<CR>
@@ -234,11 +237,9 @@
 	" Toggle stuff
 	nmap <LEADER>A :set wrap! wrap?<CR>
 	nmap <LEADER>H :noh<CR>
-	nmap <LEADER>I :exe ToggleInvalidStyle()<CR>
 	nmap <LEADER>L :set list! list?<CR>
 	nmap <LEADER>N :set number! number?<CR>
 	nmap <LEADER>P :set paste! paste?<CR>
-	nmap <LEADER>R :call ToggleRelativeNumber()<CR>
 
 	" Folding / Unfolding
 	nmap <LEADER>f       zM
@@ -306,6 +307,9 @@
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (INSERT MODE)
 " ------------------------------------------------------------------------------
+
+	" Exit insert mode and save document
+	inoremap <leader>s <ESC>:w<CR>
 
 	" Exit insert mode
 	inoremap jj <ESC>

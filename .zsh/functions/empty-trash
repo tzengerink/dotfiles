@@ -1,0 +1,5 @@
+# EMPTY-TRASH
+# -----------
+# Remove all files in the trash.
+
+rm -rf ~/.trash/{*,.[^.]*}

@@ -1,5 +1,6 @@
 # TGREP
-# Recursively search for a string (case insensitive)
+# -----
+# Recursively search for a string (case insensitive).
 
 if test "$1" = ""
 then

@@ -4,11 +4,13 @@
 --flush
 --follow
 --smart-case
+--sort-files
 
 # IGNORE
 # ------
 
 --ignore-dir=tmp
+--ignore-dir=vendor
 
 # COLOR
 # -----

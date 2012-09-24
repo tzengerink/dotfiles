@@ -1,5 +1,6 @@
 # UP
-# Go up in the directory hierarchy
+# --
+# Go up in the directory hierarchy.
 
 local D=""
 LIMIT=$1

@@ -14,7 +14,6 @@ setopt SHARE_HISTORY  # Share the history file across sessions
 setopt AUTO_PUSHD     # Previous dir is accessible through `popd`
 setopt PUSHD_SILENT   # No `pushd` messages
 setopt PUSHD_TO_HOME  # Blank `pushd` goes to home
-setopt IGNORE_EOF     # Only exit when `exit` or `logout` is used
 setopt PROMPT_SUBST   # Enable prompt substrings
 set -o vi             # Enable vim mode for command line movement
 
@@ -45,10 +44,20 @@ export GREP_OPTIONS='--color=auto'
 export LANG=en_US.UTF-8
 export LSCOLORS=ExGxCxaCAxaGhEaBaBbhbh
 export LS_COLORS="di=1;;40:ln=1;;40:so=1;;40:pi=0;:ex=1;;40:bd=0;:cd=37;:su=0;:sg=0;:tw=31;47:ow=31;47:"
-export PAGER=less
 export SUDO_EDITOR='/usr/bin/vi -p -X'
 export SVN_EDITOR=vi
 export TERM=xterm-256color
+
+# LESS
+# ----
+export PAGER=less                         # Use less for paging
+export LESS_TERMCAP_mb=$'\e[01;31m'       # Begin blinking
+export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # Begin bold
+export LESS_TERMCAP_me=$'\e[0m'           # End mode
+export LESS_TERMCAP_se=$'\e[0m'           # End standout-mode
+export LESS_TERMCAP_so=$'\e[38;5;246m'    # Begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\e[0m'           # End underline
+export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 
 # HISTORY
 # -------
@@ -67,14 +76,18 @@ local prompt_info="%B%{$fg[black]%}[%h,%j]%b%{$reset_color%}"
 local prompt_branch='$(pre_prompt_branch)'
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_shell='$(pre_prompt_shell)'
+local prompt_ranger='$(pre_prompt_ranger)'
 
 function pre_prompt_branch {
+	pushd . >/dev/null
+	while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
 	if [[ -d .git ]]; then
 		local BR=$(git rev-parse --abbrev-ref HEAD)
-		echo -e "%B%{$fg[black]%}[$BR]%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BR %{$fg[black]%}]%{$reset_color%}"
 	else
 		echo ""
 	fi
+	popd >/dev/null
 }
 
 function pre_prompt_dir {
@@ -83,6 +96,14 @@ function pre_prompt_dir {
 
 function pre_prompt_shell {
 	echo -e "\n%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
+}
+
+function pre_prompt_ranger {
+	if [[ -n "$RANGER_LEVEL" ]]; then
+		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}ranger %{$fg[black]%}]%b%{$reset_color%}"
+	else
+		echo ""
+	fi
 }
 
 # MACHINE SPECIFIC CONFIGURATION
@@ -95,4 +116,4 @@ function pre_prompt_shell {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_time}${prompt_info}${prompt_branch}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_branch}${prompt_ranger}${prompt_time}${prompt_info}${prompt_shell} "

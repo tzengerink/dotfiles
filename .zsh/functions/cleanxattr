@@ -1,5 +1,6 @@
 # CLEANXATTR
-# Remove all X attributes from a file
+# ----------
+# Remove all X attributes from a file.
 
 if [[ -f $1 ]]; then
 	xattr -d com.apple.FinderInfo "$1"

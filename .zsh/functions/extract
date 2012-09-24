@@ -1,5 +1,6 @@
 # EXTRACT
-# Extract an archive
+# -------
+# Extract an archive.
 
 if [ -f "$1" ]; then
 	case "$1" in

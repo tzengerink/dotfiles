@@ -1,0 +1,5 @@
+# TR
+# --
+# Move file/directory to the trash.
+
+mv "$1" ~/.trash/

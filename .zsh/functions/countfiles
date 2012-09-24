@@ -1,5 +1,6 @@
 # COUNTFILES
-# Count the number of files (for a given extension)
+# ----------
+# Count the number of files (for a given extension).
 
 if [ ! "$1" ]; then
 	COUNT=`find . -type f \! -path '*svn*' | wc -l`
