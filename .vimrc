@@ -113,7 +113,8 @@
 		\ match InvalidStyle /[^\t]\zs\t\+/
 
 	" Check for trailing whitespaces / remove them when saving
-	autocmd BufWritePre * :%s/\s\+$//e
+	autocmd FileType conf let b:noStripWhiteSpace=1
+	autocmd BufWritePre * call StripTrailingWhiteSpace()
 
 	" Do NOT higlight invalid style in help files
 	autocmd FileType help highlight InvalidStyle ctermbg=bg ctermfg=fg
@@ -202,7 +203,16 @@
 			call system('rm /tmp/chosenfile')
 		endif
 		redraw!
-	endfun
+	endfunction
+
+	" Strip trailing whitespace
+	function! StripTrailingWhiteSpace()
+		" Exclude these filetypes
+		if exists('b:noStripWhiteSpace')
+			return
+		endif
+		%s/\s\+$//e
+	endfunction
 
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (NORMAL MODE)

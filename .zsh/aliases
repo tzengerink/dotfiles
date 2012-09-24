@@ -25,11 +25,11 @@ alias ..='up'                  # Alias for the up function
 
 alias ga='git add'
 alias gad='git status -s | egrep "^\?\?\ |^\ M\ " | awk "{ print \$2}" | xargs git add'
-alias gb='git checkout -b'
+alias gb='git checkout -q -b'
 alias gbd='git branch -d'
 alias gc='git commit'
 alias gca='git commit -a'
-alias gch='git checkout'
+alias gch='git checkout -q'
 alias gcl='git clone'
 alias gd='git diff'
 alias gdd='git difftool'
@@ -81,6 +81,7 @@ alias ips='locip && extip'
 alias mysql='mysql -p'
 alias vd='vimdiff'
 alias vis='vim -S ~/.vim/sessions/default'
+alias viq='vim "+set ft=mysql" /var/tmp/query.sql'
 
 # SUFFIXES
 # --------
