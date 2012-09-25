@@ -42,8 +42,11 @@ bindkey "^[s" insert-sudo
 
 HISTFILE=~/.zsh_history
 HISTSIZE=SAVEHIST=1000
-setopt EXTENDED_HISTORY  # Display time of use
-setopt SHARE_HISTORY     # Share the history file across sessions
+setopt EXTENDED_HISTORY      # Display time of use
+setopt HIST_IGNORE_ALL_DUPS  # Ignore duplicate entries
+setopt HIST_IGNORE_SPACE     # Ignore entries preceded by a space
+setopt INC_APPEND_HISTORY    # Incrementally append history
+setopt SHARE_HISTORY         # Share the history file across sessions
 
 # EXPORTS
 # -------
@@ -74,16 +77,14 @@ export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 
 local prompt_highlight="blue"
 local prompt_branch='$(pre_prompt_branch)'
-local prompt_date="%B%{$fg[black]%}[%D{%b %d}]%b%{$reset_color%}"
-local prompt_datetime="%B%{$fg[black]%}[%D{%b %d, %H:%M}]%b%{$reset_color%}"
+local prompt_datetime='$(pre_prompt_datetime)'
 local prompt_dir='$(pre_prompt_dir)'
-local prompt_history="%B%{$fg[black]%}[%h]%b%{$reset_color%}"
+local prompt_history="%B%{$fg[black]%}[ %h ]%b%{$reset_color%}"
 local prompt_jobs='$(pre_prompt_jobs)'
-local prompt_name="%B%{$fg[black]%}[%n]%b%{$reset_color%}"
+local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_ranger='$(pre_prompt_ranger)'
 local prompt_shell='$(pre_prompt_shell)'
-local prompt_time="%B%{$fg[black]%}[%D{%H:%M}]%b%{$reset_color%}"
 
 function pre_prompt_branch {
 	pushd . >/dev/null
@@ -97,6 +98,15 @@ function pre_prompt_branch {
 	popd >/dev/null
 }
 
+function pre_prompt_datetime {
+	local HOUR="$(date '+%H')"
+	if [[ $HOUR -lt 9 ]] && [[ $HOUR -gt 18 ]]; then
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}%D{%b %d, %H:%M} %{$fg[black]%}]%{$reset_color%}%b"
+	else
+		echo -e "%B%{$fg[black]%}[ %D{%b %d, %H:%M} ]%{$reset_color%}%b"
+	fi
+}
+
 function pre_prompt_dir {
 	echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}%~ %{$fg[black]%}]%b%{$reset_color%}"
 }
@@ -104,7 +114,7 @@ function pre_prompt_dir {
 function pre_prompt_jobs {
 	local JOBS="$(jobs -l | wc -l | awk '{print $1}')"
 	if [[ $JOBS != 0 ]]; then
-		[[ $JOBS = 1 ]] && STR='job' || STR='jobs'
+		[[ $JOBS = 1 ]] && local STR='job' || local STR='jobs'
 		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$JOBS $STR %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
@@ -112,7 +122,7 @@ function pre_prompt_jobs {
 }
 
 function pre_prompt_newline {
-	echo -e "\n\r"
+	echo -e "%B\n%b"
 }
 
 function pre_prompt_shell {
