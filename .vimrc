@@ -86,6 +86,7 @@
 	highlight LineNr       ctermbg=234  ctermfg=249
 	highlight NonText      ctermfg=236  ctermbg=none
 	highlight SpecialKey   ctermfg=236  ctermbg=none
+	highlight Search       ctermfg=174  ctermbg=124
 	highlight StatusLine   ctermfg=234  ctermbg=249
 	highlight StatusLineNC ctermfg=234  ctermbg=239
 	highlight Visual       ctermbg=45   ctermfg=0
