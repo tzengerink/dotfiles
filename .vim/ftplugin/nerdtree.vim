@@ -27,6 +27,8 @@
 	nmap <buffer> <SPACE>   o
 	nmap <buffer> <LEADER>x PX
 	nmap <buffer> ..        Pko
+	nmap <buffer> l         o
+	nmap <buffer> h         o
 
 	" Search forwards
 	nmap <buffer> na :NERDJump a 0<CR>
