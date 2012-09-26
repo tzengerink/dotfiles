@@ -99,11 +99,11 @@ function pre_prompt_branch {
 }
 
 function pre_prompt_datetime {
-	local HOUR="$(date '+%H')"
-	if [[ $HOUR -lt 9 ]] && [[ $HOUR -gt 18 ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}%D{%b %d, %H:%M} %{$fg[black]%}]%{$reset_color%}%b"
-	else
+	local HOUR="$(printf %.0f $(date '+%H'))"
+	if [[ $HOUR -gt 8 ]] && [[ $HOUR -lt 18 ]]; then
 		echo -e "%B%{$fg[black]%}[ %D{%b %d, %H:%M} ]%{$reset_color%}%b"
+	else
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}%D{%b %d, %H:%M} %{$fg[black]%}]%{$reset_color%}%b"
 	fi
 }
 
@@ -114,8 +114,7 @@ function pre_prompt_dir {
 function pre_prompt_jobs {
 	local JOBS="$(jobs -l | wc -l | awk '{print $1}')"
 	if [[ $JOBS != 0 ]]; then
-		[[ $JOBS = 1 ]] && local STR='job' || local STR='jobs'
-		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$JOBS $STR %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}%j %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -131,7 +130,7 @@ function pre_prompt_shell {
 
 function pre_prompt_ranger {
 	if [[ -n "$RANGER_LEVEL" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}ranger %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}R %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
