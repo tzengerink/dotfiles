@@ -100,10 +100,11 @@ function pre_prompt_branch {
 
 function pre_prompt_datetime {
 	local HOUR="$(printf %.0f $(date '+%H'))"
+	local DATE="%D{%Y%m%d.%H%M}"
 	if [[ $HOUR -gt 8 ]] && [[ $HOUR -lt 18 ]]; then
-		echo -e "%B%{$fg[black]%}[ %D{%b %d, %H:%M} ]%{$reset_color%}%b"
+		echo -e "%B%{$fg[black]%}[ $DATE ]%{$reset_color%}%b"
 	else
-		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}%D{%b %d, %H:%M} %{$fg[black]%}]%{$reset_color%}%b"
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$DATE %{$fg[black]%}]%{$reset_color%}%b"
 	fi
 }
 
