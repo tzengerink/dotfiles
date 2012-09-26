@@ -175,15 +175,18 @@
 " FUNCTIONS
 " ------------------------------------------------------------------------------
 
-	" Toggle InvalidStyle
-	let s:invalidStyleIsVisible = 1
-	function! ToggleInvalidStyle()
-		if (s:invalidStyleIsVisible)
-			let s:invalidStyleIsVisible = 0
-			return "set background=dark | colors ".g:colors_name
-		else
-			let s:invalidStyleIsVisible = 1
-			return "highlight InvalidStyle ctermbg=red ctermfg=white"
+	" Fill line with string up to given textwidth
+	function! FillLine( str, ... )
+		let tw = 80
+		" Set tw to desired length
+		if a:0 > 0 | let tw = a:1 | endif
+		" Strip trailing spaces
+		.s/[[:space:]]*$//
+		" Calculate number of `str`s to insert
+		let reps = (tw - col("$")) / len(a:str)
+		" Insert `str`s
+		if reps > 0
+			.s/$/\=(' '.repeat(a:str, reps))/
 		endif
 	endfunction
 
@@ -215,6 +218,26 @@
 		%s/\s\+$//e
 	endfunction
 
+	" Toggle InvalidStyle highlighting
+	let s:invalidStyleIsVisible = 1
+	function! ToggleInvalidStyle()
+		if (s:invalidStyleIsVisible)
+			let s:invalidStyleIsVisible = 0
+			return "set background=dark | colors ".g:colors_name
+		else
+			let s:invalidStyleIsVisible = 1
+			return "highlight InvalidStyle ctermbg=red ctermfg=white"
+		endif
+	endfunction
+
+" ------------------------------------------------------------------------------
+" COMMANDS
+" ------------------------------------------------------------------------------
+
+	command! -nargs=* FillLine           call FillLine(<f-args>)
+	command! -nargs=0 Ranger             call RangerChooser()
+	command! -nargs=0 ToggleInvalidStyle call ToggleInvalidStyle()
+
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (NORMAL MODE)
 " ------------------------------------------------------------------------------
@@ -222,20 +245,6 @@
 	" Quick command line access
 	noremap ; :
 	noremap :: ;
-
-	" Open file in default application
-	nmap <C-O> :! open %<CR><CR>
-
-	" Yank to end of line
-	nmap Y y$
-
-	" Clear entire file
-	nmap <LEADER>C ggvG$c
-
-	" Function calls
-	nnoremap <EXPR> i  IndentWithI()
-	nnoremap <LEADER>I :call ToggleInvalidStyle()<CR>
-	nnoremap <LEADER>r :call RangerChooser()<CR>
 
 	" Save/Quit mappings
 	nmap <LEADER>s  :w<CR>
@@ -288,6 +297,21 @@
 	" Sessions
 	nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
 	nmap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
+
+	" Open file in default application
+	nmap <C-O> :! open %<CR><CR>
+
+	" Yank to end of line
+	nmap Y y$
+
+	" Clear entire file
+	nmap <LEADER>C ggvG$c
+
+	" Auto-indent
+	nnoremap <EXPR> i IndentWithI()
+
+	" Open Ranger
+	nnoremap <LEADER>r :Ranger<CR>
 
 	" Temporary SQL query
 	nmap <LEADER>tq :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
