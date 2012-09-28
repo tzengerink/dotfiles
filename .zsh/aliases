@@ -70,8 +70,9 @@ alias ved='deactivate'
 # -------------
 
 alias g='~/.zsh/scripts/google-search.py'
-alias so='~/.zsh/scripts/google-search.py --site stackoverflow.com'
-alias mdn='~/.zsh/scripts/google-search.py --site developers.mozilla.org'
+alias so='~/.zsh/scripts/google-search.py --site stackoverflow.com -a'
+alias gh='~/.zsh/scripts/google-search.py --site github.com -a'
+alias mdn='~/.zsh/scripts/google-search.py --site developer.mozilla.org -a'
 
 # OTHER
 # -----
