@@ -1,7 +1,7 @@
 set hostname         = "gmail.com"
 set folder           = "imaps://imap.gmail.com/"
 set imap_user        = "t.zengerink@gmail.com"
-set imap_pass        = "**********"
+# set imap_pass        = "**********"
 set spoolfile        = "+INBOX"
 set postponed        = "+[Gmail]/Drafts"
 # set record           = "Your/Sent/Messages"
