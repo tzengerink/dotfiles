@@ -1,0 +1,15 @@
+# GOOGLE
+# ------
+# Quick search on Google.com
+
+local GURL='http://google.com/search?q='
+local SITE=''
+
+case $1 in
+	"so") SITE='stackoverflow.com'; shift;;
+	"gh") SITE='github.com';        shift;;
+esac
+
+local URL="$GURL$*&sitesearch=$SITE"
+
+"$BROWSER" "$URL"
