@@ -51,7 +51,6 @@ setopt SHARE_HISTORY         # Share the history file across sessions
 # EXPORTS
 # -------
 
-export BROWSER="/usr/bin/open"
 export CLICOLOR=1
 export EDITOR=vi
 export GREP_OPTIONS='--color=auto'
