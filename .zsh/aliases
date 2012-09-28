@@ -66,6 +66,14 @@ alias ve='virtualenv .env'
 alias vea='source .env/bin/activate'
 alias ved='deactivate'
 
+# SEARCH GOOGLE
+# -------------
+
+alias g='~/.zsh/scripts/google-search.py'
+alias so='~/.zsh/scripts/google-search.py --site stackoverflow.com -a'
+alias gh='~/.zsh/scripts/google-search.py --site github.com -a'
+alias mdn='~/.zsh/scripts/google-search.py --site developer.mozilla.org -a'
+
 # OTHER
 # -----
 
@@ -76,7 +84,6 @@ alias du='du -c -h'
 alias dwn='curl -O'
 alias extip='curl ifconfig.me/ip'
 alias fn='find . -name'
-alias g='google'
 alias hi='history -d | tail -20'
 alias ips='locip && extip'
 alias mysql='mysql -p'
