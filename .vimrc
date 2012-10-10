@@ -158,6 +158,9 @@
 	" NERDTree
 	nmap <C-n> :NERDTreeToggle<CR>
 
+	" NerdCommenter
+	nmap <C-v> <LEADER>c<SPACE>
+
 	" OmniComplete
 	imap <C-o> <C-x><C-o>
 
@@ -265,7 +268,7 @@
 	nmap <LEADER>f       zM
 	nmap <LEADER>F       zR
 	nmap <SPACE>         za
-	nmap <LEADER><SPACE> zMzv
+	nmap <LEADER><SPACE> zMzvzt
 
 	" Tabs
 	nmap <C-H> :tabp<CR>
