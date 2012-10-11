@@ -24,11 +24,11 @@ alias ..='up'                  # Alias for the up function
 # ---
 
 alias ga='git add'
-alias gad='git status -s | egrep "^\?\?\ |^\ M\ " | awk "{ print \$2}" | xargs git add'
+alias gad='git add .'
 alias gb='git checkout -q -b'
 alias gbd='git branch -d'
 alias gc='git commit'
-alias gca='git commit -a'
+alias gca='git add . && git commit -a'
 alias gch='git checkout -q'
 alias gcl='git clone'
 alias gd='git diff'
