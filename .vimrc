@@ -159,7 +159,7 @@
 	nmap <C-n> :NERDTreeToggle<CR>
 
 	" NerdCommenter
-	nmap <C-v> <LEADER>c<SPACE>
+	nmap <C-x> <LEADER>c<SPACE>
 
 	" OmniComplete
 	imap <C-o> <C-x><C-o>

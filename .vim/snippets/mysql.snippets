@@ -12,6 +12,13 @@ snippet constraint
 snippet drop
 	DROP TABLE IF EXISTS ${1};
 snippet insert
-	INSERT INTO ${1} (${2}) VALUES
-		(${3})${4};
-
+	INSERT INTO ${1} (${2})
+	VALUES (${3})${4};
+snippet select
+	SELECT ${1}
+	FROM ${2}
+	WHERE ${3}
+snippet update
+	UPDATE ${1}
+	SET ${2} = ${3}
+	WHERE ${4} = ${5};
