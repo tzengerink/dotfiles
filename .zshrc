@@ -76,7 +76,7 @@ export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 # ------
 
 local prompt_highlight="blue"
-local prompt_branch='$(pre_prompt_branch)'
+local prompt_repo='$(pre_prompt_repo)'
 local prompt_datetime='$(pre_prompt_datetime)'
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_history="%B%{$fg[black]%}[ %h ]%b%{$reset_color%}"
@@ -86,16 +86,21 @@ local prompt_newline='$(pre_prompt_newline)'
 local prompt_ranger='$(pre_prompt_ranger)'
 local prompt_shell='$(pre_prompt_shell)'
 
-function pre_prompt_branch {
-	pushd . >/dev/null
-	while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
-	if [[ -d .git ]]; then
-		local BR=$(git rev-parse --abbrev-ref HEAD)
-		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BR %{$fg[black]%}]%{$reset_color%}"
+function pre_prompt_repo {
+	if [[ -d .svn ]]; then
+		local REV=$(svn info | grep "Revision" | awk '{print $2}')
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}svn:$REV %{$fg[black]%}]%{$reset_color%}"
 	else
-		echo ""
+		pushd . >/dev/null
+		while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
+		if [[ -d .git ]]; then
+			local BR=$(git rev-parse --abbrev-ref HEAD)
+			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}git:$BR %{$fg[black]%}]%{$reset_color%}"
+		else
+			echo ""
+		fi
+		popd >/dev/null
 	fi
-	popd >/dev/null
 }
 
 function pre_prompt_datetime {
@@ -147,4 +152,4 @@ function pre_prompt_ranger {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_branch}${prompt_ranger}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_history}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_repo}${prompt_ranger}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_history}${prompt_shell} "
