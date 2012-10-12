@@ -85,6 +85,7 @@ local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_ranger='$(pre_prompt_ranger)'
 local prompt_shell='$(pre_prompt_shell)'
+local prompt_subshell='$(pre_prompt_subshell)'
 
 function pre_prompt_repo {
 	if [[ -d .svn ]]; then
@@ -142,6 +143,14 @@ function pre_prompt_ranger {
 	fi
 }
 
+function pre_prompt_subshell {
+	if [[ $SHLVL > 1 && "$RANGER_LEVEL" -eq "" ]]; then
+		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}S %{$fg[black]%}]%b%{$reset_color%}"
+	else
+		echo ""
+	fi
+}
+
 # MACHINE SPECIFIC CONFIGURATION
 # ------------------------------
 
@@ -152,4 +161,4 @@ function pre_prompt_ranger {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_repo}${prompt_ranger}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_history}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_repo}${prompt_subshell}${prompt_ranger}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_history}${prompt_shell} "

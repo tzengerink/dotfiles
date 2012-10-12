@@ -263,6 +263,7 @@
 	noremap :: ;
 
 	" Save/Quit mappings
+	nmap <C-d>      :sh<CR>
 	nmap <LEADER>s  :w<CR>
 	nmap <LEADER>wa :wa<CR>
 	nmap <LEADER>wq :wq<CR>
