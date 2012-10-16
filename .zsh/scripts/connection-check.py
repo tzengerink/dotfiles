@@ -4,8 +4,11 @@
     CONNECTION CHECK
     ----------------
 
-    Check if your internet connection is up and running, or wether your not
+    Check if your internet connection is up and running, or wether you're not
     connected to the outside world.
+
+    The script keep checking if a connection can be established, as long as
+    there are no changes, no output will be given.
 
     To see all options use the `-h` or `--help` flag.
 
@@ -16,9 +19,13 @@
 import argparse, time, urllib2
 
 
-def check(url, timeout):
+def check(url, to):
+    """Check if a connection to an URL can be made.
+    url -- URL to check connection with.
+    to  -- Timeout to accept when connecting.
+    """
     try:
-        response = urllib2.urlopen(url, timeout=5)
+        response = urllib2.urlopen(url, None, to)
         return True
     except urllib2.URLError:
         pass
@@ -31,29 +38,27 @@ def handle_args():
     parser.add_argument('url',
                         default='http://www.google.com',
                         help='URL to check connection to',
-                        nargs='*')
+                        nargs='?')
     parser.add_argument('-t', '--timeout',
                         default=5,
                         dest='timeout',
                         help='Timeout to accept while connecting',
-                        nargs='*')
+                        nargs='?',
+                        type=int)
     return parser.parse_args()
 
 
 def main():
     args = handle_args()
+    status = None
     try:
-        status = None
         while True:
             result = check(args.url, args.timeout)
             if status is None or result is not status:
                 status = result
-                if status:
-                    print ("[" + time.strftime("%H:%M:%S") + "] Online")
-                else:
-                    print ("[" + time.strftime("%H:%M:%S") + "] Offline")
-
-            time.sleep(args.timeout)
+                print("[" + time.strftime("%H:%M:%S") + "] "
+                     + ("OK" if status else "OFFLINE"))
+            time.sleep(args.timeout * 2)
     except KeyboardInterrupt:
         exit(0)
 
