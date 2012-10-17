@@ -60,6 +60,7 @@ export LS_COLORS="di=1;;40:ln=1;;40:so=1;;40:pi=0;:ex=1;;40:bd=0;:cd=37;:su=0;:s
 export SUDO_EDITOR='/usr/bin/vi -p -X'
 export SVN_EDITOR=vi
 export TERM=xterm-256color
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # LESS
 # ----
@@ -76,15 +77,17 @@ export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 # ------
 
 local prompt_highlight="blue"
-local prompt_repo='$(pre_prompt_repo)'
+
 local prompt_datetime='$(pre_prompt_datetime)'
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_history="%B%{$fg[black]%}[ %h ]%b%{$reset_color%}"
 local prompt_jobs='$(pre_prompt_jobs)'
 local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
+local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
 local prompt_subshell='$(pre_prompt_subshell)'
+local prompt_virtual_env='$(pre_prompt_virtual_env)'
 
 function pre_prompt_repo {
 	if [[ -d .svn ]]; then
@@ -144,6 +147,14 @@ function pre_prompt_subshell {
 	fi
 }
 
+function pre_prompt_virtual_env {
+	if [[ -n "$VIRTUAL_ENV" ]]; then
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(basename $VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+	else
+		echo ""
+	fi
+}
+
 # MACHINE SPECIFIC CONFIGURATION
 # ------------------------------
 
@@ -154,4 +165,4 @@ function pre_prompt_subshell {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_repo}${prompt_subshell}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_history}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_repo}${prompt_subshell}${prompt_virtual_env}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_history}${prompt_shell} "
