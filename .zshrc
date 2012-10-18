@@ -64,6 +64,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # LESS
 # ----
+
 export PAGER=less                         # Use less for paging
 export LESS_TERMCAP_mb=$'\e[01;31m'       # Begin blinking
 export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # Begin bold
