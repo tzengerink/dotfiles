@@ -24,11 +24,11 @@ alias ..='up'                  # Alias for the up function
 # ---
 
 alias ga='git add'
-alias gad='git status -s | egrep "^\?\?\ |^\ M\ " | awk "{ print \$2}" | xargs git add'
+alias gad='git add .'
 alias gb='git checkout -q -b'
 alias gbd='git branch -d'
 alias gc='git commit'
-alias gca='git commit -a'
+alias gca='git add . && git commit -a'
 alias gch='git checkout -q'
 alias gcl='git clone'
 alias gd='git diff'
@@ -78,6 +78,7 @@ alias so='~/.zsh/scripts/google-search.py --site stackoverflow.com -a'
 # OTHER
 # -----
 
+alias conn='~/.zsh/scripts/connection-check.py'
 alias df='df -h'
 alias dirtree='find . -not \( -type d -name .svn -prune \) -print | sed -e "s;[^/]*/;|___;g;s;___|; |;g"'
 alias du1='du -d 1'

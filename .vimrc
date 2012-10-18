@@ -158,6 +158,9 @@
 	" NERDTree
 	nmap <C-n> :NERDTreeToggle<CR>
 
+	" NerdCommenter
+	nmap <C-x> <LEADER>c<SPACE>
+
 	" OmniComplete
 	imap <C-o> <C-x><C-o>
 
@@ -174,6 +177,11 @@
 " ------------------------------------------------------------------------------
 " FUNCTIONS
 " ------------------------------------------------------------------------------
+
+	" Get the number of columns for a given line
+	function! CountColumns( lineNum )
+		return len(getline(a:lineNum))
+	endfunction
 
 	" Fill line with string up to given textwidth
 	function! FillLine( str, ... )
@@ -230,6 +238,13 @@
 		endif
 	endfunction
 
+	" Underline the previous line with string
+	function! UnderLine( str )
+		let lineNumber = line('.') - 1
+		let lineWidth = CountColumns(lineNumber)
+		call FillLine(a:str, lineWidth)
+	endfunction
+
 " ------------------------------------------------------------------------------
 " COMMANDS
 " ------------------------------------------------------------------------------
@@ -237,6 +252,7 @@
 	command! -nargs=* FillLine           call FillLine(<f-args>)
 	command! -nargs=0 Ranger             call RangerChooser()
 	command! -nargs=0 ToggleInvalidStyle call ToggleInvalidStyle()
+	command! -nargs=* UnderLine          call UnderLine(<f-args>)
 
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (NORMAL MODE)
@@ -247,6 +263,7 @@
 	noremap :: ;
 
 	" Save/Quit mappings
+	nmap <C-d>      :sh<CR>
 	nmap <LEADER>s  :w<CR>
 	nmap <LEADER>wa :wa<CR>
 	nmap <LEADER>wq :wq<CR>
@@ -265,7 +282,7 @@
 	nmap <LEADER>f       zM
 	nmap <LEADER>F       zR
 	nmap <SPACE>         za
-	nmap <LEADER><SPACE> zMzv
+	nmap <LEADER><SPACE> zMzvzt
 
 	" Tabs
 	nmap <C-H> :tabp<CR>
@@ -277,6 +294,10 @@
 	nmap <LEFT>     :bprevious<CR>
 	nmap <LEADER>b  :buffers<CR>:buffer<SPACE>
 	nmap <LEADER>BD :bd<CR>
+
+	" Commands
+	nnoremap <LEADER>r :Ranger<CR>
+	nnoremap <LEADER>u :UnderLine -<CR>
 
 	" Windows
 	nmap =          <C-W>+
@@ -310,9 +331,6 @@
 	" Auto-indent
 	nnoremap <EXPR> i IndentWithI()
 
-	" Open Ranger
-	nnoremap <LEADER>r :Ranger<CR>
-
 	" Temporary SQL query
 	nmap <LEADER>tq :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
 
@@ -344,7 +362,7 @@
 " ------------------------------------------------------------------------------
 
 	" Exit insert mode and save document
-	inoremap <leader>s <ESC>:w<CR>
+	inoremap <LEADER>s <ESC>:w<CR>
 
 	" Exit insert mode
 	inoremap jj <ESC>

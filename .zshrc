@@ -60,6 +60,7 @@ export LS_COLORS="di=1;;40:ln=1;;40:so=1;;40:pi=0;:ex=1;;40:bd=0;:cd=37;:su=0;:s
 export SUDO_EDITOR='/usr/bin/vi -p -X'
 export SVN_EDITOR=vi
 export TERM=xterm-256color
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # LESS
 # ----
@@ -76,26 +77,33 @@ export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 # ------
 
 local prompt_highlight="blue"
-local prompt_branch='$(pre_prompt_branch)'
+
 local prompt_datetime='$(pre_prompt_datetime)'
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_history="%B%{$fg[black]%}[ %h ]%b%{$reset_color%}"
 local prompt_jobs='$(pre_prompt_jobs)'
 local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
-local prompt_ranger='$(pre_prompt_ranger)'
+local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
+local prompt_subshell='$(pre_prompt_subshell)'
+local prompt_virtual_env='$(pre_prompt_virtual_env)'
 
-function pre_prompt_branch {
-	pushd . >/dev/null
-	while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
-	if [[ -d .git ]]; then
-		local BR=$(git rev-parse --abbrev-ref HEAD)
-		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BR %{$fg[black]%}]%{$reset_color%}"
+function pre_prompt_repo {
+	if [[ -d .svn ]]; then
+		local REV=$(svn info | grep "Revision" | awk '{print $2}')
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}svn:$REV %{$fg[black]%}]%{$reset_color%}"
 	else
-		echo ""
+		pushd . >/dev/null
+		while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
+		if [[ -d .git ]]; then
+			local BR=$(git rev-parse --abbrev-ref HEAD)
+			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}git:$BR %{$fg[black]%}]%{$reset_color%}"
+		else
+			echo ""
+		fi
+		popd >/dev/null
 	fi
-	popd >/dev/null
 }
 
 function pre_prompt_datetime {
@@ -129,9 +137,19 @@ function pre_prompt_shell {
 	echo -e "%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
 }
 
-function pre_prompt_ranger {
-	if [[ -n "$RANGER_LEVEL" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}R %{$fg[black]%}]%b%{$reset_color%}"
+function pre_prompt_subshell {
+	[[ -n "$VIMRUNTIME" ]] && local SUBSHELL="V$SUBSHELL"
+	[[ -n "$RANGER_LEVEL" ]] && local SUBSHELL="R$SUBSHELL"
+	if [[ -n "$SUBSHELL" ]]; then
+		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}$SUBSHELL %{$fg[black]%}]%b%{$reset_color%}"
+	else
+		echo ""
+	fi
+}
+
+function pre_prompt_virtual_env {
+	if [[ -n "$VIRTUAL_ENV" ]]; then
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(basename $VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -147,4 +165,4 @@ function pre_prompt_ranger {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_branch}${prompt_ranger}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_history}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_repo}${prompt_subshell}${prompt_virtual_env}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_history}${prompt_shell} "
