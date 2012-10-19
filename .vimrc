@@ -282,7 +282,7 @@
 	nmap <LEADER>f       zM
 	nmap <LEADER>F       zR
 	nmap <SPACE>         za
-	nmap <LEADER><SPACE> zMzvzt
+	nmap <LEADER><SPACE> zMzv
 
 	" Tabs
 	nmap <C-H> :tabp<CR>
