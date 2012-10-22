@@ -98,8 +98,13 @@ function pre_prompt_repo {
 		pushd . >/dev/null
 		while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
 		if [[ -d .git ]]; then
-			local BR=$(git rev-parse --abbrev-ref HEAD)
-			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}git:$BR %{$fg[black]%}]%{$reset_color%}"
+			local BRANCH=$(git rev-parse --abbrev-ref HEAD)
+			if [[ $(git diff-files | wc -l | awk '{print $1}') -eq 0 ]]; then
+				local DIRTY=""
+			else
+				local DIRTY="%{$fg[red]%}*"
+			fi
+			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH$DIRTY %{$fg[black]%}]%{$reset_color%}"
 		else
 			echo ""
 		fi
