@@ -118,7 +118,11 @@ function pre_prompt_datetime {
 }
 
 function pre_prompt_dir {
-	echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}%~ %{$fg[black]%}]%b%{$reset_color%}"
+	local DIR="$PWD"
+	if [[ $((`echo $PWD|sed 's/[^\/]//g'|wc -m`-1)) > 3 ]]; then
+		DIR="../`pwd | awk -F\/ '{print $(NF-1),$(NF)}' | sed 's/\ /\\//'`"
+	fi
+	echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}$DIR %{$fg[black]%}]%b%{$reset_color%}"
 }
 
 function pre_prompt_jobs {
