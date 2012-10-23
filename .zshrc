@@ -123,7 +123,7 @@ function pre_prompt_datetime {
 }
 
 function pre_prompt_dir {
-	local DIR="$PWD"
+	local DIR=${PWD/$HOME/\~}
 	if [[ $((`echo $PWD|sed 's/[^\/]//g'|wc -m`-1)) > 4 ]]; then
 		DIR="/`pwd | awk -F\/ '{print $2,"\/\.\.\.\/",$(NF-1)"\/",$(NF)}' | sed s/\ //g`"
 	fi
