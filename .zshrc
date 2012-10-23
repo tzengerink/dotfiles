@@ -124,8 +124,12 @@ function pre_prompt_datetime {
 
 function pre_prompt_dir {
 	local DIR=${PWD/$HOME/\~}
-	if [[ $((`echo $DIR|sed 's/[^\/]//g'|wc -m`-1)) > 4 ]]; then
-		DIR="`echo $DIR | awk -F\/ '{print $1,"\/",$2,"\/\.\.\.\/",$(NF-1)"\/",$(NF)}' | sed s/\ //g`"
+	local DIRCOUNT=$((`echo $DIR|sed 's/[^\/]//g'|wc -m`-1))
+	if [[ $DIRCOUNT > 4 ]]; then
+		CNT=$(( $DIRCOUNT - 3 ))
+		STR=`echo $(yes "." | head -n$CNT) | sed s/\ //g`
+		DIR="`echo $DIR | awk -F\/ '{print \$1,"\/",\$2,"\/__DIRCOUNT__\/",\$(NF-1)"\/",\$(NF)}' | sed s/\ //g`"
+		DIR=${DIR/__DIRCOUNT__/$STR}
 	fi
 	echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}$DIR %{$fg[black]%}]%b%{$reset_color%}"
 }
