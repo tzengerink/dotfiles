@@ -64,6 +64,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # LESS
 # ----
+
 export PAGER=less                         # Use less for paging
 export LESS_TERMCAP_mb=$'\e[01;31m'       # Begin blinking
 export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # Begin bold
@@ -97,8 +98,13 @@ function pre_prompt_repo {
 		pushd . >/dev/null
 		while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
 		if [[ -d .git ]]; then
-			local BR=$(git rev-parse --abbrev-ref HEAD)
-			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}git:$BR %{$fg[black]%}]%{$reset_color%}"
+			local BRANCH=$(git rev-parse --abbrev-ref HEAD)
+			if [[ $(git ls-files --other --modified --exclude-standard | wc -l | awk '{print $1}') -eq 0 ]]; then
+				local DIRTY=""
+			else
+				local DIRTY="%{$fg[red]%}*"
+			fi
+			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH$DIRTY %{$fg[black]%}]%{$reset_color%}"
 		else
 			echo ""
 		fi
@@ -117,7 +123,15 @@ function pre_prompt_datetime {
 }
 
 function pre_prompt_dir {
-	echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}%~ %{$fg[black]%}]%b%{$reset_color%}"
+	local DIR=${PWD/$HOME/\~}
+	local DIRCOUNT=$((`echo $DIR|sed 's/[^\/]//g'|wc -m`-1))
+	if [[ $DIRCOUNT > 4 ]]; then
+		CNT=$(( $DIRCOUNT - 3 ))
+		STR=`echo $(yes "." | head -n$CNT) | sed s/\ //g`
+		DIR="`echo $DIR | awk -F\/ '{print \$1,"\/",\$2,"\/__DIRCOUNT__\/",\$(NF-1)"\/",\$(NF)}' | sed s/\ //g`"
+		DIR=${DIR/__DIRCOUNT__/$STR}
+	fi
+	echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}$DIR %{$fg[black]%}]%b%{$reset_color%}"
 }
 
 function pre_prompt_jobs {
@@ -138,12 +152,13 @@ function pre_prompt_shell {
 }
 
 function pre_prompt_subshell {
-	[[ -n "$VIMRUNTIME" ]] && local SUBSHELL="V$SUBSHELL"
-	[[ -n "$RANGER_LEVEL" ]] && local SUBSHELL="R$SUBSHELL"
+	[[ -n "$VIMRUNTIME" ]] && local SUBSHELL="vim $SUBSHELL"
+	[[ -n "$RANGER_LEVEL" ]] && local SUBSHELL="ranger $SUBSHELL"
+	SUBSHELL=`echo $SUBSHELL | sed 's/\ *$//g'`
 	if [[ -n "$SUBSHELL" ]]; then
 		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}$SUBSHELL %{$fg[black]%}]%b%{$reset_color%}"
 	else
-		echo ""
+		echo -e "${prompt_history}"
 	fi
 }
 
@@ -165,4 +180,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_repo}${prompt_subshell}${prompt_virtual_env}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_history}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_repo}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "

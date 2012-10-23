@@ -9,6 +9,9 @@ snippet constraint
 		FOREIGN KEY (${2})
 		REFERENCES ${3} (${4})
 		ON DELETE CASCADE${5}
+snippet delete
+	DELETE FROM ${1}
+	WHERE ${2} = ${3};
 snippet drop
 	DROP TABLE IF EXISTS ${1};
 snippet insert
@@ -17,7 +20,7 @@ snippet insert
 snippet select
 	SELECT ${1}
 	FROM ${2}
-	WHERE ${3}
+	WHERE ${3};
 snippet update
 	UPDATE ${1}
 	SET ${2} = ${3}
