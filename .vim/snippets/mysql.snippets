@@ -1,5 +1,6 @@
 snippet create
-	CREATE TABLE IF NOT EXISTS ${1} (
+	CREATE TABLE IF NOT EXISTS ${1}
+	(
 		${2}
 	)
 	ENGINE = InnoDB
@@ -10,18 +11,29 @@ snippet constraint
 		REFERENCES ${3} (${4})
 		ON DELETE CASCADE${5}
 snippet delete
-	DELETE FROM ${1}
-	WHERE ${2} = ${3};
+	DELETE
+	FROM
+		${1}
+	WHERE
+		${2} = ${3};
 snippet drop
 	DROP TABLE IF EXISTS ${1};
 snippet insert
-	INSERT INTO ${1} (${2})
-	VALUES (${3})${4};
+	INSERT INTO
+		${1} (${2})
+	VALUES
+		(${3})${4};
 snippet select
-	SELECT ${1}
-	FROM ${2}
-	WHERE ${3};
+	SELECT
+		${1}
+	FROM
+		${2}
+	WHERE
+		${3};
 snippet update
-	UPDATE ${1}
-	SET ${2} = ${3}
-	WHERE ${4} = ${5};
+	UPDATE
+		${1}
+	SET
+		${2} = ${3}
+	WHERE
+		${4} = ${5};

@@ -99,11 +99,11 @@ function pre_prompt_repo {
 		while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
 		if [[ -d .git ]]; then
 			local BRANCH=$(git rev-parse --abbrev-ref HEAD)
-			if [[ $(git ls-files --other --modified --exclude-standard | wc -l | awk '{print $1}') -eq 0 ]]; then
-				local DIRTY=""
-			else
-				local DIRTY="%{$fg[red]%}*"
-			fi
+			local DIRTY=""
+			# Slows down the entire console.
+			#if [[ $(git ls-files --other --modified --exclude-standard | wc -l | awk '{print $1}') > 0 ]]; then
+				#local DIRTY="%{$fg[red]%}*"
+			#fi
 			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH$DIRTY %{$fg[black]%}]%{$reset_color%}"
 		else
 			echo ""

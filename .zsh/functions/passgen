@@ -5,7 +5,8 @@
 if [[ $1 != '' ]]; then
 	local LANG=C
 	local LEN=$1
-	tr -dc "A-Za-z0-9" </dev/urandom | head -c ${LEN} | xargs
+	cat /dev/urandom | tr -dc "A-Za-z0-9" | head -c ${LEN}
+	echo
 else
 	echo -e "Usage: $0 [password length]"
 fi
