@@ -15,6 +15,7 @@
 	setlocal foldlevel=0
 	setlocal foldmarker={,}
 	setlocal foldmethod=marker
+	setlocal foldminlines=2
 	setlocal foldtext=CssFoldText()
 
 " ------------------------------------------------------------------------------
