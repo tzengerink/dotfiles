@@ -146,10 +146,10 @@
 		\ set foldnestmax=2
 
 	" Easy filetype switching
-	nnoremap <LEADER>Th :set filetype=html<CR>
-	nnoremap <LEADER>Tj :set filetype=htmljinja<CR>
-	nnoremap <LEADER>Tm :set filetype=mysql<CR>
-	nnoremap <LEADER>Ts :set filetype=sql<CR>
+	nnoremap <LEADER>th :set filetype=html<CR>
+	nnoremap <LEADER>tj :set filetype=htmljinja<CR>
+	nnoremap <LEADER>tm :set filetype=mysql<CR>
+	nnoremap <LEADER>ts :set filetype=sql<CR>
 
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS

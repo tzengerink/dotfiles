@@ -18,5 +18,4 @@
 
 	" Highlight invalid style, example:
 	" - Over 80 character in a single line
-	autocmd BufEnter,BufLeave,InsertEnter,InsertLeave *
-		\ 2match InvalidStyle /\%81v.\+/
+	autocmd BufEnter,InsertLeave <buffer> 2match InvalidStyle /\%81v.\+/
