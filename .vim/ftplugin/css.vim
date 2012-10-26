@@ -11,5 +11,23 @@
 " FOLDING OPTIONS
 " ------------------------------------------------------------------------------
 
-	setlocal foldlevel=0        " Use X levels of folding
-	setlocal foldmethod=marker  " Method of folding
+	setlocal fillchars=fold:-
+	setlocal foldlevel=0
+	setlocal foldmarker={,}
+	setlocal foldmethod=marker
+	setlocal foldtext=CssFoldText()
+
+" ------------------------------------------------------------------------------
+" FUNCTIONS
+" ------------------------------------------------------------------------------
+
+	" Nicely fold the CSS statements
+	function! CssFoldText()
+			let line = getline(v:foldstart)
+			let nnum = nextnonblank(v:foldstart + 1)
+			while nnum < v:foldend+1
+					let line = line . " " . substitute(getline(nnum), '\s*\(\p\+:\)\s*\(\p\+\)', '\1\2', 'g')
+					let nnum = nnum + 1
+			endwhile
+			return line . " "
+	endfunction
