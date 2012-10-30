@@ -13,8 +13,26 @@
 	setlocal foldnestmax=3 " Maximum of X nested folds
 
 " ------------------------------------------------------------------------------
+" AUTO COMMANDS
+" ------------------------------------------------------------------------------
+
+	autocmd BufRead,BufEnter *.html,*.htm call s:DetectTemplateLanguage()
+
+" ------------------------------------------------------------------------------
 " FUNCTIONS
 " ------------------------------------------------------------------------------
+
+	" Detect template language
+	function! s:DetectTemplateLanguage()
+		let n = 1
+		while n < line("$")
+			if getline(n) =~ '{%\s*\(extends\|block\|macro\|if\|for\|include\|trans\)'
+				set filetype=htmljinja
+				return
+			endif
+			let n = n + 1
+		endwhile
+	endfunction
 
 	" MATCHTAGS (https://raw.github.com/gregsexton/MatchTag/master/ftplugin/html.vim)
 	if exists("b:did_ftplugin")
@@ -25,7 +43,7 @@
 		autocmd! CursorMoved,CursorMovedI,WinEnter <buffer> call s:Highlight_Matching_Pair()
 	augroup END
 
-	fu! s:Highlight_Matching_Pair()
+	function! s:Highlight_Matching_Pair()
 			" Remove any previous match.
 			if exists('w:tag_hl_on') && w:tag_hl_on
 					2match none
@@ -46,9 +64,9 @@
 					let position = s:SearchForMatchingTag(tagname, 1)
 			endif
 			call s:HighlightTagAtPosition(position)
-	endfu
+	endfunction
 
-	fu! s:GetCurrentCursorTag()
+	function! s:GetCurrentCursorTag()
 			"returns the tag under the cursor, includes the '/' if on a closing tag.
 			let c_col  = col('.')
 			let matched = matchstr(getline('.'), '\(<[^<>]*\%'.c_col.'c.\{-}>\)\|\(\%'.c_col.'c<.\{-}>\)')
@@ -57,9 +75,9 @@
 			endif
 			let tagname = matchstr(matched, '<\zs.\{-}\ze[ >]')
 			return tagname
-	endfu
+	endfunction
 
-	fu! s:SearchForMatchingTag(tagname, forwards)
+	function! s:SearchForMatchingTag(tagname, forwards)
 			"returns the position of a matching tag or [0 0]
 			let starttag = '<'.a:tagname.'.\{-}/\@<!>'
 			let midtag = ''
@@ -78,9 +96,9 @@
 			else
 				return searchpairpos(starttag, midtag, endtag, flags, skip, stopline)
 			endif
-	endfu
+	endfunction
 
-	fu! s:HighlightTagAtPosition(position)
+	function! s:HighlightTagAtPosition(position)
 			if a:position == [0, 0]
 					return
 			endif
@@ -90,4 +108,4 @@
 									\ .'\(\%' . line('.') . 'l<\zs[^<> ]*\%' . col('.') . 'c.\{-}\ze[ >]\)\|'
 									\ .'\(\%' . line('.') . 'l<\zs[^<>]\{-}\ze\s[^<>]*\%' . col('.') . 'c.\{-}>\)/'
 			let w:tag_hl_on = 1
-	endfu
+	endfunction
