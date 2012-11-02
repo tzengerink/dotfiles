@@ -26,9 +26,9 @@
 	function! CssFoldText()
 			let line = getline(v:foldstart)
 			let nnum = nextnonblank(v:foldstart + 1)
-			while nnum < v:foldend+1
+			while nnum < v:foldend
 					let line = line . " " . substitute(getline(nnum), '\s*\(\p\+:\)\s*\(\p\+\)', '\1\2', 'g')
 					let nnum = nnum + 1
 			endwhile
-			return line . " "
+			return line . " } "
 	endfunction
