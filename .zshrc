@@ -153,7 +153,6 @@ function pre_prompt_shell {
 
 function pre_prompt_subshell {
 	[[ -n "$VIMRUNTIME" ]] && local SUBSHELL="vim $SUBSHELL"
-	[[ -n "$RANGER_LEVEL" ]] && local SUBSHELL="ranger $SUBSHELL"
 	SUBSHELL=`echo $SUBSHELL | sed 's/\ *$//g'`
 	if [[ -n "$SUBSHELL" ]]; then
 		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}$SUBSHELL %{$fg[black]%}]%b%{$reset_color%}"
