@@ -100,10 +100,6 @@ function pre_prompt_repo {
 		if [[ -d .git ]]; then
 			local BRANCH=$(git rev-parse --abbrev-ref HEAD)
 			local DIRTY=""
-			# Slows down the entire console.
-			#if [[ $(git ls-files --other --modified --exclude-standard | wc -l | awk '{print $1}') > 0 ]]; then
-				#local DIRTY="%{$fg[red]%}*"
-			#fi
 			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH$DIRTY %{$fg[black]%}]%{$reset_color%}"
 		else
 			echo ""

@@ -16,3 +16,5 @@
 [user]
 	email = t.zengerink@gmail.com
 	name = T. Zengerink
+[push]
+	default = matching
