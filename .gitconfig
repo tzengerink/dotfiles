@@ -1,7 +1,7 @@
 [color]
 	ui = auto
 [core]
-	excludefile = ~/.gitignore
+	excludesfile = ~/.gitignore
 	editor = vim
 [diff]
 	tool = vimdiff
