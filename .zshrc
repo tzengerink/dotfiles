@@ -87,6 +87,7 @@ local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
+local prompt_ssh_agent='$(pre_prompt_ssh_agent)'
 local prompt_subshell='$(pre_prompt_subshell)'
 local prompt_virtual_env='$(pre_prompt_virtual_env)'
 
@@ -147,6 +148,14 @@ function pre_prompt_shell {
 	echo -e "%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
 }
 
+function pre_prompt_ssh_agent {
+		if [[ -n $SSH_AGENT_PID ]]; then
+			echo -e "%B%{$fg[black]%}[ %{$fg[red]%}s %{$fg[black]%}]%b%{$reset_color%}"
+		else
+			echo ""
+		fi
+}
+
 function pre_prompt_subshell {
 	[[ -n "$VIMRUNTIME" ]] && local SUBSHELL="vim $SUBSHELL"
 	SUBSHELL=`echo $SUBSHELL | sed 's/\ *$//g'`
@@ -175,4 +184,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_repo}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_repo}${prompt_ssh_agent}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
