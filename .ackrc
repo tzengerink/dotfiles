@@ -11,6 +11,7 @@
 
 --ignore-dir=tmp
 --ignore-dir=vendor
+--ignore-dir=.env
 
 # COLOR
 # -----
