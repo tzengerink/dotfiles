@@ -89,6 +89,8 @@
 	highlight Search       ctermfg=174  ctermbg=124
 	highlight StatusLine   ctermfg=234  ctermbg=249
 	highlight StatusLineNC ctermfg=234  ctermbg=239
+	highlight TabLineFill  ctermfg=234  ctermbg=234
+	highlight TabLine      ctermfg=239  ctermbg=234
 	highlight Visual       ctermbg=45   ctermfg=0
 
 " ------------------------------------------------------------------------------
