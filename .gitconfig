@@ -1,7 +1,7 @@
 [color]
 	ui = auto
 [core]
-	excludefile = ~/.gitignore
+	excludesfile = ~/.gitignore
 	editor = vim
 [diff]
 	tool = vimdiff
@@ -16,3 +16,5 @@
 [user]
 	email = t.zengerink@gmail.com
 	name = T. Zengerink
+[push]
+	default = matching

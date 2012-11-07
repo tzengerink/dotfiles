@@ -87,6 +87,7 @@ local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
+local prompt_ssh_agent='$(pre_prompt_ssh_agent)'
 local prompt_subshell='$(pre_prompt_subshell)'
 local prompt_virtual_env='$(pre_prompt_virtual_env)'
 
@@ -100,10 +101,6 @@ function pre_prompt_repo {
 		if [[ -d .git ]]; then
 			local BRANCH=$(git rev-parse --abbrev-ref HEAD)
 			local DIRTY=""
-			# Slows down the entire console.
-			#if [[ $(git ls-files --other --modified --exclude-standard | wc -l | awk '{print $1}') > 0 ]]; then
-				#local DIRTY="%{$fg[red]%}*"
-			#fi
 			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH$DIRTY %{$fg[black]%}]%{$reset_color%}"
 		else
 			echo ""
@@ -151,9 +148,16 @@ function pre_prompt_shell {
 	echo -e "%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
 }
 
+function pre_prompt_ssh_agent {
+		if [[ -n $SSH_AGENT_PID ]]; then
+			echo -e "%B%{$fg[black]%}[ %{$fg[red]%}s %{$fg[black]%}]%b%{$reset_color%}"
+		else
+			echo ""
+		fi
+}
+
 function pre_prompt_subshell {
 	[[ -n "$VIMRUNTIME" ]] && local SUBSHELL="vim $SUBSHELL"
-	[[ -n "$RANGER_LEVEL" ]] && local SUBSHELL="ranger $SUBSHELL"
 	SUBSHELL=`echo $SUBSHELL | sed 's/\ *$//g'`
 	if [[ -n "$SUBSHELL" ]]; then
 		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}$SUBSHELL %{$fg[black]%}]%b%{$reset_color%}"
@@ -180,4 +184,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_repo}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_repo}${prompt_ssh_agent}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "

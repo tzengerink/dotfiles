@@ -89,11 +89,16 @@
 	highlight Search       ctermfg=174  ctermbg=124
 	highlight StatusLine   ctermfg=234  ctermbg=249
 	highlight StatusLineNC ctermfg=234  ctermbg=239
+	highlight TabLineFill  ctermfg=234  ctermbg=234
+	highlight TabLine      ctermfg=239  ctermbg=234
 	highlight Visual       ctermbg=45   ctermfg=0
 
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
+
+	" Run function if no files given
+	autocmd VimEnter * call EmptyStartUp()
 
 	" Different settings for active/focussed window
 	augroup WinToggleNumber
@@ -156,6 +161,7 @@
 " ------------------------------------------------------------------------------
 
 	" NERDTree
+	let NERDTreeWinSize = 40
 	nmap <C-n> :NERDTreeToggle<CR>
 
 	" NerdCommenter
@@ -181,6 +187,13 @@
 	" Get the number of columns for a given line
 	function! CountColumns( lineNum )
 		return len(getline(a:lineNum))
+	endfunction
+
+	" Empty startup function
+	function! EmptyStartUp()
+		if 0 == argc()
+			NERDTree
+		endif
 	endfunction
 
 	" Fill line with string up to given textwidth
