@@ -87,7 +87,6 @@ local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
-local prompt_ssh_agent='$(pre_prompt_ssh_agent)'
 local prompt_subshell='$(pre_prompt_subshell)'
 local prompt_virtual_env='$(pre_prompt_virtual_env)'
 
@@ -146,14 +145,6 @@ function pre_prompt_newline {
 
 function pre_prompt_shell {
 	echo -e "%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
-}
-
-function pre_prompt_ssh_agent {
-		if [[ -n $SSH_AGENT_PID ]]; then
-			echo -e "%B%{$fg[black]%}[ %{$fg[red]%}s %{$fg[black]%}]%b%{$reset_color%}"
-		else
-			echo ""
-		fi
 }
 
 function pre_prompt_subshell {
