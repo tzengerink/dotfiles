@@ -4,6 +4,7 @@
 
 	set autoindent                      " Autoindenting
 	set completeopt=longest,menuone     " Show menu and preview window
+	set fillchars=fold:·                " Char used to fill lines
 	set laststatus=2                    " Always show the StatusLine
 	set list                            " Show non text characters
 	set listchars=eol:¬,tab:•·,trail:·  " Characters to use for non text

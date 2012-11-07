@@ -11,7 +11,6 @@
 " FOLDING OPTIONS
 " ------------------------------------------------------------------------------
 
-	setlocal fillchars=fold:-
 	setlocal foldlevel=0
 	setlocal foldmarker={,}
 	setlocal foldmethod=marker
