@@ -91,6 +91,7 @@
 	highlight StatusLineNC ctermfg=234  ctermbg=239
 	highlight TabLineFill  ctermfg=234  ctermbg=234
 	highlight TabLine      ctermfg=239  ctermbg=234
+	highlight Todo         ctermfg=206  ctermbg=129
 	highlight Visual       ctermbg=45   ctermfg=0
 
 " ------------------------------------------------------------------------------
@@ -149,6 +150,10 @@
 	" Override default PHP filetype settings
 	autocmd BufNewFile,BufRead *.php
 		\ set foldnestmax=2
+
+	" SetWrap for certain filetypes
+	autocmd BufRead *.md,*.txt
+		\ call SetWrap()
 
 	" Easy filetype switching
 	nnoremap <LEADER>th :set filetype=html<CR>
@@ -220,14 +225,14 @@
 		endif
 	endfunction
 
-	" Choose file using ranger
-	function! RangerChooser()
-		exec "silent !ranger --choosefile=/tmp/chosenfile " . expand("%:p:h")
-		if filereadable('/tmp/chosenfile')
-			exec 'edit ' . system('cat /tmp/chosenfile')
-			call system('rm /tmp/chosenfile')
-		endif
-		redraw!
+	" Wrap text nicely and readable
+	function! SetWrap()
+		setlocal wrap
+		setlocal nolist
+		setlocal linebreak
+		setlocal formatoptions+=aln
+		nnoremap <buffer> <silent> j gj
+		nnoremap <buffer> <silent> k gk
 	endfunction
 
 	" Strip trailing whitespace
@@ -263,7 +268,7 @@
 " ------------------------------------------------------------------------------
 
 	command! -nargs=* FillLine           call FillLine(<f-args>)
-	command! -nargs=0 Ranger             call RangerChooser()
+	command! -nargs=* SetWrap            call SetWrap()
 	command! -nargs=0 ToggleInvalidStyle call ToggleInvalidStyle()
 	command! -nargs=* UnderLine          call UnderLine(<f-args>)
 
@@ -309,7 +314,6 @@
 	nmap <LEADER>BD :bd<CR>
 
 	" Commands
-	nnoremap <LEADER>r :Ranger<CR>
 	nnoremap <LEADER>u :UnderLine -<CR>
 
 	" Windows
