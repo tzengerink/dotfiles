@@ -342,6 +342,9 @@
 	" Yank to end of line
 	nmap Y y$
 
+	" Display date
+	nnoremap <LEADER>d :echo strftime("%c")<CR>
+
 	" Clear entire file
 	nmap <LEADER>C ggvG$c
 
