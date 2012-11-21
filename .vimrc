@@ -157,10 +157,13 @@
 		\ call SetWrap()
 
 	" Easy filetype switching
+	nnoremap <LEADER>tc :set filetype=css<CR>
 	nnoremap <LEADER>th :set filetype=html<CR>
 	nnoremap <LEADER>tj :set filetype=htmljinja<CR>
 	nnoremap <LEADER>tm :set filetype=mysql<CR>
+	nnoremap <LEADER>tp :set filetype=php<CR>
 	nnoremap <LEADER>ts :set filetype=sql<CR>
+	nnoremap <LEADER>ty :set filetype=python<CR>
 
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
