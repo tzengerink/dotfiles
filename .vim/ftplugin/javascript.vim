@@ -11,4 +11,4 @@
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
 
-	autocmd BufEnter,InsertLeave <buffer> 2match Error /,\_s*[)}]/
+	autocmd BufEnter,InsertLeave <buffer> 2match Error /,\_s*[])}]/
