@@ -32,12 +32,14 @@
 " FOLDING SETTINGS
 " ------------------------------------------------------------------------------
 
-	set foldenable         " (Don't) fold by default (foldenable / nofoldenable)
-	set foldlevel=1        " Use X levels of folding
-	set foldmarker={,}     " Set brackets as default fold marker
-	set foldmethod=indent  " Method of folding
-	set foldminlines=1     " Do not fold when less then X lines
-	set foldnestmax=2      " Maximum of X nested folds
+	set fillchars=fold:·     " Character used as fill
+	set foldenable           " (Don't) fold by default (foldenable / nofoldenable)
+	set foldlevel=1          " Use X levels of folding
+	set foldmarker={,}       " Set brackets as default fold marker
+	set foldmethod=indent    " Method of folding
+	set foldminlines=1       " Do not fold when less then X lines
+	set foldnestmax=2        " Maximum of X nested folds
+	set foldtext=FoldText()  " Function used to fold text
 
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
@@ -218,6 +220,19 @@
 		if reps > 0
 			.s/$/\=(' '.repeat(a:str, reps))/
 		endif
+	endfunction
+
+	" Nicely fold text
+	function! FoldText()
+			let line = getline(v:foldstart)
+			let nnum = nextnonblank(v:foldstart + 1)
+			let cntr = 1
+			while nnum < v:foldend
+				let cntr = cntr + 1
+				let nnum = nnum + 1
+			endwhile
+			let line = substitute(line, '^[ \t]*', '', 'g')
+			return "··· " . cntr . " lines: " . line . " "
 	endfunction
 
 	" SmartIndent on blank line
