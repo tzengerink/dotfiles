@@ -226,7 +226,7 @@
 	function! FoldText()
 			let line = getline(v:foldstart)
 			let nnum = nextnonblank(v:foldstart + 1)
-			let cntr = 1
+			let cntr = 2
 			while nnum < v:foldend
 				let cntr = cntr + 1
 				let nnum = nnum + 1
