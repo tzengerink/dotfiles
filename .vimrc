@@ -139,6 +139,8 @@
 	" Set filetypes for certain extensions
 	autocmd BufNewFile,BufRead *.css
 		\ set filetype=css
+	autocmd BufNewFile,BufRead *.js
+		\ set filetype=jquery
 	autocmd BufNewFile,BufRead *.html,*.htm
 		\ set filetype=html
 	autocmd BufNewFile,BufRead *.markdown,*.mkdn,*.mdown,*.md,*.mkd
@@ -320,6 +322,9 @@
 	nmap <LEADER>F       zR
 	nmap <SPACE>         za
 	nmap <LEADER><SPACE> zMzv
+
+	" Macros
+	nnoremap <RETURN> @q
 
 	" Tabs
 	nmap <C-H> :tabp<CR>
