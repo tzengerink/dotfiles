@@ -386,8 +386,9 @@
 " KEY MAPPINGS (VISUAL MODE)
 " ------------------------------------------------------------------------------
 
-	" Sort visual selection
+	" Sort/Column visual selection
 	vnoremap <LEADER>s :sort<CR>
+	vnoremap <LEADER>c :!column -tx -s ' ' \| sed 's/ \([^ ]\)/\1/g'<CR>
 
 	" Search visual selection
 	vnoremap <silent> * :<C-U>
