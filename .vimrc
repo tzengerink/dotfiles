@@ -387,8 +387,8 @@
 " ------------------------------------------------------------------------------
 
 	" Sort/Column visual selection
-	vnoremap <LEADER>s :sort<CR>
-	vnoremap <LEADER>c :!column -tx -s ' ' \| sed 's/ \([^ ]\)/\1/g'<CR>
+	vnoremap <LEADER>S :sort<CR>
+	vnoremap <LEADER>C :!column -tx -s ' ' \| sed 's/ \([^ ]\)/\1/g'<CR>
 
 	" Search visual selection
 	vnoremap <silent> * :<C-U>
@@ -409,8 +409,8 @@
 	" Exit insert mode and save document
 	inoremap <LEADER>s <ESC>:w<CR>
 
-	" Exit insert mode
-	inoremap jj <ESC>
+	" Exit insert mode and save changes
+	inoremap jj <ESC>:w<CR>
 
 	" Enable numpad
 	inoremap <ESC>Oq 1

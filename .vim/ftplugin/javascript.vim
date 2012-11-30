@@ -3,9 +3,15 @@
 " ------------------------------------------------------------------------------
 
 	setlocal noexpandtab                             " Tabs are not spaces
-	setlocal tabstop=2                               " Tabtop
-	setlocal shiftwidth=2                            " Shiftwidth
+	setlocal tabstop=4                               " Tabtop
+	setlocal shiftwidth=4                            " Shiftwidth
 	setlocal omnifunc=javascriptcomplete#CompleteJS  " Enable autocomplete
+
+" ------------------------------------------------------------------------------
+" FOLDING SETTINGS
+" ------------------------------------------------------------------------------
+
+	setlocal foldlevel=0
 
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
