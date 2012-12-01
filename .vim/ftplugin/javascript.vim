@@ -2,7 +2,6 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	setlocal noexpandtab                             " Tabs are not spaces
 	setlocal tabstop=4                               " Tabtop
 	setlocal shiftwidth=4                            " Shiftwidth
 	setlocal omnifunc=javascriptcomplete#CompleteJS  " Enable autocomplete
