@@ -59,13 +59,16 @@ alias srm='svn st | grep \! | awk "{ print \$2}" | xargs python ~/.zsh/scripts/s
 alias ss='python ~/.zsh/scripts/svn-color.py status'
 alias sup='svn update'
 
-# VIRTUALENV
-# ----------
+# VIRTUAL ENVIRONMENTS
+# --------------------
 
 alias ve2='virtualenv .env --python=python2'
 alias ve='virtualenv .env'
 alias vea='source .env/bin/activate'
 alias ved='deactivate'
+alias nve='nodeenv .env-node'
+alias nva='source .env-node/bin/activate'
+alias nvd='deactivate_node'
 
 # SEARCH GOOGLE
 # -------------

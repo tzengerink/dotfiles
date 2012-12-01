@@ -61,6 +61,7 @@ export SUDO_EDITOR='/usr/bin/vi -p -X'
 export SVN_EDITOR=vi
 export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # LESS
 # ----
@@ -85,6 +86,7 @@ local prompt_history="%B%{$fg[black]%}[ %h ]%b%{$reset_color%}"
 local prompt_jobs='$(pre_prompt_jobs)'
 local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
+local prompt_node_env='$(pre_prompt_node_env)'
 local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
 local prompt_subshell='$(pre_prompt_subshell)'
@@ -143,6 +145,14 @@ function pre_prompt_newline {
 	echo -e "%B\n%b"
 }
 
+function pre_prompt_node_env {
+	if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+	else
+		echo ""
+	fi
+}
+
 function pre_prompt_shell {
 	echo -e "%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
 }
@@ -175,4 +185,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_repo}${prompt_ssh_agent}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_node_env}${prompt_repo}${prompt_ssh_agent}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
