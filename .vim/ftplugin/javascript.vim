@@ -2,9 +2,9 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	setlocal tabstop=4                               " Tabtop
-	setlocal shiftwidth=4                            " Shiftwidth
-	setlocal omnifunc=javascriptcomplete#CompleteJS  " Enable autocomplete
+	setlocal expandtab
+	setlocal tabstop=4
+	setlocal shiftwidth=4
 
 " ------------------------------------------------------------------------------
 " FOLDING SETTINGS
@@ -16,4 +16,5 @@
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
 
+	" Mark trailing comma's
 	autocmd BufEnter,InsertLeave <buffer> 2match Error /,\_s*[])}]/

@@ -3,7 +3,6 @@
 " ------------------------------------------------------------------------------
 
 	setlocal noexpandtab                       " Tabs are not spaces
-	setlocal omnifunc=csscomplete#CompleteCSS  " Enable autocomplete
 	setlocal shiftwidth=2                      " Shift width
 	setlocal tabstop=2                         " Tab stop
 

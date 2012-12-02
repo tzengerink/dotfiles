@@ -2,9 +2,9 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	setlocal expandtab                " Tabs are spaces
-	setlocal shiftwidth=4             " Shift width
-	setlocal tabstop=4                " Tab stop
+	setlocal expandtab
+	setlocal shiftwidth=4
+	setlocal tabstop=4
 
 " ------------------------------------------------------------------------------
 " FOLDING SETTINGS

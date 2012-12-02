@@ -137,28 +137,18 @@
 " ------------------------------------------------------------------------------
 
 	" Set filetypes for certain extensions
-	autocmd BufNewFile,BufRead *.css
-		\ set filetype=css
-	autocmd BufNewFile,BufRead *.js
-		\ set filetype=jquery
-	autocmd BufNewFile,BufRead *.html,*.htm
-		\ set filetype=html
-	autocmd BufNewFile,BufRead *.markdown,*.mkdn,*.mdown,*.md,*.mkd
-		\ set filetype=markdown
-	autocmd BufNewFile,BufRead *.mustache
-		\ set filetype=mustache
-	autocmd BufNewFile,BufRead *.sql
-		\ set filetype=mysql
-	autocmd BufNewFile,BufRead *.plist
-		\ set filetype=xml
+	autocmd  BufNewFile,BufRead *.css           set filetype=css
+	autocmd  BufNewFile,BufRead *.html,*.htm    set filetype=html
+	autocmd  BufNewFile,BufRead *.markdown,*.md set filetype=markdown
+	autocmd  BufNewFile,BufRead *.mustache      set filetype=mustache
+	autocmd  BufNewFile,BufRead *.plist         set filetype=xml
+	autocmd  BufNewFile,BufRead *.sql           set filetype=mysql
 
-	" Override default PHP filetype settings
-	autocmd BufNewFile,BufRead *.php
-		\ set foldnestmax=2
-
-	" SetWrap for certain filetypes
-	autocmd BufRead *.md,*.txt
-		\ call SetWrap()
+	" Omnicomplete
+	autocmd  FileType css        set omnifunc=csscomplete#CompleteCSS
+	autocmd  FileType html       set omnifunc=htmlcomplete#CompleteTags
+	autocmd  FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+	autocmd  FileType python     set omnifunc=pythoncomplete#Complete
 
 	" Easy filetype switching
 	nnoremap <LEADER>tc :set filetype=css<CR>
@@ -166,8 +156,15 @@
 	nnoremap <LEADER>tj :set filetype=htmljinja<CR>
 	nnoremap <LEADER>tm :set filetype=mysql<CR>
 	nnoremap <LEADER>tp :set filetype=php<CR>
+	nnoremap <LEADER>tq :set filetype=jquery<CR>
 	nnoremap <LEADER>ts :set filetype=sql<CR>
 	nnoremap <LEADER>ty :set filetype=python<CR>
+
+	" Override default filetype settings
+	autocmd BufNewFile,BufRead *.php set foldnestmax=2
+
+	" SetWrap for certain filetypes
+	autocmd BufRead *.md,*.txt call SetWrap()
 
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
@@ -175,13 +172,6 @@
 
 	" NERDTree
 	let NERDTreeWinSize = 40
-	nmap <C-n> :NERDTreeToggle<CR>
-
-	" NerdCommenter
-	nmap <C-x> <LEADER>c<SPACE>
-
-	" OmniComplete
-	imap <C-o> <C-x><C-o>
 
 	" ZenCoding
 	let g:user_zen_leader_key     = '<C-y>'
@@ -265,6 +255,19 @@
 		%s/\s\+$//e
 	endfunction
 
+	" Tabcompletion
+	function! TabCompletion( backwards )
+	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+		return "\<Tab>"
+	else
+		if a:backwards
+			return "\<C-P>"
+		else
+			return "\<C-N>"
+		endif
+	endif
+	endfunction
+
 	" Toggle InvalidStyle highlighting
 	let s:invalidStyleIsVisible = 1
 	function! ToggleInvalidStyle()
@@ -326,6 +329,12 @@
 	" Macros
 	nnoremap <RETURN> @q
 
+	" Plugins
+	nnoremap  <C-n>     :NERDTreeToggle<CR>
+	nnoremap  <C-x>     <LEADER>c<SPACE>
+	inoremap  <C-o>     <C-x><C-o>
+	nnoremap  <LEADER>j :JSHint<CR>
+
 	" Tabs
 	nmap <C-H> :tabp<CR>
 	nmap <C-L> :tabn<CR>
@@ -376,7 +385,7 @@
 	nnoremap <EXPR> i IndentWithI()
 
 	" Temporary SQL query
-	nmap <LEADER>tq :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
+	nmap <LEADER>EQ :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
 
 	" Quick `.vimrc` handling
 	nmap <LEADER>v :e $MYVIMRC<CR>
@@ -405,6 +414,10 @@
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (INSERT MODE)
 " ------------------------------------------------------------------------------
+
+	" Tabcompletion
+	inoremap <TAB>   <C-R>=TabCompletion(0)<CR>
+	inoremap <S-TAB> <C-R>=TabCompletion(1)<CR>
 
 	" Exit insert mode and save document
 	inoremap <LEADER>s <ESC>:w<CR>
