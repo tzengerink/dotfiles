@@ -137,6 +137,7 @@
 " ------------------------------------------------------------------------------
 
 	" Set filetypes for certain extensions
+	autocmd  BufNewFile,BufRead *.coffee        set filetype=coffee
 	autocmd  BufNewFile,BufRead *.css           set filetype=css
 	autocmd  BufNewFile,BufRead *.html,*.htm    set filetype=html
 	autocmd  BufNewFile,BufRead *.markdown,*.md set filetype=markdown
