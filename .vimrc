@@ -137,13 +137,13 @@
 " ------------------------------------------------------------------------------
 
 	" Set filetypes for certain extensions
-	autocmd  BufNewFile,BufRead *.coffee        set filetype=coffee
-	autocmd  BufNewFile,BufRead *.css           set filetype=css
-	autocmd  BufNewFile,BufRead *.html,*.htm    set filetype=html
-	autocmd  BufNewFile,BufRead *.markdown,*.md set filetype=markdown
-	autocmd  BufNewFile,BufRead *.mustache      set filetype=mustache
-	autocmd  BufNewFile,BufRead *.plist         set filetype=xml
-	autocmd  BufNewFile,BufRead *.sql           set filetype=mysql
+	autocmd BufNewFile,BufRead *.coffee,Cakefile set filetype=coffee
+	autocmd BufNewFile,BufRead *.css             set filetype=css
+	autocmd BufNewFile,BufRead *.html,*.htm      set filetype=html
+	autocmd BufNewFile,BufRead *.markdown,*.md   set filetype=markdown
+	autocmd BufNewFile,BufRead *.mustache        set filetype=mustache
+	autocmd BufNewFile,BufRead *.plist           set filetype=xml
+	autocmd BufNewFile,BufRead *.sql             set filetype=mysql
 
 	" Omnicomplete
 	autocmd  FileType css        set omnifunc=csscomplete#CompleteCSS
@@ -156,13 +156,15 @@
 	nnoremap <LEADER>th :set filetype=html<CR>
 	nnoremap <LEADER>tj :set filetype=htmljinja<CR>
 	nnoremap <LEADER>tm :set filetype=mysql<CR>
+	nnoremap <LEADER>to :set filetype=coffee<CR>
 	nnoremap <LEADER>tp :set filetype=php<CR>
 	nnoremap <LEADER>tq :set filetype=jquery<CR>
 	nnoremap <LEADER>ts :set filetype=sql<CR>
 	nnoremap <LEADER>ty :set filetype=python<CR>
 
 	" Override default filetype settings
-	autocmd BufNewFile,BufRead *.php set foldnestmax=2
+	autocmd BufNewFile,BufRead *.php             set fdn=2
+	autocmd BufNewFile,BufRead *.coffee,Cakefile set sw=2 ts=2 et nosi
 
 	" SetWrap for certain filetypes
 	autocmd BufRead *.md,*.txt call SetWrap()
