@@ -1,7 +1,7 @@
+*.pyc
+*~
 .DS_Store
-.svn
 .env
 .env-node
-*~
-*.pyc
+.svn
 __pycache__
