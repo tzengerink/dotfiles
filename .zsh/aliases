@@ -20,44 +20,17 @@ alias lz='ll -rS'              # Sort by size
 alias real='cd $(pwd -P)'      # Go to real path of symlink
 alias ..='up'                  # Alias for the up function
 
-# GIT
-# ---
+# VERSION CONTROL
+# ---------------
 
-alias ga='git add'
-alias gad='git add .'
-alias gb='git checkout -q -b'
-alias gbd='git branch -d'
-alias gc='git commit'
 alias gca='git add . && git commit -a'
-alias gch='git checkout -q'
-alias gcl='git clone'
-alias gd='git diff'
-alias gdd='git difftool'
-alias gds='git diff --stat'
-alias gl='git pull'
+alias gdiff='git difftool'
+alias glog-branch='git log --merges --first-parent --pretty=oneline'
 alias glog='git log --pretty=oneline --graph'
-alias glogb='git log --merges --first-parent --pretty=oneline'
-alias gm='git merge --no-ff'
-alias gp='git push'
-alias grev='git reset -q --hard HEAD'
-alias grm='git status | grep deleted | awk "{ print \$3}" | xargs git rm'
-alias gs='git status -s'
-alias gss='git status'
-
-# SUBVERSION
-# ----------
-
-alias sa='python ~/.zsh/scripts/svn-color.py add'
-alias sad='svn st | grep \? | awk "{ print \$2}" | xargs python ~/.zsh/scripts/svn-color.py add'
-alias sc='svn commit'
-alias scm='svn commit -m'
-alias sco='svn checkout'
-alias sd='python ~/.zsh/scripts/svn-color.py diff'
-alias sdd='svn diff --diff-cmd ~/.subversion/diff --'
-alias sr='python ~/.zsh/scripts/svn-color.py remove'
-alias srm='svn st | grep \! | awk "{ print \$2}" | xargs python ~/.zsh/scripts/svn-color.py remove'
-alias ss='python ~/.zsh/scripts/svn-color.py status'
-alias sup='svn update'
+alias gmerge='git merge --no-ff'
+alias greset='git reset -q --hard HEAD'
+alias sdiff='svn diff --diff-cmd ~/.subversion/diff --'
+alias svn='python ~/.zsh/scripts/svn-color.py'
 
 # VIRTUAL ENVIRONMENTS
 # --------------------
@@ -100,6 +73,7 @@ alias viq='vim "+set ft=mysql" /var/tmp/query.sql'
 # SUFFIXES
 # --------
 
+alias -s coffee=vim
 alias -s css=vim
 alias -s htm=vim
 alias -s html=vim
