@@ -17,6 +17,8 @@ colorizedSubcommands = (
     'diff',
     'remove',
     'status',
+    'st',
+    'rm'
 )
 
 statusColors = {

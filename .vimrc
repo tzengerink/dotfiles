@@ -32,12 +32,14 @@
 " FOLDING SETTINGS
 " ------------------------------------------------------------------------------
 
-	set foldenable         " (Don't) fold by default (foldenable / nofoldenable)
-	set foldlevel=1        " Use X levels of folding
-	set foldmarker={,}     " Set brackets as default fold marker
-	set foldmethod=indent  " Method of folding
-	set foldminlines=1     " Do not fold when less then X lines
-	set foldnestmax=2      " Maximum of X nested folds
+	set fillchars=fold:·     " Character used as fill
+	set foldenable           " (Don't) fold by default (foldenable / nofoldenable)
+	set foldlevel=1          " Use X levels of folding
+	set foldmarker={,}       " Set brackets as default fold marker
+	set foldmethod=indent    " Method of folding
+	set foldminlines=1       " Do not fold when less then X lines
+	set foldnestmax=2        " Maximum of X nested folds
+	set foldtext=FoldText()  " Function used to fold text
 
 " ------------------------------------------------------------------------------
 " SEARCH & BACKUP SETTINGS
@@ -82,6 +84,7 @@
 
 	" Highlight Visual
 	highlight CursorLine   ctermbg=234  ctermfg=none
+	highlight Error        ctermbg=174  ctermfg=124
 	highlight InvalidStyle ctermbg=174  ctermfg=124
 	highlight LineNr       ctermbg=234  ctermfg=249
 	highlight NonText      ctermfg=236  ctermbg=none
@@ -91,6 +94,7 @@
 	highlight StatusLineNC ctermfg=234  ctermbg=239
 	highlight TabLineFill  ctermfg=234  ctermbg=234
 	highlight TabLine      ctermfg=239  ctermbg=234
+	highlight Todo         ctermfg=206  ctermbg=129
 	highlight Visual       ctermbg=45   ctermfg=0
 
 " ------------------------------------------------------------------------------
@@ -133,28 +137,37 @@
 " ------------------------------------------------------------------------------
 
 	" Set filetypes for certain extensions
-	autocmd BufNewFile,BufRead *.css
-		\ set filetype=css
-	autocmd BufNewFile,BufRead *.html,*.htm
-		\ set filetype=html
-	autocmd BufNewFile,BufRead *.markdown,*.mkdn,*.mdown,*.md,*.mkd
-		\ set filetype=markdown
-	autocmd BufNewFile,BufRead *.mustache
-		\ set filetype=mustache
-	autocmd BufNewFile,BufRead *.sql
-		\ set filetype=mysql
-	autocmd BufNewFile,BufRead *.plist
-		\ set filetype=xml
+	autocmd BufNewFile,BufRead *.coffee        set filetype=coffee
+	autocmd BufNewFile,BufRead *.css           set filetype=css
+	autocmd BufNewFile,BufRead *.html,*.htm    set filetype=html
+	autocmd BufNewFile,BufRead *.markdown,*.md set filetype=markdown
+	autocmd BufNewFile,BufRead *.mustache      set filetype=mustache
+	autocmd BufNewFile,BufRead *.plist         set filetype=xml
+	autocmd BufNewFile,BufRead *.sql           set filetype=mysql
 
-	" Override default PHP filetype settings
-	autocmd BufNewFile,BufRead *.php
-		\ set foldnestmax=2
+	" Omnicomplete
+	autocmd  FileType css        set omnifunc=csscomplete#CompleteCSS
+	autocmd  FileType html       set omnifunc=htmlcomplete#CompleteTags
+	autocmd  FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+	autocmd  FileType python     set omnifunc=pythoncomplete#Complete
 
 	" Easy filetype switching
+	nnoremap <LEADER>tc :set filetype=css<CR>
 	nnoremap <LEADER>th :set filetype=html<CR>
 	nnoremap <LEADER>tj :set filetype=htmljinja<CR>
 	nnoremap <LEADER>tm :set filetype=mysql<CR>
+	nnoremap <LEADER>to :set filetype=coffee<CR>
+	nnoremap <LEADER>tp :set filetype=php<CR>
+	nnoremap <LEADER>tq :set filetype=jquery<CR>
 	nnoremap <LEADER>ts :set filetype=sql<CR>
+	nnoremap <LEADER>ty :set filetype=python<CR>
+
+	" Override default filetype settings
+	autocmd BufNewFile,BufRead *.php    set fdn=2
+	autocmd BufNewFile,BufRead *.coffee set sw=2 ts=2 et nosi foldlevel=0
+
+	" SetWrap for certain filetypes
+	autocmd BufRead *.md,*.txt call SetWrap()
 
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
@@ -162,13 +175,6 @@
 
 	" NERDTree
 	let NERDTreeWinSize = 40
-	nmap <C-n> :NERDTreeToggle<CR>
-
-	" NerdCommenter
-	nmap <C-x> <LEADER>c<SPACE>
-
-	" OmniComplete
-	imap <C-o> <C-x><C-o>
 
 	" ZenCoding
 	let g:user_zen_leader_key     = '<C-y>'
@@ -211,6 +217,19 @@
 		endif
 	endfunction
 
+	" Nicely fold text
+	function! FoldText()
+			let line = getline(v:foldstart)
+			let nnum = nextnonblank(v:foldstart + 1)
+			let cntr = 2
+			while nnum < v:foldend
+				let cntr = cntr + 1
+				let nnum = nnum + 1
+			endwhile
+			let line = substitute(line, '^[ \t]*', '', 'g')
+			return "··· " . cntr . " lines: " . line . " "
+	endfunction
+
 	" SmartIndent on blank line
 	function! IndentWithI()
 		if len(getline('.')) == 0
@@ -220,14 +239,14 @@
 		endif
 	endfunction
 
-	" Choose file using ranger
-	function! RangerChooser()
-		exec "silent !ranger --choosefile=/tmp/chosenfile " . expand("%:p:h")
-		if filereadable('/tmp/chosenfile')
-			exec 'edit ' . system('cat /tmp/chosenfile')
-			call system('rm /tmp/chosenfile')
-		endif
-		redraw!
+	" Wrap text nicely and readable
+	function! SetWrap()
+		setlocal wrap
+		setlocal nolist
+		setlocal linebreak
+		setlocal formatoptions+=aln
+		nnoremap <buffer> <silent> j gj
+		nnoremap <buffer> <silent> k gk
 	endfunction
 
 	" Strip trailing whitespace
@@ -237,6 +256,19 @@
 			return
 		endif
 		%s/\s\+$//e
+	endfunction
+
+	" Tabcompletion
+	function! TabCompletion( backwards )
+	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+		return "\<Tab>"
+	else
+		if a:backwards
+			return "\<C-P>"
+		else
+			return "\<C-N>"
+		endif
+	endif
 	endfunction
 
 	" Toggle InvalidStyle highlighting
@@ -263,7 +295,7 @@
 " ------------------------------------------------------------------------------
 
 	command! -nargs=* FillLine           call FillLine(<f-args>)
-	command! -nargs=0 Ranger             call RangerChooser()
+	command! -nargs=* SetWrap            call SetWrap()
 	command! -nargs=0 ToggleInvalidStyle call ToggleInvalidStyle()
 	command! -nargs=* UnderLine          call UnderLine(<f-args>)
 
@@ -297,6 +329,15 @@
 	nmap <SPACE>         za
 	nmap <LEADER><SPACE> zMzv
 
+	" Macros
+	nnoremap <RETURN> @q
+
+	" Plugins
+	nnoremap  <C-n>     :NERDTreeToggle<CR>
+	nnoremap  <C-x>     <LEADER>c<SPACE>
+	inoremap  <C-o>     <C-x><C-o>
+	nnoremap  <LEADER>j :JSHint<CR>
+
 	" Tabs
 	nmap <C-H> :tabp<CR>
 	nmap <C-L> :tabn<CR>
@@ -309,7 +350,6 @@
 	nmap <LEADER>BD :bd<CR>
 
 	" Commands
-	nnoremap <LEADER>r :Ranger<CR>
 	nnoremap <LEADER>u :UnderLine -<CR>
 
 	" Windows
@@ -338,6 +378,9 @@
 	" Yank to end of line
 	nmap Y y$
 
+	" Display date
+	nnoremap <LEADER>d :echo strftime("%c")<CR>
+
 	" Clear entire file
 	nmap <LEADER>C ggvG$c
 
@@ -345,7 +388,7 @@
 	nnoremap <EXPR> i IndentWithI()
 
 	" Temporary SQL query
-	nmap <LEADER>tq :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
+	nmap <LEADER>EQ :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
 
 	" Quick `.vimrc` handling
 	nmap <LEADER>v :e $MYVIMRC<CR>
@@ -355,8 +398,9 @@
 " KEY MAPPINGS (VISUAL MODE)
 " ------------------------------------------------------------------------------
 
-	" Sort visual selection
-	vnoremap <LEADER>s :sort<CR>
+	" Sort/Column visual selection
+	vnoremap <LEADER>S :sort<CR>
+	vnoremap <LEADER>C :!column -tx -s ' ' \| sed 's/ \([^ ]\)/\1/g'<CR>
 
 	" Search visual selection
 	vnoremap <silent> * :<C-U>
@@ -374,11 +418,15 @@
 " KEY MAPPINGS (INSERT MODE)
 " ------------------------------------------------------------------------------
 
+	" Tabcompletion
+	inoremap <TAB>   <C-R>=TabCompletion(0)<CR>
+	inoremap <S-TAB> <C-R>=TabCompletion(1)<CR>
+
 	" Exit insert mode and save document
 	inoremap <LEADER>s <ESC>:w<CR>
 
-	" Exit insert mode
-	inoremap jj <ESC>
+	" Exit insert mode and save changes
+	inoremap jj <ESC>:w<CR>
 
 	" Enable numpad
 	inoremap <ESC>Oq 1

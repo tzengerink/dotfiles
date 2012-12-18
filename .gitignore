@@ -1,6 +1,7 @@
-.DS_Store
-.svn
-.env
-*~
 *.pyc
+*~
+.DS_Store
+.env
+.env-node
+.svn
 __pycache__
