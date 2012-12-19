@@ -47,10 +47,10 @@ alias nvd='deactivate_node'
 # -------------
 
 alias google='~/.zsh/scripts/google-search.py'
-alias google-gh='~/.zsh/scripts/google-search.py --site github.com -a'
-alias google-mdn='~/.zsh/scripts/google-search.py --site developer.mozilla.org -a'
-alias google-sf='~/.zsh/scripts/google-search.py --site serverfault.com -a'
-alias google-so='~/.zsh/scripts/google-search.py --site stackoverflow.com -a'
+alias gh='~/.zsh/scripts/google-search.py --site github.com -a'
+alias mdn='~/.zsh/scripts/google-search.py --site developer.mozilla.org -a'
+alias sf='~/.zsh/scripts/google-search.py --site serverfault.com -a'
+alias so='~/.zsh/scripts/google-search.py --site stackoverflow.com -a'
 
 # OTHER
 # -----
