@@ -29,7 +29,6 @@ alias glog-branch='git log --merges --first-parent --pretty=oneline'
 alias glog='git log --pretty=oneline --graph'
 alias gmerge='git merge --no-ff'
 alias greset='git reset -q --hard HEAD'
-alias sdiff='svn diff --diff-cmd ~/.subversion/diff --'
 alias svn='python ~/.zsh/scripts/svn-color.py'
 
 # VIRTUAL ENVIRONMENTS
