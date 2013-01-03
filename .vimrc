@@ -182,6 +182,9 @@
 	let g:user_zen_leader_key     = '<C-y>'
 	let g:user_zen_expandabbr_key = '<C-e>'
 
+	" PyDiction
+	let g:pydiction_location = '~/.vim/plugin/pydiction/complete-dict'
+
 	" Closetag
 	" Usage: <C-_> closes current tag
 	let g:closetag_default_xml=1
