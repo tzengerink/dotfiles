@@ -1,5 +1,0 @@
-# SLOG
-# ----
-# Create SVN logs with all info in a single line.
-
-svn log $@ | ~/.zsh/scripts/svn-short-log.sh
