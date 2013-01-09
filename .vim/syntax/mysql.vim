@@ -21,10 +21,10 @@ syn case ignore
 syn keyword mysqlKeyword         action add after aggregate all alter as asc auto_increment avg avg_row_length
 syn keyword mysqlKeyword         both by
 syn keyword mysqlKeyword         cascade change character check checksum column columns comment constraint create cross
-syn keyword mysqlKeyword         current_date current_time current_timestamp
+syn keyword mysqlKeyword         current_date current_time current_timestamp charset
 syn keyword mysqlKeyword         data database databases day day_hour day_minute day_second
 syn keyword mysqlKeyword         default delayed delay_key_write delete desc describe distinct distinctrow drop
-syn keyword mysqlKeyword         enclosed escape escaped explain
+syn keyword mysqlKeyword         enclosed escape escaped explain engine
 syn keyword mysqlKeyword         fields file first flush for foreign from full function
 syn keyword mysqlKeyword         global grant grants group
 syn keyword mysqlKeyword         having heap high_priority hosts hour hour_minute hour_second
