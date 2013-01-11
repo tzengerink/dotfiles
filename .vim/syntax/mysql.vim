@@ -34,9 +34,9 @@ syn keyword mysqlKeyword         key keys kill last_insert_id leading left limit
 syn keyword mysqlKeyword         low_priority
 syn keyword mysqlKeyword         match max_rows middleint min_rows minute minute_second modify month myisam
 syn keyword mysqlKeyword         natural no
-syn keyword mysqlKeyword         on optimize option optionally order outer outfile
+syn keyword mysqlKeyword         on optimize option optionally order outfile
 syn keyword mysqlKeyword         pack_keys partial password primary privileges procedure process processlist
-syn keyword mysqlKeyword         read references reload rename replace restrict returns revoke row rows
+syn keyword mysqlKeyword         read references reload rename replace restrict returns revoke row rows right
 syn keyword mysqlKeyword         second select show shutdown soname sql_big_result sql_big_selects sql_big_tables sql_log_off
 syn keyword mysqlKeyword         sql_log_update sql_low_priority_updates sql_select_limit sql_small_result sql_warnings starting
 syn keyword mysqlKeyword         status straight_join string set

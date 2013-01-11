@@ -383,7 +383,10 @@
 	" Yank to end of line
 	noremap Y y$
 
-	" Display date
+	" Shift-K concatinate with line above
+	nnoremap K kJ
+
+	" Display
 	nnoremap <LEADER>d :echo strftime("%c")<CR>
 
 	" Clear entire file
@@ -402,6 +405,9 @@
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (VISUAL MODE)
 " ------------------------------------------------------------------------------
+
+	" Ignore Shift-K
+	vnoremap K k
 
 	" Sort/Column visual selection
 	vnoremap <LEADER>S :sort<CR>
