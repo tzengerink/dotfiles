@@ -1,8 +1,8 @@
-" Vim syntax fil
+" Vim syntax file
 " Language:    MySQL
 " Maintainer:  T. Zengerink <t.zengerink@gmail.com>
 " Version:     1
-" Last Change: 2013 Jan 09
+" Last Change: 2013 Jan 14
 " Note:        Extended version of the original `mysql.vim` syntax file
 " Note:        Original by: Kenneth J. Pronovici <pronovic@ieee.org>
 
