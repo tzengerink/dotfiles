@@ -23,14 +23,11 @@ alias ..='up'                  # Alias for the up function
 # VERSION CONTROL
 # ---------------
 
-alias gca='git add . && git commit -a'
 alias gdiff='git difftool'
 alias glog-branch='git log --merges --first-parent --pretty=oneline'
 alias glog='git log --pretty=oneline --graph'
 alias gmerge='git merge --no-ff'
 alias greset='git reset -q --hard HEAD'
-alias sdiff='svn diff --diff-cmd ~/.subversion/diff --'
-alias svn='python ~/.zsh/scripts/svn-color.py'
 
 # VIRTUAL ENVIRONMENTS
 # --------------------
@@ -47,10 +44,10 @@ alias nvd='deactivate_node'
 # -------------
 
 alias google='~/.zsh/scripts/google-search.py'
-alias google-gh='~/.zsh/scripts/google-search.py --site github.com -a'
-alias google-mdn='~/.zsh/scripts/google-search.py --site developer.mozilla.org -a'
-alias google-sf='~/.zsh/scripts/google-search.py --site serverfault.com -a'
-alias google-so='~/.zsh/scripts/google-search.py --site stackoverflow.com -a'
+alias gh='~/.zsh/scripts/google-search.py --site github.com -a'
+alias mdn='~/.zsh/scripts/google-search.py --site developer.mozilla.org -a'
+alias sf='~/.zsh/scripts/google-search.py --site serverfault.com -a'
+alias so='~/.zsh/scripts/google-search.py --site stackoverflow.com -a'
 
 # OTHER
 # -----

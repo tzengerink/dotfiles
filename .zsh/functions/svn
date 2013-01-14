@@ -1,0 +1,22 @@
+# SVN WRAPPER FUNCTION
+# --------------------
+# Function that makes multi word aliases and extra commands for svn possible.
+
+if [[ $# -gt 0 ]] && [[ "$1" == "add" ]]; then
+	shift
+	~/.zsh/scripts/svn-color.py add "$@"
+elif [[ $# -gt 0 ]] && [[ "$1" == "rm" ]]; then
+	shift
+	~/.zsh/scripts/svn-color.py remove "$@"
+elif [[ $# -gt 0 ]] && [[ "$1" == "shortlog" ]]; then
+	shift
+	/usr/bin/svn log $@ | ~/.zsh/scripts/svn-short-log.sh
+elif [[ $# -gt 0 ]] && [[ "$1" == "st" ]]; then
+	shift
+	~/.zsh/scripts/svn-color.py status "$@"
+elif [[ $# -gt 0 ]] && [[ "$1" == "vimdiff" ]]; then
+	shift
+	/usr/bin/svn diff --diff-cmd ~/.subversion/diff -- "$@"
+else
+	/usr/bin/svn "$@"
+fi

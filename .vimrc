@@ -140,6 +140,7 @@
 	autocmd BufNewFile,BufRead *.coffee        set filetype=coffee
 	autocmd BufNewFile,BufRead *.css           set filetype=css
 	autocmd BufNewFile,BufRead *.html,*.htm    set filetype=html
+	autocmd BufNewFile,BufRead *.less          set filetype=less
 	autocmd BufNewFile,BufRead *.markdown,*.md set filetype=markdown
 	autocmd BufNewFile,BufRead *.mustache      set filetype=mustache
 	autocmd BufNewFile,BufRead *.plist         set filetype=xml
@@ -163,8 +164,9 @@
 	nnoremap <LEADER>ty :set filetype=python<CR>
 
 	" Override default filetype settings
-	autocmd BufNewFile,BufRead *.php    set fdn=2
 	autocmd BufNewFile,BufRead *.coffee set sw=2 ts=2 et nosi foldlevel=0
+	autocmd BufNewFile,BufRead *.less   set foldmethod=indent
+	autocmd BufNewFile,BufRead *.php    set fdn=2 noet foldlevel=0
 
 	" SetWrap for certain filetypes
 	autocmd BufRead *.md,*.txt call SetWrap()
@@ -179,6 +181,9 @@
 	" ZenCoding
 	let g:user_zen_leader_key     = '<C-y>'
 	let g:user_zen_expandabbr_key = '<C-e>'
+
+	" PyDiction
+	let g:pydiction_location = '~/.vim/plugin/pydiction/complete-dict'
 
 	" Closetag
 	" Usage: <C-_> closes current tag
@@ -308,26 +313,26 @@
 	noremap :: ;
 
 	" Save/Quit mappings
-	nmap <C-d>      :sh<CR>
-	nmap <LEADER>s  :w<CR>
-	nmap <LEADER>wa :wa<CR>
-	nmap <LEADER>wq :wq<CR>
-	nmap <LEADER>qa :qa<CR>
-	nmap <LEADER>qq :q<CR>
-	nmap <LEADER>WW :%!sudo tee > /dev/null %<CR>
+	noremap <C-d>      :sh<CR>
+	noremap <LEADER>s  :w<CR>
+	noremap <LEADER>wa :wa<CR>
+	noremap <LEADER>wq :wq<CR>
+	noremap <LEADER>qa :qa<CR>
+	noremap <LEADER>qq :q<CR>
+	noremap <LEADER>WW :%!sudo tee > /dev/null %<CR>
 
 	" Toggle stuff
-	nmap <LEADER>A :set wrap! wrap?<CR>
-	nmap <LEADER>H :noh<CR>
-	nmap <LEADER>L :set list! list?<CR>
-	nmap <LEADER>N :set number! number?<CR>
-	nmap <LEADER>P :set paste! paste?<CR>
+	noremap <LEADER>A :set wrap! wrap?<CR>
+	noremap <LEADER>H :noh<CR>
+	noremap <LEADER>L :set list! list?<CR>
+	noremap <LEADER>N :set number! number?<CR>
+	noremap <LEADER>P :set paste! paste?<CR>
 
 	" Folding / Unfolding
-	nmap <LEADER>f       zM
-	nmap <LEADER>F       zR
-	nmap <SPACE>         za
-	nmap <LEADER><SPACE> zMzv
+	noremap <LEADER>f       zM
+	noremap <LEADER>F       zR
+	noremap <SPACE>         za
+	noremap <LEADER><SPACE> zMzv
 
 	" Macros
 	nnoremap <RETURN> @q
@@ -339,64 +344,70 @@
 	nnoremap  <LEADER>j :JSHint<CR>
 
 	" Tabs
-	nmap <C-H> :tabp<CR>
-	nmap <C-L> :tabn<CR>
-	nmap <C-J> :tabnew<CR>
+	noremap <C-H> :tabp<CR>
+	noremap <C-L> :tabn<CR>
+	noremap <C-J> :tabnew<CR>
 
 	" Buffers
-	nmap <RIGHT>    :bnext<CR>
-	nmap <LEFT>     :bprevious<CR>
-	nmap <LEADER>b  :buffers<CR>:buffer<SPACE>
-	nmap <LEADER>BD :bd<CR>
+	noremap <RIGHT>    :bnext<CR>
+	noremap <LEFT>     :bprevious<CR>
+	noremap <LEADER>b  :buffers<CR>:buffer<SPACE>
+	noremap <LEADER>BD :bd<CR>
 
 	" Commands
 	nnoremap <LEADER>u :UnderLine -<CR>
 
 	" Windows
-	nmap =          <C-W>+
-	nmap -          <C-W>-
-	nmap _          <C-W><
-	nmap +          <C-W>>
-	nmap WH         :leftabove vnew<CR>
-	nmap WJ         :rightbelow new<CR>
-	nmap WL         :rightbelow vnew<CR>
-	nmap WK         :leftabove new<CR>
-	nmap <LEADER>\  :vertical resize 85<CR>
-	nmap <LEADER>\\ <C-W>=
+	noremap =          <C-W>+
+	noremap -          <C-W>-
+	noremap _          <C-W><
+	noremap +          <C-W>>
+	noremap WH         :leftabove vnew<CR>
+	noremap WJ         :rightbelow new<CR>
+	noremap WL         :rightbelow vnew<CR>
+	noremap WK         :leftabove new<CR>
+	noremap <LEADER>\  :vertical resize 85<CR>
+	noremap <LEADER>\\ <C-W>=
 
 	" Cycle through changelist
-	nmap <UP>   g;<CR>k
-	nmap <DOWN> g,<CR>k
+	noremap <UP>   g;<CR>
+	noremap <DOWN> g,<CR>
 
 	" Sessions
-	nmap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
-	nmap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
+	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
+	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
 
 	" Open file in default application
-	nmap <C-O> :! open %<CR><CR>
+	noremap <C-O> :! open %<CR><CR>
 
 	" Yank to end of line
-	nmap Y y$
+	noremap Y y$
 
-	" Display date
+	" Shift-K concatinate with line above
+	nnoremap K kJ
+
+	" Display
 	nnoremap <LEADER>d :echo strftime("%c")<CR>
 
 	" Clear entire file
-	nmap <LEADER>C ggvG$c
+	noremap <LEADER>C ggvG$c
 
 	" Auto-indent
 	nnoremap <EXPR> i IndentWithI()
 
 	" Temporary SQL query
-	nmap <LEADER>EQ :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
+	noremap <LEADER>EQ :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
 
 	" Quick `.vimrc` handling
-	nmap <LEADER>v :e $MYVIMRC<CR>
-	nmap <LEADER>V :exec 'tabdo windo source $MYVIMRC'<CR>:noh<CR>
+	noremap <LEADER>v :e $MYVIMRC<CR>
+	noremap <LEADER>V :exec 'tabdo windo source $MYVIMRC'<CR>:noh<CR>
 
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (VISUAL MODE)
 " ------------------------------------------------------------------------------
+
+	" Ignore Shift-K
+	vnoremap K k
 
 	" Sort/Column visual selection
 	vnoremap <LEADER>S :sort<CR>
