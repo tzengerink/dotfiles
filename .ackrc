@@ -11,7 +11,8 @@
 
 --ignore-dir=tmp
 --ignore-dir=vendor
---ignore-dir=.env
+--ignore-dir=.py-env
+--ignore-dir=.node-env
 
 # COLOR
 # -----
