@@ -88,7 +88,6 @@ local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node_env='$(pre_prompt_node_env)'
 local prompt_repo='$(pre_prompt_repo)'
-local prompt_screen='$(pre_prompt_screen)'
 local prompt_shell='$(pre_prompt_shell)'
 local prompt_subshell='$(pre_prompt_subshell)'
 local prompt_virtual_env='$(pre_prompt_virtual_env)'
@@ -154,12 +153,6 @@ function pre_prompt_node_env {
 	fi
 }
 
-function pre_prompt_screen {
-	if [[ -n "$WINDOW" ]]; then
-		echo -e "%B%{$fg[black]%}[ screen:$WINDOW ]%b%{$reset_color%}"
-	fi
-}
-
 function pre_prompt_shell {
 	echo -e "%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
 }
@@ -192,4 +185,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_node_env}${prompt_repo}${prompt_jobs}${prompt_screen}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_node_env}${prompt_repo}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
