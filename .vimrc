@@ -83,19 +83,19 @@
 	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 	" Highlight Visual
-	highlight CursorLine   ctermbg=234  ctermfg=none
-	highlight Error        ctermbg=174  ctermfg=124
-	highlight InvalidStyle ctermbg=174  ctermfg=124
+	highlight CursorLine   ctermfg=none ctermbg=234
+	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
+	highlight InvalidStyle ctermfg=124  ctermbg=174
 	highlight LineNr       ctermbg=234  ctermfg=249
 	highlight NonText      ctermfg=236  ctermbg=none
 	highlight SpecialKey   ctermfg=236  ctermbg=none
-	highlight Search       ctermfg=174  ctermbg=124
+	highlight Search       ctermfg=174  ctermbg=124  cterm=underline
 	highlight StatusLine   ctermfg=234  ctermbg=249
 	highlight StatusLineNC ctermfg=234  ctermbg=239
 	highlight TabLineFill  ctermfg=234  ctermbg=234
 	highlight TabLine      ctermfg=239  ctermbg=234
 	highlight Todo         ctermfg=206  ctermbg=129
-	highlight Visual       ctermbg=45   ctermfg=0
+	highlight Visual       ctermfg=0    ctermbg=45
 
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -103,6 +103,9 @@
 
 	" Run function if no files given
 	autocmd VimEnter * call EmptyStartUp()
+
+	" Clear screen on exit
+	autocmd VimLeave * :!clear
 
 	" Different settings for active/focussed window
 	augroup WinToggleNumber

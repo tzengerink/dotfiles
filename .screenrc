@@ -12,12 +12,5 @@ bind c  screen 1
 bind ^c screen 1
 bind 0  screen 10
 
-# Terminfo and termcap for nice 256 color terminal
-# allow bold colors - necessary for some reason
-attrcolor b ".I"
-
-# Tell screen how to set colors. AB = background, AF=foreground
-termcapinfo xterm-256color "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm"
-
-# Erase background with current bg color
-defbce "on"
+# Hack for proper coloring in Vim
+bce "on"
