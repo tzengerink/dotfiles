@@ -104,9 +104,6 @@
 	" Run function if no files given
 	autocmd VimEnter * call EmptyStartUp()
 
-	" Clear screen on exit
-	autocmd VimLeave * :!clear
-
 	" Different settings for active/focussed window
 	augroup WinToggleNumber
 		autocmd!
