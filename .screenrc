@@ -4,6 +4,9 @@ startup_message off
 # Number of scrollback lines
 defscrollback 5000
 
+# Init in screen 1
+screen 1
+
 # No window 0
 bind c  screen 1
 bind ^c screen 1

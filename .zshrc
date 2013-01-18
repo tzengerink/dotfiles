@@ -88,6 +88,7 @@ local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node_env='$(pre_prompt_node_env)'
 local prompt_repo='$(pre_prompt_repo)'
+local prompt_screen='$(pre_prompt_screen)'
 local prompt_shell='$(pre_prompt_shell)'
 local prompt_subshell='$(pre_prompt_subshell)'
 local prompt_virtual_env='$(pre_prompt_virtual_env)'
@@ -135,7 +136,7 @@ function pre_prompt_dir {
 function pre_prompt_jobs {
 	local JOBS="$(jobs -l | wc -l | awk '{print $1}')"
 	if [[ $JOBS != 0 ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}%j %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}jobs:%j %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -150,6 +151,12 @@ function pre_prompt_node_env {
 		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
+	fi
+}
+
+function pre_prompt_screen {
+	if [[ -n "$WINDOW" ]]; then
+		echo -e "%B%{$fg[black]%}[ screen:$WINDOW ]%b%{$reset_color%}"
 	fi
 }
 
@@ -185,4 +192,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_node_env}${prompt_repo}${prompt_ssh_agent}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_node_env}${prompt_repo}${prompt_jobs}${prompt_screen}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
