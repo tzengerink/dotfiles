@@ -101,8 +101,8 @@ function pre_prompt_repo {
 		while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
 		if [[ -d .git ]]; then
 			local BRANCH=$(git rev-parse --abbrev-ref HEAD)
-			local DIRTY=""
-			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH$DIRTY %{$fg[black]%}]%{$reset_color%}"
+			local HASH=$(git rev-parse --short HEAD)
+			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH:$HASH %{$fg[black]%}]%{$reset_color%}"
 		else
 			echo ""
 		fi
@@ -135,7 +135,7 @@ function pre_prompt_dir {
 function pre_prompt_jobs {
 	local JOBS="$(jobs -l | wc -l | awk '{print $1}')"
 	if [[ $JOBS != 0 ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}%j %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}jobs:%j %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -185,4 +185,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_node_env}${prompt_repo}${prompt_ssh_agent}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
+export PS1="${prompt_name}${prompt_dir}${prompt_virtual_env}${prompt_node_env}${prompt_repo}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "

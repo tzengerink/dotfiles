@@ -1,11 +1,16 @@
 # CLEANXATTR
 # ----------
-# Remove all X attributes from a file.
+# Remove X-attributes from all passed files.
 
-if [[ -f $1 ]]; then
-	xattr -d com.apple.FinderInfo "$1"
-	xattr -d com.apple.metadata:kMDItemWhereFroms "$1"
-	xattr -d com.apple.quarantine "$1"
+if [[ $# -eq "0" ]]; then
+	echo "Usage: $0 [filepaths]"
 else
-	echo "Usage: $0 [filepath]"
+	for FILE in $*; do
+		xattr -d com.apple.FinderInfo "$FILE"
+		xattr -d com.apple.ResourceFork "$FILE"
+		xattr -d com.apple.metadata:kMDItemIsScreenCapture "$FILE"
+		xattr -d com.apple.metadata:kMDItemScreenCaptureType "$FILE"
+		xattr -d com.apple.metadata:kMDItemWhereFroms "$FILE"
+		xattr -d com.apple.quarantine "$FILE"
+	done
 fi

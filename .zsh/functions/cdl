@@ -1,5 +1,0 @@
-# CDL
-# ---
-# Change directory and list files.
-
-builtin cd "$@" && ls -lh
