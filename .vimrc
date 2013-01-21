@@ -304,11 +304,9 @@
 
 	" Save/Quit mappings
 	noremap <C-d>      :sh<CR>
-	noremap <LEADER>s  :w<CR>
-	noremap <LEADER>wa :wa<CR>
-	noremap <LEADER>wq :wq<CR>
-	noremap <LEADER>qa :qa<CR>
-	noremap <LEADER>qq :q<CR>
+	noremap <ESC><ESC> <ESC>:w<CR>
+
+	" Save file as superuser
 	noremap <LEADER>WW :%!sudo tee > /dev/null %<CR>
 
 	" Toggle stuff
@@ -342,7 +340,6 @@
 	noremap <RIGHT>    :bnext<CR>
 	noremap <LEFT>     :bprevious<CR>
 	noremap <LEADER>b  :buffers<CR>:buffer<SPACE>
-	noremap <LEADER>BD :bd<CR>
 
 	" Commands
 	nnoremap <LEADER>u :UnderLine -<CR>
@@ -396,6 +393,9 @@
 " KEY MAPPINGS (VISUAL MODE)
 " ------------------------------------------------------------------------------
 
+	" Quick save
+	vnoremap <ESC><ESC> <ESC>:w<CR>gv
+
 	" Ignore Shift-K
 	vnoremap K k
 
@@ -423,8 +423,9 @@
 	inoremap <TAB>   <C-R>=TabCompletion(0)<CR>
 	inoremap <S-TAB> <C-R>=TabCompletion(1)<CR>
 
-	" Exit insert mode and save document
-	inoremap <LEADER>s <ESC>:w<CR>
+	" Quick save
+	inoremap <ESC>      <ESC>:w<CR>
+	inoremap <ESC><ESC> <ESC>:w<CR>a
 
 	" Exit insert mode and save changes
 	inoremap jj <ESC>:w<CR>
@@ -465,3 +466,15 @@
 	cmap <ESC>OQ /
 	cmap <ESC>Ol +
 	cmap <ESC>OS -
+
+" ------------------------------------------------------------------------------
+" KEY MAPPINGS (VIMDIFF)
+" ------------------------------------------------------------------------------
+
+	if &diff
+
+		nnoremap <SPACE><SPACE> :qa<CR>
+		nnoremap J              ]c
+		nnoremap K              [c
+
+	endif

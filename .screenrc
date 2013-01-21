@@ -11,8 +11,8 @@ vbell off
 altscreen
 
 # Initial screens
-screen -t  "vim"   2   vim
-screen -t  "htop"  10  htop
+screen -t  "vim"   2  vim
+screen -t  "htop"  9  htop
 
 # Start in screen 1
 screen 1
@@ -20,11 +20,22 @@ screen 1
 # No window 0
 bind c  screen 1
 bind ^c screen 1
-bind 0  screen 10
+
+# Easiers cycling through windows
+bind h  prev
+bind l  next
+bind ^h prev
+bind ^l next
+
+# Easier cycling through splitscreens
+bind j  focus up
+bind k  focus down
+bind ^j focus up
+bind ^k focus down
 
 # Hack for proper coloring in Vim
 bce "on"
 defbce "on"
 
 # Status bar
-hardstatus alwayslastline "%{=} %{K}%-Lw%{+b w}%n %t%{-}%+LW"
+hardstatus alwayslastline "%{=}%{K} %= [ %-Lw%{+b w}%n %t%{-}%+LW ] %= "
