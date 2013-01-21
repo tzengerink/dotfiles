@@ -22,10 +22,16 @@ bind c  screen 1
 bind ^c screen 1
 
 # Easiers cycling through windows
-bind h prev
-bind l next
+bind h  prev
+bind l  next
 bind ^h prev
 bind ^l next
+
+# Easier cycling through splitscreens
+bind j  focus up
+bind k  focus down
+bind ^j focus up
+bind ^k focus down
 
 # Hack for proper coloring in Vim
 bce "on"

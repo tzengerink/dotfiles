@@ -340,7 +340,6 @@
 	noremap <RIGHT>    :bnext<CR>
 	noremap <LEFT>     :bprevious<CR>
 	noremap <LEADER>b  :buffers<CR>:buffer<SPACE>
-	noremap <LEADER>BD :bd<CR>
 
 	" Commands
 	nnoremap <LEADER>u :UnderLine -<CR>
@@ -382,11 +381,6 @@
 
 	" Auto-indent
 	nnoremap <EXPR> i IndentWithI()
-
-	" Close all windows when using vimdiff
-	if &diff
-		nnoremap <SPACE><SPACE> :qa<CR>
-	endif
 
 	" Temporary SQL query
 	noremap <LEADER>EQ :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
@@ -472,3 +466,15 @@
 	cmap <ESC>OQ /
 	cmap <ESC>Ol +
 	cmap <ESC>OS -
+
+" ------------------------------------------------------------------------------
+" KEY MAPPINGS (VIMDIFF)
+" ------------------------------------------------------------------------------
+
+	if &diff
+
+		nnoremap <SPACE><SPACE> :qa<CR>
+		nnoremap J              ]c
+		nnoremap K              [c
+
+	endif
