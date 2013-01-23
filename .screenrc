@@ -10,10 +10,6 @@ vbell off
 # Stop fullscreen apps from appearing in scrollback
 altscreen
 
-# Initial screens
-screen -t  "vim"   2  vim
-screen -t  "htop"  9  htop
-
 # Start in screen 1
 screen 1
 
