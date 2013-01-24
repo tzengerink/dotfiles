@@ -32,10 +32,10 @@ alias greset='git reset -q --hard HEAD'
 # VIRTUAL ENVIRONMENTS
 # --------------------
 
-alias ve2='virtualenv .py-env --python=python2'
-alias ve='virtualenv .py-env'
-alias vea='source .py-env/bin/activate'
-alias ved='deactivate'
+alias pve='virtualenv .py-env'
+alias p2ve='virtualenv .py-env --python=python2'
+alias pva='source .py-env/bin/activate'
+alias pvd='deactivate'
 alias nve='nodeenv .node-env'
 alias nva='source .node-env/bin/activate'
 alias nvd='deactivate_node'

@@ -11,15 +11,14 @@ vbell off
 altscreen
 
 # Initial screens
-screen -t  "vim"   2  vim
-screen -t  "htop"  9  htop
+screen -t  "vim"   2   vim
+screen -t  "htop"  10  htop
 
-# Start in screen 1
-screen 1
-
-# No window 0
+# Start in screen 1 (no window 0)
 bind c  screen 1
 bind ^c screen 1
+bind 0 select 10
+screen 1
 
 # Easiers cycling through windows
 bind h  prev
@@ -33,7 +32,7 @@ bind k  focus down
 bind ^j focus up
 bind ^k focus down
 
-# Hack for proper coloring in Vim
+# Hack for proper coloring
 bce "on"
 defbce "on"
 
