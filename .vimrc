@@ -361,8 +361,8 @@
 	noremap <DOWN> g,<CR>
 
 	" Sessions
-	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
-	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
+	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
+	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default<CR>
 
 	" Open file in default application
 	noremap <C-O> :! open %<CR><CR>
@@ -424,7 +424,6 @@
 	inoremap <S-TAB> <C-R>=TabCompletion(1)<CR>
 
 	" Quick save
-	inoremap <ESC>      <ESC>:w<CR>
 	inoremap <ESC><ESC> <ESC>:w<CR>a
 
 	" Exit insert mode and save changes
