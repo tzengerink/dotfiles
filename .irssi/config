@@ -40,9 +40,7 @@ hilights = (
   { text = "Mytho"; color = "%M"; nick = "yes"; word = "yes"; }
 );
 
-ignores = (
-  { level = "JOINS PARTS QUITS"; }
-);
+ignores = ( { level = "JOINS PARTS QUITS"; } );
 
 keyboard = (
   { key = "^H"; id = "previous_window"; data = ""; },
@@ -76,7 +74,7 @@ statusbar = {
     topic = " $topic";
     topic_empty = " Irssi v$J - http://www.irssi.org";
 
-    # Solarized
+    # theme
     lag = "{sb Lag: %m$0-%n}";
     act = "{sb Act: $0-}";
     more = "%k%3-- more --%n";
@@ -169,8 +167,7 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; term_force_colors = "yes"; };
   "fe-common/core" = {
-    # Solarized
-    theme = "solarized-universal";
+    theme = "pyhy";
     hilight_color = "= %R";
   };
 };
