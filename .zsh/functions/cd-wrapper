@@ -1,36 +1,54 @@
 # WRAPPER FOR THE CD FUNCTION
 # ---------------------------
 
+# Variables
+PY_ENV=".py-env"
+NODE_ENV=".node-env"
+
+# Activate the Python virtual environment
+activate_virtual_env(){
+	if [ -e "$PY_ENV" ]; then
+		source "$PY_ENV/bin/activate"
+	fi
+}
+
+# Disable the Python virtual environment
+disable_virtual_env(){
+	if [ -n "$VIRTUAL_ENV" ]; then
+		deactivate
+	fi
+}
+
+# Activate the Node virtual environment
+activate_node_virtual_env(){
+	if [ -e "$NODE_ENV" ]; then
+		source "$NODE_ENV/bin/activate"
+	fi
+}
+
+# Disable the Node virtual environment
+disable_node_virtual_env(){
+	if [ -n "$NODE_VIRTUAL_ENV" ]; then
+		deactivate_node
+	fi
+}
+
 # Execute a normal `cd`-command
 cd "$@"
 
-# Auto loading of virtual environments, only when entering a git directory,
-# else deactivate environment when leaving the git repository
+# Auto loading of virtual environments:
+# - Only when entering a git directory
+# - Deactivate environment when leaving the git repository
 if [ -e ".git" ]; then
-
-	# Python
-	if [ -e ".py-env" ]; then
-		source .py-env/bin/activate
-	fi
-	
-	# Node
-	if [ -e ".node-env" ]; then
-		source .node-env/bin/activate
-	fi
-
+	activate_virtual_env
+	activate_node_virtual_env
 else
+
+	# Check if no longer in a git directory
 	local GITDIR="$(git rev-parse --git-dir 2>/dev/null)"
 	if [ $? -ne 0 ] || [ -z "$GITDIR" ]; then
-		
-		# Python
-		if [ -n "$VIRTUAL_ENV" ]; then
-			deactivate
-		fi
-		
-		# Node
-		if [ -n "$NODE_VIRTUAL_ENV" ]; then
-			deactivate_node
-		fi
-
+		disable_virtual_env
+		disable_node_virtual_env
 	fi
+
 fi

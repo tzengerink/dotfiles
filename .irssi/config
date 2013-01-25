@@ -166,8 +166,5 @@ settings = {
     nick = "Mytho";
   };
   "fe-text" = { actlist_sort = "refnum"; term_force_colors = "yes"; };
-  "fe-common/core" = {
-    theme = "pyhy";
-    hilight_color = "= %R";
-  };
+  "fe-common/core" = { theme = "default"; hilight_color = "= %R"; };
 };
