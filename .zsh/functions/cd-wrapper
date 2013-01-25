@@ -1,0 +1,36 @@
+# WRAPPER FOR THE CD FUNCTION
+# ---------------------------
+
+# Execute a normal `cd`-command
+cd "$@"
+
+# Auto loading of virtual environments, only when entering a git directory,
+# else deactivate environment when leaving the git repository
+if [ -e ".git" ]; then
+
+	# Python
+	if [ -e ".py-env" ]; then
+		source .py-env/bin/activate
+	fi
+	
+	# Node
+	if [ -e ".node-env" ]; then
+		source .node-env/bin/activate
+	fi
+
+else
+	local GITDIR="$(git rev-parse --git-dir 2>/dev/null)"
+	if [ $? -ne 0 ] || [ -z "$GITDIR" ]; then
+		
+		# Python
+		if [ -n "$VIRTUAL_ENV" ]; then
+			deactivate
+		fi
+		
+		# Node
+		if [ -n "$NODE_VIRTUAL_ENV" ]; then
+			deactivate_node
+		fi
+
+	fi
+fi

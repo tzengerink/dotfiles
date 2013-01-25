@@ -9,6 +9,7 @@ alias -g T='| tail'
 # NAVIGATION
 # ----------
 
+alias cd='cd-wrapper'
 alias l='ls -lh'
 alias la='ls -A'
 alias ll='ls -lah'
@@ -23,6 +24,7 @@ alias ..='up'                  # Alias for the up function
 # VERSION CONTROL
 # ---------------
 
+alias svn='svn-wrapper'
 alias gdiff='git difftool'
 alias glog-branch='git log --merges --first-parent --pretty=oneline'
 alias glog='git log --pretty=oneline --graph'
