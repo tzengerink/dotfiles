@@ -12,7 +12,9 @@ D=$(echo $D | sed 's/^\///')
 if [ -z "$D" ]; then
 	D=..
 fi
-cd $D
+
+cd-wrapper $D
+
 if [ -d "$(pwd)/$2" ]; then
-	cd "$(pwd)/$2"
+	cd-wrapper "$(pwd)/$2"
 fi
