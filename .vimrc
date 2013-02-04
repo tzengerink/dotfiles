@@ -150,9 +150,10 @@
 	autocmd  FileType python     set omnifunc=pythoncomplete#Complete
 
 	" Easy filetype switching
+	nnoremap <LEADER>ta :set filetype=htmljinja<CR>
 	nnoremap <LEADER>tc :set filetype=css<CR>
 	nnoremap <LEADER>th :set filetype=html<CR>
-	nnoremap <LEADER>tj :set filetype=htmljinja<CR>
+	nnoremap <LEADER>tj :set filetype=javascript<CR>
 	nnoremap <LEADER>tm :set filetype=mysql<CR>
 	nnoremap <LEADER>to :set filetype=coffee<CR>
 	nnoremap <LEADER>tp :set filetype=php<CR>
