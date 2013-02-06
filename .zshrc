@@ -115,9 +115,9 @@ function pre_prompt_datetime {
 	local DATE="%D{%Y%m%d}"
 	local TIME="%D{%H%M}"
 	if [[ $HOUR -gt 8 ]] && [[ $HOUR -lt 18 ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}$DATE%{$fg[black]%}:%{$fg[$prompt_highlight]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
+		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$DATE%{$fg[black]%}:%{$fg[white]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
 	else
-		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}$DATE%{$fg[black]%}:%{$fg[red]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
+		echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}$DATE%{$fg[black]%}:%{$fg[$prompt_highlight]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
 	fi
 }
 
@@ -148,7 +148,7 @@ function pre_prompt_newline {
 
 function pre_prompt_node_env {
 	if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[cyan]%}$(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -170,7 +170,7 @@ function pre_prompt_subshell {
 
 function pre_prompt_virtual_env {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[cyan]%}$(basename $VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$(basename $VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
