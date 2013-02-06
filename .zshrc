@@ -37,6 +37,11 @@ insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo
 
+# Disable annoying clear screen shortcut (Ctrl-l)
+do_nothing () { }
+zle -N do-nothing do_nothing
+bindkey "^l" do-nothing
+
 # HISTORY
 # -------
 
