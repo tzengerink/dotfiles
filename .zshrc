@@ -120,9 +120,9 @@ function pre_prompt_datetime {
 	local DATE="%D{%Y%m%d}"
 	local TIME="%D{%H%M}"
 	if [[ $HOUR -gt 8 ]] && [[ $HOUR -lt 18 ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$DATE%{$fg[black]%}:%{$fg[white]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
-	else
 		echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}$DATE%{$fg[black]%}:%{$fg[$prompt_highlight]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
+	else
+		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$DATE%{$fg[black]%}:%{$fg[white]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
 	fi
 }
 
