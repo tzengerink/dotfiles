@@ -33,4 +33,4 @@ bce "on"
 defbce "on"
 
 # Status bar
-hardstatus alwayslastline "%{=}%{K} %= [ %-Lw%{+b w}%n %t%{-}%+LW ] %= "
+hardstatus alwayslastline "%{= Kd}%{k} %= [ %-Lw%{w}%n %t%{-}%+LW ] %= "
