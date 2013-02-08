@@ -150,9 +150,10 @@
 	autocmd  FileType python     set omnifunc=pythoncomplete#Complete
 
 	" Easy filetype switching
+	nnoremap <LEADER>ta :set filetype=htmljinja<CR>
 	nnoremap <LEADER>tc :set filetype=css<CR>
 	nnoremap <LEADER>th :set filetype=html<CR>
-	nnoremap <LEADER>tj :set filetype=htmljinja<CR>
+	nnoremap <LEADER>tj :set filetype=javascript<CR>
 	nnoremap <LEADER>tm :set filetype=mysql<CR>
 	nnoremap <LEADER>to :set filetype=coffee<CR>
 	nnoremap <LEADER>tp :set filetype=php<CR>
@@ -361,8 +362,8 @@
 	noremap <DOWN> g,<CR>
 
 	" Sessions
-	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default
-	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default
+	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
+	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default<CR>
 
 	" Open file in default application
 	noremap <C-O> :! open %<CR><CR>
@@ -424,7 +425,6 @@
 	inoremap <S-TAB> <C-R>=TabCompletion(1)<CR>
 
 	" Quick save
-	inoremap <ESC>      <ESC>:w<CR>
 	inoremap <ESC><ESC> <ESC>:w<CR>a
 
 	" Exit insert mode and save changes

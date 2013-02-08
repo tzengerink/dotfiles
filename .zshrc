@@ -37,6 +37,11 @@ insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo
 
+# Disable annoying clear screen shortcut (Ctrl-l)
+do_nothing () { }
+zle -N do-nothing do_nothing
+bindkey "^l" do-nothing
+
 # HISTORY
 # -------
 
@@ -95,14 +100,14 @@ local prompt_virtual_env='$(pre_prompt_virtual_env)'
 function pre_prompt_repo {
 	if [[ -d .svn ]]; then
 		local REV=$(svn info | grep "Revision" | awk '{print $2}')
-		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}svn:$REV %{$fg[black]%}]%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}svn%{$fg[black]%}:%{$fg[green]%}$REV %{$fg[black]%}]%{$reset_color%}"
 	else
 		pushd . >/dev/null
 		while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
 		if [[ -d .git ]]; then
 			local BRANCH=$(git rev-parse --abbrev-ref HEAD)
 			local HASH=$(git rev-parse --short HEAD)
-			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH:$HASH %{$fg[black]%}]%{$reset_color%}"
+			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH%{$fg[black]%}:%{$fg[green]%}$HASH %{$fg[black]%}]%{$reset_color%}"
 		else
 			echo ""
 		fi
@@ -112,11 +117,12 @@ function pre_prompt_repo {
 
 function pre_prompt_datetime {
 	local HOUR="$(printf %.0f $(date '+%H'))"
-	local DATE="%D{%Y%m%d.%H%M}"
+	local DATE="%D{%Y%m%d}"
+	local TIME="%D{%H%M}"
 	if [[ $HOUR -gt 8 ]] && [[ $HOUR -lt 18 ]]; then
-		echo -e "%B%{$fg[black]%}[ $DATE ]%{$reset_color%}%b"
+		echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}$DATE%{$fg[black]%}:%{$fg[$prompt_highlight]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
 	else
-		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$DATE %{$fg[black]%}]%{$reset_color%}%b"
+		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$DATE%{$fg[black]%}:%{$fg[white]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
 	fi
 }
 
@@ -147,7 +153,7 @@ function pre_prompt_newline {
 
 function pre_prompt_node_env {
 	if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -169,7 +175,7 @@ function pre_prompt_subshell {
 
 function pre_prompt_virtual_env {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(basename $VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$(basename $VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi

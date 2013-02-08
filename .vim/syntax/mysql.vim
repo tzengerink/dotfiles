@@ -28,7 +28,7 @@ syn keyword mysqlKeyword         enclosed escape escaped explain engine
 syn keyword mysqlKeyword         fields file first flush for foreign from full function
 syn keyword mysqlKeyword         global grant grants group
 syn keyword mysqlKeyword         having heap high_priority hosts hour hour_minute hour_second
-syn keyword mysqlKeyword         identified ignore index infile inner insert insert_id into isam
+syn keyword mysqlKeyword         identified ignore index infile inner insert insert_id into isam if
 syn keyword mysqlKeyword         join
 syn keyword mysqlKeyword         key keys kill last_insert_id leading left limit lines load local lock logs long
 syn keyword mysqlKeyword         low_priority
