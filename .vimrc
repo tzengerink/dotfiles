@@ -474,7 +474,7 @@
 	if &diff
 
 		nnoremap <SPACE><SPACE> :qa<CR>
-		nnoremap J              ]c
-		nnoremap K              [c
+		nnoremap J              ]czz
+		nnoremap K              [czz
 
 	endif
