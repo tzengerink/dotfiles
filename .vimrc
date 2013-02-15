@@ -324,7 +324,7 @@
 	noremap <LEADER><SPACE> zMzv
 
 	" Macros
-	nnoremap <RETURN> @q
+	nnoremap K @q
 
 	" Plugins
 	nnoremap  <C-n>     :NERDTreeToggle<CR>
@@ -370,9 +370,6 @@
 
 	" Yank to end of line
 	noremap Y y$
-
-	" Shift-K concatinate with line above
-	nnoremap K kJ
 
 	" Display
 	nnoremap <LEADER>d :echo strftime("%c")<CR>
@@ -429,6 +426,9 @@
 
 	" Exit insert mode and save changes
 	inoremap jj <ESC>:w<CR>
+
+	" Commands
+	inoremap <LEADER>u <ESC>:UnderLine -<CR>o
 
 	" Enable numpad
 	inoremap <ESC>Oq 1
