@@ -304,8 +304,8 @@
 	noremap :: ;
 
 	" Save/Quit mappings
-	noremap <C-d>      :sh<CR>
-	noremap <ESC><ESC> <ESC>:w<CR>
+	noremap <C-d> :sh<CR>
+	noremap ss    <ESC>:w<CR>
 
 	" Save file as superuser
 	noremap <LEADER>WW :%!sudo tee > /dev/null %<CR>
