@@ -1,62 +1,18 @@
 # WRAPPER FOR THE CD FUNCTION
 # ---------------------------
 
-## VARIABLES
-
+# VARIABLES
 PY_ENV=".py-env"
 NODE_ENV=".node-env"
-
-## FUNCTIONS
-
-# Activate the Python virtual environment
-activate_virtual_env(){
-	if [ -e "$PY_ENV" ]; then
-		source "$PY_ENV/bin/activate"
-	fi
-}
-
-# Disable the Python virtual environment
-disable_virtual_env(){
-	if [ -n "$VIRTUAL_ENV" ]; then
-		deactivate
-	fi
-}
-
-# Activate the Node virtual environment
-activate_node_virtual_env(){
-	if [ -e "$NODE_ENV" ]; then
-		source "$NODE_ENV/bin/activate"
-	fi
-}
-
-# Disable the Node virtual environment
-disable_node_virtual_env(){
-	if [ -n "$NODE_VIRTUAL_ENV" ]; then
-		deactivate_node
-	fi
-}
-
-## EXECUTION
 
 # Execute a normal `cd`-command
 cd "$@"
 
-## TODO: Old $PATH variables remain set..
+# Deactivate if possible
+deactivate 2>/dev/null
+deactivate_node 2>/dev/null
+export PATH=$_PATH
 
-## Auto deactivate virtual environments
-## - No longer in a git repository
-## - The active environment is not for this git repo
-#local GITDIR="$(git rev-parse --git-dir 2>/dev/null)"
-#if [ $? -ne 0 ] || [ -z "$GITDIR" ]; then
-	#disable_virtual_env
-	#disable_node_virtual_env
-#else
-	#[ ! "$VIRTUAL_ENV" = "$(git rev-parse --show-toplevel)/$PY_ENV" ] && disable_virtual_env
-	#[ ! "$NODE_VIRTUAL_ENV" = "$(git rev-parse --show-toplevel)/$NODE_ENV" ] && disable_node_virtual_env
-#fi
-
-## Try activating any virtual environment when entering a git repo
-#if [ -e ".git" ]; then
-	#activate_virtual_env
-	#activate_node_virtual_env
-#fi
+# Activate if (parent-)directory has environment
+[[ -d "$PY_ENV" ]] && source $PY_ENV/bin/activate
+[[ -d "$NODE_ENV" ]] && source $NODE_ENV/bin/activate

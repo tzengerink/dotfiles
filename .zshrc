@@ -67,6 +67,7 @@ export SVN_EDITOR=vi
 export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
+export _PATH=$PATH
 
 # LESS
 # ----
