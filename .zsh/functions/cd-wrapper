@@ -41,20 +41,22 @@ disable_node_virtual_env(){
 # Execute a normal `cd`-command
 cd "$@"
 
-# Auto deactivate virtual environments
-# - No longer in a git repository
-# - The active environment is not for this git repo
-local GITDIR="$(git rev-parse --git-dir 2>/dev/null)"
-if [ $? -ne 0 ] || [ -z "$GITDIR" ]; then
-	disable_virtual_env
-	disable_node_virtual_env
-else
-	[ ! "$VIRTUAL_ENV" = "$(git rev-parse --show-toplevel)/$PY_ENV" ] && disable_virtual_env
-	[ ! "$NODE_VIRTUAL_ENV" = "$(git rev-parse --show-toplevel)/$NODE_ENV" ] && disable_node_virtual_env
-fi
+## TODO: Old $PATH variables remain set..
 
-# Try activating any virtual environment when entering a git repo
-if [ -e ".git" ]; then
-	activate_virtual_env
-	activate_node_virtual_env
-fi
+## Auto deactivate virtual environments
+## - No longer in a git repository
+## - The active environment is not for this git repo
+#local GITDIR="$(git rev-parse --git-dir 2>/dev/null)"
+#if [ $? -ne 0 ] || [ -z "$GITDIR" ]; then
+	#disable_virtual_env
+	#disable_node_virtual_env
+#else
+	#[ ! "$VIRTUAL_ENV" = "$(git rev-parse --show-toplevel)/$PY_ENV" ] && disable_virtual_env
+	#[ ! "$NODE_VIRTUAL_ENV" = "$(git rev-parse --show-toplevel)/$NODE_ENV" ] && disable_node_virtual_env
+#fi
+
+## Try activating any virtual environment when entering a git repo
+#if [ -e ".git" ]; then
+	#activate_virtual_env
+	#activate_node_virtual_env
+#fi
