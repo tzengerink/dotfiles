@@ -99,13 +99,13 @@ local prompt_subshell='$(pre_prompt_subshell)'
 local prompt_virtual_env='$(pre_prompt_virtual_env)'
 
 function pre_prompt_repo {
-	if [[ -d .svn ]]; then
+	if [[ -d ".svn" ]]; then
 		local REV=$(svn info | grep "Revision" | awk '{print $2}')
 		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}svn%{$fg[black]%}:%{$fg[green]%}$REV %{$fg[black]%}]%{$reset_color%}"
 	else
 		pushd . >/dev/null
-		while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
-		if [[ -d .git ]]; then
+		while [ ! -d ".git" ] && [ ! "`pwd`" = "/" ]; do cd ..; done
+		if [[ -d ".git" ]]; then
 			local BRANCH=$(git rev-parse --abbrev-ref HEAD)
 			local HASH=$(git rev-parse --short HEAD)
 			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH%{$fg[black]%}:%{$fg[green]%}$HASH %{$fg[black]%}]%{$reset_color%}"
