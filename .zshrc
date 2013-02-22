@@ -67,6 +67,7 @@ export SVN_EDITOR=vi
 export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
+export _PATH=$PATH
 
 # LESS
 # ----
@@ -87,9 +88,9 @@ local prompt_highlight="blue"
 
 local prompt_datetime='$(pre_prompt_datetime)'
 local prompt_dir='$(pre_prompt_dir)'
-local prompt_history="%B%{$fg[black]%}[ %h ]%b%{$reset_color%}"
+local prompt_history="%B%{$fg[black]%}[%h]%b%{$reset_color%}"
 local prompt_jobs='$(pre_prompt_jobs)'
-local prompt_name="%B%{$fg[black]%}[ %n ]%b%{$reset_color%}"
+local prompt_name="%B%{$fg[black]%}[%n]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node_env='$(pre_prompt_node_env)'
 local prompt_repo='$(pre_prompt_repo)'
@@ -120,9 +121,9 @@ function pre_prompt_datetime {
 	local DATE="%D{%Y%m%d}"
 	local TIME="%D{%H%M}"
 	if [[ $HOUR -gt 8 ]] && [[ $HOUR -lt 18 ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}$DATE%{$fg[black]%}:%{$fg[$prompt_highlight]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
+		echo -e "%B%{$fg[black]%}[$TIME]%{$reset_color%}%b"
 	else
-		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$DATE%{$fg[black]%}:%{$fg[white]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
+		echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}$TIME %{$fg[black]%}]%{$reset_color%}%b"
 	fi
 }
 

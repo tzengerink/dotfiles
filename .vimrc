@@ -304,8 +304,8 @@
 	noremap :: ;
 
 	" Save/Quit mappings
-	noremap <C-d>      :sh<CR>
-	noremap <ESC><ESC> <ESC>:w<CR>
+	noremap <C-d> :sh<CR>
+	noremap ss    <ESC>:w<CR>
 
 	" Save file as superuser
 	noremap <LEADER>WW :%!sudo tee > /dev/null %<CR>
@@ -324,7 +324,7 @@
 	noremap <LEADER><SPACE> zMzv
 
 	" Macros
-	nnoremap <RETURN> @q
+	nnoremap K @q
 
 	" Plugins
 	nnoremap  <C-n>     :NERDTreeToggle<CR>
@@ -370,9 +370,6 @@
 
 	" Yank to end of line
 	noremap Y y$
-
-	" Shift-K concatinate with line above
-	nnoremap K kJ
 
 	" Display
 	nnoremap <LEADER>d :echo strftime("%c")<CR>
@@ -430,6 +427,9 @@
 	" Exit insert mode and save changes
 	inoremap jj <ESC>:w<CR>
 
+	" Commands
+	inoremap <LEADER>u <ESC>:UnderLine -<CR>o
+
 	" Enable numpad
 	inoremap <ESC>Oq 1
 	inoremap <ESC>Or 2
@@ -474,7 +474,7 @@
 	if &diff
 
 		nnoremap <SPACE><SPACE> :qa<CR>
-		nnoremap J              ]c
-		nnoremap K              [c
+		nnoremap J              ]czz
+		nnoremap K              [czz
 
 	endif
