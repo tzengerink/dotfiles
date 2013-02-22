@@ -118,8 +118,7 @@ function pre_prompt_repo {
 
 function pre_prompt_datetime {
 	local HOUR="$(printf %.0f $(date '+%H'))"
-	local DATE="%D{%Y%m%d}"
-	local TIME="%D{%H%M}"
+	local TIME="%D{%H:%M}"
 	if [[ $HOUR -gt 8 ]] && [[ $HOUR -lt 18 ]]; then
 		echo -e "%B%{$fg[black]%}[$TIME]%{$reset_color%}%b"
 	else
