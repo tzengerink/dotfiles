@@ -22,26 +22,6 @@ set -o vi             # Enable vim mode for command line movement
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # Match uppercase
 zstyle ':completion:*' instert-tab pending           # Disable when pasting tab
 
-# FUNCTIONS & ALIASES
-# -------------------
-
-fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)                # Load all function in directory
-[[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases  # Load aliases
-
-# WIDGETS
-# -------
-
-# Insert `sudo` at the start (Esc-s)
-insert_sudo () { zle beginning-of-line; zle -U "sudo " }
-zle -N insert-sudo insert_sudo
-bindkey "^[s" insert-sudo
-
-# Disable annoying clear screen shortcut (Ctrl-l)
-do_nothing () { }
-zle -N do-nothing do_nothing
-bindkey "^l" do-nothing
-
 # HISTORY
 # -------
 
@@ -80,6 +60,29 @@ export LESS_TERMCAP_se=$'\e[0m'           # End standout-mode
 export LESS_TERMCAP_so=$'\e[01;31;41m'    # Begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\e[0m'           # End underline
 export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
+
+# FUNCTIONS & ALIASES
+# -------------------
+
+fpath=(~/.zsh/functions $fpath)
+autoload -U ~/.zsh/functions/*(:t)                # Load all function in directory
+[[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases  # Load aliases
+
+# WIDGETS
+# -------
+
+# Insert `sudo` at the start (Esc-s)
+insert_sudo () { zle beginning-of-line; zle -U "sudo " }
+zle -N insert-sudo insert_sudo
+bindkey "^[s" insert-sudo
+
+# Disable annoying clear screen shortcut (Ctrl-l)
+do_nothing () { }
+zle -N do_nothing
+bindkey "^l" do_nothing
+
+# Quick open vim (Ctrl-n)
+bindkey -s "^n" "vim\n"
 
 # PROMPT
 # ------
