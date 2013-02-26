@@ -68,6 +68,9 @@ fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)                # Load all function in directory
 [[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases  # Load aliases
 
+# Fix slow git auto completion
+__git_files () { _wanted files expl 'local files' _files }
+
 # WIDGETS
 # -------
 
