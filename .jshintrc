@@ -16,7 +16,7 @@
 	"nonew"     : true,
 	"onevar"    : true,
 	"plusplus"  : false,
-	"quotmark"  : "single",
+	"quotmark"  : "double",
 	"regexp"    : true,
 	"strict"    : true,
 	"trailing"  : true,
