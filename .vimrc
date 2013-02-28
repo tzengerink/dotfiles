@@ -305,7 +305,6 @@
 
 	" Save/Quit mappings
 	noremap <C-d> :sh<CR>
-	noremap ss    <ESC>:w<CR>
 
 	" Save file as superuser
 	noremap <LEADER>WW :%!sudo tee > /dev/null %<CR>
@@ -390,9 +389,6 @@
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (VISUAL MODE)
 " ------------------------------------------------------------------------------
-
-	" Quick save
-	vnoremap <ESC><ESC> <ESC>:w<CR>gv
 
 	" Ignore Shift-K
 	vnoremap K k
