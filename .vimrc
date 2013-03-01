@@ -174,7 +174,7 @@
 " ------------------------------------------------------------------------------
 
 	" NERDTree
-	let NERDTreeWinSize = 40
+	let NERDTreeWinSize = 25
 
 	" ZenCoding
 	let g:user_zen_leader_key     = '<C-y>'
