@@ -17,7 +17,7 @@
 	set nonumber                        " No line numbers
 	set nopaste                         " Do not disable autoindent etc. when pasting
 	set nowrap                          " Do not wrap lines
-	set number                          " Show line numbers
+	set relativenumber                  " Use relative line numbers
 	set ruler                           " Position info
 	set scrolloff=0                     " Keep a margin of X lines when scrolling
 	set shiftwidth=2                    " Shift width
@@ -104,9 +104,13 @@
 	" Different settings for active/focussed window
 	augroup WinToggleNumber
 		autocmd!
-		autocmd WinEnter * setlocal number
-		autocmd WinLeave * setlocal nonumber
+		autocmd WinEnter * setlocal relativenumber
+		autocmd WinLeave * setlocal norelativenumber
 	augroup end
+
+	" Toggle (relative)number when entering/leaving insert mode
+	autocmd InsertEnter * setlocal number
+	autocmd InsertLeave * setlocal relativenumber
 
 	" Repeat comments
 	autocmd FileType * set formatoptions=croql
@@ -235,6 +239,15 @@
 		endif
 	endfunction
 
+	" Toggle between line numbers and relative line numbers
+	function! ToggleNumberType()
+		if (&relativenumber == 1)
+			set number
+		else
+			set relativenumber
+		endif
+	endfunction
+
 	" Wrap text nicely and readable
 	function! SetWrap()
 		setlocal wrap
@@ -315,6 +328,7 @@
 	noremap <LEADER>L :set list! list?<CR>
 	noremap <LEADER>N :set number! number?<CR>
 	noremap <LEADER>P :set paste! paste?<CR>
+	noremap <LEADER>R :call ToggleNumberType()<CR>
 
 	" Folding / Unfolding
 	noremap <LEADER>f       zM
