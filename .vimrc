@@ -86,10 +86,11 @@
 	highlight CursorLine   ctermfg=none ctermbg=234
 	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
 	highlight InvalidStyle ctermfg=124  ctermbg=174
-	highlight LineNr       ctermbg=234  ctermfg=249
+	highlight LineNr       ctermfg=249  ctermbg=234
 	highlight NonText      ctermfg=236  ctermbg=none
 	highlight SpecialKey   ctermfg=236  ctermbg=none
 	highlight Search       ctermfg=174  ctermbg=124  cterm=underline
+	highlight SignColumn   ctermfg=none ctermbg=234
 	highlight StatusLine   ctermfg=234  ctermbg=249
 	highlight StatusLineNC ctermfg=234  ctermbg=239
 	highlight TabLineFill  ctermfg=234  ctermbg=234
