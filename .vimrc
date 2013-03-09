@@ -83,7 +83,7 @@
 	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 	" Highlight Visual
-	highlight CursorLine   ctermfg=none ctermbg=234
+	highlight CursorLine   ctermfg=none ctermbg=236
 	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
 	highlight InvalidStyle ctermfg=124  ctermbg=174
 	highlight LineNr       ctermfg=249  ctermbg=234
