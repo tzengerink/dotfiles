@@ -72,15 +72,15 @@
 " SYNTAX SETTINGS
 " ------------------------------------------------------------------------------
 
+	" Change cursor in insert-mode
+	let &t_SI = "\eP\e[3 q\e\\"
+	let &t_EI = "\eP\e[1 q\e\\"
+
 	set t_Co=256        " Use 256 colors
 	syntax on           " Turn on syntax highlighting
 	filetype on         " Turn on filetype detection
 	filetype plugin on  " Causes errors in filetype detection
 	colors molokai      " Colorscheme
-
-	" Change cursor in insert-mode
-	let &t_SI = "\eP\e[3 q\e\\"
-	let &t_EI = "\eP\e[1 q\e\\"
 
 	" Highlight Visual
 	highlight CursorLine   ctermfg=none ctermbg=236
