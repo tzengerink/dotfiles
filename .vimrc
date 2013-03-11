@@ -379,9 +379,9 @@
 	noremap <LEADER>\  :vertical resize 85<CR>
 	noremap <LEADER>\\ <C-W>=
 
-	" Cycle through changelist
-	noremap <UP>   g;<CR>
-	noremap <DOWN> g,<CR>
+	" Cycle through changed blocks
+	noremap <UP>   :GitGutterPreviousHunk<CR>
+	noremap <DOWN> :GitGutterNextHunk<CR>
 
 	" Sessions
 	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
