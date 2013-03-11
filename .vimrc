@@ -333,6 +333,7 @@
 
 	" Toggle stuff
 	noremap <LEADER>A :set wrap! wrap?<CR>
+	noremap <LEADER>G :GitGutterToggle<CR>
 	noremap <LEADER>H :noh<CR>
 	noremap <LEADER>L :set list! list?<CR>
 	noremap <LEADER>N :set number! number?<CR>
@@ -380,7 +381,7 @@
 	noremap <LEADER>\\ <C-W>=
 
 	" Cycle through changed blocks
-	noremap <UP>   :GitGutterPreviousHunk<CR>
+	noremap <UP>   :GitGutterPrevHunk<CR>
 	noremap <DOWN> :GitGutterNextHunk<CR>
 
 	" Sessions
