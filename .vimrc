@@ -72,15 +72,15 @@
 " SYNTAX SETTINGS
 " ------------------------------------------------------------------------------
 
+	" Change cursor in insert-mode
+	let &t_SI = "\eP\e[3 q\e\\"
+	let &t_EI = "\eP\e[1 q\e\\"
+
 	set t_Co=256        " Use 256 colors
 	syntax on           " Turn on syntax highlighting
 	filetype on         " Turn on filetype detection
 	filetype plugin on  " Causes errors in filetype detection
 	colors molokai      " Colorscheme
-
-	" Change cursor in insert-mode
-	let &t_SI = "\<Esc>]50;CursorShape=2\x7"
-	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 	" Highlight Visual
 	highlight CursorLine   ctermfg=none ctermbg=236
@@ -310,6 +310,14 @@
 	command! -nargs=* UnderLine          call UnderLine(<f-args>)
 
 " ------------------------------------------------------------------------------
+" ABBREVIATIONS
+" ------------------------------------------------------------------------------
+
+	" Open help in seperate tab
+	cnoreabbrev h    tab h
+	cnoreabbrev help tab help
+
+" ------------------------------------------------------------------------------
 " KEY MAPPINGS (NORMAL MODE)
 " ------------------------------------------------------------------------------
 
@@ -325,6 +333,7 @@
 
 	" Toggle stuff
 	noremap <LEADER>A :set wrap! wrap?<CR>
+	noremap <LEADER>G :GitGutterToggle<CR>
 	noremap <LEADER>H :noh<CR>
 	noremap <LEADER>L :set list! list?<CR>
 	noremap <LEADER>N :set number! number?<CR>
@@ -371,9 +380,9 @@
 	noremap <LEADER>\  :vertical resize 85<CR>
 	noremap <LEADER>\\ <C-W>=
 
-	" Cycle through changelist
-	noremap <UP>   g;<CR>
-	noremap <DOWN> g,<CR>
+	" Cycle through changed blocks
+	noremap <UP>   :GitGutterPrevHunk<CR>
+	noremap <DOWN> :GitGutterNextHunk<CR>
 
 	" Sessions
 	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
