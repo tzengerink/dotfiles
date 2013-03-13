@@ -3,6 +3,7 @@
 " ------------------------------------------------------------------------------
 
 	set autoindent                      " Autoindenting
+	set backspace=indent,eol,start
 	set completeopt=longest,menuone     " Show menu and preview window
 	set laststatus=2                    " Always show the StatusLine
 	set list                            " Show non text characters
@@ -17,7 +18,6 @@
 	set nonumber                        " No line numbers
 	set nopaste                         " Do not disable autoindent etc. when pasting
 	set nowrap                          " Do not wrap lines
-	set relativenumber                  " Use relative line numbers
 	set ruler                           " Position info
 	set scrolloff=0                     " Keep a margin of X lines when scrolling
 	set shiftwidth=2                    " Shift width
@@ -101,17 +101,6 @@
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
 " ------------------------------------------------------------------------------
-
-	" Different settings for active/focussed window
-	augroup WinToggleNumber
-		autocmd!
-		autocmd WinEnter * setlocal relativenumber
-		autocmd WinLeave * setlocal norelativenumber
-	augroup end
-
-	" Toggle (relative)number when entering/leaving insert mode
-	autocmd InsertEnter * setlocal number
-	autocmd InsertLeave * setlocal relativenumber
 
 	" Repeat comments
 	autocmd FileType * set formatoptions=croql
@@ -316,6 +305,28 @@
 	" Open help in seperate tab
 	cnoreabbrev h    tab h
 	cnoreabbrev help tab help
+
+" ------------------------------------------------------------------------------
+" VERSION SPECIFIC SETTINGS
+" ------------------------------------------------------------------------------
+
+	if version >= 73
+
+		" Use relative line numbers
+		set relativenumber
+
+		" Different settings for active/focussed window
+		augroup WinToggleNumber
+			autocmd!
+			autocmd WinEnter * setlocal relativenumber
+			autocmd WinLeave * setlocal norelativenumber
+		augroup end
+
+		" Toggle (relative)number when entering/leaving insert mode
+		autocmd InsertEnter * setlocal number
+		autocmd InsertLeave * setlocal relativenumber
+
+	endif
 
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS (NORMAL MODE)
