@@ -128,14 +128,14 @@
 " ------------------------------------------------------------------------------
 
 	" Set filetypes for certain extensions
-	autocmd BufNewFile,BufRead *.coffee        set filetype=coffee
-	autocmd BufNewFile,BufRead *.css           set filetype=css
-	autocmd BufNewFile,BufRead *.html,*.htm    set filetype=html
-	autocmd BufNewFile,BufRead *.less          set filetype=less
-	autocmd BufNewFile,BufRead *.markdown,*.md set filetype=markdown
-	autocmd BufNewFile,BufRead *.mustache      set filetype=mustache
-	autocmd BufNewFile,BufRead *.plist         set filetype=xml
-	autocmd BufNewFile,BufRead *.sql           set filetype=mysql
+	autocmd BufNewFile,BufRead *.coffee     set filetype=coffee
+	autocmd BufNewFile,BufRead *.css        set filetype=css
+	autocmd BufNewFile,BufRead *.html,*.htm set filetype=html
+	autocmd BufNewFile,BufRead *.less       set filetype=less
+    autocmd BufNewFile,BufRead *.md         set filetype=markdown
+	autocmd BufNewFile,BufRead *.mustache   set filetype=mustache
+	autocmd BufNewFile,BufRead *.plist      set filetype=xml
+	autocmd BufNewFile,BufRead *.sql        set filetype=mysql
 
 	" Omnicomplete
 	autocmd  FileType css        set omnifunc=csscomplete#CompleteCSS
@@ -158,6 +158,7 @@
 	" Override default filetype settings
 	autocmd BufNewFile,BufRead *.coffee set sw=2 ts=2 et nosi foldlevel=0
 	autocmd BufNewFile,BufRead *.less   set foldmethod=indent fdn=4 noet
+	autocmd BufNewFile,BufRead *.md     set et fdn=2 sw=4 ts=4
 	autocmd BufNewFile,BufRead *.php    set fdn=2 noet foldlevel=0
 
 	" SetWrap for certain filetypes
