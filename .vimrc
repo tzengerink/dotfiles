@@ -86,6 +86,10 @@
 	highlight Comment      ctermfg=238  ctermbg=none
 	highlight CursorLine   ctermfg=none ctermbg=235
 	highlight CursorLineNr ctermfg=248  ctermbg=none
+  highlight DiffAdd      ctermfg=none ctermbg=232
+  highlight DiffChange   ctermfg=none ctermbg=238
+  highlight DiffDelete   ctermfg=232  ctermbg=238
+  highlight DiffText     ctermfg=none ctermbg=232
 	highlight Folded       ctermfg=67   ctermbg=none
 	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
 	highlight InvalidStyle ctermfg=124  ctermbg=174
@@ -94,12 +98,12 @@
 	highlight SpecialKey   ctermfg=235  ctermbg=none
 	highlight Search       ctermfg=174  ctermbg=124
 	highlight SignColumn   ctermfg=none ctermbg=none
-	highlight StatusLine   ctermfg=233  ctermbg=248
-	highlight StatusLineNC ctermfg=233  ctermbg=238
-	highlight TabLineFill  ctermfg=233  ctermbg=233
-	highlight TabLine      ctermfg=238  ctermbg=233  cterm=none
+	highlight StatusLine   ctermfg=232  ctermbg=248
+	highlight StatusLineNC ctermfg=232  ctermbg=238
+	highlight TabLineFill  ctermfg=232  ctermbg=232
+	highlight TabLine      ctermfg=238  ctermbg=232  cterm=none
 	highlight Todo         ctermfg=206  ctermbg=129
-	highlight Visual       ctermfg=0    ctermbg=45
+	highlight Visual       ctermfg=232  ctermbg=45
 	highlight WarningMsg   ctermfg=174  ctermbg=124
 
 " ------------------------------------------------------------------------------
