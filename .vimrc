@@ -54,8 +54,12 @@
 	set directory=~/.vim/swap    " Where to put the swap files
 
 " ------------------------------------------------------------------------------
-" STATUS LINE
+" CURSOR & STATUS LINE
 " ------------------------------------------------------------------------------
+
+	" Change cursor in insert-mode
+	let &t_SI = "\eP\e[3 q\e\\"
+	let &t_EI = "\eP\e[1 q\e\\"
 
 	set statusline=%F                                  " Filename and path
 	set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},  " File encoding
@@ -71,10 +75,6 @@
 " ------------------------------------------------------------------------------
 " SYNTAX SETTINGS
 " ------------------------------------------------------------------------------
-
-	" Change cursor in insert-mode
-	let &t_SI = "\eP\e[3 q\e\\"
-	let &t_EI = "\eP\e[1 q\e\\"
 
 	set t_Co=256        " Use 256 colors
 	syntax on           " Turn on syntax highlighting
