@@ -84,6 +84,7 @@
 
 	" Highlight Visual
 	highlight CursorLine   ctermfg=none ctermbg=236
+	highlight CursorLineNr ctermfg=248  ctermbg=none
 	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
 	highlight InvalidStyle ctermfg=124  ctermbg=174
 	highlight LineNr       ctermfg=238  ctermbg=none
