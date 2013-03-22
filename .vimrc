@@ -86,10 +86,10 @@
 	highlight Comment      ctermfg=238  ctermbg=none
 	highlight CursorLine   ctermfg=none ctermbg=235
 	highlight CursorLineNr ctermfg=248  ctermbg=none
-  highlight DiffAdd      ctermfg=none ctermbg=232
-  highlight DiffChange   ctermfg=none ctermbg=238
-  highlight DiffDelete   ctermfg=232  ctermbg=238
-  highlight DiffText     ctermfg=none ctermbg=232
+  highlight DiffAdd      ctermfg=none ctermbg=22
+  highlight DiffChange   ctermfg=100  ctermbg=0
+  highlight DiffDelete   ctermfg=52   ctermbg=52
+  highlight DiffText     ctermfg=none ctermbg=58
 	highlight Folded       ctermfg=67   ctermbg=none
 	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
 	highlight InvalidStyle ctermfg=124  ctermbg=174
