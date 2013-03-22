@@ -86,6 +86,7 @@
 	highlight Comment      ctermfg=238  ctermbg=none
 	highlight CursorLine   ctermfg=none ctermbg=235
 	highlight CursorLineNr ctermfg=248  ctermbg=none
+	highlight Folded       ctermfg=67   ctermbg=none
 	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
 	highlight InvalidStyle ctermfg=124  ctermbg=174
 	highlight LineNr       ctermfg=238  ctermbg=none
