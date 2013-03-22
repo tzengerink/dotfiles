@@ -92,7 +92,7 @@
 	highlight LineNr       ctermfg=238  ctermbg=none
 	highlight NonText      ctermfg=235  ctermbg=none
 	highlight SpecialKey   ctermfg=235  ctermbg=none
-	highlight Search       ctermfg=174  ctermbg=124  cterm=underline
+	highlight Search       ctermfg=174  ctermbg=124
 	highlight SignColumn   ctermfg=none ctermbg=none
 	highlight StatusLine   ctermfg=233  ctermbg=248
 	highlight StatusLineNC ctermfg=233  ctermbg=238
@@ -100,6 +100,7 @@
 	highlight TabLine      ctermfg=238  ctermbg=233  cterm=none
 	highlight Todo         ctermfg=206  ctermbg=129
 	highlight Visual       ctermfg=0    ctermbg=45
+	highlight WarningMsg   ctermfg=174  ctermbg=124
 
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
