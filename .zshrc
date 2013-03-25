@@ -27,6 +27,7 @@ zstyle ':completion:*' instert-tab pending           # Disable when pasting tab
 
 HISTFILE=~/.zsh_history
 HISTSIZE=SAVEHIST=1000
+
 setopt EXTENDED_HISTORY      # Display time of use
 setopt HIST_IGNORE_ALL_DUPS  # Ignore duplicate entries
 setopt HIST_IGNORE_SPACE     # Ignore entries preceded by a space
@@ -47,7 +48,7 @@ export SVN_EDITOR=vi
 export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
-export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
+# export PATH=~/.bin:$PATH
 export _PATH=$PATH
 
 # LESS

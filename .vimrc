@@ -86,10 +86,10 @@
 	highlight Comment      ctermfg=238  ctermbg=none
 	highlight CursorLine   ctermfg=none ctermbg=235
 	highlight CursorLineNr ctermfg=248  ctermbg=none
-  highlight DiffAdd      ctermfg=none ctermbg=22
-  highlight DiffChange   ctermfg=100  ctermbg=0
-  highlight DiffDelete   ctermfg=52   ctermbg=52
-  highlight DiffText     ctermfg=none ctermbg=58
+	highlight DiffAdd      ctermfg=none ctermbg=22
+	highlight DiffChange   ctermfg=100  ctermbg=0
+	highlight DiffDelete   ctermfg=52   ctermbg=52
+	highlight DiffText     ctermfg=none ctermbg=58
 	highlight Folded       ctermfg=67   ctermbg=none
 	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
 	highlight InvalidStyle ctermfg=124  ctermbg=174
@@ -334,6 +334,7 @@
 	noremap <LEADER>G :GitGutterToggle<CR>
 	noremap <LEADER>H :noh<CR>
 	noremap <LEADER>L :set list! list?<CR>
+	noremap <LEADER>M :DoShowMarks!<CR>
 	noremap <LEADER>N :set number! number?<CR>
 	noremap <LEADER>P :set paste! paste?<CR>
 	noremap <LEADER>R :call ToggleNumberType()<CR>
@@ -385,6 +386,10 @@
 	" Sessions
 	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
 	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default<CR>
+
+	" ShowMarks
+	nnoremap ` :ShowMarksOnce<CR>`
+	nnoremap ' :ShowMarksOnce<CR>'
 
 	" Open file in default application
 	noremap <C-O> :! open %<CR><CR>

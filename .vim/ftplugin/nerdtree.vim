@@ -29,64 +29,64 @@
 " ------------------------------------------------------------------------------
 
 	" Faster opening of directories/files
-	nmap <buffer> <SPACE>   o
-	nmap <buffer> <LEADER>x PX
-	nmap <buffer> ..        Pko
-	nmap <buffer> l         o
-	nmap <buffer> h         o
+	noremap <buffer> <SPACE>   o
+	noremap <buffer> <LEADER>x PX
+	noremap <buffer> ..        Pko
+	noremap <buffer> l         o
+	noremap <buffer> h         o
 
 	" Search forwards
-	nmap <buffer> na :NERDJump a 0<CR>
-	nmap <buffer> nb :NERDJump b 0<CR>
-	nmap <buffer> nc :NERDJump c 0<CR>
-	nmap <buffer> nd :NERDJump d 0<CR>
-	nmap <buffer> ne :NERDJump e 0<CR>
-	nmap <buffer> nf :NERDJump f 0<CR>
-	nmap <buffer> ng :NERDJump g 0<CR>
-	nmap <buffer> nh :NERDJump h 0<CR>
-	nmap <buffer> ni :NERDJump i 0<CR>
-	nmap <buffer> nj :NERDJump j 0<CR>
-	nmap <buffer> nk :NERDJump k 0<CR>
-	nmap <buffer> nl :NERDJump l 0<CR>
-	nmap <buffer> nm :NERDJump m 0<CR>
-	nmap <buffer> nn :NERDJump n 0<CR>
-	nmap <buffer> no :NERDJump o 0<CR>
-	nmap <buffer> np :NERDJump p 0<CR>
-	nmap <buffer> nq :NERDJump q 0<CR>
-	nmap <buffer> nr :NERDJump r 0<CR>
-	nmap <buffer> ns :NERDJump s 0<CR>
-	nmap <buffer> nt :NERDJump t 0<CR>
-	nmap <buffer> nu :NERDJump u 0<CR>
-	nmap <buffer> nv :NERDJump v 0<CR>
-	nmap <buffer> nw :NERDJump w 0<CR>
-	nmap <buffer> nx :NERDJump x 0<CR>
-	nmap <buffer> ny :NERDJump y 0<CR>
-	nmap <buffer> nz :NERDJump z 0<CR>
+	noremap <buffer> na :NERDJump a 0<CR>
+	noremap <buffer> nb :NERDJump b 0<CR>
+	noremap <buffer> nc :NERDJump c 0<CR>
+	noremap <buffer> nd :NERDJump d 0<CR>
+	noremap <buffer> ne :NERDJump e 0<CR>
+	noremap <buffer> nf :NERDJump f 0<CR>
+	noremap <buffer> ng :NERDJump g 0<CR>
+	noremap <buffer> nh :NERDJump h 0<CR>
+	noremap <buffer> ni :NERDJump i 0<CR>
+	noremap <buffer> nj :NERDJump j 0<CR>
+	noremap <buffer> nk :NERDJump k 0<CR>
+	noremap <buffer> nl :NERDJump l 0<CR>
+	noremap <buffer> nm :NERDJump m 0<CR>
+	noremap <buffer> nn :NERDJump n 0<CR>
+	noremap <buffer> no :NERDJump o 0<CR>
+	noremap <buffer> np :NERDJump p 0<CR>
+	noremap <buffer> nq :NERDJump q 0<CR>
+	noremap <buffer> nr :NERDJump r 0<CR>
+	noremap <buffer> ns :NERDJump s 0<CR>
+	noremap <buffer> nt :NERDJump t 0<CR>
+	noremap <buffer> nu :NERDJump u 0<CR>
+	noremap <buffer> nv :NERDJump v 0<CR>
+	noremap <buffer> nw :NERDJump w 0<CR>
+	noremap <buffer> nx :NERDJump x 0<CR>
+	noremap <buffer> ny :NERDJump y 0<CR>
+	noremap <buffer> nz :NERDJump z 0<CR>
 
 	" Search backwards
-	nmap <buffer> Na :NERDJump a 1<CR>
-	nmap <buffer> Nb :NERDJump b 1<CR>
-	nmap <buffer> Nc :NERDJump c 1<CR>
-	nmap <buffer> Nd :NERDJump d 1<CR>
-	nmap <buffer> Ne :NERDJump e 1<CR>
-	nmap <buffer> Nf :NERDJump f 1<CR>
-	nmap <buffer> Ng :NERDJump g 1<CR>
-	nmap <buffer> Nh :NERDJump h 1<CR>
-	nmap <buffer> Ni :NERDJump i 1<CR>
-	nmap <buffer> Nj :NERDJump j 1<CR>
-	nmap <buffer> Nk :NERDJump k 1<CR>
-	nmap <buffer> Nl :NERDJump l 1<CR>
-	nmap <buffer> Nm :NERDJump m 1<CR>
-	nmap <buffer> Nn :NERDJump n 1<CR>
-	nmap <buffer> No :NERDJump o 1<CR>
-	nmap <buffer> Np :NERDJump p 1<CR>
-	nmap <buffer> Nq :NERDJump q 1<CR>
-	nmap <buffer> Nr :NERDJump r 1<CR>
-	nmap <buffer> Ns :NERDJump s 1<CR>
-	nmap <buffer> Nt :NERDJump t 1<CR>
-	nmap <buffer> Nu :NERDJump u 1<CR>
-	nmap <buffer> Nv :NERDJump v 1<CR>
-	nmap <buffer> Nw :NERDJump w 1<CR>
-	nmap <buffer> Nx :NERDJump x 1<CR>
-	nmap <buffer> Ny :NERDJump y 1<CR>
-	nmap <buffer> Nz :NERDJump z 1<CR>
+	noremap <buffer> Na :NERDJump a 1<CR>
+	noremap <buffer> Nb :NERDJump b 1<CR>
+	noremap <buffer> Nc :NERDJump c 1<CR>
+	noremap <buffer> Nd :NERDJump d 1<CR>
+	noremap <buffer> Ne :NERDJump e 1<CR>
+	noremap <buffer> Nf :NERDJump f 1<CR>
+	noremap <buffer> Ng :NERDJump g 1<CR>
+	noremap <buffer> Nh :NERDJump h 1<CR>
+	noremap <buffer> Ni :NERDJump i 1<CR>
+	noremap <buffer> Nj :NERDJump j 1<CR>
+	noremap <buffer> Nk :NERDJump k 1<CR>
+	noremap <buffer> Nl :NERDJump l 1<CR>
+	noremap <buffer> Nm :NERDJump m 1<CR>
+	noremap <buffer> Nn :NERDJump n 1<CR>
+	noremap <buffer> No :NERDJump o 1<CR>
+	noremap <buffer> Np :NERDJump p 1<CR>
+	noremap <buffer> Nq :NERDJump q 1<CR>
+	noremap <buffer> Nr :NERDJump r 1<CR>
+	noremap <buffer> Ns :NERDJump s 1<CR>
+	noremap <buffer> Nt :NERDJump t 1<CR>
+	noremap <buffer> Nu :NERDJump u 1<CR>
+	noremap <buffer> Nv :NERDJump v 1<CR>
+	noremap <buffer> Nw :NERDJump w 1<CR>
+	noremap <buffer> Nx :NERDJump x 1<CR>
+	noremap <buffer> Ny :NERDJump y 1<CR>
+	noremap <buffer> Nz :NERDJump z 1<CR>
