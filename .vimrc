@@ -3,7 +3,7 @@
 " ------------------------------------------------------------------------------
 
 	set autoindent                      " Autoindenting
-	set backspace=indent,eol,start
+	set backspace=indent,eol,start      " Backspace functionality
 	set completeopt=longest,menuone     " Show menu and preview window
 	set laststatus=2                    " Always show the StatusLine
 	set list                            " Show non text characters
