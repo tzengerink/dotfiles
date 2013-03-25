@@ -82,28 +82,42 @@
 	filetype plugin on  " Causes errors in filetype detection
 	colors molokai      " Colorscheme
 
-	" Highlight Visual
+	" Code syntax
 	highlight Comment      ctermfg=238  ctermbg=none
-	highlight CursorLine   ctermfg=none ctermbg=232
-	highlight CursorLineNr ctermfg=248  ctermbg=none
-	highlight DiffAdd      ctermfg=none ctermbg=22
-	highlight DiffChange   ctermfg=100  ctermbg=0
-	highlight DiffDelete   ctermfg=52   ctermbg=52
-	highlight DiffText     ctermfg=none ctermbg=58
+	highlight Delimiter    ctermfg=242  ctermbg=none
+	highlight Normal       ctermfg=250  ctermbg=232
+	highlight String       ctermfg=144  ctermbg=none
+
+	" Special types
 	highlight Folded       ctermfg=67   ctermbg=none
-	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
 	highlight InvalidStyle ctermfg=124  ctermbg=174
-	highlight LineNr       ctermfg=238  ctermbg=none
 	highlight NonText      ctermfg=235  ctermbg=none
 	highlight SpecialKey   ctermfg=235  ctermbg=none
-	highlight Search       ctermfg=174  ctermbg=124
+
+	" Editor
+	highlight Cursor       ctermfg=16   ctermbg=253
+	highlight CursorLine   ctermfg=none ctermbg=232
+	highlight CursorLineNr ctermfg=248  ctermbg=none
+	highlight LineNr       ctermfg=238  ctermbg=none
 	highlight SignColumn   ctermfg=none ctermbg=none
 	highlight StatusLine   ctermfg=232  ctermbg=248
 	highlight StatusLineNC ctermfg=232  ctermbg=238
-	highlight TabLineFill  ctermfg=232  ctermbg=232
 	highlight TabLine      ctermfg=238  ctermbg=232  cterm=none
-	highlight Todo         ctermfg=206  ctermbg=129
+	highlight TabLineFill  ctermfg=232  ctermbg=232
 	highlight Visual       ctermfg=232  ctermbg=45
+
+	" Diff
+	highlight DiffAdd      ctermfg=none ctermbg=22
+	highlight DiffChange   ctermfg=100  ctermbg=0
+	highlight DiffDelete   ctermfg=160  ctermbg=52
+	highlight DiffText     ctermfg=none ctermbg=58
+
+	" Messages
+	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
+	highlight Search       ctermfg=174  ctermbg=124
+	highlight Todo         ctermfg=206  ctermbg=129
+	highlight ModeMsg      ctermfg=45   ctermbg=none
+	highlight MoreMsg      ctermfg=45   ctermbg=none
 	highlight WarningMsg   ctermfg=174  ctermbg=124
 
 " ------------------------------------------------------------------------------
