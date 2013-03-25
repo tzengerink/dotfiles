@@ -29,11 +29,11 @@
 " ------------------------------------------------------------------------------
 
 	" Faster opening of directories/files
-	noremap <buffer> <SPACE>   o
-	noremap <buffer> <LEADER>x PX
-	noremap <buffer> ..        Pko
-	noremap <buffer> l         o
-	noremap <buffer> h         o
+	nmap <buffer> <SPACE>   o
+	nmap <buffer> <LEADER>x PX
+	nmap <buffer> ..        Pko
+	nmap <buffer> l         o
+	nmap <buffer> h         o
 
 	" Search forwards
 	noremap <buffer> na :NERDJump a 0<CR>
