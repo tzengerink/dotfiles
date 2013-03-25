@@ -84,7 +84,7 @@
 
 	" Highlight Visual
 	highlight Comment      ctermfg=238  ctermbg=none
-	highlight CursorLine   ctermfg=none ctermbg=235
+	highlight CursorLine   ctermfg=none ctermbg=232
 	highlight CursorLineNr ctermfg=248  ctermbg=none
 	highlight DiffAdd      ctermfg=none ctermbg=22
 	highlight DiffChange   ctermfg=100  ctermbg=0
@@ -130,6 +130,8 @@
 
 	" Toggle cursorline when entering/leaving insert mode
 	autocmd InsertEnter,InsertLeave * set cursorline!
+	autocmd InsertEnter             * highlight CursorLineNr ctermbg=232
+	autocmd InsertLeave             * highlight CursorLineNr ctermbg=none
 
 " ------------------------------------------------------------------------------
 " FILETYPES
