@@ -80,45 +80,80 @@
 	syntax on           " Turn on syntax highlighting
 	filetype on         " Turn on filetype detection
 	filetype plugin on  " Causes errors in filetype detection
-	colors molokai      " Colorscheme
 
 	" Code syntax
-	highlight Comment      ctermfg=238  ctermbg=none
-	highlight Delimiter    ctermfg=242  ctermbg=none
-	highlight Normal       ctermfg=250  ctermbg=233
-	highlight String       ctermfg=144  ctermbg=none
+	highlight Normal          ctermfg=250  ctermbg=233
+	highlight Underlined      ctermfg=250  ctermbg=233   cterm=underline
+	highlight Comment         ctermfg=238  ctermbg=none
+	highlight SpecialComment  ctermfg=238  ctermbg=none
+	highlight Delimiter       ctermfg=238  ctermbg=none
+
+	highlight String          ctermfg=39   ctermbg=none
+	highlight Character       ctermfg=39   ctermbg=none
+
+	highlight Constant        ctermfg=30   ctermbg=none
+	highlight Number          ctermfg=30   ctermbg=none
+	highlight Boolean         ctermfg=30   ctermbg=none
+	highlight Float           ctermfg=30   ctermbg=none
+
+	highlight Statement       ctermfg=70   ctermbg=none
+	highlight Conditional     ctermfg=70   ctermbg=none
+	highlight Repeat          ctermfg=70   ctermbg=none
+	highlight Operator        ctermfg=70   ctermbg=none
+	highlight Keyword         ctermfg=70   ctermbg=none
+	highlight SpecialChar     ctermfg=70   ctermbg=none
+	highlight Tag             ctermfg=70   ctermbg=none
+
+	highlight Define          ctermfg=117  ctermbg=none
+	highlight Type            ctermfg=117  ctermbg=none
+	highlight Structure       ctermfg=117  ctermbg=none
+	highlight Typedef         ctermfg=117  ctermbg=none
+	highlight Special         ctermfg=117  ctermbg=none
+
+	highlight Function        ctermfg=37   ctermbg=none
+	highlight Exception       ctermfg=37   ctermbg=none
+	highlight PreProc         ctermfg=37   ctermbg=none
+	highlight Include         ctermfg=37   ctermbg=none
+	highlight PreCondit       ctermfg=37   ctermbg=none
+
+	highlight Identifier      ctermfg=67   ctermbg=none
+	highlight StorageClass    ctermfg=67   ctermbg=none
+
+	highlight Label           ctermfg=193  ctermbg=none
+	highlight Macro           ctermfg=193  ctermbg=none
+	highlight Debug           ctermfg=193  ctermbg=none
 
 	" Special types
-	highlight Folded       ctermfg=67   ctermbg=none
-	highlight InvalidStyle ctermfg=124  ctermbg=174
-	highlight NonText      ctermfg=235  ctermbg=none
-	highlight SpecialKey   ctermfg=235  ctermbg=none
+	highlight Folded          ctermfg=30   ctermbg=none
+	highlight InvalidStyle    ctermfg=124  ctermbg=174
+	highlight NonText         ctermfg=235  ctermbg=none
+	highlight SpecialKey      ctermfg=235  ctermbg=none
 
 	" Editor
-	highlight Cursor       ctermfg=16   ctermbg=253
-	highlight CursorLine   ctermfg=none ctermbg=232
-	highlight CursorLineNr ctermfg=248  ctermbg=none
-	highlight LineNr       ctermfg=238  ctermbg=none
-	highlight SignColumn   ctermfg=none ctermbg=none
-	highlight StatusLine   ctermfg=232  ctermbg=248
-	highlight StatusLineNC ctermfg=232  ctermbg=238
-	highlight TabLine      ctermfg=238  ctermbg=232  cterm=none
-	highlight TabLineFill  ctermfg=232  ctermbg=232
-	highlight Visual       ctermfg=232  ctermbg=45
+	highlight Cursor          ctermfg=16   ctermbg=253
+	highlight CursorLine      ctermfg=none ctermbg=232
+	highlight CursorLineNr    ctermfg=248  ctermbg=none
+	highlight LineNr          ctermfg=238  ctermbg=none
+	highlight SignColumn      ctermfg=none ctermbg=none
+	highlight StatusLine      ctermfg=232  ctermbg=248
+	highlight StatusLineNC    ctermfg=232  ctermbg=238
+	highlight TabLine         ctermfg=238  ctermbg=232   cterm=none
+	highlight TabLineFill     ctermfg=232  ctermbg=232
+	highlight Visual          ctermfg=232  ctermbg=45
 
 	" Diff
-	highlight DiffAdd      ctermfg=none ctermbg=22
-	highlight DiffChange   ctermfg=100  ctermbg=0
-	highlight DiffDelete   ctermfg=160  ctermbg=52
-	highlight DiffText     ctermfg=none ctermbg=58
+	highlight DiffAdd         ctermfg=none ctermbg=22
+	highlight DiffChange      ctermfg=100  ctermbg=0
+	highlight DiffDelete      ctermfg=160  ctermbg=52
+	highlight DiffText        ctermfg=none ctermbg=58
 
 	" Messages
-	highlight Error        ctermfg=124  ctermbg=174  cterm=underline
-	highlight Search       ctermfg=174  ctermbg=124
-	highlight Todo         ctermfg=206  ctermbg=129
-	highlight ModeMsg      ctermfg=45   ctermbg=none
-	highlight MoreMsg      ctermfg=45   ctermbg=none
-	highlight WarningMsg   ctermfg=174  ctermbg=124
+	highlight Error           ctermfg=124  ctermbg=174   cterm=underline
+	highlight Search          ctermfg=193  ctermbg=70
+	highlight Todo            ctermfg=193  ctermbg=70
+	highlight ModeMsg         ctermfg=45   ctermbg=none
+	highlight MoreMsg         ctermfg=45   ctermbg=none
+	highlight WarningMsg      ctermfg=174  ctermbg=124
 
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
