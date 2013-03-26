@@ -140,6 +140,11 @@
 	highlight TabLine         ctermfg=238  ctermbg=232   cterm=none
 	highlight TabLineFill     ctermfg=232  ctermbg=232
 	highlight Visual          ctermfg=232  ctermbg=45
+	highlight VertSplit       ctermfg=232  ctermbg=232
+
+	" NERDtree
+	highlight Title           ctermfg=67   ctermbg=none
+	highlight Directory       ctermfg=70   ctermbg=none
 
 	" Diff
 	highlight DiffAdd         ctermfg=none ctermbg=22
