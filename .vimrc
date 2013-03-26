@@ -130,7 +130,7 @@
 	highlight SpecialKey      ctermfg=235  ctermbg=none
 
 	" Editor
-	highlight Cursor          ctermfg=16   ctermbg=253
+	highlight Cursor          ctermfg=232  ctermbg=250
 	highlight CursorLine      ctermfg=none ctermbg=232
 	highlight CursorLineNr    ctermfg=248  ctermbg=none
 	highlight LineNr          ctermfg=238  ctermbg=none
@@ -141,6 +141,7 @@
 	highlight TabLineFill     ctermfg=232  ctermbg=232
 	highlight Visual          ctermfg=232  ctermbg=45
 	highlight VertSplit       ctermfg=232  ctermbg=232
+	highlight MatchParen      ctermfg=232  ctermbg=70
 
 	" NERDtree
 	highlight Title           ctermfg=67   ctermbg=none
