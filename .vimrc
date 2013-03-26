@@ -131,7 +131,7 @@
 
 	" Editor
 	highlight Cursor          ctermfg=232  ctermbg=250
-	highlight CursorLine      ctermfg=none ctermbg=232
+	highlight CursorLine      ctermfg=none ctermbg=232   cterm=none
 	highlight CursorLineNr    ctermfg=248  ctermbg=none
 	highlight LineNr          ctermfg=238  ctermbg=none
 	highlight SignColumn      ctermfg=none ctermbg=none
