@@ -3,6 +3,7 @@
 	ci = commit
 	co = checkout
 	br = branch
+	di = difftool
 [color]
 	ui = auto
 [core]

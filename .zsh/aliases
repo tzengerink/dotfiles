@@ -25,7 +25,6 @@ alias ..='up'                  # Alias for the up function
 # ---------------
 
 alias svn='svn-wrapper'
-alias gdiff='git difftool'
 alias glog-branch='git log --merges --first-parent --pretty=oneline'
 alias glog='git log --pretty=oneline --graph'
 alias gmerge='git merge --no-ff'

@@ -85,7 +85,7 @@
 	" Code syntax
 	highlight Comment      ctermfg=238  ctermbg=none
 	highlight Delimiter    ctermfg=242  ctermbg=none
-	highlight Normal       ctermfg=250  ctermbg=232
+	highlight Normal       ctermfg=250  ctermbg=233
 	highlight String       ctermfg=144  ctermbg=none
 
 	" Special types
