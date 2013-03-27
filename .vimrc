@@ -129,6 +129,7 @@
 
 	" Special types
 	highlight Folded          ctermfg=30   ctermbg=none
+	highlight FoldColumn      ctermfg=30   ctermbg=232
 	highlight InvalidStyle    ctermfg=124  ctermbg=none
 	highlight NonText         ctermfg=235  ctermbg=none
 	highlight SpecialKey      ctermfg=235  ctermbg=none
@@ -136,9 +137,10 @@
 	" Editor
 	highlight Cursor          ctermfg=232  ctermbg=250
 	highlight CursorLine      ctermfg=none ctermbg=232  cterm=none
+	highlight CursorColumn    ctermfg=none ctermbg=232  cterm=none
 	highlight CursorLineNr    ctermfg=248  ctermbg=none
 	highlight LineNr          ctermfg=238  ctermbg=none
-	highlight SignColumn      ctermfg=none ctermbg=none
+	highlight SignColumn      ctermfg=none ctermbg=232
 	highlight StatusLine      ctermfg=232  ctermbg=248
 	highlight StatusLineNC    ctermfg=232  ctermbg=238
 	highlight TabLine         ctermfg=238  ctermbg=232  cterm=none
