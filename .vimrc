@@ -86,8 +86,8 @@
 	highlight clear     " Clear all highlighting
 
 	" Code syntax
-	highlight Normal          ctermfg=250  ctermbg=233
-	highlight Underlined      ctermfg=250  ctermbg=233  cterm=underline
+	highlight Normal          ctermfg=250  ctermbg=234
+	highlight Underlined      ctermfg=250  ctermbg=234  cterm=underline
 	highlight Comment         ctermfg=238  ctermbg=none
 	highlight SpecialComment  ctermfg=238  ctermbg=none
 	highlight Delimiter       ctermfg=238  ctermbg=none
@@ -129,7 +129,7 @@
 
 	" Special types
 	highlight Folded          ctermfg=30   ctermbg=none
-	highlight FoldColumn      ctermfg=30   ctermbg=233
+	highlight FoldColumn      ctermfg=30   ctermbg=234
 	highlight InvalidStyle    ctermfg=124  ctermbg=none
 	highlight NonText         ctermfg=235  ctermbg=none
 	highlight SpecialKey      ctermfg=235  ctermbg=none
@@ -140,7 +140,7 @@
 	highlight CursorColumn    ctermfg=none ctermbg=232  cterm=none
 	highlight CursorLineNr    ctermfg=248  ctermbg=none
 	highlight LineNr          ctermfg=238  ctermbg=none
-	highlight SignColumn      ctermfg=none ctermbg=233
+	highlight SignColumn      ctermfg=none ctermbg=234
 	highlight StatusLine      ctermfg=232  ctermbg=248
 	highlight StatusLineNC    ctermfg=232  ctermbg=238
 	highlight TabLine         ctermfg=238  ctermbg=232  cterm=none
@@ -168,6 +168,7 @@
 	" Messages
 	highlight Error           ctermfg=124  ctermbg=174   cterm=underline
 	highlight Search          ctermfg=193  ctermbg=70
+	highlight IncSearch       ctermfg=193  ctermbg=70
 	highlight Todo            ctermfg=193  ctermbg=70
 	highlight ModeMsg         ctermfg=45   ctermbg=none
 	highlight MoreMsg         ctermfg=45   ctermbg=none
@@ -246,7 +247,7 @@
 " ------------------------------------------------------------------------------
 
 	" NERDTree
-	let NERDTreeWinSize = 25
+	let NERDTreeWinSize = 30
 
 	" ZenCoding
 	let g:user_zen_leader_key     = '<C-y>'

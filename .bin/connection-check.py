@@ -63,7 +63,7 @@ def main():
             if result is not status:
                 status = result
                 print("[" + time.strftime("%H:%M:%S") + "] "
-                     + ("OK" if status else "OFFLINE"))
+                     + ("OK" if status else "OFFLINE") + "\a")
             time.sleep(args.sleep)
     except KeyboardInterrupt:
         exit(0)
