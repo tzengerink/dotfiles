@@ -25,6 +25,7 @@
 	set showmatch                       " Show matching brackets
 	set smartindent                     " Use smart indenting
 	set tabstop=2                       " Tab stop
+	set tabline=%!CustomTabLine()       " Custom tabline
 	set wildignore=.svn,*.pyc           " Ignore files in wildmode
 	set wildmode=longest,list,full      " Bash like path completion
 
@@ -270,6 +271,38 @@
 	function! CountColumns( lineNum )
 		return len(getline(a:lineNum))
 	endfunction
+
+	" Custom TabLabel
+	function! CustomTabLabel(n)
+		let buflist = tabpagebuflist(a:n)
+		let winnr = tabpagewinnr(a:n)
+		let label = bufname(buflist[winnr - 1])
+		return fnamemodify(label, ':p:t')
+	endfunction
+
+	" Custom TabLine
+	function! CustomTabLine()
+		let s = ''
+	  for i in range(tabpagenr('$'))
+	    " Select the highlighting
+	    if i + 1 == tabpagenr()
+	      let s .= '%#TabLineSel#'
+	    else
+	      let s .= '%#TabLine#'
+	    endif
+	    " Set the tab page number (for mouse clicks)
+	    let s .= '%' . (i + 1) . 'T'
+	    " The label is made by CustomTabLabel()
+	    let s .= ' %{CustomTabLabel(' . (i + 1) . ')} '
+	  endfor
+	  " After the last tab fill with TabLineFill and reset tab page nr
+	  let s .= '%#TabLineFill#%T'
+	  " Right-align the label to close the current tab page
+	  if tabpagenr('$') > 1
+	    let s .= '%=%#TabLine#%999X '
+	  endif
+	  return s
+  endfunction
 
 	" Fill line with string up to given textwidth
 	function! FillLine( str, ... )
