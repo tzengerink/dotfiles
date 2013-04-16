@@ -277,7 +277,8 @@
 		let buflist = tabpagebuflist(a:n)
 		let winnr = tabpagewinnr(a:n)
 		let label = bufname(buflist[winnr - 1])
-		return fnamemodify(label, ':p:t')
+		let fname = fnamemodify(label, ':p:t')
+		return len(fname) ? fname : '[No Name]'
 	endfunction
 
 	" Custom TabLine
