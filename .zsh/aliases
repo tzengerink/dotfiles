@@ -26,8 +26,6 @@ alias ..='up'                  # Alias for the up function
 
 alias svn='svn-wrapper'
 alias glog-branch='git log --merges --first-parent --pretty=oneline'
-alias glog='git log --pretty=oneline --graph'
-alias gmerge='git merge --no-ff'
 alias greset='git reset -q --hard HEAD'
 
 # VIRTUAL ENVIRONMENTS
