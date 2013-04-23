@@ -595,11 +595,12 @@
 	cmap <ESC>OS -
 
 " ------------------------------------------------------------------------------
-" KEY MAPPINGS (VIMDIFF)
+" VIMDIFF
 " ------------------------------------------------------------------------------
 
 	if &diff
 
+		" Keymappings
 		nnoremap <SPACE><SPACE> :qa<CR>
 		nnoremap J              ]czz
 		nnoremap K              [czz
