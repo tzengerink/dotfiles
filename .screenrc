@@ -34,3 +34,6 @@ defbce "on"
 
 # Status bar
 hardstatus alwayslastline "%{= Kd}%{k} %= [ %-Lw%{w}%n %t%{-}%+LW ] %= "
+
+# Session logfile location
+logfile "/tmp/screenlog-%Y%m%d-%c:%s"

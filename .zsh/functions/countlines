@@ -3,8 +3,8 @@
 # Count lines of code (for a given extension).
 
 if [ ! "$1" ]; then
-	COUNT=`find . -type f \! -path "*svn*" -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'`
+	COUNT=`find . -type f \! -path "*svn*" \! -path "*git*" -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'`
 else
-	COUNT=`find . -type f \! -path "*svn*" -name "*.$1" -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'`
+	COUNT=`find . -type f \! -path "*svn*" \! -path "*git*" -name "*.$1" -exec cat {} \; | wc -l | sed -e 's/^[ \t]*//g'`
 fi
 echo "$COUNT"

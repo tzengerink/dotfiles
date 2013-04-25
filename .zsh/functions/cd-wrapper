@@ -1,7 +1,7 @@
 # WRAPPER FOR THE CD FUNCTION
 # ---------------------------
 
-if [[ ! -d "$@" && "$@" != "-" ]]; then
+if [[ ! -d "$@" && "$@" != "-" && ! -z "$@" ]]; then
     echo -e "No such directory: $@"
 else
     # VARIABLES

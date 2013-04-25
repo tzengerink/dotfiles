@@ -4,6 +4,7 @@
 
 	set autoindent                      " Autoindenting
 	set backspace=indent,eol,start      " Backspace functionality
+	set clipboard=unnamed               " OS X compatible clipboard
 	set completeopt=longest,menuone     " Show menu and preview window
 	set laststatus=2                    " Always show the StatusLine
 	set list                            " Show non text characters
@@ -427,7 +428,7 @@
 	noremap ; :
 	noremap :: ;
 
-	" Save/Quit mappings
+	" Quick shell access
 	noremap <C-d> :sh<CR>
 
 	" Save file as superuser
@@ -449,7 +450,11 @@
 	noremap <SPACE>         za
 	noremap <LEADER><SPACE> zMzv
 
-	" Macros
+  " Center search results
+  nnoremap n nzz
+  nnoremap N Nzz
+
+	" Execute macro at `q`
 	nnoremap K @q
 
 	" Plugins
