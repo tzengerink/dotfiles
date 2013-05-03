@@ -1,13 +1,21 @@
 [alias]
 	st = status -s
 	ci = commit
-	co = checkout
-	br = branch
+	co = checkout -q
+	br = branch -v
 	di = difftool
-	lg = "log --pretty=format:'%C(bold black)%H%Creset %s %C(bold black)%an%Creset' --graph"
+	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an%Creset' --graph"
 	mg = "merge --no-ff"
 [color]
 	ui = auto
+	branch = auto
+	status = auto
+[color "branch"]
+	current = green
+	local = yellow
+	remote = red
+[color "status"]
+	untracked = yellow
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
