@@ -170,8 +170,8 @@
 	" Messages
 	highlight Error           ctermfg=124  ctermbg=174   cterm=underline
 	highlight Search          ctermfg=193  ctermbg=70
-	highlight IncSearch       ctermfg=193  ctermbg=70
-	highlight Todo            ctermfg=193  ctermbg=70
+	highlight IncSearch       ctermfg=70   ctermbg=193
+	highlight Todo            ctermfg=70   ctermbg=193
 	highlight ModeMsg         ctermfg=45   ctermbg=none
 	highlight MoreMsg         ctermfg=45   ctermbg=none
 	highlight WarningMsg      ctermfg=174  ctermbg=124

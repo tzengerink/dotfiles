@@ -41,7 +41,7 @@ syn keyword mysqlKeyword         second select show shutdown soname sql_big_resu
 syn keyword mysqlKeyword         sql_log_update sql_low_priority_updates sql_select_limit sql_small_result sql_warnings starting
 syn keyword mysqlKeyword         status straight_join string set
 syn keyword mysqlKeyword         table tables temporary terminated to trailing type truncate
-syn keyword mysqlKeyword         unique unlock unsigned update usage use using
+syn keyword mysqlKeyword         unique union unlock unsigned update usage use using
 syn keyword mysqlKeyword         values varbinary variables varying
 syn keyword mysqlKeyword         where with write
 syn keyword mysqlKeyword         year_month
@@ -65,9 +65,10 @@ syn match mysqlNumber            "\<0x[abcdefABCDEF0-9]*\>"
 syn match mysqlVariable          "@\a*[A-Za-z0-9]*[._]*[A-Za-z0-9]*"
 
 " Comments (c-style, mysql-style and modified sql-style)
-syn region mysqlComment          start="/\*"  end="\*/"
-syn match mysqlComment           "#.*"
-syn match mysqlComment           "--\_s.*"
+syn region mysqlComment          start="/\*"  end="\*/" display contains=mysqlTodo
+syn match mysqlComment           "#.*" display contains=mysqlTodo
+syn match mysqlComment           "--\_s.*" display contains=mysqlTodo
+syn keyword mysqlTodo            TODO FIXME XXX contained
 syn sync ccomment mysqlComment
 
 " Column types
@@ -285,6 +286,7 @@ if version >= 508 || !exists("did_mysql_syn_inits")
   HiLink mysqlNumber             Number
   HiLink mysqlVariable           Identifier
   HiLink mysqlComment            Comment
+	HiLink mysqlTodo               Todo
   HiLink mysqlType               Type
   HiLink mysqlOperator           Statement
   HiLink mysqlFlow               Statement
