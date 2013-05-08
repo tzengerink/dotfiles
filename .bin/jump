@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# SSH to a host jumping through another host.
+
+if [[ $# -ne 2 ]]; then
+	echo -e "Usage: $0 jump-host destination-host"
+else
+	ssh -tt $1 ssh $2
+fi
