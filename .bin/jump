@@ -1,9 +1,18 @@
 #!/bin/bash
 #
-# SSH to a host jumping through another host.
+# SSH to a host jumping through other hosts.
 
-if [[ $# -ne 2 ]]; then
-	echo -e "Usage: $0 jump-host destination-host"
+if [[ $# -eq 0 ]]; then
+	echo -e "Usage: $0 host [host2 [host3 [etc..]]]"
 else
-	ssh -tt $1 ssh $2
+	CMD=""
+
+	# Create command
+	for HOST in $*; do
+		CMD="$CMD ssh -tt $HOST"
+	done
+	CMD=`echo $CMD | sed 's/^\ //g'`
+
+	# Execute
+	$CMD
 fi
