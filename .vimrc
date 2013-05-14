@@ -507,7 +507,7 @@
 	noremap Y y$
 
 	" Display
-	nnoremap <LEADER>d :echo strftime("%c")<CR>
+	nnoremap <LEADER>d :echo strftime("%c")." [".strftime("%Y%m%d%H%M%S")."]"<CR>
 
 	" Clear entire file
 	noremap <LEADER>C ggvG$c
