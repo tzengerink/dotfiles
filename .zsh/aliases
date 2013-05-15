@@ -51,9 +51,7 @@ alias so='~/.bin/google-search.py --site stackoverflow.com -a'
 # OTHER
 # -----
 
-alias conn='~/.bin/connection-check.py'
 alias df='df -h'
-alias dirtree='find . -not \( -type d -name .svn -prune \) -print | sed -e "s;[^/]*/;|___;g;s;___|; |;g"'
 alias du1='du -d 1'
 alias dwn='curl -sO'
 alias extip='curl -s http://icanhazip.com/'
@@ -61,7 +59,6 @@ alias fn='find . -name'
 alias hi='history -d | tail -20'
 alias ips='locip && extip'
 alias mysql='mysql -p'
-alias vd='vimdiff'
 alias vis='vim -S ~/.vim/sessions/default'
 alias viq='vim "+set ft=mysql" /var/tmp/query.sql'
 

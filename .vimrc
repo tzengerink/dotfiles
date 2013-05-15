@@ -20,7 +20,7 @@
 	set nopaste                         " Do not disable autoindent etc. when pasting
 	set nowrap                          " Do not wrap lines
 	set ruler                           " Position info
-	set scrolloff=0                     " Keep a margin of X lines when scrolling
+	set scrolloff=5                     " Keep a margin of X lines when scrolling
 	set shiftwidth=2                    " Shift width
 	set showcmd                         " Show command in StatusLine
 	set showmatch                       " Show matching brackets
@@ -449,10 +449,6 @@
 	noremap <LEADER>F       zR
 	noremap <SPACE>         za
 	noremap <LEADER><SPACE> zMzv
-
-  " Center search results
-  nnoremap n nzz
-  nnoremap N Nzz
 
 	" Execute macro at `q`
 	nnoremap K @q
