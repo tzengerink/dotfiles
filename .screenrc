@@ -1,10 +1,12 @@
 altscreen             # Stop fullscreen apps from appearing in scrollback
-defscrollback   5000  # Number of scrollback lines
-nethack         on    # Use nethack style messages
-startup_message off   # No startup message
-vbell           off   # No tabcompletion flash
 bce             on    # Hack for poper coloring
 defbce          on    # Hack for poper coloring
+defscrollback   65353 # Number of scrollback lines
+defutf8         on    # Always use UTF8
+nethack         on    # Use nethack style messages
+nonblock        on    # Don't block everything, when unresponsive
+startup_message off   # No startup message
+vbell           off   # No tabcompletion flash
 
 ## NO WINDOW 0
 bind c  screen 1
@@ -26,9 +28,11 @@ bind ^j focus up
 bind ^k focus down
 
 ## STATUS BAR
-# "%0`" should execute whoami
-backtick 0 0 0 whoami
-hardstatus alwayslastline "%{= Kk} %-Lw %{kK} %n %t %{-}%+LW %= %0`@%H %{kK} %l %{-} %Y/%m/%d %c:%s "
+#        id  lifetime  autorefresh  command
+backtick 0   0         0            whoami
+backtick 1   300       300          $HOME/.bin/weather.sh
+
+hardstatus alwayslastline "%{= Kk} %-Lw %{kw} %n %t %{-}%+LW %= %0`@%H %{kK} %l %{-} %Y/%m/%d %c:%s %{kK} %1` %{-}"
 
 ## LOGFILE LOCATION
 logfile "/tmp/screenlog-%Y%m%d-%c:%s"
