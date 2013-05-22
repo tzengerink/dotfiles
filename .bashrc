@@ -10,9 +10,6 @@ else
 	export PS1=$'%n@%m: %~ $ '
 fi
 
-# -- ALIASES -----------------------------------------------------------------
-source ~/.zsh/aliases
-
 # -- EDITOR ------------------------------------------------------------------
 export EDITOR=vi
 export SVN_EDITOR=vi
