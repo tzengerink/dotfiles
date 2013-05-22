@@ -32,9 +32,10 @@ bind ^k focus down
 ## STATUS BAR
 #        id  lifetime  autorefresh  command
 backtick 0   0         0            whoami
-backtick 1   3600      3600         $HOME/.bin/weather.py Amsterdam,Netherlands
+backtick 1   300       300          $HOME/.bin/weather.py Amsterdam,Netherlands
 
-hardstatus alwayslastline "%{= Kk} %-Lw %{wk} %n %t %{-}%+LW %= %0`@%H %{wk} %l %{-} %Y/%m/%d %c:%s %{wk} %1` %{-}"
+#hardstatus alwayslastline "%{= Kk} %-Lw %{wk} %n %t %{-}%+LW %= %0`@%H %{wk} %l %{-} %Y/%m/%d %c:%s %{wk} %1` %{-}"
+hardstatus alwayslastline "%{= Kk} %-Lw %{wk} %n %t %{-}%+LW %= %0`@%H %{wk} %l %{-} %1` %{wk} %Y/%m/%d %c:%s %{-}"
 
 ## LOGFILE LOCATION
 logfile "/tmp/screenlog-%Y%m%d-%c:%s"
