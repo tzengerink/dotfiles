@@ -7,6 +7,7 @@ startup_message off   # No startup message
 vbell           off   # No tabcompletion flash
 defbce          on    # Color hack
 altscreen       on    # Stop fullscreen apps from appearing in scrollback
+bell_msg        ""    # Don't show a bell message
 
 ## SHELL TITLE
 shelltitle "$ |ZSH"
