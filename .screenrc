@@ -1,14 +1,16 @@
-altscreen             # Stop fullscreen apps from appearing in scrollback
+## SETTINGS
 defscrollback   65353 # Number of scrollback lines
 defutf8         on    # Always use UTF8
 nethack         on    # Use nethack style messages
 nonblock        on    # Don't block everything, when unresponsive
 startup_message off   # No startup message
 vbell           off   # No tabcompletion flash
+bce             on    # Color hack
+defbce          on    # Color hack
+altscreen       on    # Stop fullscreen apps from appearing in scrollback
 
-## COLOR HACK
-bce    on
-defbce on
+## SHELL TITLE
+shelltitle "$ |ZSH"
 
 ## NO WINDOW 0
 bind c  screen 1
@@ -32,9 +34,8 @@ bind ^k focus down
 ## STATUS BAR
 #        id  lifetime  autorefresh  command
 backtick 0   0         0            whoami
-backtick 1   300       300          $HOME/.bin/weather.py Amsterdam,Netherlands
+backtick 1   300       300          $HOME/.bin/weather.py Amsterdam Netherlands
 
-#hardstatus alwayslastline "%{= Kk} %-Lw %{wk} %n %t %{-}%+LW %= %0`@%H %{wk} %l %{-} %Y/%m/%d %c:%s %{wk} %1` %{-}"
 hardstatus alwayslastline "%{= Kk} %-Lw %{wk} %n %t %{-}%+LW %= %0`@%H %{wk} %l %{-} %1` %{wk} %Y/%m/%d %c:%s %{-}"
 
 ## LOGFILE LOCATION
