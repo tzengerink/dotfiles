@@ -1,14 +1,14 @@
 #!/bin/bash
 #
-# SOCKS5 PROXY
-# ------------
+# SOCKS PROXY
+# -----------
 # Setup a simple SOCKS Proxy through SSH.
 # See: http://people.arsc.edu/~murakami/SSH_SOCKS5_Proxy/
 
 pid()
 {
 	# Get the PID of any active SOCKS Proxy
-	echo $(ps -ef | grep 'ssh -f -C2qTnN -D' | grep -v grep | awk '{print $2}')
+	echo $(ps -ef | grep 'ssh -fC2qTnND' | grep -v grep | awk '{print $2}')
 }
 
 proxy()
@@ -18,12 +18,12 @@ proxy()
 	PORT=1234
 
   # Use default port when not valid
-	if [[ $2 =~ ^[1-9][0-9]{2,4}$ ]]; then
+	if [[ $2 =~ ^[1-9][0-9]{3,4}$ ]]; then
 		PORT=$2
 	fi
 
 	# Setup proxy
-	$SSH -f -C2qTnN -D $PORT $HOST
+	$SSH -fC2qTnND $PORT $HOST
 }
 
 ## Execute
@@ -31,7 +31,7 @@ proxy()
 PID=$(pid)
 
 if [[ -z $1 ]]; then
-	echo -e "Usage: $0 [[external host] local port]"
+	echo -e "Usage: $0 [[host] local_port]"
 elif [[ -z $PID ]]; then
 	proxy $1 $2
 fi
