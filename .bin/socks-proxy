@@ -8,7 +8,7 @@
 pid()
 {
 	# Get the PID of any active SOCKS Proxy
-	echo $(ps -ef | grep 'ssh -fC2qTnND' | grep -v grep | awk '{print $2}')
+	echo $(ps -ef | grep 'ssh -f2qTnND' | grep -v grep | awk '{print $2}')
 }
 
 proxy()
@@ -23,7 +23,7 @@ proxy()
 	fi
 
 	# Setup proxy
-	$SSH -fC2qTnND $PORT $HOST
+	$SSH -f2qTnND $PORT $HOST
 }
 
 ## Execute
