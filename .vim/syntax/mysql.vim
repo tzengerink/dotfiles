@@ -62,7 +62,7 @@ syn match mysqlNumber            "-\=\<[0-9]*\.[0-9]*e[+-]\=[0-9]*\>"
 syn match mysqlNumber            "\<0x[abcdefABCDEF0-9]*\>"
 
 " User variables
-syn match mysqlVariable          "@\a*[A-Za-z0-9]*[._]*[A-Za-z0-9]*"
+syn match mysqlVariable          "@\a*[A-Za-z0-9][._A-Za-z0-9]*"
 
 " Comments (c-style, mysql-style and modified sql-style)
 syn region mysqlComment          start="/\*"  end="\*/" display contains=mysqlTodo
