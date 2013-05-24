@@ -39,7 +39,7 @@ syn keyword mysqlKeyword         pack_keys partial password primary privileges p
 syn keyword mysqlKeyword         read references reload rename replace restrict returns revoke row rows right
 syn keyword mysqlKeyword         second select show shutdown soname sql_big_result sql_big_selects sql_big_tables sql_log_off
 syn keyword mysqlKeyword         sql_log_update sql_low_priority_updates sql_select_limit sql_small_result sql_warnings starting
-syn keyword mysqlKeyword         status straight_join string set
+syn keyword mysqlKeyword         status straight_join string str_to_date set
 syn keyword mysqlKeyword         table tables temporary terminated to trailing type truncate
 syn keyword mysqlKeyword         unique union unlock unsigned update usage use using
 syn keyword mysqlKeyword         values varbinary variables varying
