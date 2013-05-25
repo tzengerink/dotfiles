@@ -92,8 +92,11 @@ do_nothing () { }
 zle -N do_nothing
 bindkey "^l" do_nothing
 
-# Quick open vim (Ctrl-n)
+## Quick open
+# vim          Ctrl-n
+# screen -dR   Ctrl-r
 bindkey -s "^n" "vim\n"
+bindkey -s "^r" "screen -dR\n"
 
 # PROMPT
 # ------

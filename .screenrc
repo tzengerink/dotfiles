@@ -45,6 +45,9 @@ bindkey -k k; next      # F10 = Cycle windows
 bindkey -k F1 screen 1  # F11 = New window
 bindkey -k F2 title     # F12 = Rename window
 
+# Escape key bindings (ctrl-A ctlr-Z)
+bind ^z mapdefault
+
 ## STATUS BAR
 #        id  lifetime  autorefresh  command
 backtick 0   0         0            whoami
