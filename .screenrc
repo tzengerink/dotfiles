@@ -21,32 +21,30 @@ screen 1
 ## KEY BINDINGS
 # Cycling windows
 bind h  prev
-bind l  next
 bind ^h prev
+bind l  next
 bind ^l next
-
 # Cycling splitscreens
 bind j  focus up
-bind k  focus down
 bind ^j focus up
+bind k  focus down
 bind ^k focus down
-
 # Function keys
-bindkey -k k1 select 1  # F1 = Screen 1
-bindkey -k k2 select 2  # F2 = Screen 2
-bindkey -k k3 select 3  # F3 = Screen 3
-bindkey -k k4 select 4  # F4 = Screen 4
-bindkey -k k5 select 5  # F5 = Screen 5
-bindkey -k k6 select 6  # F6 = Screen 6
-bindkey -k k7 select 7  # F7 = Screen 7
-bindkey -k k8 select 8  # F8 = Screen 8
-bindkey -k k9 select 9  # F9 = Screen 9
+bindkey -k k1 select 1  # F1  = Screen 1
+bindkey -k k2 select 2  # F2  = Screen 2
+bindkey -k k3 select 3  # F3  = Screen 3
+bindkey -k k4 select 4  # F4  = Screen 4
+bindkey -k k5 select 5  # F5  = Screen 5
+bindkey -k k6 select 6  # F6  = Screen 6
+bindkey -k k7 select 7  # F7  = Screen 7
+bindkey -k k8 select 8  # F8  = Screen 8
+bindkey -k k9 select 9  # F9  = Screen 9
 bindkey -k k; next      # F10 = Cycle windows
 bindkey -k F1 screen 1  # F11 = New window
 bindkey -k F2 title     # F12 = Rename window
-
-# Escape key bindings (ctrl-A ctlr-Z)
-bind ^z mapdefault
+# Other bindings
+bind ^z mapdefault      # Escape next key
+bind ^r detach          # Detach session
 
 ## STATUS BAR
 #        id  lifetime  autorefresh  command
