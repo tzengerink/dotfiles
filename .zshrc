@@ -1,14 +1,13 @@
-# LOAD MODULES
-# ------------
+# CONFIGURATION
+# -------------
 
+## LOAD MODULES
 autoload -Uz compinit && compinit     # Load and run compinit
 autoload -U zcalc                     # Load zcalc module
 autoload -U colors && colors          # Load colors module
 autoload -U promptinit && promptinit  # Load promptinit module
 
-# SET OPTIONS
-# -----------
-
+## SET OPTIONS
 setopt AUTO_CD        # When command is a directory `cd` to it
 setopt AUTO_PUSHD     # Previous dir is accessible through `popd`
 setopt PROMPT_SUBST   # Enable prompt substrings
@@ -16,27 +15,20 @@ setopt PUSHD_SILENT   # No `pushd` messages
 setopt PUSHD_TO_HOME  # Blank `pushd` goes to home
 set -o vi             # Enable vim mode for command line movement
 
-# AUTO COMPLETION
-# ---------------
-
+## AUTO COMPLETION
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # Match uppercase
 zstyle ':completion:*' instert-tab pending           # Disable when pasting tab
 
-# HISTORY
-# -------
-
+## HISTORY
 HISTFILE=~/.zsh_history
 HISTSIZE=SAVEHIST=1000
-
 setopt EXTENDED_HISTORY      # Display time of use
 setopt HIST_IGNORE_ALL_DUPS  # Ignore duplicate entries
 setopt HIST_IGNORE_SPACE     # Ignore entries preceded by a space
 setopt INC_APPEND_HISTORY    # Incrementally append history
 setopt SHARE_HISTORY         # Share the history file across sessions
 
-# EXPORTS
-# -------
-
+## EXPORTS
 export CLICOLOR=1
 export EDITOR=vi
 export GREP_OPTIONS='--color=auto'
@@ -52,9 +44,23 @@ export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
 export _PATH=$PATH
 export NMAPDIR=~/.nmap
 
-# LESS
-# ----
+## FUNCTION AND ALIASES
+fpath=(~/.zsh/functions $fpath)
+autoload -U ~/.zsh/functions/*(:t)
+[[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases
 
+# PROGRAM SPECIFIC
+# ----------------
+
+## GIT
+# Fix slow git auto completion
+__git_files () { _wanted files expl 'local files' _files }
+
+## GPG
+GPG_TTY=$(tty)
+export GPG_TTY
+
+## LESS
 export PAGER=less                         # Use less for paging
 export LESS_TERMCAP_mb=$'\e[01;31m'       # Begin blinking
 export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # Begin bold
@@ -64,24 +70,8 @@ export LESS_TERMCAP_so=$'\e[01;31;41m'    # Begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\e[0m'           # End underline
 export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 
-# GPG
-# ---
-
-GPG_TTY=$(tty)
-export GPG_TTY
-
-# FUNCTIONS & ALIASES
-# -------------------
-
-fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)                # Load all function in directory
-[[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases  # Load aliases
-
-# Fix slow git auto completion
-__git_files () { _wanted files expl 'local files' _files }
-
-# WIDGETS
-# -------
+# KEYBINDINGS
+# -----------
 
 # Insert `sudo` at the start (Esc-s)
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
@@ -93,7 +83,7 @@ do_nothing () { }
 zle -N do_nothing
 bindkey "^l" do_nothing
 
-## Quick open
+## QUICK OPEN
 # vim          Ctrl-n
 # screen -dR   Ctrl-r
 bindkey -s "^n" "vim\n"
