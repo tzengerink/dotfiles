@@ -24,11 +24,13 @@ bind h  prev
 bind ^h prev
 bind l  next
 bind ^l next
+
 # Cycling splitscreens
 bind j  focus up
 bind ^j focus up
 bind k  focus down
 bind ^k focus down
+
 # Function keys
 bindkey -k k1 select 1  # F1  = Screen 1
 bindkey -k k2 select 2  # F2  = Screen 2
@@ -42,9 +44,13 @@ bindkey -k k9 select 9  # F9  = Screen 9
 bindkey -k k; next      # F10 = Cycle windows
 bindkey -k F1 screen 1  # F11 = New window
 bindkey -k F2 title     # F12 = Rename window
+
 # Other bindings
-bind ^z mapdefault      # Escape next key
-bind ^r detach          # Detach session
+bind ^z mapdefault  # Escape next key
+bind ^r detach      # Detach session
+
+# Write copied data to OSX clipboard
+bind ^b eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
 
 ## STATUS BAR
 #        id  lifetime  autorefresh  command
