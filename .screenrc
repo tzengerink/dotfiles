@@ -1,5 +1,5 @@
 ## SETTINGS
-defscrollback   65353 # Number of scrollback lines
+defscrollback   65535 # Number of scrollback lines
 defutf8         on    # Always use UTF8
 nethack         on    # Use nethack style messages
 nonblock        on    # Don't block everything, when unresponsive
