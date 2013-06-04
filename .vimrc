@@ -12,7 +12,7 @@
 	set matchpairs+=<:>                 " Add HTML brackets to matching pairs
 	set matchtime=1                     " Show matching bracket for .X seconds
 	set nocompatible                    " Filetype detection works better this way
-	set nocursorline                    " No cursorline by default
+	set cursorline                      " No cursorline by default
 	set noerrorbells                    " No errorbells
 	set novisualbell                    " No visualbell
 	set nohidden                        " Closing tabs / windows also closes buffer
@@ -140,7 +140,7 @@
 	highlight Cursor          ctermfg=232  ctermbg=250
 	highlight CursorLine      ctermfg=none ctermbg=232  cterm=none
 	highlight CursorColumn    ctermfg=none ctermbg=232  cterm=none
-	highlight CursorLineNr    ctermfg=248  ctermbg=none
+	highlight CursorLineNr    ctermfg=248  ctermbg=232
 	highlight LineNr          ctermfg=238  ctermbg=none
 	highlight SignColumn      ctermfg=none ctermbg=234
 	highlight StatusLine      ctermfg=232  ctermbg=248
@@ -199,9 +199,17 @@
 	autocmd FileType help highlight InvalidStyle ctermbg=bg ctermfg=fg
 
 	" Toggle cursorline when entering/leaving insert mode
-	autocmd InsertEnter,InsertLeave * set cursorline!
-	autocmd InsertEnter             * highlight CursorLineNr ctermbg=232
-	autocmd InsertLeave             * highlight CursorLineNr ctermbg=none
+	autocmd InsertEnter * highlight CursorLine   ctermbg=235
+	autocmd InsertEnter * highlight CursorLineNr ctermbg=235
+	autocmd InsertLeave * highlight CursorLine   ctermbg=232
+	autocmd InsertLeave * highlight CursorLineNr ctermbg=232
+
+	" Cursorline only in active window
+	augroup CursorLineOnlyInActiveWindow
+		autocmd!
+		autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+		autocmd WinLeave * setlocal nocursorline
+	augroup end
 
 " ------------------------------------------------------------------------------
 " FILETYPES
@@ -483,10 +491,6 @@
 	noremap WK         :leftabove new<CR>
 	noremap <LEADER>\  :vertical resize 85<CR>
 	noremap <LEADER>\\ <C-W>=
-
-	" Cycle through changed blocks
-	noremap <UP>   :GitGutterPrevHunk<CR>
-	noremap <DOWN> :GitGutterNextHunk<CR>
 
 	" Sessions
 	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
