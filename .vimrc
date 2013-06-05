@@ -138,9 +138,9 @@
 
 	" Editor
 	highlight Cursor          ctermfg=232  ctermbg=250
-	highlight CursorLine      ctermfg=none ctermbg=232  cterm=none
+	highlight CursorLine      ctermfg=none ctermbg=236  cterm=none
 	highlight CursorColumn    ctermfg=none ctermbg=232  cterm=none
-	highlight CursorLineNr    ctermfg=248  ctermbg=232
+	highlight CursorLineNr    ctermfg=248  ctermbg=236
 	highlight LineNr          ctermfg=238  ctermbg=none
 	highlight SignColumn      ctermfg=none ctermbg=234
 	highlight StatusLine      ctermfg=232  ctermbg=248
@@ -199,10 +199,10 @@
 	autocmd FileType help highlight InvalidStyle ctermbg=bg ctermfg=fg
 
 	" Toggle cursorline when entering/leaving insert mode
-	autocmd InsertEnter * highlight CursorLine   ctermbg=235
-	autocmd InsertEnter * highlight CursorLineNr ctermbg=235
-	autocmd InsertLeave * highlight CursorLine   ctermbg=232
-	autocmd InsertLeave * highlight CursorLineNr ctermbg=232
+	autocmd InsertEnter * highlight CursorLine   ctermbg=232
+	autocmd InsertEnter * highlight CursorLineNr ctermbg=232
+	autocmd InsertLeave * highlight CursorLine   ctermbg=236
+	autocmd InsertLeave * highlight CursorLineNr ctermbg=236
 
 	" Cursorline only in active window
 	augroup CursorLineOnlyInActiveWindow

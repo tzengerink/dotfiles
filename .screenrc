@@ -55,7 +55,7 @@ bind ^b eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
 ## STATUS BAR
 #        id  lifetime  autorefresh  command
 backtick 0   0         0            whoami
-backtick 1   300       300          $HOME/.bin/weather.py Amsterdam Netherlands
+backtick 1   300       300          $HOME/.bin/weather.py 52.357308 4.944693
 
 hardstatus alwayslastline "%{= Kk} %-Lw %{wk} %n %t %{-}%+LW %= %0`@%H %{wk} %l %{-} %1` %{wk} %Y/%m/%d %c:%s %{-}"
 
