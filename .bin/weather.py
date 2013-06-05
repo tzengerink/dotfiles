@@ -34,6 +34,6 @@ def main(args):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: "+ sys.argv[0] +" [latitude] [longitude]")
+        print("Usage: %s [latitude] [longitude]" % sys.argv[0])
         exit(1)
     main(sys.argv[1:])
