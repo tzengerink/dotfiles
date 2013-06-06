@@ -16,7 +16,7 @@ def help():
     exit(1)
 
 def round(s):
-    return math.ceil(float(s) * 100) / 100
+    return '%.2f' % float(s)
 
 def main(arg):
     load = os.getloadavg()
