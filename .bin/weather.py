@@ -3,7 +3,8 @@
 """
     WEATHER
     -------
-    Get the weather in a given location
+    Get the weather in a given location. The script uses the API provided by
+    forecast.io (http://developers.forecast.io).
 
     Example usage: `weather.py 52.357308 4.944693`
 
