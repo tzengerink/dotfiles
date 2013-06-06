@@ -54,13 +54,13 @@ bind ^b eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
 
 ## STATUS BAR
 #        id  lifetime  autorefresh  command
-backtick 0   0         0            whoami
+backtick 0   60        60           $HOME/.bin/gmail-count.py
 backtick 1   300       300          $HOME/.bin/weather.py 52.357308 4.944693
 backtick 2   1         1            $HOME/.bin/loadavg.py 1
 backtick 3   1         1            $HOME/.bin/loadavg.py 5
 backtick 4   1         1            $HOME/.bin/loadavg.py 15
 
-hardstatus alwayslastline "%{= kK}  %-Lw%{w}| %n %t |%{-}%+LW %= %{K}%2` %{w}%3` %{W}%4`%{K} | %1` | %Y/%m/%d %c:%s  "
+hardstatus alwayslastline "%{= kK}  %-Lw%{w}| %n %t |%{-}%+LW %= %?%{W}%0` %{-}|%? %{K}%2` %{w}%3` %{W}%4`%{K} | %1` | %Y/%m/%d %c:%s  "
 
 ## LOGFILE LOCATION
 logfile "/tmp/screenlog-%Y%m%d-%c:%s"
