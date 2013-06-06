@@ -60,7 +60,7 @@ backtick 2   1         1            $HOME/.bin/loadavg.py 1
 backtick 3   1         1            $HOME/.bin/loadavg.py 5
 backtick 4   1         1            $HOME/.bin/loadavg.py 15
 
-hardstatus alwayslastline "%{= kK} %-Lw %{W}| %n %t |%{-}%+LW %= %{K}%2` %{w}%3` %{W}%4`%{K} | %1` | %Y/%m/%d %c:%s"
+hardstatus alwayslastline "%{= kK}  %-Lw%{W}| %n %t |%{-}%+LW %= %{K}%2` %{w}%3` %{W}%4`%{K} | %1` | %Y/%m/%d %c:%s  "
 
 ## LOGFILE LOCATION
 logfile "/tmp/screenlog-%Y%m%d-%c:%s"
