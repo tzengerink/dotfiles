@@ -33,7 +33,7 @@ export CLICOLOR=1
 export EDITOR=vi
 export GREP_OPTIONS='--color=auto'
 export LANG=en_US.UTF-8
-export LSCOLORS=HxAxBbBbhxBbBbBxBxHxHx
+export LSCOLORS=HxahBbBbAxBbBbBxBxHxHx
 export LS_COLORS="di=01;;97:ln=01;;90:so=01;41;91:pi=01;41;91:ex=01;;37:bd=01;41;91:cd=01;41;91:su=0;;91:sg=01;;91:tw=01;;97:ow=01;;97"
 export SUDO_EDITOR='/usr/bin/vi -p -X'
 export SVN_EDITOR=vi
