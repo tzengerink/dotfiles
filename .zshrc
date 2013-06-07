@@ -34,7 +34,7 @@ export EDITOR=vi
 export GREP_OPTIONS='--color=auto'
 export LANG=en_US.UTF-8
 export LSCOLORS=HxahBbBbAxBbBbBxBxHxHx
-export LS_COLORS="di=01;;97:ln=01;;90:so=01;41;91:pi=01;41;91:ex=01;;37:bd=01;41;91:cd=01;41;91:su=0;;91:sg=01;;91:tw=01;;97:ow=01;;97"
+export LS_COLORS="di=1;;97:ln=1;47;90:so=1;41;91:pi=1;41;91:ex=1;;90:bd=1;41;91:cd=1;41;91:su=0;;91:sg=1;;91:tw=1;;97:ow=1;;97"
 export SUDO_EDITOR='/usr/bin/vi -p -X'
 export SVN_EDITOR=vi
 export TERM=xterm-256color
