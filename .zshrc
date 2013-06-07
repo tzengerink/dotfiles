@@ -94,7 +94,6 @@ bindkey -s "^r" "screen -dR\n"
 
 local prompt_highlight="blue"
 
-local prompt_datetime='$(pre_prompt_datetime)'
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_history="%B%{$fg[black]%}[%h]%b%{$reset_color%}"
 local prompt_jobs='$(pre_prompt_jobs)'
@@ -109,29 +108,18 @@ local prompt_virtual_env='$(pre_prompt_virtual_env)'
 function pre_prompt_repo {
 	if [[ -d ".svn" ]]; then
 		local REV=$(svn info | grep "Revision" | awk '{print $2}')
-		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}svn%{$fg[black]%}:%{$fg[green]%}$REV %{$fg[black]%}]%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}svn%{$fg[black]%}:%{$fg[white]%}$REV %{$fg[black]%}]%{$reset_color%}"
 	else
 		pushd . >/dev/null
 		while [ ! -d ".git" ] && [ ! "`pwd`" = "/" ]; do cd ..; done
 		if [[ -d ".git" ]]; then
 			local BRANCH=$(git rev-parse --abbrev-ref HEAD)
 			local HASH=$(git rev-parse --short HEAD)
-			echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$BRANCH%{$fg[black]%}:%{$fg[green]%}$HASH %{$fg[black]%}]%{$reset_color%}"
+			echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$BRANCH%{$fg[black]%}:%{$fg[white]%}$HASH %{$fg[black]%}]%{$reset_color%}"
 		else
 			echo ""
 		fi
 		popd >/dev/null
-	fi
-}
-
-function pre_prompt_datetime {
-	local HOUR="$(printf %.0f $(date '+%H'))"
-	local H="%D{%H}"
-	local M="%D{%M}"
-	if [[ $HOUR -gt 8 ]] && [[ $HOUR -lt 18 ]]; then
-		echo -e "%B%{$fg[black]%}[$H:$M]%{$reset_color%}%b"
-	else
-		echo -e "%B%{$fg[black]%}[ %{$fg[$prompt_highlight]%}$H%{$fg[black]%}:%{$fg[$prompt_highlight]%}$M %{$fg[black]%}]%{$reset_color%}%b"
 	fi
 }
 
@@ -162,14 +150,14 @@ function pre_prompt_newline {
 
 function pre_prompt_node_env {
 	if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
 }
 
 function pre_prompt_shell {
-	echo -e "%B%{$fg[$prompt_highlight]%}$%b%{$reset_color%}"
+	echo -e "%B%{$fg[$prompt_highlight]%}%%%b%{$reset_color%}"
 }
 
 function pre_prompt_subshell {
@@ -184,7 +172,7 @@ function pre_prompt_subshell {
 
 function pre_prompt_virtual_env {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}$(basename $VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$(basename $VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -200,4 +188,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_info}${prompt_dir}${prompt_virtual_env}${prompt_node_env}${prompt_repo}${prompt_jobs}${prompt_datetime}${prompt_newline}${prompt_subshell}${prompt_shell} "
+export PS1="${prompt_info}${prompt_dir}${prompt_virtual_env}${prompt_node_env}${prompt_repo}${prompt_jobs}${prompt_newline}${prompt_subshell}${prompt_shell} "
