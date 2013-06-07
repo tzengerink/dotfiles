@@ -11,16 +11,16 @@
 	branch = auto
 	status = auto
 [color "branch"]
-	current = green bold
-	local = yellow bold
+	current = white bold
+	local = normal
 	remote = red bold
 [color "status"]
 	header = normal
-	added = red bold
-	updated = green bold
+	added = white bold
+	updated = white bold
 	changed = red bold
-	untracked = yellow bold
-	nobranch = yellow bold
+	untracked = red bold
+	nobranch = red bold
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
