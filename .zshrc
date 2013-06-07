@@ -33,7 +33,7 @@ export CLICOLOR=1
 export EDITOR=vi
 export GREP_OPTIONS='--color=auto'
 export LANG=en_US.UTF-8
-export LSCOLORS=ExGxCxaCAxaGhEaBaBbhbh
+export LSCOLORS=HxAxBbBbBxBbBbBxBxHxHx
 export LS_COLORS="di=1;;40:ln=1;;40:so=1;;40:pi=0;:ex=1;;40:bd=0;:cd=37;:su=0;:sg=0;:tw=31;47:ow=31;47:"
 export SUDO_EDITOR='/usr/bin/vi -p -X'
 export SVN_EDITOR=vi
@@ -92,12 +92,12 @@ bindkey -s "^r" "screen -dR\n"
 # PROMPT
 # ------
 
-local prompt_highlight="blue"
+local prompt_highlight="white"
 
 local prompt_dir='$(pre_prompt_dir)'
-local prompt_history="%B%{$fg[black]%}[%h]%b%{$reset_color%}"
+local prompt_history="%B%{$fg[black]%}[ %h ]%b%{$reset_color%}"
 local prompt_jobs='$(pre_prompt_jobs)'
-local prompt_info="%B%{$fg[black]%}[%n@%m]%b%{$reset_color%}"
+local prompt_info="%B%{$fg[black]%}[ %n@%m ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node_env='$(pre_prompt_node_env)'
 local prompt_repo='$(pre_prompt_repo)'
@@ -108,14 +108,14 @@ local prompt_virtual_env='$(pre_prompt_virtual_env)'
 function pre_prompt_repo {
 	if [[ -d ".svn" ]]; then
 		local REV=$(svn info | grep "Revision" | awk '{print $2}')
-		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}svn%{$fg[black]%}:%{$fg[white]%}$REV %{$fg[black]%}]%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %b%{$fg[white]%}svn%{$fg[black]%}%B:%b%{$fg[white]%}$REV %B%{$fg[black]%}]%{$reset_color%}"
 	else
 		pushd . >/dev/null
 		while [ ! -d ".git" ] && [ ! "`pwd`" = "/" ]; do cd ..; done
 		if [[ -d ".git" ]]; then
 			local BRANCH=$(git rev-parse --abbrev-ref HEAD)
 			local HASH=$(git rev-parse --short HEAD)
-			echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$BRANCH%{$fg[black]%}:%{$fg[white]%}$HASH %{$fg[black]%}]%{$reset_color%}"
+			echo -e "%B%{$fg[black]%}[ %b%{$fg[white]%}$BRANCH%{$fg[black]%}%B:%b%{$fg[white]%}$HASH %B%{$fg[black]%}]%{$reset_color%}"
 		else
 			echo ""
 		fi
@@ -138,7 +138,7 @@ function pre_prompt_dir {
 function pre_prompt_jobs {
 	local JOBS="$(jobs -l | wc -l | awk '{print $1}')"
 	if [[ $JOBS != 0 ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[yellow]%}jobs:%j %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}%j %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -150,7 +150,7 @@ function pre_prompt_newline {
 
 function pre_prompt_node_env {
 	if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %b$(basename $NODE_VIRTUAL_ENV) %B%{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ $(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -164,7 +164,7 @@ function pre_prompt_subshell {
 	[[ -n "$VIMRUNTIME" ]] && local SUBSHELL="vim $SUBSHELL"
 	SUBSHELL=`echo $SUBSHELL | sed 's/\ *$//g'`
 	if [[ -n "$SUBSHELL" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[red]%}$SUBSHELL %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$SUBSHELL %{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo -e "${prompt_history}"
 	fi
@@ -172,7 +172,7 @@ function pre_prompt_subshell {
 
 function pre_prompt_virtual_env {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %b$(basename $VIRTUAL_ENV) %B%{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ $(basename $VIRTUAL_ENV) %B%{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -188,4 +188,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_info}${prompt_dir}${prompt_repo}${prompt_jobs}${prompt_virtual_env}${prompt_node_env}${prompt_newline}${prompt_subshell}${prompt_shell} "
+export PS1="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_virtual_env}${prompt_node_env}${prompt_newline}${prompt_subshell}${prompt_shell} "
