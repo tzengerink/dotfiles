@@ -10,9 +10,8 @@ alias -g T='| tail'
 # ----------
 
 alias cd='cd-wrapper'
-alias l='ls -lh'
-alias la='ls -A'
-alias ll='ls -lah'
+alias l='ls -A'
+alias ll='ls -lAh'
 alias lr='ls -lR'              # Recursively list
 alias lsd='ls -l | grep "^d"'  # List directories
 alias lt='ll -rt'              # Sort by date
