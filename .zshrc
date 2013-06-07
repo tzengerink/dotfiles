@@ -150,7 +150,7 @@ function pre_prompt_newline {
 
 function pre_prompt_node_env {
 	if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %b$(basename $NODE_VIRTUAL_ENV) %B%{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -172,7 +172,7 @@ function pre_prompt_subshell {
 
 function pre_prompt_virtual_env {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$(basename $VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %b$(basename $VIRTUAL_ENV) %B%{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -188,4 +188,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_info}${prompt_dir}${prompt_virtual_env}${prompt_node_env}${prompt_repo}${prompt_jobs}${prompt_newline}${prompt_subshell}${prompt_shell} "
+export PS1="${prompt_info}${prompt_dir}${prompt_repo}${prompt_jobs}${prompt_virtual_env}${prompt_node_env}${prompt_newline}${prompt_subshell}${prompt_shell} "
