@@ -79,6 +79,7 @@
 " ------------------------------------------------------------------------------
 
 	set t_Co=256        " Use 256 colors
+	set t_ut=           " Disable background color erase
 	set background=dark " Use dark background
 
 	syntax on           " Turn on syntax highlighting
