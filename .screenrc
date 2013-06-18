@@ -26,10 +26,10 @@ bind l  next
 bind ^l next
 
 # Cycling splitscreens
-bind j  focus up
-bind ^j focus up
-bind k  focus down
-bind ^k focus down
+bind j  focus next
+bind ^j focus next
+bind k  focus prev
+bind ^k focus prev
 
 # Function keys
 bindkey -k k1 select 1

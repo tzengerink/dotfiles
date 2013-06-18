@@ -15,14 +15,17 @@
 	local = normal
 	remote = red bold
 [color "diff"]
-	old = red bold
-	new = green bold
+	commit = white bold
+	meta = black bold
+	frag = black bold
+	old = black bold
+	new = white bold
 [color "status"]
 	header = normal
 	added = white bold
 	updated = white bold
-	changed = red bold
-	untracked = red bold
+	changed = black bold
+	untracked = black bold
 	nobranch = red bold
 [core]
 	excludesfile = ~/.gitignore

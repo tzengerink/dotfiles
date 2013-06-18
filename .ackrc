@@ -18,9 +18,9 @@
 # -----
 
 --color
---color-filename=BOLD GREEN
+--color-filename=BOLD BLACK
 --color-lineno=BOLD BLACK
---color-match=BOLD RED ON_RED
+--color-match=BOLD WHITE
 
 # TYPES
 # -----
