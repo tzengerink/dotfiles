@@ -95,15 +95,14 @@ bindkey -s "^r" "tmux attach -d || tmux new\n"
 local prompt_highlight="white"
 
 local prompt_dir='$(pre_prompt_dir)'
+local prompt_envs='$(pre_prompt_envs)'
 local prompt_history="%B%{$fg[black]%}[ %h ]%b%{$reset_color%}"
 local prompt_jobs='$(pre_prompt_jobs)'
 local prompt_info="%B%{$fg[black]%}[ %n@%m ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
-local prompt_node_env='$(pre_prompt_node_env)'
 local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
 local prompt_subshell='$(pre_prompt_subshell)'
-local prompt_virtual_env='$(pre_prompt_virtual_env)'
 
 function pre_prompt_repo {
 	if [[ -d ".svn" ]]; then
@@ -126,10 +125,11 @@ function pre_prompt_repo {
 function pre_prompt_dir {
 	local DIR=${PWD/$HOME/\~}
 	local DIRCOUNT=$((`echo $DIR|sed 's/[^\/]//g'|wc -m`-1))
-	if [[ $DIRCOUNT > 4 ]]; then
-		CNT=$(( $DIRCOUNT - 3 ))
+	if [[ $DIRCOUNT > 3 ]]; then
+		CNT=$(( $DIRCOUNT - 2 ))
 		STR=`echo $(yes "." | head -n$CNT) | sed s/\ //g`
-		DIR="`echo $DIR | awk -F\/ '{print $1,"/",$2,"/__DIRCOUNT__/",$(NF-1),"/",$(NF)}' | sed s/\ //g`"
+		# DIR="`echo $DIR | awk -F\/ '{print $1,"/",$2,"/__DIRCOUNT__/",$(NF-1),"/",$(NF)}' | sed s/\ //g`"
+		DIR="`echo $DIR | awk -F\/ '{print $1,"/",$2,"/__DIRCOUNT__/",$(NF)}' | sed s/\ //g`"
 		DIR=${DIR/__DIRCOUNT__/$STR}
 	fi
 	echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$DIR %{$fg[black]%}]%b%{$reset_color%}"
@@ -148,11 +148,22 @@ function pre_prompt_newline {
 	echo -e "%B\n%b"
 }
 
-function pre_prompt_node_env {
+function pre_prompt_envs {
+	PY=""
+	NODE=""
+
+	if [[ -n "$VIRTUAL_ENV" ]]; then
+		PY="P"
+	fi
+
 	if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ $(basename $NODE_VIRTUAL_ENV) %{$fg[black]%}]%b%{$reset_color%}"
+		NODE="N"
+	fi
+
+	if [[ -z "$NODE" ]] && [[ -z "$PY" ]]; then
+		echo -e ""
 	else
-		echo ""
+		echo -e "%B%{$fg[black]%}[ $PY$NODE %{$fg[black]%}]%b%{$reset_color%}"
 	fi
 }
 
@@ -170,14 +181,6 @@ function pre_prompt_subshell {
 	fi
 }
 
-function pre_prompt_virtual_env {
-	if [[ -n "$VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ $(basename $VIRTUAL_ENV) %B%{$fg[black]%}]%b%{$reset_color%}"
-	else
-		echo ""
-	fi
-}
-
 # MACHINE SPECIFIC CONFIGURATION
 # ------------------------------
 
@@ -188,4 +191,4 @@ function pre_prompt_virtual_env {
 # RENDER PROMPT
 # -------------
 
-export PS1="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_virtual_env}${prompt_node_env}${prompt_newline}${prompt_subshell}${prompt_shell} "
+export PS1="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_newline}${prompt_subshell}${prompt_envs}${prompt_shell} "

@@ -76,7 +76,7 @@ def get_full_count(rss):
 
 def main():
     cache = File('/tmp/gmail-count')
-    lifetime = 300
+    lifetime = 60
     try:
         data = json.loads(cache.read())
         if time.time() > data['expires']:
