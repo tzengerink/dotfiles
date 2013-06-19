@@ -12,10 +12,42 @@
     Licensed under MIT License
     See: https://raw.github.com/gist/3151357/9e8e01df4ee12b1f04cd61e0ecee3ea8bd6f617b/mit-license.txt
 """
-import urllib2
+import json, time, urllib2
 
 from os.path import dirname, realpath
 from xml.dom import minidom
+
+
+class File:
+    """Assists in handling files.
+    path -- Path of the file.
+    """
+    def __init__(self, path):
+        self.path = path
+
+    def clear(self):
+        """Clear the contents of the file."""
+        open(self.path, 'w').close()
+
+    def read(self):
+        """Read the contents of the file."""
+        contents = ""
+        handle = open(self.path)
+        while 1:
+            line = handle.readline()
+            if not line:
+                break
+            contents += line
+        handle.close()
+        return contents
+
+    def write(self, txt):
+        """Append text to the end of the file.
+        txt -- Text to append to the file.
+        """
+        handle = open(self.path, 'a')
+        handle.write(txt)
+        handle.close()
 
 
 def get_rss(user, password):
@@ -27,11 +59,7 @@ def get_rss(user, password):
     urllib2.install_opener(urllib2.build_opener(auth))
     return urllib2.urlopen('https://mail.google.com/mail/feed/atom').read()
 
-def get_full_count(rss):
-    dom = minidom.parseString(rss)
-    return dom.getElementsByTagName('fullcount')[0].firstChild.nodeValue
-
-def main():
+def get_data():
     home = dirname(dirname(dirname(realpath(__file__))))
     try:
         with file('%s/.gmail-pass' % home) as f:
@@ -40,7 +68,25 @@ def main():
         print('Could not read password file (%s/.gmail-pass).' % home)
         exit(1)
     count = get_full_count(get_rss('t.zengerink', password))
-    print(count if count != '0' else '')
+    return count if count != '0' else ''
+
+def get_full_count(rss):
+    dom = minidom.parseString(rss)
+    return dom.getElementsByTagName('fullcount')[0].firstChild.nodeValue
+
+def main():
+    cache = File('/tmp/gmail-count')
+    lifetime = 300
+    try:
+        data = json.loads(cache.read())
+        if time.time() > data['expires']:
+            raise Exception('Cache expired')
+    except:
+        data = {"content": get_data(),
+                "expires": time.time() + lifetime}
+        cache.clear()
+        cache.write(json.dumps(data))
+    print(data['content'])
 
 
 if __name__ == '__main__':
