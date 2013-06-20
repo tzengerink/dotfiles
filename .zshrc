@@ -149,21 +149,21 @@ function pre_prompt_newline {
 }
 
 function pre_prompt_envs {
-	PY=""
 	NODE=""
-
-	if [[ -n "$VIRTUAL_ENV" ]]; then
-		PY="P"
-	fi
+	PY=""
 
 	if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
 		NODE="N"
 	fi
 
+	if [[ -n "$VIRTUAL_ENV" ]]; then
+		PY="P"
+	fi
+
 	if [[ -z "$NODE" ]] && [[ -z "$PY" ]]; then
 		echo -e ""
 	else
-		echo -e "%B%{$fg[black]%}[ $PY$NODE %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ $NODE$PY %{$fg[black]%}]%b%{$reset_color%}"
 	fi
 }
 
