@@ -241,6 +241,7 @@
 	nnoremap <LEADER>to :set filetype=coffee<CR>
 	nnoremap <LEADER>tp :set filetype=php<CR>
 	nnoremap <LEADER>tq :set filetype=jquery<CR>
+	nnoremap <LEADER>tr :set filetype=rst<CR>
 	nnoremap <LEADER>ts :set filetype=sql<CR>
 	nnoremap <LEADER>ty :set filetype=python<CR>
 
@@ -492,10 +493,14 @@
 	noremap WK         :leftabove new<CR>
 	noremap <LEADER>\  :vertical resize 85<CR>
 	noremap <LEADER>\\ <C-W>=
+	noremap <LEADER>e  :windo e<CR>
 
 	" Sessions
 	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
 	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default<CR>
+
+	" GitGutter
+	nnoremap <LEADER>g :GitGutterLineHighlightsToggle<CR>
 
 	" ShowMarks
 	nnoremap ` :ShowMarksOnce<CR>`
@@ -509,9 +514,6 @@
 
 	" Display
 	nnoremap <LEADER>d :echo strftime("%c")." [".strftime("%Y%m%d%H%M%S")."]"<CR>
-
-	" Clear entire file
-	noremap <LEADER>C ggvG$c
 
 	" Auto-indent
 	nnoremap <EXPR> i IndentWithI()

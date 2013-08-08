@@ -36,4 +36,4 @@
 " KEY MAPPINGS (INSERT MODE)
 " ------------------------------------------------------------------------------
 
-	inoremap <buffer> { {<RETURN><RETURN>}<ESC>ki
+	inoremap <buffer> { {<RETURN><RETURN>}<ESC>zMzvki
