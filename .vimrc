@@ -131,7 +131,7 @@
 	highlight Debug           ctermfg=193  ctermbg=none
 
 	" Special types
-	highlight Folded          ctermfg=30   ctermbg=none
+	highlight Folded          ctermfg=30   ctermbg=0
 	highlight FoldColumn      ctermfg=30   ctermbg=234
 	highlight InvalidStyle    ctermfg=124  ctermbg=none
 	highlight NonText         ctermfg=235  ctermbg=none
@@ -314,7 +314,7 @@
 	    let s .= '%=%#TabLine#%999X '
 	  endif
 	  return s
-  endfunction
+	endfunction
 
 	" Fill line with string up to given textwidth
 	function! FillLine( str, ... )
@@ -446,10 +446,8 @@
 
 	" Toggle stuff
 	noremap <LEADER>A :set wrap! wrap?<CR>
-	noremap <LEADER>G :GitGutterToggle<CR>
 	noremap <LEADER>H :noh<CR>
 	noremap <LEADER>L :set list! list?<CR>
-	noremap <LEADER>M :DoShowMarks!<CR>
 	noremap <LEADER>N :set number! number?<CR>
 	noremap <LEADER>P :set paste! paste?<CR>
 	noremap <LEADER>R :call ToggleNumberType()<CR>
@@ -493,18 +491,22 @@
 	noremap WK         :leftabove new<CR>
 	noremap <LEADER>\  :vertical resize 85<CR>
 	noremap <LEADER>\\ <C-W>=
-	noremap <LEADER>e  :windo e<CR>
+	noremap <LEADER>e  :bufdo e<CR>
 
 	" Sessions
 	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
 	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default<CR>
 
 	" GitGutter
+	nnoremap <LEADER>G :GitGutterToggle<CR>
 	nnoremap <LEADER>g :GitGutterLineHighlightsToggle<CR>
+	nnoremap gh        :GitGutterNextHunk<CR>
+	nnoremap gH        :GitGutterPrevHunk<CR>
 
 	" ShowMarks
-	nnoremap ` :ShowMarksOnce<CR>`
-	nnoremap ' :ShowMarksOnce<CR>'
+	nnoremap <LEADER>M :DoShowMarks!<CR>
+	nnoremap `         :ShowMarksOnce<CR>`
+	nnoremap '         :ShowMarksOnce<CR>'
 
 	" Open file in default application
 	noremap <C-O> :! open %<CR><CR>
