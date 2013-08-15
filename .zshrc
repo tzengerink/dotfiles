@@ -149,8 +149,13 @@ function pre_prompt_newline {
 }
 
 function pre_prompt_envs {
+	COMPOSER=""
 	NODE=""
 	PY=""
+
+	if [[ -f "composer.phar" ]]; then
+		COMPOSER="C"
+	fi
 
 	if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
 		NODE="N"
@@ -160,10 +165,10 @@ function pre_prompt_envs {
 		PY="P"
 	fi
 
-	if [[ -z "$NODE" ]] && [[ -z "$PY" ]]; then
+	if [[ -z "$NODE" ]] && [[ -z "$PY" ]] && [[ -z "$COMPOSER" ]]; then
 		echo -e ""
 	else
-		echo -e "%B%{$fg[black]%}[ $NODE$PY %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ $COMPOSER$NODE$PY %{$fg[black]%}]%b%{$reset_color%}"
 	fi
 }
 
