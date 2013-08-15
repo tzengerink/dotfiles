@@ -19,4 +19,7 @@ else
     # Activate if (parent-)directory has environment
     [[ -d "$PY_ENV" ]] && source $PY_ENV/bin/activate
     [[ -d "$NODE_ENV" ]] && source $NODE_ENV/bin/activate
+
+		# Add composer binary packages to path
+		[[ -f "composer.phar" ]] && export PATH=vendor/bin:$PATH
 fi
