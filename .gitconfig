@@ -1,11 +1,12 @@
 [alias]
-	st = status -s
+	st = "status -s"
 	ci = commit
-	co = checkout -q
+	co = "checkout -q"
 	br = branch
 	di = difftool
 	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an%Creset' --graph"
 	mg = "merge --no-ff"
+	pl = "!git pull && git submodule update --init --recursive"
 [color]
 	ui = auto
 	branch = auto

@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# SNIFF
+# -----
+# Sniff HTTP requests using tcpdump
+
+TCPDUMP=$(which tcpdump)
+METHOD=$1
+COMMAND=""
+
+case $METHOD in
+	"post" | "POST")
+		COMMAND="tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504f5354"
+		;;
+	"put" | "PUT")
+		COMMAND="tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x50555420"
+		;;
+	"head" | "HEAD")
+		COMMAND="tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x48454144"
+		;;
+	*)
+		# Sniff for GET requests by default
+		COMMAND="tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420"
+		;;
+esac
+
+$TCPDUMP -s 0 -A -vv $COMMAND
