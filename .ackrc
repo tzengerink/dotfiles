@@ -19,7 +19,6 @@
 
 --color
 --color-filename=BOLD BLACK
---color-lineno=BOLD BLACK
 --color-match=BOLD WHITE
 
 # TYPES
