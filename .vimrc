@@ -7,6 +7,7 @@
 	set clipboard=unnamed               " OS X compatible clipboard
 	set completeopt=longest,menuone     " Show menu and preview window
 	set laststatus=2                    " Always show the StatusLine
+	set lazyredraw                      " Do not redraw while running macros
 	set list                            " Show non text characters
 	set listchars=eol:¬,tab:•·,trail:·  " Characters to use for non text
 	set matchpairs+=<:>                 " Add HTML brackets to matching pairs
@@ -16,7 +17,7 @@
 	set noerrorbells                    " No errorbells
 	set novisualbell                    " No visualbell
 	set nohidden                        " Closing tabs / windows also closes buffer
-	set nonumber                        " No line numbers
+	set number                          " Show line numbers
 	set nopaste                         " Do not disable autoindent etc. when pasting
 	set nowrap                          " Do not wrap lines
 	set ruler                           " Position info
@@ -271,8 +272,8 @@
 	" Closetag
 	" Usage: <C-_> closes current tag
 	let g:closetag_default_xml=1
-	autocmd FileType html,htmljinja,php let b:closetag_html_style=1
-	autocmd FileType html,htmljinja,php,xml source ~/.vim/scripts/closetag.vim
+	autocmd FileType html,htmljinja,mustache,php let b:closetag_html_style=1
+	autocmd FileType html,htmljinja,mustache,php,xml source ~/.vim/scripts/closetag.vim
 
 " ------------------------------------------------------------------------------
 " FUNCTIONS
@@ -624,17 +625,17 @@
 	if v:version >= 703
 
 		" Use relative line numbers
-		set relativenumber
+		"set relativenumber
 
 		" Different settings for active/focussed window
-		augroup WinToggleNumber
-			autocmd!
-			autocmd WinEnter * setlocal relativenumber
-			autocmd WinLeave * setlocal norelativenumber
-		augroup end
+		"augroup WinToggleNumber
+		"	autocmd!
+		"	autocmd WinEnter * setlocal relativenumber
+		"	autocmd WinLeave * setlocal norelativenumber
+		"augroup end
 
-		" Toggle (relative)number when entering/leaving insert mode
-		autocmd InsertEnter * setlocal number
-		autocmd InsertLeave * setlocal relativenumber
+		"" Toggle (relative)number when entering/leaving insert mode
+		"autocmd InsertEnter * setlocal number
+		"autocmd InsertLeave * setlocal relativenumber
 
 	endif
