@@ -5,3 +5,4 @@
 .node-env
 .svn
 __pycache__
+node_modules

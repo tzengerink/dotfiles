@@ -4,7 +4,7 @@
 	co = "checkout -q"
 	br = branch
 	di = difftool
-	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an%Creset' --graph"
+	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --graph --date=relative"
 	mg = "merge --no-ff"
 	pl = "!git pull && git submodule update --init --recursive"
 [color]
