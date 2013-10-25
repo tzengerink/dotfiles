@@ -18,6 +18,9 @@ from os.path import dirname, realpath
 from xml.dom import minidom
 
 
+USERNAME='t.zengerink'
+
+
 class File:
     """Assists in handling files.
     path -- Path of the file.
@@ -67,7 +70,7 @@ def get_data():
     except:
         print('Could not read password file (%s/.gmail-pass).' % home)
         exit(1)
-    count = get_full_count(get_rss('t.zengerink', password))
+    count = get_full_count(get_rss(USERNAME, password))
     return count if count != '0' else ''
 
 def get_full_count(rss):
