@@ -13,6 +13,7 @@
 --ignore-dir=vendor
 --ignore-dir=.py-env
 --ignore-dir=.node-env
+--ignore-dir=cache
 
 # COLOR
 # -----
