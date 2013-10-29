@@ -617,25 +617,3 @@
 		nnoremap K              [czz
 
 	endif
-
-" ------------------------------------------------------------------------------
-" VERSION SPECIFIC SETTINGS
-" ------------------------------------------------------------------------------
-
-	if v:version >= 703
-
-		" Use relative line numbers
-		"set relativenumber
-
-		" Different settings for active/focussed window
-		"augroup WinToggleNumber
-		"	autocmd!
-		"	autocmd WinEnter * setlocal relativenumber
-		"	autocmd WinLeave * setlocal norelativenumber
-		"augroup end
-
-		"" Toggle (relative)number when entering/leaving insert mode
-		"autocmd InsertEnter * setlocal number
-		"autocmd InsertLeave * setlocal relativenumber
-
-	endif
