@@ -18,6 +18,7 @@ from os.path import dirname, realpath
 from xml.dom import minidom
 
 
+LIFETIME=60
 USERNAME='t.zengerink'
 
 
@@ -71,7 +72,7 @@ def get_data():
         print('Could not read password file (%s/.gmail-pass).' % home)
         exit(1)
     count = get_full_count(get_rss(USERNAME, password))
-    return count if count != '0' else ''
+    return (' %s ' % count) if count != '0' else ''
 
 def get_full_count(rss):
     dom = minidom.parseString(rss)
@@ -79,14 +80,13 @@ def get_full_count(rss):
 
 def main():
     cache = File('/tmp/gmail-count')
-    lifetime = 60
     try:
         data = json.loads(cache.read())
         if time.time() > data['expires']:
             raise Exception('Cache expired')
     except:
         data = {"content": get_data(),
-                "expires": time.time() + lifetime}
+                "expires": time.time() + LIFETIME}
         cache.clear()
         cache.write(json.dumps(data))
     print(data['content'])
