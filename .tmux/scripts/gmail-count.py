@@ -14,7 +14,7 @@
 """
 import json, time, urllib2
 
-from os.path import dirname, realpath
+from os.path import expanduser
 from xml.dom import minidom
 
 
@@ -64,7 +64,7 @@ def get_rss(user, password):
     return urllib2.urlopen('https://mail.google.com/mail/feed/atom').read()
 
 def get_data():
-    home = dirname(dirname(dirname(realpath(__file__))))
+    home = expanduser('~')
     try:
         with file('%s/.gmail-pass' % home) as f:
             password = f.read()
