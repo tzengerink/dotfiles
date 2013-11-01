@@ -12,7 +12,7 @@
 import json, time, urllib2
 
 
-LIFETIME=60
+LIFETIME=300
 
 
 class File:
@@ -62,6 +62,7 @@ def main():
         cache.clear()
         cache.write(json.dumps(data))
     print(data['content'])
+
 
 if __name__ == '__main__':
         main()
