@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# TMUX WRAPPER
+# ------------
+
+HOST=$1
+
+if [[ -z $HOST ]]; then
+	tmux ls
+else
+	# Set tmux remote host to provided argument.
+	python2 ~/.tmux/scripts/remote-host.py $HOST
+
+	# Attach to host session or create it.
+	tmux a -t $HOST || tmux new -s $HOST "`python2 ~/.tmux/scripts/remote-host.py --command`"
+fi
