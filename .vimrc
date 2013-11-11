@@ -247,7 +247,7 @@
 	nnoremap <LEADER>ty :set filetype=python<CR>
 
 	" Override default filetype settings
-	autocmd BufNewFile,BufRead *.coffee set sw=2 ts=2 et nosi foldlevel=0
+	autocmd BufNewFile,BufRead *.coffee set sw=2 ts=2 et nosi foldlevel=1
 	autocmd BufNewFile,BufRead *.less   set foldmethod=indent fdn=4 noet
 	autocmd BufNewFile,BufRead *.md     set et fdn=0 sw=4 ts=4
 	autocmd BufNewFile,BufRead *.php    set fdn=2 noet foldlevel=1
