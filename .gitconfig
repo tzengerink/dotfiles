@@ -1,4 +1,5 @@
 [alias]
+	ba = "branch -va"
 	br = branch
 	ca = "!git add -A && git ci"
 	ci = commit
