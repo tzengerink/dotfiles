@@ -482,10 +482,10 @@
 	nnoremap <LEADER>u :UnderLine -<CR>
 
 	" Windows
-	noremap =          <C-W>+
-	noremap -          <C-W>-
-	noremap _          <C-W><
-	noremap +          <C-W>>
+	noremap =          :vertical resize +5<CR>
+	noremap -          :vertical resize -5<CR>
+	noremap +          :resize +5<CR>
+	noremap _          :resize -5<CR>
 	noremap WH         :leftabove vnew<CR>
 	noremap WJ         :rightbelow new<CR>
 	noremap WL         :rightbelow vnew<CR>
