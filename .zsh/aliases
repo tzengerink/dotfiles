@@ -51,6 +51,7 @@ alias so='~/.bin/google-search.py --site stackoverflow.com -a'
 # -----
 
 alias df='df -h'
+alias digs='dig +short'
 alias du1='du -d 1'
 alias dwn='curl -sO'
 alias extip='curl -s http://ip.zengerink.com/'
