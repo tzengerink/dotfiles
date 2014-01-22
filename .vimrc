@@ -317,6 +317,13 @@
 	  return s
 	endfunction
 
+	" Execute query from fil
+	let g:mysql_hostname = ''
+	function! ExecuteMySQLQuery( str )
+		let g:mysql_hostname = input('Hostname: '.g:mysql_hostname)
+		exe "!mysql --defaults-file=~/.mysql/hosts/".g:mysql_hostname." < ".a:str
+	endfunction
+
 	" Fill line with string up to given textwidth
 	function! FillLine( str, ... )
 		let tw = 80
@@ -418,6 +425,7 @@
 " COMMANDS
 " ------------------------------------------------------------------------------
 
+	command! -nargs=* ExecuteMySQLQuery  call ExecuteMySQLQuery(<f-args>)
 	command! -nargs=* FillLine           call FillLine(<f-args>)
 	command! -nargs=* SetWrap            call SetWrap()
 	command! -nargs=0 ToggleInvalidStyle call ToggleInvalidStyle()
@@ -523,6 +531,7 @@
 
 	" Temporary SQL query
 	noremap <LEADER>EQ :e /var/tmp/query.sql<CR>:set ft=mysql<CR>
+	noremap <LEADER>XQ :ExecuteMySQLQuery /var/tmp/query.sql<CR>
 
 	" Quick `.vimrc` handling
 	noremap <LEADER>v :e $MYVIMRC<CR>
