@@ -1,0 +1,6 @@
+#env
+	LESS = -i -S
+
+#command
+	h  left-scroll
+	l  right-scroll

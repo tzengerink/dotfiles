@@ -51,14 +51,13 @@ alias so='~/.bin/google-search.py --site stackoverflow.com -a'
 # -----
 
 alias df='df -h'
-alias digs='dig +short'
+alias digs='dig +short +identify'
 alias du1='du -d 1'
 alias dwn='curl -sO'
 alias extip='curl -s http://ip.zengerink.com/'
 alias fn='find . -name'
 alias hi='history -d | tail -20'
 alias ips='locip && extip'
-alias mysql='mysql -p'
 alias vis='vim -S ~/.vim/sessions/default'
 alias viq='vim "+set ft=mysql" /var/tmp/query.sql'
 

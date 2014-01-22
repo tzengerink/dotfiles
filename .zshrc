@@ -69,6 +69,13 @@ export LESS_TERMCAP_se=$'\e[0m'           # End standout-mode
 export LESS_TERMCAP_so=$'\e[01;31;41m'    # Begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\e[0m'           # End underline
 export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
+lesskey
+
+## MYSQL
+export MYSQL_PS1="[ \u@\h ][ \d ]\n[ \c ]> "
+
+## CURL
+bash $HOME/.curl/generator.sh
 
 # KEYBINDINGS
 # -----------
