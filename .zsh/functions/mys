@@ -1,7 +1,7 @@
 # MYS
 # ---
-# Execute MySQL using given config name.
+# Execute MySQL using given host config name.
 
-FILE="$HOME/.mysql/$1"
+FILE="$HOME/.mysql/hosts/$1"
 
 mysql --defaults-file=$FILE
