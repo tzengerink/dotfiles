@@ -1,0 +1,7 @@
+!include ~/.my.cnf
+
+[client]
+	host="localhost"
+	user="root"
+	password=""
+	database=""
