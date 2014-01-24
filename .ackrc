@@ -26,4 +26,4 @@
 # -----
 
 --type-set=py=.py
---type-add=js=.coffee
+--type-set=coffee=.coffee
