@@ -1,5 +1,5 @@
 #env
-	LESS = -i -S
+	LESS = -i -S -R
 
 #command
 	h  left-scroll
