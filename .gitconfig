@@ -8,7 +8,7 @@
 	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --graph --date=relative"
 	mg = "merge --no-ff"
 	pl = "!git pull && git submodule foreach git pull"
-	st = "status -s"
+	st = "status -s --ignore-submodules=dirty"
 [color]
 	ui = auto
 	branch = auto

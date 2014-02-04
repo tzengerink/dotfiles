@@ -13,6 +13,6 @@ FILE="$DIR/$(basename $LOG)"
 
 [ ! -d $DIR ] && mkdir $DIR
 
-trap 'rm -rf "$DIR"; exit' INT TERM EXIT
+trap 'rm -rf "$DIR";' INT TERM EXIT
 ( tail -n 0 -f "$LOG" | grep --line-buffered $PATTERN ) > "$FILE" | less +F "$FILE"
 trap - INT TERM EXIT
