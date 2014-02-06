@@ -222,6 +222,7 @@
 	autocmd BufNewFile,BufRead *.css        set filetype=css
 	autocmd BufNewFile,BufRead *.html,*.htm set filetype=html
 	autocmd BufNewFile,BufRead *.less       set filetype=less
+	autocmd BufNewFile,BufRead *.log        set filetype=log
 	autocmd BufNewFile,BufRead *.md         set filetype=markdown
 	autocmd BufNewFile,BufRead *.mustache   set filetype=mustache
 	autocmd BufNewFile,BufRead *.plist      set filetype=xml
