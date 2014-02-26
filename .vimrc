@@ -137,6 +137,7 @@
 	highlight InvalidStyle    ctermfg=124  ctermbg=none
 	highlight NonText         ctermfg=235  ctermbg=none
 	highlight SpecialKey      ctermfg=235  ctermbg=none
+	highlight WhiteSpace      ctermfg=235  ctermbg=none
 
 	" Editor
 	highlight Cursor          ctermfg=232  ctermbg=250
