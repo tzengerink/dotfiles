@@ -228,6 +228,10 @@
 	autocmd BufNewFile,BufRead *.plist      set filetype=xml
 	autocmd BufNewFile,BufRead *.sql        set filetype=mysql
 
+	" Folder specifix filetypes
+	autocmd BufNewFile,BufRead /etc/nginx/*   set filetype=nginx
+	autocmd BufNewFile,BufRead /etc/nginx/*/* set filetype=nginx
+
 	" Omnicomplete
 	autocmd  FileType css        set omnifunc=csscomplete#CompleteCSS
 	autocmd  FileType html       set omnifunc=htmlcomplete#CompleteTags
