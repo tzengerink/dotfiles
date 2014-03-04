@@ -152,7 +152,7 @@
 	highlight TabLineFill     ctermfg=232  ctermbg=232
 	highlight Visual          ctermfg=232  ctermbg=39
 	highlight VertSplit       ctermfg=232  ctermbg=232
-	highlight MatchParen      ctermfg=232  ctermbg=70
+	highlight MatchParen      ctermfg=0    ctermbg=246
 
 	" Autocomplete
 	highlight Pmenu           ctermfg=37   ctermbg=232
@@ -174,7 +174,7 @@
 	highlight Error           ctermfg=124  ctermbg=174   cterm=underline
 	highlight Search          ctermfg=193  ctermbg=70
 	highlight IncSearch       ctermfg=70   ctermbg=193
-	highlight Todo            ctermfg=70   ctermbg=193
+	highlight Todo            ctermfg=238  ctermbg=70
 	highlight ModeMsg         ctermfg=45   ctermbg=none
 	highlight MoreMsg         ctermfg=45   ctermbg=none
 	highlight WarningMsg      ctermfg=174  ctermbg=124
