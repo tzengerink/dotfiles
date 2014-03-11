@@ -6,7 +6,7 @@ export BROWSER='/usr/bin/open'
 # ALIASES
 # -------
 
-alias ls='gls --color=auto --group-directories'
+alias ls='ls -G'
 alias cleanup='find . -type f -name ".DS_Store" -delete'
 alias locip='ipconfig getifaddr en0'
 alias gweb='git instaweb --httpd=webrick --start && open http://127.0.0.1:1234/'
