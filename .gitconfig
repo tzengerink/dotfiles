@@ -4,7 +4,7 @@
 	ca = "!git add -A && git ci"
 	ci = commit
 	co = "checkout -q"
-	di = difftool
+	di = "!git difftool $(git status -s | awk '{print $2}' | egrep -v '.*\\.min\\.(css|js)')"
 	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --graph --date=relative"
 	mg = "merge --no-ff"
 	pl = "!git pull && git submodule foreach git pull"
