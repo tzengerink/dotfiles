@@ -88,8 +88,11 @@ do_nothing () { }
 zle -N do_nothing
 bindkey "^l" do_nothing
 
+# Search history
+bindkey "^r" history-search-backward
+
 ## QUICK OPEN
-# vim          Ctrl-n
+# vim  Ctrl-n
 bindkey -s "^n" "vim\n"
 
 # PROMPT
