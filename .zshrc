@@ -90,9 +90,7 @@ bindkey "^l" do_nothing
 
 ## QUICK OPEN
 # vim          Ctrl-n
-# screen -dR   Ctrl-r
 bindkey -s "^n" "vim\n"
-bindkey -s "^r" "tmux attach -d || tmux new\n"
 
 # PROMPT
 # ------
