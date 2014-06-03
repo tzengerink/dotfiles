@@ -27,3 +27,4 @@
 
 --type-set=py=.py
 --type-set=coffee=.coffee
+--type-set=markdown=.md
