@@ -5,6 +5,7 @@ alias -g C='| wc -l'
 alias -g H='| head'
 alias -g L='| less'
 alias -g T='| tail'
+alias -g J='| python2 -mjson.tool'
 
 # NAVIGATION
 # ----------
