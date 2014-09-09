@@ -159,7 +159,7 @@ function pre_prompt_envs {
 	NODE=""
 	PY=""
 
-	if [[ -f "composer.phar" ]]; then
+	if [[ -f "composer.json" ]]; then
 		COMPOSER="C"
 	fi
 

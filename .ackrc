@@ -25,6 +25,7 @@
 # TYPES
 # -----
 
---type-set=py=.py
 --type-set=coffee=.coffee
 --type-set=markdown=.md
+--type-set=py=.py
+--type-set=txt=.txt
