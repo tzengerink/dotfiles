@@ -228,6 +228,7 @@
 	autocmd BufNewFile,BufRead *.mustache   set filetype=mustache
 	autocmd BufNewFile,BufRead *.plist      set filetype=xml
 	autocmd BufNewFile,BufRead *.sql        set filetype=mysql
+	autocmd BufNewFile,BufRead *.blade.php  set filetype=blade
 
 	" Folder specifix filetypes
 	autocmd BufNewFile,BufRead /etc/nginx/*   set filetype=nginx
