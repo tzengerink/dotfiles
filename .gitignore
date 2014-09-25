@@ -1,7 +1,3 @@
-.vim/bundle/
-.vim/sessions/
-.vim/backup/
-.vim/.netrwhist
 *.pyc
 *~
 .DS_Store
