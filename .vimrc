@@ -87,8 +87,7 @@
 
 	" Backup
 	set noswapfile                                     " Turn of swapfiles
-	set backup                                         " Turn on backup
-	set backupdir=~/.vim/backup                        " Where to put the backup files
+	set nobackup                                       " Turn off backup
 
 	" Statusline
 	set statusline=%F                                  " Filename and path
