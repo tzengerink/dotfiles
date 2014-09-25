@@ -10,5 +10,4 @@
 .svn
 __pycache__
 node_modules
-!.vim/bundle/Vundle.vim
 !.gitkeep
