@@ -1,3 +1,7 @@
+.vim/bundle/
+.vim/sessions/
+.vim/backup/
+.vim/.netrwhist
 *.pyc
 *~
 .DS_Store
@@ -6,3 +10,5 @@
 .svn
 __pycache__
 node_modules
+!.vim/bundle/Vundle.vim
+!.gitkeep

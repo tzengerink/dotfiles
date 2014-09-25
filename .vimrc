@@ -1,17 +1,30 @@
 " ------------------------------------------------------------------------------
-" GENERAL SETTINGS
+" VUNDLE
 " ------------------------------------------------------------------------------
 
-	" Change cursor in insert-mode
-	let &t_SI = "\eP\e[3 q\e\\"
-	let &t_EI = "\eP\e[1 q\e\\"
+	set nocompatible
+	filetype off
+	set rtp+=~/.vim/bundle/Vundle.vim
+	"call vundle#begin()
 
-	" Set colorscheme
+	" Plugins
+	" Plugin 'scrooloose/nerdtree'
+
+	"call vundle#end()
+	filetype plugin indent on
+
+" ------------------------------------------------------------------------------
+" SETTINGS
+" ------------------------------------------------------------------------------
+
+	" Cursor
+	let &t_SI = '\eP\e[3 q\e\\'
+	let &t_EI = '\eP\e[1 q\e\\'
+
+	" Colorscheme
 	colors green-n-blue
 
-	filetype on                                        " Turn on filetype detection
-	filetype plugin on                                 " Causes errors in filetype detection
-
+	" General
 	set autoindent                                     " Autoindenting
 	set backspace=indent,eol,start                     " Backspace functionality
 	set clipboard=unnamed                              " OS X compatible clipboard
@@ -22,7 +35,6 @@
 	set listchars=eol:¬,tab:•·,trail:·                 " Characters to use for non text
 	set matchpairs+=<:>                                " Add HTML brackets to matching pairs
 	set matchtime=1                                    " Show matching bracket for .X seconds
-	set nocompatible                                   " Filetype detection works better this way
 	set cursorline                                     " No cursorline by default
 	set noerrorbells                                   " No errorbells
 	set novisualbell                                   " No visualbell
