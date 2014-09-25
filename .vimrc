@@ -5,21 +5,36 @@
 	set nocompatible
 	filetype off
 	set rtp+=~/.vim/bundle/Vundle.vim
-	"call vundle#begin()
+	call vundle#begin()
 
-	" Plugins
-	" Plugin 'scrooloose/nerdtree'
+	" Install all plugins? :PluginInstall
+	Plugin 'airblade/vim-gitgutter'
+	Plugin 'michaeljsmith/vim-indent-object'
+	Plugin 'scrooloose/nerdcommenter'
+	Plugin 'scrooloose/nerdtree'
+	Plugin 'vim-scripts/closetag.vim'
+	Plugin 'vim-scripts/gnupg.vim'
+	Plugin 'vim-scripts/Pydiction'
 
-	"call vundle#end()
+	call vundle#end()
 	filetype plugin indent on
+
+	" Plugin settings
+	let NERDTreeWinSize = 30
+
+	nnoremap <LEADER>G :GitGutterToggle<CR>
+	nnoremap <LEADER>g :GitGutterLineHighlightsToggle<CR>
+	nnoremap gh        :GitGutterNextHunk<CR>
+	nnoremap gH        :GitGutterPrevHunk<CR>
+	nnoremap <C-n>     :NERDTreeToggle<CR>
 
 " ------------------------------------------------------------------------------
 " SETTINGS
 " ------------------------------------------------------------------------------
 
 	" Cursor
-	let &t_SI = '\eP\e[3 q\e\\'
-	let &t_EI = '\eP\e[1 q\e\\'
+	let &t_SI = "\eP\e[3 q\e\\"
+	let &t_EI = "\eP\e[1 q\e\\"
 
 	" Colorscheme
 	colors green-n-blue
@@ -172,13 +187,6 @@
 " ------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
-
-	" NERDTree
-	let NERDTreeWinSize = 30
-
-	" ZenCoding
-	let g:user_zen_leader_key     = '<C-y>'
-	let g:user_zen_expandabbr_key = '<C-e>'
 
 	" PyDiction
 	let g:pydiction_location = '~/.vim/plugin/pydiction/complete-dict'
@@ -385,10 +393,8 @@
 	nnoremap K @q
 
 	" Plugins
-	nnoremap  <C-n>     :NERDTreeToggle<CR>
 	nnoremap  <C-x>     <LEADER>c<SPACE>
 	inoremap  <C-o>     <C-x><C-o>
-	nnoremap  <LEADER>j :JSHint<CR>
 
 	" Tabs
 	noremap <C-H> :tabp<CR>
@@ -419,17 +425,6 @@
 	" Sessions
 	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
 	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default<CR>
-
-	" GitGutter
-	nnoremap <LEADER>G :GitGutterToggle<CR>
-	nnoremap <LEADER>g :GitGutterLineHighlightsToggle<CR>
-	nnoremap gh        :GitGutterNextHunk<CR>
-	nnoremap gH        :GitGutterPrevHunk<CR>
-
-	" ShowMarks
-	nnoremap <LEADER>M :DoShowMarks!<CR>
-	nnoremap `         :ShowMarksOnce<CR>`
-	nnoremap '         :ShowMarksOnce<CR>'
 
 	" Open file in default application
 	noremap <C-O> :! open %<CR><CR>
