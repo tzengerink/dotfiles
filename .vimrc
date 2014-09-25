@@ -171,7 +171,6 @@
 	nnoremap <LEADER>tm :set filetype=mysql<CR>
 	nnoremap <LEADER>to :set filetype=coffee<CR>
 	nnoremap <LEADER>tp :set filetype=php<CR>
-	nnoremap <LEADER>tq :set filetype=jquery<CR>
 	nnoremap <LEADER>tr :set filetype=rst<CR>
 	nnoremap <LEADER>ts :set filetype=sql<CR>
 	nnoremap <LEADER>ty :set filetype=python<CR>
