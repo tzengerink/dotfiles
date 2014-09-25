@@ -21,6 +21,7 @@
 
 	" Plugin settings
 	let NERDTreeWinSize = 30
+	let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 
 	nnoremap <LEADER>G :GitGutterToggle<CR>
 	nnoremap <LEADER>g :GitGutterLineHighlightsToggle<CR>
@@ -183,19 +184,6 @@
 
 	" SetWrap for certain filetypes
 	autocmd BufRead *.md,*.txt call SetWrap()
-
-" ------------------------------------------------------------------------------
-" PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
-
-	" PyDiction
-	let g:pydiction_location = '~/.vim/plugin/pydiction/complete-dict'
-
-	" Closetag
-	" Usage: <C-_> closes current tag
-	let g:closetag_default_xml=1
-	autocmd FileType html,htmljinja,mustache,php let b:closetag_html_style=1
-	autocmd FileType html,htmljinja,mustache,php,xml source ~/.vim/scripts/closetag.vim
 
 " ------------------------------------------------------------------------------
 " FUNCTIONS
