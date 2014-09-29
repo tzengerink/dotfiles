@@ -10,7 +10,6 @@
 	" Install all plugins? :PluginInstall
 	Plugin 'airblade/vim-gitgutter'
 	Plugin 'michaeljsmith/vim-indent-object'
-	Plugin 'scrooloose/nerdcommenter'
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'vim-scripts/closetag.vim'
 	Plugin 'vim-scripts/gnupg.vim'
@@ -380,10 +379,6 @@
 	" Execute macro at `q`
 	nnoremap K @q
 
-	" Plugins
-	nnoremap  <C-x>     <LEADER>c<SPACE>
-	inoremap  <C-o>     <C-x><C-o>
-
 	" Tabs
 	noremap <C-H> :tabp<CR>
 	noremap <C-L> :tabn<CR>
@@ -413,9 +408,6 @@
 	" Sessions
 	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
 	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default<CR>
-
-	" Open file in default application
-	noremap <C-O> :! open %<CR><CR>
 
 	" Yank to end of line
 	noremap Y y$
