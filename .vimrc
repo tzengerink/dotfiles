@@ -138,10 +138,6 @@
 		autocmd WinLeave * setlocal nocursorline
 	augroup end
 
-" ------------------------------------------------------------------------------
-" FILETYPES
-" ------------------------------------------------------------------------------
-
 	" Set filetypes for certain extensions
 	autocmd BufNewFile,BufRead *.coffee     set filetype=coffee
 	autocmd BufNewFile,BufRead *.css        set filetype=css
@@ -159,22 +155,10 @@
 	autocmd BufNewFile,BufRead /etc/nginx/*/* set filetype=nginx
 
 	" Omnicomplete
-	autocmd  FileType css        set omnifunc=csscomplete#CompleteCSS
-	autocmd  FileType html       set omnifunc=htmlcomplete#CompleteTags
-	autocmd  FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-	autocmd  FileType python     set omnifunc=pythoncomplete#Complete
-
-	" Easy filetype switching
-	nnoremap <LEADER>ta :set filetype=htmljinja<CR>
-	nnoremap <LEADER>tc :set filetype=css<CR>
-	nnoremap <LEADER>th :set filetype=html<CR>
-	nnoremap <LEADER>tj :set filetype=javascript<CR>
-	nnoremap <LEADER>tm :set filetype=mysql<CR>
-	nnoremap <LEADER>to :set filetype=coffee<CR>
-	nnoremap <LEADER>tp :set filetype=php<CR>
-	nnoremap <LEADER>tr :set filetype=rst<CR>
-	nnoremap <LEADER>ts :set filetype=sql<CR>
-	nnoremap <LEADER>ty :set filetype=python<CR>
+	autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
+	autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
+	autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+	autocmd FileType python     set omnifunc=pythoncomplete#Complete
 
 	" Override default filetype settings
 	autocmd BufNewFile,BufRead *.coffee set sw=2 ts=2 et nosi foldlevel=1
