@@ -57,6 +57,7 @@ highlight FoldColumn      ctermfg=30   ctermbg=234
 highlight InvalidStyle    ctermfg=124  ctermbg=none
 highlight NonText         ctermfg=235  ctermbg=none
 highlight SpecialKey      ctermfg=235  ctermbg=none
+highlight SpellBad        ctermfg=124  ctermbg=174   cterm=underline
 highlight WhiteSpace      ctermfg=235  ctermbg=none
 
 " Editor

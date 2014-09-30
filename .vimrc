@@ -14,6 +14,7 @@
 	Plugin 'vim-scripts/closetag.vim'
 	Plugin 'vim-scripts/gnupg.vim'
 	Plugin 'vim-scripts/Pydiction'
+	Plugin 'wookiehangover/jshint.vim'
 
 	call vundle#end()
 	filetype plugin indent on
