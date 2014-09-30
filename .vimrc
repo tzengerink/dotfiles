@@ -211,7 +211,7 @@
 	  return s
 	endfunction
 
-	" Execute query from fil
+	" Execute query from file
 	let g:mysql_hostname = ''
 	function! ExecuteMySQLQuery( str )
 		let g:mysql_hostname = input('Hostname: '.g:mysql_hostname)
