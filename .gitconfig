@@ -47,6 +47,6 @@
 	prompt = false
 [user]
 	email = t.zengerink@gmail.com
-	name = T. Zengerink
+	name = Teun Zengerink
 [push]
 	default = matching
