@@ -190,25 +190,25 @@
 	" Custom TabLine
 	function! CustomTabLine()
 		let s = ''
-	  for i in range(tabpagenr('$'))
-	    " Select the highlighting
-	    if i + 1 == tabpagenr()
-	      let s .= '%#TabLineSel#'
-	    else
-	      let s .= '%#TabLine#'
-	    endif
-	    " Set the tab page number (for mouse clicks)
-	    let s .= '%' . (i + 1) . 'T'
-	    " The label is made by CustomTabLabel()
-	    let s .= ' %{CustomTabLabel(' . (i + 1) . ')} '
-	  endfor
-	  " After the last tab fill with TabLineFill and reset tab page nr
-	  let s .= '%#TabLineFill#%T'
-	  " Right-align the label to close the current tab page
-	  if tabpagenr('$') > 1
-	    let s .= '%=%#TabLine#%999X '
-	  endif
-	  return s
+		for i in range(tabpagenr('$'))
+			" Select the highlighting
+			if i + 1 == tabpagenr()
+				let s .= '%#TabLineSel#'
+			else
+				let s .= '%#TabLine#'
+			endif
+			" Set the tab page number (for mouse clicks)
+			let s .= '%' . (i + 1) . 'T'
+			" The label is made by CustomTabLabel()
+			let s .= ' %{CustomTabLabel(' . (i + 1) . ')} '
+		endfor
+		" After the last tab fill with TabLineFill and reset tab page nr
+		let s .= '%#TabLineFill#%T'
+		" Right-align the label to close the current tab page
+		if tabpagenr('$') > 1
+			let s .= '%=%#TabLine#%999X '
+		endif
+		return s
 	endfunction
 
 	" Execute query from file
