@@ -69,7 +69,7 @@ export LESS_TERMCAP_se=$'\e[0m'           # End standout-mode
 export LESS_TERMCAP_so=$'\e[01;31;41m'    # Begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\e[0m'           # End underline
 export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
-lesskey
+lesskey >/dev/null 2>&1
 
 ## CURL
 # Generate config file
