@@ -1,69 +1,97 @@
 " ------------------------------------------------------------------------------
-" GENERAL SETTINGS
+" VUNDLE
 " ------------------------------------------------------------------------------
 
-	set autoindent                      " Autoindenting
-	set backspace=indent,eol,start      " Backspace functionality
-	set clipboard=unnamed               " OS X compatible clipboard
-	set completeopt=longest,menuone     " Show menu and preview window
-	set laststatus=2                    " Always show the StatusLine
-	set lazyredraw                      " Do not redraw while running macros
-	set list                            " Show non text characters
-	set listchars=eol:¬,tab:•·,trail:·  " Characters to use for non text
-	set matchpairs+=<:>                 " Add HTML brackets to matching pairs
-	set matchtime=1                     " Show matching bracket for .X seconds
-	set nocompatible                    " Filetype detection works better this way
-	set cursorline                      " No cursorline by default
-	set noerrorbells                    " No errorbells
-	set novisualbell                    " No visualbell
-	set nohidden                        " Closing tabs / windows also closes buffer
-	set number                          " Show line numbers
-	set nopaste                         " Do not disable autoindent etc. when pasting
-	set nowrap                          " Do not wrap lines
-	set ruler                           " Position info
-	set scrolloff=5                     " Keep a margin of X lines when scrolling
-	set shiftwidth=2                    " Shift width
-	set showcmd                         " Show command in StatusLine
-	set showmatch                       " Show matching brackets
-	set smartindent                     " Use smart indenting
-	set tabstop=2                       " Tab stop
-	set tabline=%!CustomTabLine()       " Custom tabline
-	set wildignore=.svn,*.pyc           " Ignore files in wildmode
-	set wildmode=longest,list,full      " Bash like path completion
+	set nocompatible
+	filetype off
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
+
+	" Install all plugins? :PluginInstall
+	Plugin 'airblade/vim-gitgutter'
+	Plugin 'michaeljsmith/vim-indent-object'
+	Plugin 'scrooloose/nerdtree'
+	Plugin 'vim-scripts/closetag.vim'
+	Plugin 'vim-scripts/gnupg.vim'
+	Plugin 'vim-scripts/Pydiction'
+	Plugin 'wookiehangover/jshint.vim'
+
+	call vundle#end()
+	filetype plugin indent on
+
+	" Plugin settings
+	let NERDTreeWinSize = 30
+	let NERDTreeIgnore = ['\.pyc$']
+	let g:gitgutter_sign_column_always = 1
+	let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+
+	nnoremap <LEADER>G :GitGutterToggle<CR>
+	nnoremap <LEADER>g :GitGutterLineHighlightsToggle<CR>
+	nnoremap gh        :GitGutterNextHunk<CR>
+	nnoremap gH        :GitGutterPrevHunk<CR>
+	nnoremap <C-n>     :NERDTreeToggle<CR>
 
 " ------------------------------------------------------------------------------
-" FOLDING SETTINGS
+" SETTINGS
 " ------------------------------------------------------------------------------
 
-	set fillchars=fold:·     " Character used as fill
-	set foldenable           " (Don't) fold by default (foldenable / nofoldenable)
-	set foldlevel=1          " Use X levels of folding
-	set foldmarker={,}       " Set brackets as default fold marker
-	set foldmethod=indent    " Method of folding
-	set foldminlines=1       " Do not fold when less then X lines
-	set foldnestmax=2        " Maximum of X nested folds
-	set foldtext=FoldText()  " Function used to fold text
-
-" ------------------------------------------------------------------------------
-" SEARCH & BACKUP SETTINGS
-" ------------------------------------------------------------------------------
-
-	set hlsearch                 " Highlight Search
-	set incsearch                " Incremental Search
-	set ignorecase               " Ignore cases when searching ..
-	set smartcase                " .. unless uppercase in term
-	set backup                   " Turn on backup
-	set backupdir=~/.vim/backup  " Where to put the backup files
-	set directory=~/.vim/swap    " Where to put the swap files
-
-" ------------------------------------------------------------------------------
-" CURSOR & STATUS LINE
-" ------------------------------------------------------------------------------
-
-	" Change cursor in insert-mode
+	" Cursor
 	let &t_SI = "\eP\e[3 q\e\\"
 	let &t_EI = "\eP\e[1 q\e\\"
 
+	" Colorscheme
+	colors green-n-blue
+
+	" General
+	set autoindent                                     " Autoindenting
+	set backspace=indent,eol,start                     " Backspace functionality
+	set clipboard=unnamed                              " OS X compatible clipboard
+	set completeopt=longest,menuone                    " Show menu and preview window
+	set laststatus=2                                   " Always show the StatusLine
+	set lazyredraw                                     " Do not redraw while running macros
+	set list                                           " Show non text characters
+	set listchars=eol:¬,tab:•·,trail:·                 " Characters to use for non text
+	set matchpairs+=<:>                                " Add HTML brackets to matching pairs
+	set matchtime=1                                    " Show matching bracket for .X seconds
+	set cursorline                                     " No cursorline by default
+	set noerrorbells                                   " No errorbells
+	set novisualbell                                   " No visualbell
+	set nohidden                                       " Closing tabs / windows also closes buffer
+	set number                                         " Show line numbers
+	set nopaste                                        " Do not disable autoindent etc. when pasting
+	set nowrap                                         " Do not wrap lines
+	set ruler                                          " Position info
+	set scrolloff=5                                    " Keep a margin of X lines when scrolling
+	set shiftwidth=2                                   " Shift width
+	set showcmd                                        " Show command in StatusLine
+	set showmatch                                      " Show matching brackets
+	set smartindent                                    " Use smart indenting
+	set tabstop=2                                      " Tab stop
+	set tabline=%!CustomTabLine()                      " Custom tabline
+	set wildignore=.svn,*.pyc                          " Ignore files in wildmode
+	set wildmode=longest,list,full                     " Bash like path completion
+
+	" Folding
+	set fillchars=fold:·                               " Character used as fill
+	set foldenable                                     " (Don't) fold by default (foldenable / nofoldenable)
+	set foldlevel=1                                    " Use X levels of folding
+	set foldmarker={,}                                 " Set brackets as default fold marker
+	set foldmethod=indent                              " Method of folding
+	set foldminlines=1                                 " Do not fold when less then X lines
+	set foldnestmax=2                                  " Maximum of X nested folds
+	set foldtext=FoldText()                            " Function used to fold text
+
+	" Search
+	set hlsearch                                       " Highlight Search
+	set incsearch                                      " Incremental Search
+	set ignorecase                                     " Ignore cases when searching ..
+	set smartcase                                      " .. unless uppercase in term
+
+	" Backup
+	set noswapfile                                     " Turn of swapfiles
+	set nobackup                                       " Turn off backup
+
+	" Statusline
 	set statusline=%F                                  " Filename and path
 	set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},  " File encoding
 	set statusline+=%{&ff}]                            " File format
@@ -74,110 +102,6 @@
 	set statusline+=\ %c,                              " Cursor column
 	set statusline+=\ %l/%L                            " Cursor line/total lines
 	set statusline+=\ %P                               " Percent through file
-
-" ------------------------------------------------------------------------------
-" SYNTAX SETTINGS
-" ------------------------------------------------------------------------------
-
-	set t_Co=256        " Use 256 colors
-	set t_ut=           " Disable background color erase
-	set background=dark " Use dark background
-
-	syntax on           " Turn on syntax highlighting
-	filetype on         " Turn on filetype detection
-	filetype plugin on  " Causes errors in filetype detection
-
-	highlight clear     " Clear all highlighting
-
-	" Code syntax
-	highlight Normal          ctermfg=250  ctermbg=234
-	highlight Underlined      ctermfg=250  ctermbg=234  cterm=underline
-	highlight Comment         ctermfg=238  ctermbg=none
-	highlight SpecialComment  ctermfg=238  ctermbg=none
-	highlight Delimiter       ctermfg=238  ctermbg=none
-
-	highlight String          ctermfg=39   ctermbg=none
-	highlight Character       ctermfg=39   ctermbg=none
-
-	highlight Constant        ctermfg=30   ctermbg=none
-	highlight Number          ctermfg=30   ctermbg=none
-	highlight Boolean         ctermfg=30   ctermbg=none
-	highlight Float           ctermfg=30   ctermbg=none
-
-	highlight Statement       ctermfg=70   ctermbg=none
-	highlight Conditional     ctermfg=70   ctermbg=none
-	highlight Repeat          ctermfg=70   ctermbg=none
-	highlight Operator        ctermfg=70   ctermbg=none
-	highlight Keyword         ctermfg=70   ctermbg=none
-	highlight SpecialChar     ctermfg=70   ctermbg=none
-	highlight Tag             ctermfg=70   ctermbg=none
-
-	highlight Define          ctermfg=117  ctermbg=none
-	highlight Type            ctermfg=117  ctermbg=none
-	highlight Structure       ctermfg=117  ctermbg=none
-	highlight Typedef         ctermfg=117  ctermbg=none
-	highlight Special         ctermfg=117  ctermbg=none
-
-	highlight Function        ctermfg=42   ctermbg=none
-	highlight Exception       ctermfg=42   ctermbg=none
-	highlight PreProc         ctermfg=42   ctermbg=none
-	highlight Include         ctermfg=42   ctermbg=none
-	highlight PreCondit       ctermfg=42   ctermbg=none
-
-	highlight Identifier      ctermfg=67   ctermbg=none
-	highlight StorageClass    ctermfg=67   ctermbg=none
-
-	highlight Label           ctermfg=193  ctermbg=none
-	highlight Macro           ctermfg=193  ctermbg=none
-	highlight Debug           ctermfg=193  ctermbg=none
-
-	" Special types
-	highlight Folded          ctermfg=30   ctermbg=0
-	highlight FoldColumn      ctermfg=30   ctermbg=234
-	highlight InvalidStyle    ctermfg=124  ctermbg=none
-	highlight NonText         ctermfg=235  ctermbg=none
-	highlight SpecialKey      ctermfg=235  ctermbg=none
-	highlight WhiteSpace      ctermfg=235  ctermbg=none
-
-	" Editor
-	highlight Cursor          ctermfg=232  ctermbg=250
-	highlight CursorLine      ctermfg=none ctermbg=236  cterm=none
-	highlight CursorColumn    ctermfg=none ctermbg=232  cterm=none
-	highlight CursorLineNr    ctermfg=248  ctermbg=236
-	highlight LineNr          ctermfg=238  ctermbg=none
-	highlight SignColumn      ctermfg=none ctermbg=234
-	highlight StatusLine      ctermfg=232  ctermbg=248
-	highlight StatusLineNC    ctermfg=232  ctermbg=238
-	highlight TabLine         ctermfg=238  ctermbg=232  cterm=none
-	highlight TabLineFill     ctermfg=232  ctermbg=232
-	highlight Visual          ctermfg=232  ctermbg=39
-	highlight VertSplit       ctermfg=232  ctermbg=232
-	highlight MatchParen      ctermfg=0    ctermbg=246
-
-	" Autocomplete
-	highlight Pmenu           ctermfg=37   ctermbg=232
-	highlight PmenuSel        ctermfg=193  ctermbg=70
-	highlight PmenuSbar       ctermfg=none ctermbg=232
-	highlight PmenuThumb      ctermfg=100  ctermbg=none
-
-	" NERDtree
-	highlight Title           ctermfg=67   ctermbg=none
-	highlight Directory       ctermfg=70   ctermbg=none
-
-	" Diff
-	highlight DiffAdd         ctermfg=none ctermbg=22
-	highlight DiffChange      ctermfg=100  ctermbg=0
-	highlight DiffDelete      ctermfg=160  ctermbg=52
-	highlight DiffText        ctermfg=none ctermbg=58
-
-	" Messages
-	highlight Error           ctermfg=124  ctermbg=174   cterm=underline
-	highlight Search          ctermfg=193  ctermbg=70
-	highlight IncSearch       ctermfg=70   ctermbg=193
-	highlight Todo            ctermfg=238  ctermbg=70
-	highlight ModeMsg         ctermfg=45   ctermbg=none
-	highlight MoreMsg         ctermfg=45   ctermbg=none
-	highlight WarningMsg      ctermfg=174  ctermbg=124
 
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -214,10 +138,6 @@
 		autocmd WinLeave * setlocal nocursorline
 	augroup end
 
-" ------------------------------------------------------------------------------
-" FILETYPES
-" ------------------------------------------------------------------------------
-
 	" Set filetypes for certain extensions
 	autocmd BufNewFile,BufRead *.coffee     set filetype=coffee
 	autocmd BufNewFile,BufRead *.css        set filetype=css
@@ -228,29 +148,17 @@
 	autocmd BufNewFile,BufRead *.mustache   set filetype=mustache
 	autocmd BufNewFile,BufRead *.plist      set filetype=xml
 	autocmd BufNewFile,BufRead *.sql        set filetype=mysql
+	autocmd BufNewFile,BufRead *.blade.php  set filetype=blade
 
 	" Folder specifix filetypes
 	autocmd BufNewFile,BufRead /etc/nginx/*   set filetype=nginx
 	autocmd BufNewFile,BufRead /etc/nginx/*/* set filetype=nginx
 
 	" Omnicomplete
-	autocmd  FileType css        set omnifunc=csscomplete#CompleteCSS
-	autocmd  FileType html       set omnifunc=htmlcomplete#CompleteTags
-	autocmd  FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-	autocmd  FileType python     set omnifunc=pythoncomplete#Complete
-
-	" Easy filetype switching
-	nnoremap <LEADER>ta :set filetype=htmljinja<CR>
-	nnoremap <LEADER>tc :set filetype=css<CR>
-	nnoremap <LEADER>th :set filetype=html<CR>
-	nnoremap <LEADER>tj :set filetype=javascript<CR>
-	nnoremap <LEADER>tm :set filetype=mysql<CR>
-	nnoremap <LEADER>to :set filetype=coffee<CR>
-	nnoremap <LEADER>tp :set filetype=php<CR>
-	nnoremap <LEADER>tq :set filetype=jquery<CR>
-	nnoremap <LEADER>tr :set filetype=rst<CR>
-	nnoremap <LEADER>ts :set filetype=sql<CR>
-	nnoremap <LEADER>ty :set filetype=python<CR>
+	autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
+	autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
+	autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+	autocmd FileType python     set omnifunc=pythoncomplete#Complete
 
 	" Override default filetype settings
 	autocmd BufNewFile,BufRead *.coffee set sw=2 ts=2 et nosi foldlevel=1
@@ -260,26 +168,6 @@
 
 	" SetWrap for certain filetypes
 	autocmd BufRead *.md,*.txt call SetWrap()
-
-" ------------------------------------------------------------------------------
-" PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
-
-	" NERDTree
-	let NERDTreeWinSize = 30
-
-	" ZenCoding
-	let g:user_zen_leader_key     = '<C-y>'
-	let g:user_zen_expandabbr_key = '<C-e>'
-
-	" PyDiction
-	let g:pydiction_location = '~/.vim/plugin/pydiction/complete-dict'
-
-	" Closetag
-	" Usage: <C-_> closes current tag
-	let g:closetag_default_xml=1
-	autocmd FileType html,htmljinja,mustache,php let b:closetag_html_style=1
-	autocmd FileType html,htmljinja,mustache,php,xml source ~/.vim/scripts/closetag.vim
 
 " ------------------------------------------------------------------------------
 " FUNCTIONS
@@ -302,28 +190,28 @@
 	" Custom TabLine
 	function! CustomTabLine()
 		let s = ''
-	  for i in range(tabpagenr('$'))
-	    " Select the highlighting
-	    if i + 1 == tabpagenr()
-	      let s .= '%#TabLineSel#'
-	    else
-	      let s .= '%#TabLine#'
-	    endif
-	    " Set the tab page number (for mouse clicks)
-	    let s .= '%' . (i + 1) . 'T'
-	    " The label is made by CustomTabLabel()
-	    let s .= ' %{CustomTabLabel(' . (i + 1) . ')} '
-	  endfor
-	  " After the last tab fill with TabLineFill and reset tab page nr
-	  let s .= '%#TabLineFill#%T'
-	  " Right-align the label to close the current tab page
-	  if tabpagenr('$') > 1
-	    let s .= '%=%#TabLine#%999X '
-	  endif
-	  return s
+		for i in range(tabpagenr('$'))
+			" Select the highlighting
+			if i + 1 == tabpagenr()
+				let s .= '%#TabLineSel#'
+			else
+				let s .= '%#TabLine#'
+			endif
+			" Set the tab page number (for mouse clicks)
+			let s .= '%' . (i + 1) . 'T'
+			" The label is made by CustomTabLabel()
+			let s .= ' %{CustomTabLabel(' . (i + 1) . ')} '
+		endfor
+		" After the last tab fill with TabLineFill and reset tab page nr
+		let s .= '%#TabLineFill#%T'
+		" Right-align the label to close the current tab page
+		if tabpagenr('$') > 1
+			let s .= '%=%#TabLine#%999X '
+		endif
+		return s
 	endfunction
 
-	" Execute query from fil
+	" Execute query from file
 	let g:mysql_hostname = ''
 	function! ExecuteMySQLQuery( str )
 		let g:mysql_hostname = input('Hostname: '.g:mysql_hostname)
@@ -476,12 +364,6 @@
 	" Execute macro at `q`
 	nnoremap K @q
 
-	" Plugins
-	nnoremap  <C-n>     :NERDTreeToggle<CR>
-	nnoremap  <C-x>     <LEADER>c<SPACE>
-	inoremap  <C-o>     <C-x><C-o>
-	nnoremap  <LEADER>j :JSHint<CR>
-
 	" Tabs
 	noremap <C-H> :tabp<CR>
 	noremap <C-L> :tabn<CR>
@@ -511,20 +393,6 @@
 	" Sessions
 	noremap <LEADER>SS :wa<CR>:mksession! ~/.vim/sessions/default<CR>
 	noremap <LEADER>SO :wa<CR>:so ~/.vim/sessions/default<CR>
-
-	" GitGutter
-	nnoremap <LEADER>G :GitGutterToggle<CR>
-	nnoremap <LEADER>g :GitGutterLineHighlightsToggle<CR>
-	nnoremap gh        :GitGutterNextHunk<CR>
-	nnoremap gH        :GitGutterPrevHunk<CR>
-
-	" ShowMarks
-	nnoremap <LEADER>M :DoShowMarks!<CR>
-	nnoremap `         :ShowMarksOnce<CR>`
-	nnoremap '         :ShowMarksOnce<CR>'
-
-	" Open file in default application
-	noremap <C-O> :! open %<CR><CR>
 
 	" Yank to end of line
 	noremap Y y$

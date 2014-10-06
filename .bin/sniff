@@ -5,11 +5,12 @@
 # Sniff HTTP requests using tcpdump
 
 TCPDUMP=$(which tcpdump)
-HOST=$1
-METHOD=$2
+DEV=$1
+HOST=$2
+METHOD=$3
 
 if [[ -z "$HOST" ]]; then
-	echo -e "Usage: $0 [host [method]]"
+	echo -e "Usage: $0 device host [method]"
 	exit 1
 fi
 
@@ -29,4 +30,4 @@ case $METHOD in
 		CMD="$CMD and (tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420 or tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x48454144 or tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504f5354)"
 esac
 
-$TCPDUMP -s 0 -Aqnn "$CMD"
+$TCPDUMP -i $DEV -s 0 -Aqnn "$CMD"

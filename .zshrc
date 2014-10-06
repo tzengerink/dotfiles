@@ -88,11 +88,12 @@ do_nothing () { }
 zle -N do_nothing
 bindkey "^l" do_nothing
 
+# Search history
+bindkey "^r" history-search-backward
+
 ## QUICK OPEN
-# vim          Ctrl-n
-# screen -dR   Ctrl-r
+# vim  Ctrl-n
 bindkey -s "^n" "vim\n"
-bindkey -s "^r" "tmux attach -d || tmux new\n"
 
 # PROMPT
 # ------
@@ -158,7 +159,7 @@ function pre_prompt_envs {
 	NODE=""
 	PY=""
 
-	if [[ -f "composer.phar" ]]; then
+	if [[ -f "composer.json" ]]; then
 		COMPOSER="C"
 	fi
 

@@ -1,1 +1,4 @@
+bundle/
+sessions/
 .netrwhist
+!.gitkeep

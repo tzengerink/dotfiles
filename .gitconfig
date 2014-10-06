@@ -4,10 +4,11 @@
 	ca = "!git add -A && git ci"
 	ci = commit
 	co = "checkout -q"
-	di = difftool
+	di = "!git difftool $(git status -s | awk '{print $2}' | egrep -v '.*\\.min\\.(css|js)')"
 	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --graph --date=relative"
 	mg = "merge --no-ff"
 	pl = "!git pull && git submodule foreach git pull"
+	sh = "!fn() { git difftool $1^!; }; fn"
 	st = "status -s --ignore-submodules=dirty"
 [color]
 	ui = auto
@@ -32,7 +33,7 @@
 	nobranch = red bold
 [core]
 	excludesfile = ~/.gitignore
-	editor = vim
+	editor = vi -u NONE
 	pager = less -F -X
 [diff]
 	tool = vimdiff
@@ -46,6 +47,6 @@
 	prompt = false
 [user]
 	email = t.zengerink@gmail.com
-	name = T. Zengerink
+	name = Teun Zengerink
 [push]
 	default = matching

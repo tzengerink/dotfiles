@@ -5,6 +5,7 @@ if [[ ! -d "$@" && "$@" != "-" && ! -z "$@" ]]; then
     echo -e "No such directory: $@"
 else
     # VARIABLES
+
     PY_ENV=".py-env"
     NODE_ENV=".node-env"
 
@@ -21,5 +22,5 @@ else
     [[ -d "$NODE_ENV" ]] && source $NODE_ENV/bin/activate
 
 		# Add composer binary packages to path
-		[[ -f "composer.phar" ]] && export PATH=$(pwd)/vendor/bin:$PATH
+		[[ -f "composer.json" ]] && export PATH=$(pwd)/vendor/bin:$PATH
 fi

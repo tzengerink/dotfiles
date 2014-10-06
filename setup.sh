@@ -17,3 +17,7 @@ for FILE in `find $DIR -maxdepth 1 -name ".*" \! -name "." \! -name ".dotfiles" 
 	fi
 	ln -s $FILE ~/$BASENAME
 done
+
+git submodule init
+git submodule update
+vim +PluginInstall +qall
