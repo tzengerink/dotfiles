@@ -10,7 +10,9 @@
 	" Install all plugins? :PluginInstall
 	Plugin 'airblade/vim-gitgutter'
 	Plugin 'michaeljsmith/vim-indent-object'
+	Plugin 'rodjek/vim-puppet'
 	Plugin 'scrooloose/nerdtree'
+	Plugin 'tpope/vim-surround'
 	Plugin 'vim-scripts/closetag.vim'
 	Plugin 'vim-scripts/gnupg.vim'
 	Plugin 'vim-scripts/Pydiction'
