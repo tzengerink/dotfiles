@@ -57,6 +57,7 @@ alias du1='du -d 1'
 alias dwn='curl -sO'
 alias fn='find . -name'
 alias hi='history -d | tail -20'
+alias tmux='tmux attach || tmux new'
 alias vis='vim -S ~/.vim/sessions/default'
 alias viq='vim "+set ft=mysql" /var/tmp/query.sql'
 
