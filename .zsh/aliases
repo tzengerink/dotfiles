@@ -1,6 +1,7 @@
 # GLOBAL
 # ------
 
+alias -g A=' -- && echo "\a"'
 alias -g C='| wc -l'
 alias -g H='| head'
 alias -g L='| less'

@@ -23,7 +23,7 @@
 
 	" Plugin settings
 	let NERDTreeWinSize = 30
-	let NERDTreeIgnore = ['\.pyc$']
+	let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 	let g:gitgutter_sign_column_always = 1
 	let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 
