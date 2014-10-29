@@ -57,7 +57,7 @@
 	set matchpairs+=<:>                                " Add HTML brackets to matching pairs
 	set matchtime=1                                    " Show matching bracket for .X seconds
 	set modeline                                       " Allow modeline comment settings
-	set modelines=1                                    " Allow modeline comment settings
+	set modelines=5                                    " Check the first 5 lines for settings
 	set noerrorbells                                   " No errorbells
 	set novisualbell                                   " No visualbell
 	set nohidden                                       " Closing tabs / windows also closes buffer
