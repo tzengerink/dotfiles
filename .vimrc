@@ -49,13 +49,15 @@
 	set backspace=indent,eol,start                     " Backspace functionality
 	set clipboard=unnamed                              " OS X compatible clipboard
 	set completeopt=longest,menuone                    " Show menu and preview window
+	set cursorline                                     " No cursorline by default
 	set laststatus=2                                   " Always show the StatusLine
 	set lazyredraw                                     " Do not redraw while running macros
 	set list                                           " Show non text characters
 	set listchars=eol:¬,tab:•·,trail:·                 " Characters to use for non text
 	set matchpairs+=<:>                                " Add HTML brackets to matching pairs
 	set matchtime=1                                    " Show matching bracket for .X seconds
-	set cursorline                                     " No cursorline by default
+	set modeline                                       " Allow modeline comment settings
+	set modelines=5                                    " Check the first 5 lines for settings
 	set noerrorbells                                   " No errorbells
 	set novisualbell                                   " No visualbell
 	set nohidden                                       " Closing tabs / windows also closes buffer
