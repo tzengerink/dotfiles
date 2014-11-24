@@ -171,7 +171,7 @@
 	autocmd BufNewFile,BufRead *.php    set fdn=2 noet foldlevel=1
 
 	" SetWrap for certain filetypes
-	autocmd BufRead *.md,*.txt call SetWrap()
+	autocmd BufRead *.md call SetWrap()
 
 " ------------------------------------------------------------------------------
 " FUNCTIONS
