@@ -15,12 +15,12 @@ else
     # Deactivate if possible
     deactivate 2>/dev/null
     deactivate_node 2>/dev/null
-    export PATH=$_PATH
+    # FIX: export PATH=$_PATH
 
     # Activate if (parent-)directory has environment
     [[ -d "$PY_ENV" ]] && source $PY_ENV/bin/activate
     [[ -d "$NODE_ENV" ]] && source $NODE_ENV/bin/activate
 
 		# Add composer binary packages to path
-		[[ -f "composer.json" ]] && export PATH=$(pwd)/vendor/bin:$PATH
+		# FIX: [[ -f "composer.json" ]] && export PATH=$(pwd)/vendor/bin:$PATH
 fi
