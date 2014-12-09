@@ -19,18 +19,18 @@
 	local = normal
 	remote = red bold
 [color "diff"]
-	commit = white bold
-	meta = black bold
-	frag = black bold
-	old = black bold
-	new = white bold
+	commit = green bold
+	meta = red bold
+	frag = red bold
+	old = red bold
+	new = green bold
 [color "status"]
 	header = normal
-	added = white bold
-	updated = white bold
-	changed = black bold
-	untracked = black bold
-	nobranch = red bold
+	added = red bold
+	updated = red bold
+	changed = green bold
+	untracked = green bold
+	nobranch = white bold
 [core]
 	excludesfile = ~/.gitignore
 	editor = vi -u NONE
