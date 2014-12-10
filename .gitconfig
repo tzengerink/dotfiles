@@ -15,9 +15,9 @@
 	branch = auto
 	status = auto
 [color "branch"]
-	current = white bold
-	local = normal
-	remote = red bold
+	current = green bold
+	local = white bold
+	remote = normal
 [color "diff"]
 	commit = green bold
 	meta = red bold
