@@ -367,7 +367,7 @@
 	noremap <LEADER><SPACE> zMzv
 
 	" Execute macro at `q`
-	nnoremap K @q
+	nnoremap ! @q
 
 	" Tabs
 	noremap <C-H> :tabp<CR>
