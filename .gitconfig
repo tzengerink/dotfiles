@@ -26,10 +26,10 @@
 	new = green bold
 [color "status"]
 	header = normal
-	added = red bold
-	updated = red bold
-	changed = green bold
-	untracked = green bold
+	added = green bold
+	updated = green bold
+	changed = red bold
+	untracked = red bold
 	nobranch = white bold
 [core]
 	excludesfile = ~/.gitignore
