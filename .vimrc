@@ -7,8 +7,12 @@
 	set rtp+=~/.vim/bundle/Vundle.vim
 	call vundle#begin()
 
+	" Let vundle manage itself
+	Plugin 'gmarik/Vundle.vim'
+
 	" Install all plugins? :PluginInstall
 	Plugin 'airblade/vim-gitgutter'
+	Plugin 'davidhalter/jedi-vim'
 	Plugin 'fatih/vim-go'
 	Plugin 'hdima/python-syntax'
 	Plugin 'jamessan/vim-gnupg'
@@ -17,7 +21,6 @@
 	Plugin 'tpope/vim-surround'
 	Plugin 'vim-scripts/closetag.vim'
 	Plugin 'vim-scripts/gnupg.vim'
-	Plugin 'vim-scripts/Pydiction'
 	Plugin 'wookiehangover/jshint.vim'
 
 	call vundle#end()
