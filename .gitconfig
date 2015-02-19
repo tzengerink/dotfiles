@@ -17,7 +17,7 @@
 [color "branch"]
 	current = green bold
 	local = white bold
-	remote = normal
+	remote = black bold
 [color "diff"]
 	commit = green bold
 	meta = red bold

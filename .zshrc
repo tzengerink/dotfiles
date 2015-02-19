@@ -119,7 +119,10 @@ function pre_prompt_repo {
 		if [[ -d ".git" ]]; then
 			local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 			local HASH=$(git rev-parse --short HEAD 2>/dev/null)
-			echo -e "%B%{$fg[black]%}[ %b%{$fg[white]%}$BRANCH%{$fg[black]%}%B:%b%{$fg[white]%}$HASH %B%{$fg[black]%}]%{$reset_color%}"
+			if [[ $BRANCH = "master" ]]; then
+				local BRANCH="%B%{$fg[red]%}$BRANCH%{$fg[black]%}%B"
+			fi
+			echo -e "%B%{$fg[black]%}[ $BRANCH:%B%{$fg[black]%}$HASH ]%{$reset_color%}"
 		else
 			echo ""
 		fi
