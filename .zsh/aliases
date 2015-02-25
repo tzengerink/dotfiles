@@ -12,7 +12,7 @@ alias -g J='| python2 -mjson.tool'
 # ----------
 
 alias cd='cd-wrapper'
-alias l='ls -A'
+alias l='ls -l'
 alias ll='ls -lAh'
 alias lr='ls -lR'              # Recursively list
 alias lsd='ls -l | grep "^d"'  # List directories
