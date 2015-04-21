@@ -11,7 +11,7 @@ alias -g J='| python2 -mjson.tool'
 # NAVIGATION
 # ----------
 
-alias cd='cd-wrapper'
+# FIX: alias cd='cd-wrapper'
 alias l='ls -l'
 alias ll='ls -lAh'
 alias lr='ls -lR'              # Recursively list
