@@ -176,7 +176,7 @@ function pre_prompt_envs {
 	if [[ -z "$NODE" ]] && [[ -z "$PY" ]] && [[ -z "$COMPOSER" ]]; then
 		echo -e ""
 	else
-		echo -e "%B%{$fg[black]%}[ $COMPOSER$NODE$PY %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$COMPOSER$NODE$PY %{$fg[black]%}]%b%{$reset_color%}"
 	fi
 }
 
