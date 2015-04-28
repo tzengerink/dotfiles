@@ -29,3 +29,4 @@
 --type-set=markdown=.md
 --type-set=py=.py
 --type-set=txt=.txt
+--type-set=rst=.rst
