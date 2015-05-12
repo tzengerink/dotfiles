@@ -40,7 +40,6 @@ export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
 export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
-export _PATH=$PATH
 export NMAPDIR=~/.nmap
 
 ## FUNCTION AND ALIASES

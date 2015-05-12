@@ -33,7 +33,7 @@
 	nobranch = white bold
 [core]
 	excludesfile = ~/.gitignore
-	editor = vi -u NONE
+	editor = vi
 	pager = less -F -X
 [diff]
 	tool = vimdiff
