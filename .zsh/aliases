@@ -61,7 +61,7 @@ alias hi='history -d | tail -20'
 alias tmux='tmux attach || tmux new'
 alias vis='vim -S ~/.vim/sessions/default'
 alias viq='vim "+set ft=mysql" /var/tmp/query.sql'
-alias rain='curl "http://gps.buienradar.nl/getrr.php?lat=52.36&lon=4.9"'
+alias rain='echo "0 means dry, 255 mean heavy rain" && curl "http://gps.buienradar.nl/getrr.php?lat=52.36&lon=4.9"'
 
 # SUFFIXES
 # --------
