@@ -73,7 +73,7 @@ highlight TabLine         ctermfg=238  ctermbg=232  cterm=none
 highlight TabLineFill     ctermfg=232  ctermbg=232
 highlight Visual          ctermfg=232  ctermbg=39
 highlight VertSplit       ctermfg=232  ctermbg=232
-highlight MatchParen      ctermfg=0    ctermbg=246
+highlight MatchParen      ctermfg=0    ctermbg=30
 
 " Autocomplete
 highlight Pmenu           ctermfg=37   ctermbg=232
