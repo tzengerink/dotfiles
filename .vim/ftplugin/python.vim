@@ -11,11 +11,3 @@
 " ------------------------------------------------------------------------------
 
 	setlocal foldlevel=0
-
-" ------------------------------------------------------------------------------
-" AUTO COMMANDS
-" ------------------------------------------------------------------------------
-
-	" Highlight invalid style, example:
-	" - Over 80 character in a single line
-	autocmd BufEnter,InsertLeave <buffer> 2match InvalidStyle /\%80v.\+/

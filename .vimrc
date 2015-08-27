@@ -17,6 +17,7 @@
 	Plugin 'hdima/python-syntax'
 	Plugin 'jamessan/vim-gnupg'
 	Plugin 'michaeljsmith/vim-indent-object'
+	Plugin 'rkulla/pydiction'
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'tpope/vim-surround'
 	Plugin 'vim-scripts/closetag.vim'
@@ -30,7 +31,7 @@
 	let NERDTreeWinSize = 30
 	let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 	let g:gitgutter_sign_column_always = 1
-	let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+	let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
 	nnoremap <LEADER>G :GitGutterToggle<CR>
 	nnoremap <LEADER>g :GitGutterLineHighlightsToggle<CR>
