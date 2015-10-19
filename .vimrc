@@ -59,7 +59,7 @@
 	set laststatus=2                                   " Always show the StatusLine
 	set lazyredraw                                     " Do not redraw while running macros
 	set list                                           " Show non text characters
-	set listchars=eol:¬,tab:•·,trail:·                 " Characters to use for non text
+	set listchars=eol:¬,tab:→\ ,trail:▒,nbsp:·         " Characters to use for non text
 	set matchpairs+=<:>                                " Add HTML brackets to matching pairs
 	set matchtime=1                                    " Show matching bracket for .X seconds
 	set modeline                                       " Allow modeline comment settings
@@ -372,7 +372,7 @@
 	noremap <LEADER><SPACE> zMzv
 
 	" Execute macro at `q`
-	nnoremap ! @q
+	nnoremap K @q
 
 	" Tabs
 	noremap <C-H> :tabp<CR>

@@ -20,7 +20,7 @@
 
 --color
 --color-filename=BOLD BLACK
---color-match=BOLD WHITE
+--color-match=BOLD GREEN
 
 # TYPES
 # -----
