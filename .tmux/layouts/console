@@ -1,3 +1,1 @@
-#!/bin/bash
-
-tmux split-window -v -p 3 -t 1
+split-window -v -p 3 -t 1
