@@ -159,6 +159,7 @@
 	autocmd BufNewFile,BufRead *.plist      set filetype=xml
 	autocmd BufNewFile,BufRead *.sql        set filetype=mysql
 	autocmd BufNewFile,BufRead *.blade.php  set filetype=blade
+	autocmd BufNewFile,BufRead *.tac        set filetype=python
 
 	" Folder specifix filetypes
 	autocmd BufNewFile,BufRead /etc/nginx/*   set filetype=nginx
