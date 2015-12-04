@@ -13,6 +13,7 @@
 	" Install all plugins? :PluginInstall
 	Plugin 'airblade/vim-gitgutter'
 	Plugin 'davidhalter/jedi-vim'
+	Plugin 'evidens/vim-twig'
 	Plugin 'fatih/vim-go'
 	Plugin 'hdima/python-syntax'
 	Plugin 'jamessan/vim-gnupg'
@@ -175,7 +176,7 @@
 	autocmd BufNewFile,BufRead *.coffee set sw=2 ts=2 et nosi foldlevel=1
 	autocmd BufNewFile,BufRead *.less   set foldmethod=indent fdn=4 noet
 	autocmd BufNewFile,BufRead *.md     set et fdn=0 sw=4 ts=4
-	autocmd BufNewFile,BufRead *.php    set fdn=2 noet foldlevel=1
+	autocmd BufNewFile,BufRead *.php    set fdn=2 et foldlevel=1 sw=4 ts=4
 
 	" SetWrap for certain filetypes
 	autocmd BufRead *.md call SetWrap()
@@ -351,9 +352,6 @@
 	" Quick command line access
 	noremap ; :
 	noremap :: ;
-
-	" Quick shell access
-	noremap <C-d> :sh<CR>
 
 	" Save file as superuser
 	noremap <LEADER>WW :%!sudo tee > /dev/null %<CR>
