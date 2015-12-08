@@ -1,5 +1,0 @@
-[helpers]
-editor-cmd = vi
-
-[miscellany]
-global-ignores = .*~ *~ .DS_Store
