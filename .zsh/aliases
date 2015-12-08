@@ -1,17 +1,9 @@
-# GLOBAL
-# ------
-
-alias -g A=' -- && echo "\a"'
-alias -g C='| wc -l'
-alias -g H='| head'
+# Global
 alias -g L='| less'
 alias -g T='| tail'
 alias -g J='| python2 -mjson.tool'
 
-# NAVIGATION
-# ----------
-
-# FIX: alias cd='cd-wrapper'
+# Navigation
 alias l='ls -l'
 alias ll='ls -lAh'
 alias lr='ls -lR'              # Recursively list
@@ -19,19 +11,8 @@ alias lsd='ls -l | grep "^d"'  # List directories
 alias lt='ll -rt'              # Sort by date
 alias lx='ll -Bx'              # Sort by extension
 alias lz='ll -rS'              # Sort by size
-alias real='cd $(pwd -P)'      # Go to real path of symlink
-alias ..='up'                  # Alias for the up function
 
-# VERSION CONTROL
-# ---------------
-
-alias svn='svn-wrapper'
-alias glog-branch='git log --merges --first-parent --pretty=oneline'
-alias greset='git reset -q --hard HEAD'
-
-# VIRTUAL ENVIRONMENTS
-# --------------------
-
+# Virtual environments
 alias pve='virtualenv .py-env && cd .'
 alias p2ve='virtualenv .py-env --python=python2 && cd .'
 alias pva='source .py-env/bin/activate'
@@ -40,41 +21,6 @@ alias nve='nodeenv .node-env && cd .'
 alias nva='source .node-env/bin/activate'
 alias nvd='deactivate_node'
 
-# SEARCH GOOGLE
-# -------------
-
-alias google='~/.bin/google-search.py'
-alias gh='~/.bin/google-search.py --site github.com -a'
-alias mdn='~/.bin/google-search.py --site developer.mozilla.org -a'
-alias sf='~/.bin/google-search.py --site serverfault.com -a'
-alias so='~/.bin/google-search.py --site stackoverflow.com -a'
-
-# OTHER
-# -----
-
-alias df='df -h'
-alias digs='dig +short +identify'
-alias du1='du -d 1'
-alias dwn='curl -sO'
-alias fn='find . -name'
-alias hi='history -d | tail -20'
+# Other
 alias tmux='tmux attach || tmux new'
-alias vis='vim -S ~/.vim/sessions/default'
-alias viq='vim "+set ft=mysql" /var/tmp/query.sql'
 alias rain='echo "0 means dry, 255 means heavy rain" && curl "http://gps.buienradar.nl/getrr.php?lat=52.36&lon=4.9"'
-
-# SUFFIXES
-# --------
-
-alias -s coffee=vim
-alias -s css=vim
-alias -s htm=vim
-alias -s html=vim
-alias -s js=vim
-alias -s markdown=vim
-alias -s md=vim
-alias -s php=vim
-alias -s sql=vim
-alias -s txt=vim
-alias -s vim=vim
-alias -s xml=vim
