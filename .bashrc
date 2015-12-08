@@ -17,4 +17,4 @@ export HISTFILESIZE=1000
 export HISTTIMEFORMAT="%T  "
 export HISTIGNORE="ls:ls *:ll:la:ld:cd:cd -:pwd:* --help"
 
-source ~/.localrc
+[[ -f ~/.localrc ]] && source ~/.localrc
