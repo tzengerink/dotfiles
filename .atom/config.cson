@@ -7,6 +7,10 @@
     invisibles: {}
     fontSize: 10
   core: {}
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+    squashDirectoryNames: true
 ".js.source":
   editor:
     tabLength: 4
