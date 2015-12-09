@@ -6,4 +6,5 @@
   editor:
     invisibles: {}
     fontSize: 10
-  core: {}
+  core:
+    projectHome: "/Users/teun/repos"
