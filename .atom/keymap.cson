@@ -1,9 +1,8 @@
-# Vim-mode
+'atom-text-editor':
+  'ctrl-o': 'tree-view:toggle-focus'
+
 'atom-text-editor.vim-mode.insert-mode':
   'j j': 'custom:quick-save'
 
-# Tree view
-'atom-text-editor':
-  'ctrl-o': 'tree-view:toggle-focus'
 '.tree-view':
   'o': 'tree-view:open-selected-entry'

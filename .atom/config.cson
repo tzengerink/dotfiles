@@ -7,3 +7,9 @@
     invisibles: {}
     fontSize: 10
   core: {}
+".js.source":
+  editor:
+    tabLength: 4
+".python.source":
+  editor:
+    tabLength: 4
