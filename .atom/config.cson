@@ -9,7 +9,6 @@
   core: {}
   "tree-view":
     hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
     squashDirectoryNames: true
 ".js.source":
   editor:
