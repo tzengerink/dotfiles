@@ -12,9 +12,10 @@
   "tree-view":
     hideIgnoredNames: true
     squashDirectoryNames: true
-".python.source":
+  minimap: {}
+".js.source":
   editor:
     tabLength: 4
-".js.source":
+".python.source":
   editor:
     tabLength: 4
