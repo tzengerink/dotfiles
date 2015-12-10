@@ -6,13 +6,15 @@
   editor:
     invisibles: {}
     fontSize: 10
+    showInvisibles: true
+    showIndentGuide: true
   core: {}
   "tree-view":
     hideIgnoredNames: true
     squashDirectoryNames: true
-".js.source":
+".python.source":
   editor:
     tabLength: 4
-".python.source":
+".js.source":
   editor:
     tabLength: 4
