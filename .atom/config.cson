@@ -13,6 +13,7 @@
     hideIgnoredNames: true
     squashDirectoryNames: true
   minimap: {}
+  "spell-check": {}
 ".js.source":
   editor:
     tabLength: 4
