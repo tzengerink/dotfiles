@@ -9,7 +9,14 @@
     showInvisibles: true
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
-  core: {}
+  core:
+    ignoredNames: [
+      ".git"
+      ".DS_Store"
+      "._*"
+      "*.pyc"
+      "*.egg-info"
+    ]
   "tree-view":
     hideIgnoredNames: true
     squashDirectoryNames: true
