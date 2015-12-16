@@ -22,9 +22,9 @@
     squashDirectoryNames: true
   minimap: {}
   "spell-check": {}
-".python.source":
+".js.source":
   editor:
     tabLength: 4
-".js.source":
+".python.source":
   editor:
     tabLength: 4
