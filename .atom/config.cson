@@ -22,6 +22,9 @@
     squashDirectoryNames: true
   minimap: {}
   "spell-check": {}
+  tabs:
+    usePreviewTabs: true
+    enableVcsColoring: true
 ".js.source":
   editor:
     tabLength: 4
