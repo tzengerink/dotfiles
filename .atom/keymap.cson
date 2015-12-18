@@ -7,3 +7,5 @@
 '.tree-view':
   'o': 'tree-view:open-selected-entry'
   'shift-o': 'custom:open-preview'
+  'shift-H': 'tree-view:recursive-collapse-directory'
+  'shift-L': 'tree-view:recursive-expand-directory'

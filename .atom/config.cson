@@ -25,9 +25,9 @@
   tabs:
     usePreviewTabs: true
     enableVcsColoring: true
-".js.source":
+".python.source":
   editor:
     tabLength: 4
-".python.source":
+".js.source":
   editor:
     tabLength: 4
