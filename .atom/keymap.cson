@@ -6,3 +6,4 @@
 
 '.tree-view':
   'o': 'tree-view:open-selected-entry'
+  'shift-o': 'custom:open-preview'
