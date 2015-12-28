@@ -1,3 +1,24 @@
+<a name="v4.19.0"></a>
+# v4.19.0 (2015-12-24)
+
+## :sparkles: Features
+
+- Add a smoothScrolling setting to enable/disable canvas offset ([18f57c80](https://github.com/atom-minimap/minimap/commit/18f57c80fd248e4e888e87da692bb71bb8109689))
+
+<a name="v4.18.4"></a>
+# v4.18.4 (2015-12-21)
+
+## :bug: Bug Fixes
+
+- Fix error raised when editor is destroyed during animation ([cb215b68](https://github.com/atom-minimap/minimap/commit/cb215b68427264586fd8b56874e7d8e8a71853ae), [#438](https://github.com/atom-minimap/minimap/issues/438))
+
+<a name="v4.18.3"></a>
+# v4.18.3 (2015-12-21)
+
+## :bug: Bug Fixes
+
+- Fixes [#383](https://github.com/atom-minimap/minimap/issues/383) Fix touch scroll support ([cfb509eb](https://github.com/atom-minimap/minimap/commit/cfb509ebe1b861be4ee0c0d85227ba00144234bf), thanks to @TimoSta)
+
 <a name="v4.18.2"></a>
 # v4.18.2 (2015-12-17)
 
