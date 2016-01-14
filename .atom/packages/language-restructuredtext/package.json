@@ -1,6 +1,6 @@
 {
   "name": "language-restructuredtext",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "private": true,
   "description": "RestructuredText Language Support",
   "repository": {
@@ -18,10 +18,10 @@
     "url": "https://github.com/Lukasa/language-restructuredtext/issues"
   },
   "homepage": "https://github.com/Lukasa/language-restructuredtext#readme",
-  "_id": "language-restructuredtext@0.11.0",
-  "_shasum": "76bdf128dbdc465493899af37f811b79bb6c0957",
-  "_resolved": "file:../d-1151128-5401-8isass/package.tgz",
-  "_from": "../d-1151128-5401-8isass/package.tgz",
+  "_id": "language-restructuredtext@0.12.0",
+  "_shasum": "14f0e2813803b3c03b2d4c2bd59603bbb801d0fb",
+  "_resolved": "file:../d-116014-7395-1o4dta8/package.tgz",
+  "_from": "../d-116014-7395-1o4dta8/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],
