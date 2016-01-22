@@ -1,14 +1,4 @@
 "*":
-  "exception-reporting":
-    userId: "94d959ca-f9bf-a2c5-135b-5fe2046f5c13"
-  welcome:
-    showOnStartup: false
-  editor:
-    invisibles: {}
-    fontSize: 10
-    showInvisibles: true
-    showIndentGuide: true
-    softWrapAtPreferredLineLength: true
   core:
     ignoredNames: [
       ".git"
@@ -17,17 +7,28 @@
       "*.pyc"
       "*.egg-info"
     ]
-  "tree-view":
-    hideIgnoredNames: true
-    squashDirectoryNames: true
+  editor:
+    fontSize: 10
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    softWrapAtPreferredLineLength: true
+  emmet: {}
+  "exception-reporting":
+    userId: "94d959ca-f9bf-a2c5-135b-5fe2046f5c13"
   minimap: {}
   "spell-check": {}
   tabs:
-    usePreviewTabs: true
     enableVcsColoring: true
-".python.source":
+    usePreviewTabs: true
+  "tree-view":
+    hideIgnoredNames: true
+    squashDirectoryNames: true
+  welcome:
+    showOnStartup: false
+".js.source":
   editor:
     tabLength: 4
-".js.source":
+".python.source":
   editor:
     tabLength: 4
