@@ -1,7 +1,4 @@
-# UP
-# --
 # Go up in the directory hierarchy.
-
 local D=""
 LIMIT=$1
 for i in {1..$LIMIT}
@@ -13,8 +10,8 @@ if [ -z "$D" ]; then
 	D=..
 fi
 
-cd-wrapper $D
+cd $D
 
 if [ -d "$(pwd)/$2" ]; then
-	cd-wrapper "$(pwd)/$2"
+	cd "$(pwd)/$2"
 fi

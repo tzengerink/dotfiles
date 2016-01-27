@@ -1,6 +1,4 @@
-# CREATE EXECUTABLE FILE IN VIM
-# -----------------------------
-
+# Create executable file in vim
 touch $1
 chmod 755 $1
 vi $1

@@ -13,15 +13,12 @@
 	" Install all plugins? :PluginInstall
 	Plugin 'airblade/vim-gitgutter'
 	Plugin 'davidhalter/jedi-vim'
-	Plugin 'evidens/vim-twig'
-	Plugin 'fatih/vim-go'
 	Plugin 'hdima/python-syntax'
 	Plugin 'jamessan/vim-gnupg'
 	Plugin 'michaeljsmith/vim-indent-object'
 	Plugin 'rkulla/pydiction'
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'tpope/vim-surround'
-	Plugin 'vim-scripts/closetag.vim'
 	Plugin 'vim-scripts/gnupg.vim'
 	Plugin 'walm/jshint.vim'
 

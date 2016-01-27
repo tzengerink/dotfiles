@@ -1,5 +1,4 @@
 [alias]
-	ba = "branch -va"
 	br = branch
 	ca = "!git add -A && git ci"
 	ci = commit
@@ -7,8 +6,6 @@
 	di = "!git difftool"
 	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --graph --date=relative"
 	mg = "merge --no-ff"
-	pl = "!git pull && git submodule foreach git pull"
-	sh = "!fn() { git difftool $1^!; }; fn"
 	st = "status -s --ignore-submodules=dirty"
 [color]
 	ui = auto
@@ -33,7 +30,7 @@
 	nobranch = white bold
 [core]
 	excludesfile = ~/.gitignore
-	editor = vi
+	editor = vim
 	pager = less -F -X
 [diff]
 	tool = vimdiff
@@ -50,3 +47,7 @@
 	name = Teun Zengerink
 [push]
 	default = matching
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f

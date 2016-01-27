@@ -1,9 +1,0 @@
-# CVTIME
-# ------
-# Convert a timestamp to a readable time.
-
-if [[ $(uname) == Linux ]]; then
-	date --date="@"$1
-else
-	date -j -f %s "$1"
-fi

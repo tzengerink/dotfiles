@@ -1,9 +1,34 @@
 "*":
+  core:
+    ignoredNames: [
+      ".git"
+      ".DS_Store"
+      "._*"
+      "*.pyc"
+      "*.egg-info"
+    ]
+  editor:
+    fontSize: 10
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    softWrapAtPreferredLineLength: true
+  emmet: {}
   "exception-reporting":
     userId: "94d959ca-f9bf-a2c5-135b-5fe2046f5c13"
+  minimap: {}
+  "spell-check": {}
+  tabs:
+    enableVcsColoring: true
+    usePreviewTabs: true
+  "tree-view":
+    hideIgnoredNames: true
+    squashDirectoryNames: true
   welcome:
     showOnStartup: false
+".js.source":
   editor:
-    invisibles: {}
-    fontSize: 10
-  core: {}
+    tabLength: 4
+".python.source":
+  editor:
+    tabLength: 4
