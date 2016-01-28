@@ -28,6 +28,7 @@ setopt SHARE_HISTORY         # Share the history file across sessions
 # Exports
 export CLICOLOR=1
 export EDITOR='atom'
+export EMAIL='t.zengerink@gmail.com'
 export LANG=en_US.UTF-8
 export LSCOLORS=HxahBbBbAxBbBbBxBxHxHx
 export LS_COLORS="di=1;;97:ln=1;47;90:so=1;41;91:pi=1;41;91:ex=1;;90:bd=1;41;91:cd=1;41;91:su=0;;91:sg=1;;91:tw=1;;97:ow=1;;97"

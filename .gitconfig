@@ -43,7 +43,6 @@
 [mergetool]
 	prompt = false
 [user]
-	email = t.zengerink@gmail.com
 	name = Teun Zengerink
 [push]
 	default = matching
