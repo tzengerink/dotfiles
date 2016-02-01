@@ -1,4 +1,5 @@
 "*":
+  "atom-typescript": {}
   core:
     ignoredNames: [
       ".git"
