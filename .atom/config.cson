@@ -27,6 +27,7 @@
     squashDirectoryNames: true
   welcome:
     showOnStartup: false
+  whitespace: {}
 ".js.source":
   editor:
     tabLength: 4
