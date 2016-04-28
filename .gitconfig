@@ -1,5 +1,5 @@
 [alias]
-	br = branch
+	br = branch -v
 	ca = "!git add -A && git ci"
 	ci = commit
 	co = "checkout -q"
