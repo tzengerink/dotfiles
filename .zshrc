@@ -69,11 +69,13 @@ bindkey "^r" history-search-backward
 
 ## PROMPT
 local prompt_highlight="white"
+local prompt_custom='$(pre_prompt_custom)'
 local prompt_dir='$(pre_prompt_dir)'
-local prompt_envs='$(pre_prompt_envs)'
 local prompt_jobs='$(pre_prompt_jobs)'
 local prompt_info="%B%{$fg[black]%}[ %n@%m ]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
+local prompt_node='$(pre_prompt_node)'
+local prompt_py='$(pre_prompt_py)'
 local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
 local prompt_time="%B%{$fg[black]%}[ %T ]%b%{$reset_color%}"
@@ -92,6 +94,10 @@ function pre_prompt_repo {
 		echo ""
 	fi
 	popd >/dev/null
+}
+
+function pre_prompt_custom {
+	echo -e ""
 }
 
 function pre_prompt_dir {
@@ -119,19 +125,15 @@ function pre_prompt_newline {
 	echo -e "%B\n%b"
 }
 
-function pre_prompt_envs {
-	NODE=""
-	PY=""
-	if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
-		NODE="N"
+function pre_prompt_node {
+	if which node >/dev/null; then
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(node --version) %{$fg[black]%}]%b%{$reset_color%}"
 	fi
+}
+
+function pre_prompt_py {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		PY="P"
-	fi
-	if [[ -z "$NODE" ]] && [[ -z "$PY" ]]; then
-		echo -e ""
-	else
-		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$NODE$PY %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(python -c 'import platform; print(platform.python_version())') %{$fg[black]%}]%b%{$reset_color%}"
 	fi
 }
 
@@ -141,4 +143,4 @@ function pre_prompt_shell {
 
 # Load local config file if available
 [[ -f ~/.localrc ]] && source ~/.localrc
-export PS1="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_newline}${prompt_time}${prompt_envs}${prompt_shell} "
+export PS1="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_custom}${prompt_newline}${prompt_time}${prompt_node}${prompt_py}${prompt_shell} "
