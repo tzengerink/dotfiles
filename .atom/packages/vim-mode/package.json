@@ -43,8 +43,8 @@
   "homepage": "https://github.com/atom/vim-mode#readme",
   "_id": "vim-mode@0.64.0",
   "_shasum": "b87e9462ccb5793db56bed6f55391cd5e8f3297d",
-  "_resolved": "file:../d-1151116-3514-12g1mnh/package.tgz",
-  "_from": "../d-1151116-3514-12g1mnh/package.tgz",
+  "_resolved": "file:../d-11611-3605-1eyv5yq/package.tgz",
+  "_from": "../d-11611-3605-1eyv5yq/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -75,7 +75,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.10",
+        "version": "0.10.11",
         "path": "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -130,7 +130,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.10",
+        "version": "0.10.11",
         "path": "node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -1331,7 +1331,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "~3.0.1"
+          "es6-symbol": "~3.0.2"
         }
       },
       {
@@ -1589,7 +1589,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "~3.0.1"
+          "es6-symbol": "~3.0.2"
         }
       },
       {

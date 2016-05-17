@@ -1,4 +1,5 @@
 "*":
+  "atom-typescript": {}
   core:
     ignoredNames: [
       ".git"
@@ -26,6 +27,7 @@
     squashDirectoryNames: true
   welcome:
     showOnStartup: false
+  whitespace: {}
 ".js.source":
   editor:
     tabLength: 4

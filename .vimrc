@@ -15,6 +15,7 @@
 	Plugin 'davidhalter/jedi-vim'
 	Plugin 'hdima/python-syntax'
 	Plugin 'jamessan/vim-gnupg'
+	Plugin 'leafgarland/typescript-vim'
 	Plugin 'michaeljsmith/vim-indent-object'
 	Plugin 'rkulla/pydiction'
 	Plugin 'scrooloose/nerdtree'
