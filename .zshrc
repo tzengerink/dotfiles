@@ -127,7 +127,7 @@ function pre_prompt_newline {
 }
 
 function pre_prompt_node {
-	if which node >/dev/null; then
+	if [[ -d "node_modules" ]] && which node >/dev/null; then
 		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(node --version) %{$fg[black]%}]%b%{$reset_color%}"
 	fi
 }
