@@ -128,13 +128,13 @@ function pre_prompt_newline {
 
 function pre_prompt_node {
 	if [[ -d "node_modules" ]] && which node >/dev/null; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(node --version) %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ $(node --version) ]%b%{$reset_color%}"
 	fi
 }
 
 function pre_prompt_py {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[green]%}$(python -c 'import platform; print(platform.python_version())') %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ $(python -c 'import platform; print(platform.python_version())') ]%b%{$reset_color%}"
 	fi
 }
 
