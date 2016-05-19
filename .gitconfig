@@ -16,6 +16,7 @@
 	current = green bold
 	local = white bold
 	remote = black bold
+	upstream = red bold
 [color "diff"]
 	commit = green bold
 	meta = red bold
