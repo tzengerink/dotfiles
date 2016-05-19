@@ -4,8 +4,7 @@
 	ci = commit
 	co = "checkout -q"
 	di = "!git difftool"
-	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --graph --date=relative"
-	lgg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --date=relative"
+	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --date=relative"
 	mg = "merge --no-ff"
 	st = "status -s --ignore-submodules=dirty"
 [color]
