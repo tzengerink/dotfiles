@@ -3,6 +3,18 @@ alias -g L='| less'
 alias -g T='| tail'
 alias -g J='| python2 -mjson.tool'
 
+# Git
+alias ga='git ad'
+alias gb='git br'
+alias gc='git ci'
+alias gd='git di'
+alias gl='git lg'
+alias gm='git mg'
+alias go='git co'
+alias gp='git pu'
+alias gr='git rs'
+alias gs='git st'
+
 # Navigation
 alias l='ls -l'
 alias ll='ls -lAh'

@@ -1,12 +1,15 @@
 [alias]
+	ad = add
 	br = branch -v
 	ca = "!git add -A && git ci"
 	ci = commit
 	co = "checkout -q"
 	di = "!git difftool"
 	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --date=relative"
-	mg = "merge --no-ff"
+	mg = merge
 	st = "status -s --ignore-submodules=dirty"
+	rs = reset
+	pu = push
 [color]
 	ui = auto
 	branch = auto
@@ -29,6 +32,11 @@
 	changed = red bold
 	untracked = red bold
 	nobranch = white bold
+[color "interactive"]
+	prompt = white bold
+	header = white bold
+	help = normal
+	error = red bold
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim

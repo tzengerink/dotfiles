@@ -175,6 +175,8 @@
 	autocmd BufNewFile,BufRead *.less   set foldmethod=indent fdn=4 noet
 	autocmd BufNewFile,BufRead *.md     set et fdn=0 sw=4 ts=4
 	autocmd BufNewFile,BufRead *.php    set fdn=2 et foldlevel=1 sw=4 ts=4
+	autocmd BufNewFile,BufRead *.ts     set et
+	autocmd BufNewFile,BufRead *.scss   set et
 
 	" SetWrap for certain filetypes
 	autocmd BufRead *.md call SetWrap()
