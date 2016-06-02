@@ -1,7 +1,7 @@
 [alias]
 	ad = add
 	br = branch -v
-	ca = "!git add -A && git ci"
+	ia = "!git add -A && git ci && git pu"
 	ci = commit
 	co = "checkout -q"
 	di = "!git difftool"
