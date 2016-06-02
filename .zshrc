@@ -87,7 +87,7 @@ function pre_prompt_repo {
 		local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 		local HASH=$(git rev-parse --short HEAD 2>/dev/null)
 		if [[ $(git branch -r | wc -l | xargs) != 0 ]]; then
-			local COUNT=":$(git log --pretty='oneline' @{u}.. | wc -l | xargs)"
+			local COUNT=":$(git log --pretty='oneline' @{u}.. 2>/dev/null | wc -l | xargs)"
 		else
 			local COUNT='';
 		fi
