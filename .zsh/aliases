@@ -36,5 +36,5 @@ alias nva='source .node-env/bin/activate'
 alias nvd='deactivate_node'
 
 # Other
-alias tmux='tmux attach || tmux new'
+alias tmx='tmux attach || tmux new'
 alias rain='echo "0 means dry, 255 means heavy rain" && curl "http://gps.buienradar.nl/getrr.php?lat=52.36&lon=4.9"'
