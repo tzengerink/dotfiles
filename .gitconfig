@@ -1,6 +1,6 @@
 [alias]
 	ad = add
-	br = branch -v
+	br = branch -vv
 	ai = "!git add -A && git ci"
 	aip = "!git ai && git pu"
 	ci = commit
