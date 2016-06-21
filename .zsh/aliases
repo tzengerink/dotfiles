@@ -17,6 +17,9 @@ alias gc='git co'
 alias gp='git pu'
 alias gr='git rs'
 alias gs='git st'
+alias gsa='git sa'
+alias gsl='git sl'
+alias gss='git ss'
 
 # Navigation
 alias l='ls -l'

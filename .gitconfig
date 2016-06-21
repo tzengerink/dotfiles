@@ -12,6 +12,9 @@
 	pu = push
 	rs = reset
 	st = "status -s --ignore-submodules=dirty"
+	sa = "!sh -c 'git stash apply stash@{$1}' -"
+	sl = stash list
+	ss = stash save
 [color]
 	ui = auto
 	branch = auto
