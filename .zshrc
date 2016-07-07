@@ -65,7 +65,8 @@ zle -N do_nothing
 bindkey "^l" do_nothing
 
 # Search history
-bindkey "^r" history-search-backward
+bindkey -M vicmd '/' history-incremental-pattern-search-backward
+bindkey -M vicmd '?' history-incremental-pattern-search-forward
 
 ## PROMPT
 local prompt_highlight="white"
@@ -86,15 +87,10 @@ function pre_prompt_repo {
 	if [[ -d ".git" ]]; then
 		local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 		local HASH=$(git rev-parse --short HEAD 2>/dev/null)
-		if [[ $(git branch -r | wc -l | xargs) != 0 ]]; then
-			local COUNT=":$(git log --pretty='oneline' @{u}.. 2>/dev/null | wc -l | xargs)"
-		else
-			local COUNT='';
-		fi
 		if [[ $BRANCH = "master" ]]; then
 			local BRANCH="%B%{$fg[red]%}$BRANCH%{$fg[black]%}%B"
 		fi
-		echo -e "%B%{$fg[black]%}[ $BRANCH:%B%{$fg[black]%}$HASH$COUNT ]%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[ $BRANCH:%B%{$fg[black]%}$HASH ]%{$reset_color%}"
 	else
 		echo ""
 	fi

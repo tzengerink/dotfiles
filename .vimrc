@@ -505,7 +505,7 @@
 
 		" Keymappings
 		nnoremap <SPACE><SPACE> :qa<CR>
-		nnoremap J              ]czz
-		nnoremap K              [czz
+		nnoremap J              j]czzk
+		nnoremap K              [czzk
 
 	endif
