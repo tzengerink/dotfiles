@@ -64,9 +64,12 @@ do_nothing () { }
 zle -N do_nothing
 bindkey "^l" do_nothing
 
-# Search history
+# Search history...
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
 bindkey -M vicmd '?' history-incremental-pattern-search-forward
+# ... using already typed text
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 ## PROMPT
 local prompt_highlight="white"
