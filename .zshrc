@@ -37,6 +37,7 @@ export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
 export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
+export GPG_TTY=$(tty)
 
 # Function and aliases
 fpath=(~/.zsh/functions $fpath)
