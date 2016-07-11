@@ -58,6 +58,7 @@
 	prompt = false
 [user]
 	name = Teun Zengerink
+	signingkey = D45951B13602B995
 [push]
 	default = matching
 [filter "lfs"]
