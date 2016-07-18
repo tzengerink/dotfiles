@@ -13,6 +13,7 @@
 	" Install all plugins? :PluginInstall
 	Plugin 'airblade/vim-gitgutter'
 	Plugin 'davidhalter/jedi-vim'
+	Plugin 'fatih/vim-go'
 	Plugin 'hdima/python-syntax'
 	Plugin 'leafgarland/typescript-vim'
 	Plugin 'michaeljsmith/vim-indent-object'

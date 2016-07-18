@@ -37,7 +37,6 @@ export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
 export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
-export GPG_TTY=$(tty)
 
 # Function and aliases
 fpath=(~/.zsh/functions $fpath)
@@ -54,6 +53,10 @@ export LESS_TERMCAP_so=$'\e[07;49;91m'    # Begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\e[0m'           # End underline
 export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 lesskey >/dev/null 2>&1
+
+# GPG
+export GPG_TTY=$(tty)
+eval $(gpg-agent --daemon)
 
 # Insert `sudo` at the start (Esc-s)
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
