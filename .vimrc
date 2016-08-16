@@ -508,3 +508,13 @@
 		nnoremap K              [czzk
 
 	endif
+
+" ------------------------------------------------------------------------------
+" CUSTOM VIM CONFIGURATION
+" ------------------------------------------------------------------------------
+
+let b:dir = expand("%:p:h")
+let b:vim = b:dir."/.vim"
+if (filereadable(b:vim))
+	execute "source ".b:vim
+endif
