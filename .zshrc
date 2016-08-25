@@ -55,8 +55,8 @@ export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 lesskey >/dev/null 2>&1
 
 # GPG
-export GPG_TTY=$(tty)
-eval $(gpg-agent --daemon)
+# export GPG_TTY=$(tty)
+# eval $(gpg-agent --daemon >/dev/null 2>&1)
 
 # Insert `sudo` at the start (Esc-s)
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
