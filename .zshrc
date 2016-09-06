@@ -55,8 +55,12 @@ export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 lesskey >/dev/null 2>&1
 
 # GPG
-# export GPG_TTY=$(tty)
-# eval $(gpg-agent --daemon >/dev/null 2>&1)
+if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
+	source ~/.gnupg/.gpg-agent-info
+	export GPG_AGENT_INFO
+else
+	eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+fi
 
 # Insert `sudo` at the start (Esc-s)
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }

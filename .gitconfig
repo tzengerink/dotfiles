@@ -50,6 +50,8 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[gpg]
+	program = gpg2
 [http]
 	sslVerify = false
 [merge]
