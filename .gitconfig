@@ -12,9 +12,10 @@
 	pu = push
 	rs = reset
 	st = "status -s --ignore-submodules=dirty"
-	sa = "!sh -c 'git stash apply stash@{$1}' -"
 	sl = stash list
 	ss = stash save
+	sp = stash pop
+	sh = "!showtool () { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; showtool $1"
 [color]
 	ui = auto
 	branch = auto
@@ -42,6 +43,8 @@
 	header = white bold
 	help = normal
 	error = red bold
+[commit]
+	gpgsign = true
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
@@ -62,10 +65,8 @@
 	name = Teun Zengerink
 	signingkey = D45951B13602B995
 [push]
-	default = matching
+	default = current
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
-[commit]
-	gpgsign = true
