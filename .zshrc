@@ -27,7 +27,7 @@ setopt SHARE_HISTORY         # Share the history file across sessions
 
 # Exports
 export CLICOLOR=1
-export EDITOR='atom'
+export EDITOR='vim'
 export EMAIL='t.zengerink@gmail.com'
 export LANG=en_US.UTF-8
 export LSCOLORS=HxahBbBbAxBbBbBxBxHxHx

@@ -51,7 +51,6 @@
 	" General
 	set autoindent                                     " Autoindenting
 	set backspace=indent,eol,start                     " Backspace functionality
-	set clipboard=unnamed                              " OS X compatible clipboard
 	set completeopt=longest,menuone                    " Show menu and preview window
 	set cursorline                                     " No cursorline by default
 	set laststatus=2                                   " Always show the StatusLine
@@ -110,6 +109,11 @@
 	set statusline+=\ %c,                              " Cursor column
 	set statusline+=\ %l/%L                            " Cursor line/total lines
 	set statusline+=\ %P                               " Percent through file
+
+    " Environment specific
+	if $TMUX == ''
+		set clipboard+=unnamed                         " OS X compatible clipboard
+	endif
 
 " ------------------------------------------------------------------------------
 " AUTO COMMANDS
