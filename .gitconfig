@@ -4,12 +4,15 @@
 	ai = "!git add -A && git ci"
 	aip = "!git ai && git pu"
 	ci = commit
+	ca = "commit --amend"
 	co = "checkout -q"
 	di = "!git difftool"
-	fe = fetch
+	fe = "fetch -p"
 	lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --date=relative"
 	mg = merge
 	pu = push
+	pf = "push --force-with-lease"
+	pl = pull
 	rs = reset
 	st = "status -s --ignore-submodules=dirty"
 	sl = stash list

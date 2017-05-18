@@ -3,8 +3,8 @@
 " ------------------------------------------------------------------------------
 
 	setlocal expandtab
-	setlocal tabstop=4
-	setlocal shiftwidth=4
+	setlocal tabstop=2
+	setlocal shiftwidth=2
 
 " ------------------------------------------------------------------------------
 " FOLDING SETTINGS
@@ -18,4 +18,4 @@
 " ------------------------------------------------------------------------------
 
 	" Mark trailing comma's
-	autocmd BufEnter,InsertLeave <buffer> 2match Error /,\_s*[])}]/
+	" autocmd BufEnter,InsertLeave <buffer> 2match Error /,\_s*[])}]/

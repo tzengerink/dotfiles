@@ -26,7 +26,7 @@
 	filetype plugin indent on
 
 	" Plugin settings
-	let NERDTreeWinSize = 30
+	let NERDTreeWinSize = 40
 	let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 	let g:gitgutter_sign_column_always = 1
 	let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
