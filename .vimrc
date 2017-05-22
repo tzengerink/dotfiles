@@ -61,6 +61,7 @@
 	set matchtime=1                                    " Show matching bracket for .X seconds
 	set modeline                                       " Allow modeline comment settings
 	set modelines=5                                    " Check the first 5 lines for settings
+	set mouse=a
 	set noerrorbells                                   " No errorbells
 	set novisualbell                                   " No visualbell
 	set nohidden                                       " Closing tabs / windows also closes buffer
