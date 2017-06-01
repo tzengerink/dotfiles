@@ -2,7 +2,7 @@
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 
-	setlocal noexpandtab   " Tabs are not spaces
+	setlocal expandtab     " Tabs are not spaces
 	setlocal shiftwidth=2  " Shift width
 	setlocal tabstop=2     " Tab stop
 

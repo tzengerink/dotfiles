@@ -13,6 +13,8 @@
 	pu = push
 	pf = "push --force-with-lease"
 	pl = pull
+	pr = pull --rebase
+	rb = rebase
 	rs = reset
 	st = "status -s --ignore-submodules=dirty"
 	sl = stash list
