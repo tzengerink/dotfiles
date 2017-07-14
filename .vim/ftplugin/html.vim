@@ -3,8 +3,8 @@
 " ------------------------------------------------------------------------------
 
 	setlocal expandtab     " Tabs are not spaces
-	setlocal shiftwidth=2  " Shift width
-	setlocal tabstop=2     " Tab stop
+	setlocal shiftwidth=4  " Shift width
+	setlocal tabstop=4     " Tab stop
 
 " ------------------------------------------------------------------------------
 " FOLDING SETTINGS

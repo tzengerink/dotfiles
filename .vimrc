@@ -18,6 +18,7 @@
 	Plugin 'leafgarland/typescript-vim'
 	Plugin 'michaeljsmith/vim-indent-object'
 	Plugin 'rkulla/pydiction'
+	Plugin 'scrooloose/nerdcommenter'
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'tpope/vim-surround'
 	Plugin 'walm/jshint.vim'
@@ -81,7 +82,7 @@
 
 	" Folding
 	set fillchars=fold:·                               " Character used as fill
-	set foldenable                                     " (Don't) fold by default (foldenable / nofoldenable)
+	set nofoldenable                                   " (Don't) fold by default (foldenable / nofoldenable)
 	set foldlevel=1                                    " Use X levels of folding
 	set foldmarker={,}                                 " Set brackets as default fold marker
 	set foldmethod=indent                              " Method of folding
