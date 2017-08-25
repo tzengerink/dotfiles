@@ -186,7 +186,7 @@
 	" Git commit settings
 	autocmd FileType gitcommit set formatoptions+=t
 	autocmd FileType gitcommit set textwidth=72
-	autocmd FileType gitcommit set spell spelllang=en_us
+	autocmd FileType gitcommit set spell spelllang=en,nl
 
 " ------------------------------------------------------------------------------
 " FUNCTIONS
