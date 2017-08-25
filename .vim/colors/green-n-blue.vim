@@ -57,8 +57,13 @@ highlight FoldColumn      ctermfg=30   ctermbg=234
 highlight InvalidStyle    ctermfg=124  ctermbg=none
 highlight NonText         ctermfg=235  ctermbg=none
 highlight SpecialKey      ctermfg=235  ctermbg=none
-highlight SpellBad        ctermfg=124  ctermbg=174   cterm=underline
 highlight WhiteSpace      ctermfg=235  ctermbg=none
+
+" Spellchecker
+highlight SpellBad        ctermfg=124  ctermbg=174   cterm=underline
+highlight SpellCap        ctermfg=124  ctermbg=174   cterm=underline
+highlight SpellRare       ctermfg=124  ctermbg=174   cterm=underline
+highlight SpellLocal      ctermfg=124  ctermbg=174   cterm=underline
 
 " Editor
 highlight Cursor          ctermfg=232  ctermbg=250

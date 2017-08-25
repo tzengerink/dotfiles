@@ -183,6 +183,11 @@
 	" SetWrap for certain filetypes
 	autocmd BufRead *.md call SetWrap()
 
+	" Git commit settings
+	autocmd FileType gitcommit set formatoptions+=t
+	autocmd FileType gitcommit set textwidth=72
+	autocmd FileType gitcommit set spell spelllang=en_us
+
 " ------------------------------------------------------------------------------
 " FUNCTIONS
 " ------------------------------------------------------------------------------
