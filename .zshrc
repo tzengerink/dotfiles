@@ -160,4 +160,4 @@ function pre_prompt_shell {
 # Load local config file if available
 [[ -f ~/.localrc ]] && source ~/.localrc
 
-export PROMPT="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_node}${prompt_py}${prompt_custom}${prompt_newline}${prompt_time}${prompt_shell} "
+export PROMPT="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_custom}${prompt_newline}${prompt_node}${prompt_py}${prompt_shell} "
