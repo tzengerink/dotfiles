@@ -17,6 +17,7 @@
 	Plugin 'hdima/python-syntax'
 	Plugin 'leafgarland/typescript-vim'
 	Plugin 'michaeljsmith/vim-indent-object'
+	Plugin 'mustache/vim-mustache-handlebars'
 	Plugin 'rkulla/pydiction'
 	Plugin 'scrooloose/nerdcommenter'
 	Plugin 'scrooloose/nerdtree'
@@ -29,7 +30,6 @@
 	" Plugin settings
 	let NERDTreeWinSize = 40
 	let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-	let g:gitgutter_sign_column_always = 1
 	let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
 	nnoremap <LEADER>G :GitGutterToggle<CR>
@@ -72,6 +72,7 @@
 	set ruler                                          " Position info
 	set scrolloff=5                                    " Keep a margin of X lines when scrolling
 	set shiftwidth=2                                   " Shift width
+	set signcolumn=yes                                 " Enable the sign column
 	set showcmd                                        " Show command in StatusLine
 	set showmatch                                      " Show matching brackets
 	set smartindent                                    " Use smart indenting
@@ -180,6 +181,7 @@
 	autocmd BufNewFile,BufRead *.ts     set et
 	autocmd BufNewFile,BufRead *.tsx    set et
 	autocmd BufNewFile,BufRead *.scss   set et
+	autocmd BufNewFile,BufRead *.json   set et sw=2 ts=2 foldlevel=1
 
 	" SetWrap for certain filetypes
 	autocmd BufRead *.md call SetWrap()

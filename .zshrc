@@ -88,13 +88,13 @@ local prompt_highlight="white"
 local prompt_custom='$(pre_prompt_custom)'
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_jobs='$(pre_prompt_jobs)'
-local prompt_info="%B%{$fg[black]%}[ %n@%m ]%b%{$reset_color%}"
+local prompt_info="%B%{$fg[black]%}[%n@%m]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node='$(pre_prompt_node)'
 local prompt_py='$(pre_prompt_py)'
 local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
-local prompt_time="%B%{$fg[black]%}[ %T ]%b%{$reset_color%}"
+local prompt_time="%B%{$fg[black]%}[%T]%b%{$reset_color%}"
 
 function pre_prompt_repo {
 	pushd . >/dev/null
@@ -105,7 +105,7 @@ function pre_prompt_repo {
 		if [[ $BRANCH = "master" ]]; then
 			local BRANCH="%B%{$fg[red]%}$BRANCH%{$fg[black]%}%B"
 		fi
-		echo -e "%B%{$fg[black]%}[ $BRANCH:%B%{$fg[black]%}$HASH ]%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[$BRANCH:%B%{$fg[black]%}$HASH]%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -125,13 +125,13 @@ function pre_prompt_dir {
 		DIR="`echo $DIR | awk -F\/ '{print $1,"/",$2,"/__DIRCOUNT__/",$(NF)}' | sed s/\ //g`"
 		DIR=${DIR/__DIRCOUNT__/$STR}
 	fi
-	echo -e "%B%{$fg[black]%}[ %{$fg[white]%}$DIR %{$fg[black]%}]%b%{$reset_color%}"
+	echo -e "%B%{$fg[black]%}[%{$fg[white]%}$DIR%{$fg[black]%}]%b%{$reset_color%}"
 }
 
 function pre_prompt_jobs {
 	local JOBS="$(jobs -l | wc -l | awk '{print $1}')"
 	if [[ $JOBS != 0 ]]; then
-		echo -e "%B%{$fg[black]%}[ %{$fg[white]%}%j %{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[%{$fg[white]%}%j%{$fg[black]%}]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -143,13 +143,13 @@ function pre_prompt_newline {
 
 function pre_prompt_node {
 	if [[ -d "node_modules" ]] && which node >/dev/null; then
-		echo -e "%B%{$fg[black]%}[ $(node --version) ]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[$(node --version)]%b%{$reset_color%}"
 	fi
 }
 
 function pre_prompt_py {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		echo -e "%B%{$fg[black]%}[ $(python -c 'import platform; print(platform.python_version())') ]%b%{$reset_color%}"
+		echo -e "%B%{$fg[black]%}[$(python -c 'import platform; print(platform.python_version())')]%b%{$reset_color%}"
 	fi
 }
 
