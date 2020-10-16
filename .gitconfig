@@ -50,7 +50,7 @@
 	help = normal
 	error = red bold
 [commit]
-	gpgsign = true
+	gpgsign = false
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim

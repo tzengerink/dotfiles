@@ -54,34 +54,10 @@ export LESS_TERMCAP_ue=$'\e[0m'           # End underline
 export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 lesskey >/dev/null 2>&1
 
-# GPG
-export GPG_TTY=$(tty)
-if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
-	source ~/.gnupg/.gpg-agent-info
-	export GPG_AGENT_INFO
-else
-	eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
-fi
-
-# Insert `sudo` at the start (Esc-s)
-insert_sudo () { zle beginning-of-line; zle -U "sudo " }
-zle -N insert-sudo insert_sudo
-bindkey "^[s" insert-sudo
-
 # Disable annoying clear screen shortcut (Ctrl-l)
 do_nothing () { }
 zle -N do_nothing
 bindkey "^l" do_nothing
-
-# Search history...
-bindkey -M vicmd '/' history-incremental-pattern-search-backward
-bindkey -M vicmd '?' history-incremental-pattern-search-forward
-# ... using already typed text
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^[[A" history-beginning-search-backward-end
-bindkey "^[[B" history-beginning-search-forward-end
 
 ## PROMPT
 local prompt_highlight="white"

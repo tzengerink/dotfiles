@@ -28,9 +28,6 @@ alias gsl='git sl'
 alias gss='git ss'
 alias gsp='git sp'
 alias gsh='git sh'
-# Hub
-alias gpr='git pull-request'
-alias gbr='git browse'
 
 # Navigation
 alias l='ls -l'
@@ -40,16 +37,3 @@ alias lsd='ls -l | grep "^d"'  # List directories
 alias lt='ll -rt'              # Sort by date
 alias lx='ll -Bx'              # Sort by extension
 alias lz='ll -rS'              # Sort by size
-
-# Virtual environments
-alias pve='virtualenv .py-env && cd .'
-alias p2ve='virtualenv .py-env --python=python2 && cd .'
-alias pva='source .py-env/bin/activate'
-alias pvd='deactivate'
-alias nve='nodeenv .node-env && cd .'
-alias nva='source .node-env/bin/activate'
-alias nvd='deactivate_node'
-
-# Other
-alias tmx='tmux attach || tmux new'
-alias rain='echo "0 means dry, 255 means heavy rain" && curl "http://gps.buienradar.nl/getrr.php?lat=52.36&lon=4.9"'
