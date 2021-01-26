@@ -13,6 +13,7 @@
 	mg = merge
 	pu = push
 	pf = "push --force-with-lease"
+	pfn = "push --force-with-lease --no-verify"
 	pl = pull
 	pr = pull --rebase
 	rb = rebase
@@ -56,17 +57,19 @@
 	editor = vim
 	pager = less -R
 [diff]
-	tool = vimdiff
-[difftool]
+	tool = vscode
+[difftool "vscode"]
 	prompt = false
+	cmd = code --wait --diff $LOCAL $REMOTE
 [gpg]
 	program = gpg
 [http]
 	sslVerify = false
 [merge]
-	tool = vimdiff
-[mergetool]
+	tool = vscode
+[mergetool "vscode"]
 	prompt = false
+	cmd = code --wait $MERGED
 [user]
 	name = Teun Zengerink
 	signingkey = D45951B13602B995
