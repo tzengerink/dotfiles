@@ -55,21 +55,21 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
-	pager = less -R
+	pager = less -+$LESS -R
 [diff]
 	tool = vscode
 [difftool "vscode"]
 	prompt = false
 	cmd = code --wait --diff $LOCAL $REMOTE
-[gpg]
-	program = gpg
-[http]
-	sslVerify = false
 [merge]
 	tool = vscode
 [mergetool "vscode"]
 	prompt = false
 	cmd = code --wait $MERGED
+[gpg]
+	program = gpg
+[http]
+	sslVerify = false
 [user]
 	name = Teun Zengerink
 	signingkey = D45951B13602B995
