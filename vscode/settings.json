@@ -1,8 +1,7 @@
 {
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
 
   "editor.tabSize": 2,
-  "editor.fontSize": 11,
   "editor.fontFamily": "Menlo, \"DejaVu Sans Mono\", Consolas, \"Lucida Console\", monospace",
   "editor.letterSpacing": -0.2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
