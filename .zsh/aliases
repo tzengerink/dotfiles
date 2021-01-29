@@ -38,3 +38,6 @@ alias lsd='ls -l | grep "^d"'  # List directories
 alias lt='ll -rt'              # Sort by date
 alias lx='ll -Bx'              # Sort by extension
 alias lz='ll -rS'              # Sort by size
+
+# Functions
+alias cat='colored_cat'

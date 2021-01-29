@@ -3,6 +3,7 @@ autoload -Uz compinit && compinit     # Load and run compinit
 autoload -U zcalc                     # Load zcalc module
 autoload -U colors && colors          # Load colors module
 autoload -U promptinit && promptinit  # Load promptinit module
+autoload -U history-search-end        # Load history search module
 
 # Set options
 setopt AUTO_CD        # When command is a directory `cd` to it
@@ -10,7 +11,6 @@ setopt AUTO_PUSHD     # Previous dir is accessible through `popd`
 setopt PROMPT_SUBST   # Enable prompt substrings
 setopt PUSHD_SILENT   # No `pushd` messages
 setopt PUSHD_TO_HOME  # Blank `pushd` goes to home
-set -o vi             # Enable vim mode for command line movement
 
 # Auto completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # Match uppercase
@@ -59,6 +59,11 @@ do_nothing () { }
 zle -N do_nothing
 bindkey "^l" do_nothing
 
+# Vim mode
+bindkey -v
+set editing-mode vi
+set blink-matching-paren on
+
 ## PROMPT
 local prompt_highlight="white"
 local prompt_custom='$(pre_prompt_custom)'
@@ -78,7 +83,7 @@ function pre_prompt_repo {
 	if [[ -d ".git" ]]; then
 		local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 		local HASH=$(git rev-parse --short HEAD 2>/dev/null)
-		if [[ $BRANCH = "master" ]]; then
+		if [[ $BRANCH = "master" || $BRANCH = "main" ]]; then
 			local BRANCH="%B%{$fg[red]%}$BRANCH%{$fg[black]%}%B"
 		fi
 		echo -e "%B%{$fg[black]%}[$BRANCH:%B%{$fg[black]%}$HASH]%{$reset_color%}"
