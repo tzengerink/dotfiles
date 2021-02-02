@@ -5,6 +5,11 @@ autoload -U colors && colors          # Load colors module
 autoload -U promptinit && promptinit  # Load promptinit module
 autoload -U history-search-end        # Load history search module
 
+# Vim mode
+bindkey -v
+set editing-mode vi
+set blink-matching-paren on
+
 # Set options
 setopt AUTO_CD        # When command is a directory `cd` to it
 setopt AUTO_PUSHD     # Previous dir is accessible through `popd`
@@ -24,6 +29,8 @@ setopt HIST_IGNORE_ALL_DUPS  # Ignore duplicate entries
 setopt HIST_IGNORE_SPACE     # Ignore entries preceded by a space
 setopt INC_APPEND_HISTORY    # Incrementally append history
 setopt SHARE_HISTORY         # Share the history file across sessions
+
+bindkey "^R" history-incremental-search-backward
 
 # Exports
 export CLICOLOR=1
@@ -58,11 +65,6 @@ lesskey >/dev/null 2>&1
 do_nothing () { }
 zle -N do_nothing
 bindkey "^l" do_nothing
-
-# Vim mode
-bindkey -v
-set editing-mode vi
-set blink-matching-paren on
 
 ## PROMPT
 local prompt_highlight="white"
