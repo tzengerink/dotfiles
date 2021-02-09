@@ -139,6 +139,31 @@ module.exports = {
     webGLRenderer: true,
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+
+    // hyper-pane (meta == cmd)
+    paneNavigation: {
+      debug: false,
+      hotkeys: {
+        navigation: {
+          up: "ctrl+alt+up",
+          down: "ctrl+alt+down",
+          left: "ctrl+alt+left",
+          right: "ctrl+alt+right",
+        },
+        jump_prefix: "ctrl+alt",
+        maximize: "meta+enter",
+      },
+      showIndicators: true,
+      indicatorPrefix: "",
+      indicatorStyle: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        fontSize: "10px",
+        color: "#444",
+      },
+      inactivePaneOpacity: 0.5,
+    },
   },
 
   // a list of plugins to fetch and install from npm
@@ -147,7 +172,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyper-highlight-active-pane", "hyperocean"],
+  plugins: ["hyperocean", "hyper-pane"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

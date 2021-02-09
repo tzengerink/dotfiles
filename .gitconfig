@@ -8,8 +8,7 @@
 	co = "checkout -q"
 	di = "!git difftool"
 	fe = "fetch -p"
-	#lg = "log --pretty=format:'%C(bold black)%h%Creset %s %C(bold black)%an, %ad%Creset' --date=relative"
-	lg = "log"
+	lg = "log --name-only"
 	mg = merge
 	pu = push
 	pf = "push --force-with-lease"
