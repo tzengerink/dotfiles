@@ -54,7 +54,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
-	pager = less -+$LESS -R
+	# pager = less -+$LESS -R
 [diff]
 	tool = vscode
 [difftool "vscode"]

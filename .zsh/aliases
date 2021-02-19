@@ -33,8 +33,6 @@ alias gsh='git sh'
 # Navigation
 alias l='ls -l'
 alias ll='ls -lAh'
-alias lr='ls -lR'              # Recursively list
-alias lsd='ls -l | grep "^d"'  # List directories
 alias lt='ll -rt'              # Sort by date
 alias lx='ll -Bx'              # Sort by extension
 alias lz='ll -rS'              # Sort by size
