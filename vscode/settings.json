@@ -1,16 +1,20 @@
 {
   "window.zoomLevel": -1,
 
+  "workbench.colorTheme": "GitHub Dark",
+
+  "editor.fontFamily": "'Fira Code', Menlo, Consolas, monospace",
+  "editor.fontLigatures": false,
+  "editor.fontWeight": 400,
+  "editor.letterSpacing": 0,
+
   "editor.tabSize": 2,
-  "editor.fontFamily": "Menlo, Consolas, monospace",
-  "editor.letterSpacing": -0.2,
+
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-
-  "workbench.colorTheme": "GitHub Dark",
 
   "eslint.codeAction.showDocumentation": {
     "enable": true
