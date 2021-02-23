@@ -6,7 +6,7 @@
 	ci = commit
 	ca = "commit --amend"
 	co = "checkout -q"
-	di = "!git difftool"
+	di = "diff -p"
 	fe = "fetch -p"
 	lg = "log --name-only"
 	mg = merge
