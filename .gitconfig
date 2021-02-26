@@ -12,7 +12,6 @@
 	mg = merge
 	pu = push
 	pf = "push --force-with-lease"
-	pfn = "push --force-with-lease --no-verify"
 	pl = pull
 	pr = pull --rebase
 	rb = rebase
@@ -54,7 +53,6 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
-	# pager = less -+$LESS -R
 [diff]
 	tool = vscode
 [difftool "vscode"]
