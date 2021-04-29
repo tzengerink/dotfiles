@@ -5,19 +5,22 @@
   "editor.fontLigatures": false,
   "editor.fontWeight": 400,
   "editor.letterSpacing": 0,
-
   "editor.tabSize": 2,
-
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.minimap.enabled": false,
+  "editor.renderControlCharacters": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
+    "source.fixAll.eslint": true
   },
+
+  "extensions.ignoreRecommendations": true,
+
+  "window.zoomLevel": -1,
+
+  "vim.easymotion": true,
 
   "eslint.codeAction.showDocumentation": {
     "enable": true
-  },
-  "editor.renderControlCharacters": true,
-  "extensions.ignoreRecommendations": true,
-  "window.zoomLevel": -1
+  }
 }

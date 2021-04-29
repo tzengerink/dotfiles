@@ -72,6 +72,8 @@
 	signingkey = D45951B13602B995
 [push]
 	default = current
+[pull]
+	rebase = true
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean %f
