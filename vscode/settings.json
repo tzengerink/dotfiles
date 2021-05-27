@@ -7,7 +7,6 @@
   "editor.letterSpacing": 0,
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.minimap.enabled": false,
   "editor.renderControlCharacters": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
@@ -22,5 +21,9 @@
 
   "eslint.codeAction.showDocumentation": {
     "enable": true
-  }
+  },
+  "editor.minimap.enabled": false,
+
+  "terminal.integrated.tabs.enabled": true,
+	"terminal.integrated.showExitAlert": false
 }

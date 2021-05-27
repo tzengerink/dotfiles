@@ -9,6 +9,7 @@
 	di = "diff -p"
 	fe = "fetch -p"
 	lg = "log --name-only"
+	ll = "log --pretty=oneline --abbrev-commit"
 	mg = merge
 	pu = push
 	pf = "push --force-with-lease"
