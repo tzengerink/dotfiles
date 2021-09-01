@@ -1,5 +1,5 @@
 " ------------------------------------------------------------------------------
-" VUNDLE
+" GENERAL
 " ------------------------------------------------------------------------------
 
 	set nocompatible
@@ -99,6 +99,17 @@
 		autocmd WinLeave * setlocal nocursorline
 	augroup end
 
+	" Yaml settings
+	autocmd FileType yaml set shiftwidth=2
+	autocmd FileType yaml set softtabstop=2
+	autocmd FileType yaml set tabstop=2
+	autocmd FileType yaml set expandtab
+
+  " Markdown settings
+	autocmd FileType markdown set tabstop=2
+	autocmd FileType markdown set shiftwidth=2
+	autocmd FileType markdown set expandtab
+
 	" Git commit settings
 	autocmd FileType gitcommit set formatoptions+=t
 	autocmd FileType gitcommit set textwidth=72
@@ -122,11 +133,8 @@
 	noremap <LEADER>N :set number! number?<CR>
 	noremap <LEADER>P :set paste! paste?<CR>
 
-	" Folding / Unfolding
-	noremap <LEADER>f       zM
-	noremap <LEADER>F       zR
-	noremap <SPACE>         za
-	noremap <LEADER><SPACE> zMzv
+	" NerdTree
+	nnoremap <C-n> :NERDTreeToggle<CR>
 
 	" Execute macro at `q`
 	nnoremap K @q

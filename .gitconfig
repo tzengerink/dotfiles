@@ -1,76 +1,78 @@
+[init]
+        templatedir = /Users/teun.zengerink/.acn-security-tools/git-template
 [alias]
-	ad = add
-	br = branch
-	ci = commit
-	ca = "commit --amend"
-	co = "checkout -q"
-	di = "diff -p"
-	fe = "fetch -p"
-	lg = "log --name-only"
-	ls = "log --pretty=oneline --abbrev-commit"
-	pu = push
-	pf = "push --force-with-lease"
-	pl = pull
-	rb = rebase
-	rc = rebase --continue
-	st = "status -s --ignore-submodules=dirty"
-	sl = stash list
-	ss = stash save
-	sp = stash pop
+        ad = add
+        br = branch
+        ci = commit
+        ca = "commit --amend"
+        co = "checkout -q"
+        di = "diff -p"
+        fe = "fetch -p"
+        lg = "log --name-only"
+        ls = "log --pretty=oneline --abbrev-commit"
+        pu = push
+        pf = "push --force-with-lease"
+        pl = pull
+        rb = rebase
+        rc = rebase --continue
+        st = "status -s --ignore-submodules=dirty"
+        sl = stash list
+        ss = stash save
+        sp = stash pop
 [color]
-	ui = auto
-	branch = auto
-	status = auto
+        ui = auto
+        branch = auto
+        status = auto
 [color "branch"]
-	current = green bold
-	local = white bold
-	remote = red bold
-	upstream = black bold
+        current = green bold
+        local = white bold
+        remote = red bold
+        upstream = black bold
 [color "diff"]
-	commit = white bold
-	meta = black bold
-	frag = black bold
-	old = red bold
-	new = green bold
+        commit = white bold
+        meta = black bold
+        frag = black bold
+        old = red bold
+        new = green bold
 [color "status"]
-	header = normal
-	added = green bold
-	updated = green bold
-	changed = red bold
-	untracked = red bold
-	nobranch = white bold
+        header = normal
+        added = green bold
+        updated = green bold
+        changed = red bold
+        untracked = red bold
+        nobranch = white bold
 [color "interactive"]
-	prompt = white bold
-	header = white bold
-	help = normal
-	error = red bold
+        prompt = white bold
+        header = white bold
+        help = normal
+        error = red bold
 [commit]
-	gpgsign = false
+        gpgsign = false
 [core]
-	excludesfile = ~/.gitignore
-	editor = vim
+        excludesfile = ~/.gitignore
+        editor = vim
 [diff]
-	tool = vscode
+        tool = vscode
 [difftool "vscode"]
-	prompt = false
-	cmd = code --wait --diff $LOCAL $REMOTE
+        prompt = false
+        cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
-	tool = vscode
+        tool = vscode
 [mergetool "vscode"]
-	prompt = false
-	cmd = code --wait $MERGED
+        prompt = false
+        cmd = code --wait $MERGED
 [gpg]
-	program = gpg
+        program = gpg
 [http]
-	sslVerify = false
+        sslVerify = false
 [user]
-	name = Teun Zengerink
-	signingkey = D45951B13602B995
+        name = Teun Zengerink
+        signingkey = D45951B13602B995
 [push]
-	default = current
+        default = current
 [pull]
-	rebase = true
+        rebase = true
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+        required = true
+        clean = git-lfs clean %f
+        smudge = git-lfs smudge %f
