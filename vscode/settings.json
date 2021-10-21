@@ -20,11 +20,10 @@
 
   "extensions.ignoreRecommendations": true,
 
-  "window.zoomLevel": -1,
-
   "vim.easymotion": true,
 
   "eslint.codeAction.showDocumentation": { "enable": true },
 
-  "emmet.showExpandedAbbreviation": "never"
+  "emmet.showExpandedAbbreviation": "never",
+  "window.zoomLevel": -1
 }
