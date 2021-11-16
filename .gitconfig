@@ -10,7 +10,7 @@
         fe = "fetch -p"
         lg = "log --name-only"
         ls = "log --pretty=oneline --abbrev-commit"
-        pu = push
+        ps = push
         pf = "push --force-with-lease"
         pl = pull
         rb = rebase

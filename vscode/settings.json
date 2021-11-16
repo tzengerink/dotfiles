@@ -11,7 +11,8 @@
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
   },
 
   "terminal.integrated.tabs.enabled": true,
@@ -25,5 +26,7 @@
   "eslint.codeAction.showDocumentation": { "enable": true },
 
   "emmet.showExpandedAbbreviation": "never",
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "security.workspace.trust.untrustedFiles": "open",
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
