@@ -1,12 +1,11 @@
-[init]
-        templatedir = /Users/teun.zengerink/.acn-security-tools/git-template
 [alias]
         ad = add
         br = branch
         ci = commit
-        ca = "commit --amend"
+        ca = "commit --amend --no-edit"
         co = "checkout -q"
         di = "diff -p"
+        dn = "diff --name-only"
         fe = "fetch -p"
         lg = "log --name-only"
         ls = "log --pretty=oneline --abbrev-commit"
@@ -46,11 +45,16 @@
         header = white bold
         help = normal
         error = red bold
-[commit]
-        gpgsign = false
+[user]
+        name = Teun Zengerink
+	email = 539075+tzengerink@users.noreply.github.com
 [core]
         excludesfile = ~/.gitignore
         editor = vim
+[http]
+        sslVerify = false
+[commit]
+        gpgsign = false
 [diff]
         tool = vscode
 [difftool "vscode"]
@@ -61,18 +65,9 @@
 [mergetool "vscode"]
         prompt = false
         cmd = code --wait $MERGED
-[gpg]
-        program = gpg
-[http]
-        sslVerify = false
-[user]
-        name = Teun Zengerink
-        signingkey = D45951B13602B995
 [push]
         default = current
 [pull]
         rebase = true
-[filter "lfs"]
-        required = true
-        clean = git-lfs clean %f
-        smudge = git-lfs smudge %f
+[gpg]
+        program = gpg
