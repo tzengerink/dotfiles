@@ -1,7 +1,7 @@
 {
   "workbench.colorTheme": "GitHub Dark",
 
-  "editor.fontFamily": "'Fira Code', Menlo, Consolas, monospace",
+  "editor.fontFamily": "Menlo, monospace",
   "editor.fontLigatures": false,
   "editor.fontWeight": 400,
   "editor.letterSpacing": 0,
