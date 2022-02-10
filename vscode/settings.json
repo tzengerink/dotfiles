@@ -30,5 +30,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.suggest.autoImports": false,
   "javascript.suggest.autoImports": false,
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "editor.fontSize": 11
 }
