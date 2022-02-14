@@ -1,15 +1,16 @@
 {
-  "workbench.colorTheme": "GitHub Dark",
-
+  "editor.fontSize": 11,
+  "editor.fontWeight": 400,
   "editor.fontFamily": "Menlo, monospace",
   "editor.fontLigatures": false,
-  "editor.fontWeight": 400,
   "editor.letterSpacing": 0,
+
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.renderControlCharacters": true,
-  "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
+
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.organizeImports": false
@@ -27,9 +28,12 @@
 
   "emmet.showExpandedAbbreviation": "never",
   "security.workspace.trust.untrustedFiles": "open",
+
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.suggest.autoImports": false,
   "javascript.suggest.autoImports": false,
+
   "window.zoomLevel": -1,
-  "editor.fontSize": 11
+
+  "workbench.colorTheme": "GitHub Dark"
 }
