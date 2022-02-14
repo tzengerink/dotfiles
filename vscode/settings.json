@@ -16,6 +16,11 @@
     "source.organizeImports": false
   },
 
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.preferredDarkColorTheme": "GitHub Dark",
+  "workbench.preferredLightColorTheme": "GitHub Light",
+
   "terminal.integrated.tabs.enabled": true,
   "terminal.integrated.showExitAlert": false,
   "terminal.integrated.copyOnSelection": true,
@@ -34,6 +39,5 @@
   "javascript.suggest.autoImports": false,
 
   "window.zoomLevel": -1,
-
-  "workbench.colorTheme": "GitHub Dark"
+  "window.autoDetectColorScheme": true
 }

@@ -74,21 +74,21 @@ module.exports = {
     // an array here instead of a color map object
     colors: {
       black: "#000000",
-      red: "#C51E14",
-      green: "#1DC121",
-      yellow: "#C7C329",
-      blue: "#0A2FC4",
-      magenta: "#C839C5",
-      cyan: "#20C5C6",
-      white: "#C7C7C7",
-      lightBlack: "#686868",
-      lightRed: "#FD6F6B",
-      lightGreen: "#67F86F",
-      lightYellow: "#FFFA72",
-      lightBlue: "#6A76FB",
-      lightMagenta: "#FD7CFC",
-      lightCyan: "#68FDFE",
-      lightWhite: "#FFFFFF",
+      red: "#c51e14",
+      green: "#1dc121",
+      yellow: "#c7c329",
+      blue: "#0a2fc4",
+      magenta: "#c839c5",
+      cyan: "#20c5c6",
+      white: "#c7c7c7",
+      lightBlack: "#5f5f5f",
+      lightRed: "#fd6f6b",
+      lightGreen: "#67f86f",
+      lightYellow: "#fffa72",
+      lightBlue: "#6a76fb",
+      lightMagenta: "#fd7cfc",
+      lightCyan: "#68fdfe",
+      lightWhite: "#ffffff",
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -171,7 +171,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyper-firefox-devtools"],
+  plugins: [],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
