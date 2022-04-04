@@ -4,7 +4,6 @@
         ad = add
         br = branch
         ci = commit
-        ca = "commit --amend --no-edit"
         co = "checkout -q"
         di = "diff -p"
         dn = "diff --name-only"

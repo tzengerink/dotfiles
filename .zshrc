@@ -70,6 +70,7 @@ bindkey "^l" do_nothing
 local prompt_highlight="white"
 local prompt_custom='$(pre_prompt_custom)'
 local prompt_dir='$(pre_prompt_dir)'
+local prompt_jobs='$(pre_prompt_jobs)'
 local prompt_info="%B%{$fg[black]%}[%n@%m]%b%{$reset_color%}"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node='$(pre_prompt_node)'
@@ -109,6 +110,15 @@ function pre_prompt_dir {
 	echo -e "%B%{$fg[black]%}[%{$fg[white]%}$DIR%{$fg[black]%}]%b%{$reset_color%}"
 }
 
+function pre_prompt_jobs {
+	local JOBS="$(jobs -l | wc -l | awk '{print $1}')"
+	if [[ $JOBS != 0 ]]; then
+		echo -e "%B%{$fg[black]%}[%{$fg[white]%}%j%{$fg[black]%}]%b%{$reset_color%}"
+	else
+		echo ""
+	fi
+}
+
 function pre_prompt_newline {
 	echo -e "%B\n%b"
 }
@@ -126,4 +136,4 @@ function pre_prompt_shell {
 # Load local config file if available
 [[ -f ~/.localrc ]] && source ~/.localrc
 
-export PROMPT="${prompt_info}${prompt_dir}${prompt_repo}${prompt_custom}${prompt_newline}${prompt_node}${prompt_shell} "
+export PROMPT="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_custom}${prompt_newline}${prompt_node}${prompt_shell} "

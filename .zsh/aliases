@@ -1,7 +1,7 @@
 # Global
 alias -g L='| less -S'
 alias -g T='| tail'
-alias -g J='| python2 -mjson.tool'
+alias -g J='| python3 -mjson.tool'
 alias -g C='| pbcopy'
 
 # Git
