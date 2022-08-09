@@ -37,7 +37,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.suggest.autoImports": false,
   "javascript.suggest.autoImports": false,
-
-  "window.zoomLevel": -1,
-  "window.autoDetectColorScheme": true
+  "window.autoDetectColorScheme": true,
+  "workbench.layoutControl.enabled": false,
+  "window.zoomLevel": -1
 }
