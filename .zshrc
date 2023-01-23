@@ -137,3 +137,5 @@ function pre_prompt_shell {
 [[ -f ~/.localrc ]] && source ~/.localrc
 
 export PROMPT="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_custom}${prompt_newline}${prompt_node}${prompt_shell} "
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
