@@ -1,9 +1,8 @@
 {
-  "editor.fontSize": 11,
+  "editor.fontSize": 12,
   "editor.fontWeight": 400,
   "editor.fontFamily": "Menlo, monospace",
   "editor.fontLigatures": false,
-  "editor.letterSpacing": 0,
 
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -20,11 +19,12 @@
   "workbench.colorTheme": "GitHub Dark",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
+  "workbench.layoutControl.enabled": false,
 
   "terminal.integrated.tabs.enabled": true,
   "terminal.integrated.showExitAlert": false,
   "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.fontSize": 10,
+  "terminal.integrated.fontSize": 12,
   "terminal.integrated.cursorBlinking": true,
 
   "workbench.colorCustomizations": {
@@ -34,18 +34,15 @@
   },
 
   "extensions.ignoreRecommendations": true,
-
   "vim.easymotion": true,
-
   "eslint.codeAction.showDocumentation": { "enable": true },
-
   "emmet.showExpandedAbbreviation": "never",
   "security.workspace.trust.untrustedFiles": "open",
 
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.suggest.autoImports": false,
   "javascript.suggest.autoImports": false,
+
   "window.autoDetectColorScheme": true,
-  "workbench.layoutControl.enabled": false,
-  "window.zoomLevel": -1
+  "window.zoomLevel": -2
 }

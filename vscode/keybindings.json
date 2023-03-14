@@ -1,0 +1,10 @@
+[
+  {
+    "key": "cmd+m",
+    "command": "workbench.action.maximizeEditor"
+  },
+  {
+    "key": "shift+cmd+m",
+    "command": "workbench.action.evenEditorWidths"
+  }
+]
