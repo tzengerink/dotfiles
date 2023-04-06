@@ -35,7 +35,7 @@ bindkey "^R" history-incremental-search-backward
 # Exports
 export CLICOLOR=1
 export EDITOR='vim'
-export EMAIL='t.zengerink@gmail.com'
+export EMAIL='teun@zengerink.com'
 export LANG=en_US.UTF-8
 export LSCOLORS=HxahBbBbAxBbBbBxBxHxHx
 export LS_COLORS="di=1;;97:ln=1;47;90:so=1;41;91:pi=1;41;91:ex=1;;90:bd=1;41;91:cd=1;41;91:su=0;;91:sg=1;;91:tw=1;;97:ow=1;;97"
@@ -86,6 +86,9 @@ function pre_prompt_repo {
 		local HASH=$(git rev-parse --short HEAD 2>/dev/null)
 		if [[ $BRANCH = "master" || $BRANCH = "main" ]]; then
 			local BRANCH="%B%{$fg[red]%}$BRANCH%{$fg[black]%}%B"
+		fi
+		if [[ $BRANCH = "develop" || $BRANCH = "test" ]]; then
+			local BRANCH="%B%{$fg[yellow]%}$BRANCH%{$fg[black]%}%B"
 		fi
 		echo -e "%B%{$fg[black]%}[$BRANCH:%B%{$fg[black]%}$HASH]%{$reset_color%}"
 	else

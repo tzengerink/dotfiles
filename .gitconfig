@@ -8,8 +8,8 @@
         di = "diff -p"
         dn = "diff --name-only"
         fe = "fetch -p"
-        lg = "log --name-only"
-        ls = "log --pretty=oneline --abbrev-commit"
+        lg = "log --pretty=oneline --abbrev-commit"
+        ln = "log --name-only"
         ps = push
         pf = "push --force-with-lease"
         pl = pull
