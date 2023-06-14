@@ -14,6 +14,7 @@
     "source.fixAll.eslint": true,
     "source.organizeImports": false
   },
+  "editor.unicodeHighlight.ambiguousCharacters": false,
 
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "GitHub Dark",
@@ -44,5 +45,5 @@
   "javascript.suggest.autoImports": false,
 
   "window.autoDetectColorScheme": true,
-  "window.zoomLevel": -2
+  "window.zoomLevel": -1
 }
