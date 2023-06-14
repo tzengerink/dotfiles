@@ -27,7 +27,7 @@ module.exports = {
     letterSpacing: 0,
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: "rgba(248,28,229,0.8)",
+    cursorColor: "rgba(255,1,175,1)",
 
     // terminal text color under BLOCK cursor
     cursorAccentColor: "#000",
@@ -36,17 +36,17 @@ module.exports = {
     cursorShape: "BLOCK",
 
     // set to `true` (without backticks and without quotes) for blinking cursor
-    cursorBlink: false,
+    cursorBlink: true,
 
     // color of the text
     foregroundColor: "#fff",
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: "#000",
+    backgroundColor: "#121212",
 
     // terminal selection color
-    selectionColor: "rgba(248,28,229,0.3)",
+    selectionColor: "rgba(255,1,175,0.5)",
 
     // border color (window, tabs)
     borderColor: "#333",
@@ -73,22 +73,21 @@ module.exports = {
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
-      black: "#000000",
-      red: "#c51e14",
-      green: "#1dc121",
-      yellow: "#c7c329",
-      blue: "#0a2fc4",
-      magenta: "#c839c5",
-      cyan: "#20c5c6",
-      white: "#c7c7c7",
-      lightBlack: "#5f5f5f",
-      lightRed: "#fd6f6b",
-      lightGreen: "#67f86f",
-      lightYellow: "#fffa72",
-      lightBlue: "#6a76fb",
-      lightMagenta: "#fd7cfc",
-      lightCyan: "#68fdfe",
-      lightWhite: "#ffffff",
+      black: "#121212",
+      red: "#FF3B30",
+      green: "#1CD760",
+      yellow: "#FFCC00",
+      blue: "#0486FF",
+      magenta: "#B05FFF",
+      cyan: "#5FD8FF",
+      white: "#FFFFFF",
+      lightRed: "#FF3B30",
+      lightGreen: "#1CD760",
+      lightYellow: "#FFCC00",
+      lightBlue: "#0486FF",
+      lightMagenta: "#B05FFF",
+      lightCyan: "#5FD8FF",
+      lightWhite: "#FFFFFF",
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
