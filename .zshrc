@@ -67,8 +67,6 @@ zle -N do_nothing
 bindkey "^l" do_nothing
 
 ## PROMPT
-local prompt_highlight="white"
-local prompt_custom='$(pre_prompt_custom)'
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_jobs='$(pre_prompt_jobs)'
 local prompt_info="%B%{$fg[black]%}[%n@%m]%b%{$reset_color%}"
@@ -77,6 +75,13 @@ local prompt_node='$(pre_prompt_node)'
 local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
 local prompt_time="%B%{$fg[black]%}[%T]%b%{$reset_color%}"
+local prompt_exit='$(pre_prompt_exit)'
+
+function pre_prompt_exit {
+	local SUCCESS="%{$fg[white]%}*%{$reset_color%}"
+	local ERROR="%{$fg[red]%}*%{$reset_color%}"
+	echo -e "%B%(?.$SUCCESS.$ERROR)%b"
+}
 
 function pre_prompt_repo {
 	pushd . >/dev/null
@@ -95,10 +100,6 @@ function pre_prompt_repo {
 		echo ""
 	fi
 	popd >/dev/null
-}
-
-function pre_prompt_custom {
-	echo -e ""
 }
 
 function pre_prompt_dir {
@@ -132,13 +133,9 @@ function pre_prompt_node {
 	fi
 }
 
-function pre_prompt_shell {
-	echo -e "%B%{$fg[$prompt_highlight]%}%%%b%{$reset_color%}"
-}
-
 # Load local config file if available
 [[ -f ~/.localrc ]] && source ~/.localrc
 
-export PROMPT="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_custom}${prompt_newline}${prompt_node}${prompt_shell} "
+export PROMPT="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_newline}${prompt_node}${prompt_exit} "
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
