@@ -1,6 +1,6 @@
 " Vim color file
 "
-" Author: Teun Zengerink <t.zengerink@gmail.com>
+" Author: Teun Zengerink <teun@zengerink.com>
 
 set t_Co=256        " Use 256 colors
 set t_ut=           " Disable background color erase
