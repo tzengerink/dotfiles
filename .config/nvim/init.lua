@@ -1,0 +1,5 @@
+require('plugins')
+require('general')
+require('nvim_tree')
+require('auto_commands')
+require('key_mapping')
