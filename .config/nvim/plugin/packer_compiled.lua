@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/teun/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/teun/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/teun/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -113,6 +118,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/teun/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
+  },
+  ["vim-prettier"] = {
+    loaded = true,
+    path = "/Users/teun/.local/share/nvim/site/pack/packer/start/vim-prettier",
+    url = "https://github.com/prettier/vim-prettier"
   }
 }
 

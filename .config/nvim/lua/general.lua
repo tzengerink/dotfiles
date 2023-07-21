@@ -22,6 +22,6 @@ vim.opt.listchars:append({
 vim.opt.termguicolors = true
 vim.cmd.backgound = 'dark'
 vim.cmd.syntax 'enable'
-vim.cmd.colorscheme 'deep-space'
-vim.cmd.highlight 'Whitespace guifg=#29313f'
-vim.cmd.highlight 'NonText guifg=#29313f'
+vim.cmd.colorscheme 'vscode'
+vim.cmd.highlight 'Whitespace guifg=#393939'
+vim.cmd.highlight 'NonText guifg=#393939'

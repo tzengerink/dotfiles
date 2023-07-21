@@ -4,11 +4,15 @@
 --
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  use 'tyrannicaltoucan/vim-deep-space'
   use 'nvim-tree/nvim-tree.lua'
   use 'airblade/vim-gitgutter'
   use 'phaazon/hop.nvim'
   use 'prettier/vim-prettier'
+
+  -- Colorschemes
+  use 'tyrannicaltoucan/vim-deep-space'
+  use 'EdenEast/nightfox.nvim'
+  use 'Mofiqul/vscode.nvim'
 
   use { 'neoclide/coc.nvim', branch = 'release' }
 

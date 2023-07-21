@@ -51,7 +51,7 @@
   email = 539075+tzengerink@users.noreply.github.com
 [core]
   excludesfile = ~/.gitignore
-  editor = vim
+  editor = nvim
 [http]
   sslVerify = false
 [commit]
