@@ -69,12 +69,11 @@ bindkey "^l" do_nothing
 ## PROMPT
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_jobs='$(pre_prompt_jobs)'
-local prompt_info="%B%{$fg[black]%}[%n@%m]%b%{$reset_color%}"
+local prompt_info="%B[%n@%m]%b"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node='$(pre_prompt_node)'
 local prompt_repo='$(pre_prompt_repo)'
 local prompt_shell='$(pre_prompt_shell)'
-local prompt_time="%B%{$fg[black]%}[%T]%b%{$reset_color%}"
 local prompt_exit='$(pre_prompt_exit)'
 
 function pre_prompt_exit {
@@ -90,12 +89,12 @@ function pre_prompt_repo {
 		local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 		local HASH=$(git rev-parse --short HEAD 2>/dev/null)
 		if [[ $BRANCH = "master" || $BRANCH = "main" ]]; then
-			local BRANCH="%B%{$fg[red]%}$BRANCH%{$fg[black]%}%B"
+			local BRANCH="%B%{$fg[red]%}$BRANCH%{$reset_color%}%B"
 		fi
-		if [[ $BRANCH = "develop" || $BRANCH = "test" ]]; then
-			local BRANCH="%B%{$fg[yellow]%}$BRANCH%{$fg[black]%}%B"
+		if [[ $BRANCH = "develop" ]]; then
+			local BRANCH="%B%{$fg[yellow]%}$BRANCH%{$reset_color%}%B"
 		fi
-		echo -e "%B%{$fg[black]%}[$BRANCH:%B%{$fg[black]%}$HASH]%{$reset_color%}"
+		echo -e "%{$reset_color%}%B[$BRANCH:%{$reset_color%}%B$HASH]%{$reset_color%}%B"
 	else
 		echo ""
 	fi
@@ -111,13 +110,13 @@ function pre_prompt_dir {
 		DIR="`echo $DIR | awk -F\/ '{print $1,"/",$2,"/__DIRCOUNT__/",$(NF)}' | sed s/\ //g`"
 		DIR=${DIR/__DIRCOUNT__/$STR}
 	fi
-	echo -e "%B%{$fg[black]%}[%{$fg[white]%}$DIR%{$fg[black]%}]%b%{$reset_color%}"
+	echo -e "%{$reset_color%}%B[%{$fg[white]%}$DIR%{$reset_color%}%B]%b%{$reset_color%}"
 }
 
 function pre_prompt_jobs {
 	local JOBS="$(jobs -l | wc -l | awk '{print $1}')"
 	if [[ $JOBS != 0 ]]; then
-		echo -e "%B%{$fg[black]%}[%{$fg[white]%}%j%{$fg[black]%}]%b%{$reset_color%}"
+		echo -e "%{$reset_color%}%B[%{$fg[white]%}%j%{$reset_color%}%B]%b%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -129,7 +128,7 @@ function pre_prompt_newline {
 
 function pre_prompt_node {
 	if [[ -d "node_modules" ]] && which node >/dev/null; then
-		echo -e "%B%{$fg[black]%}[$(node --version)]%b%{$reset_color%}"
+		echo -e "%{$reset_color%}%B[$(node --version)]%b%{$reset_color%}"
 	fi
 }
 
