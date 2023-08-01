@@ -8,10 +8,6 @@ vim.cmd.set 'tabstop=2 shiftwidth=2 expandtab'
 vim.cmd.set 'signcolumn=yes'
 vim.cmd.set 'list'
 
--- Python
-vim.g.loaded_python3_provider = 1
-vim.g.python3_host_prog = "/usr/local/bin/python3"
-
 vim.opt.listchars:append({
   eol = '↵',
   trail = '▒',
@@ -22,6 +18,15 @@ vim.opt.listchars:append({
 vim.opt.termguicolors = true
 vim.cmd.backgound = 'dark'
 vim.cmd.syntax 'enable'
-vim.cmd.colorscheme 'vscode'
-vim.cmd.highlight 'Whitespace guifg=#393939'
-vim.cmd.highlight 'NonText guifg=#393939'
+vim.cmd.colorscheme 'carbonfox'
+vim.cmd.highlight 'Whitespace guifg=#2c2c2c'
+vim.cmd.highlight 'NonText guifg=#2c2c2c'
+
+-- Telescope
+require('telescope').setup{
+  defaults = {
+    file_ignore_patterns = {
+      "node_modules"
+    }
+  }
+}

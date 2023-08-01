@@ -27,11 +27,11 @@
   current = green bold
   local = white bold
   remote = red bold
-  upstream = black bold
+  upstream = blue bold
 [color "diff"]
   commit = white bold
-  meta = black bold
-  frag = black bold
+  meta = normal
+  frag = normal
   old = red bold
   new = green bold
 [color "status"]
