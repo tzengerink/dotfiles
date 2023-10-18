@@ -30,3 +30,8 @@ require('telescope').setup{
     }
   }
 }
+
+-- Markdown
+vim.cmd([[
+  let g:markdown_fenced_languages = ['typescript', 'mermaid']
+]])

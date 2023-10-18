@@ -119,10 +119,20 @@ _G.packer_plugins = {
     path = "/Users/teun/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
   },
+  ["vim-markdown"] = {
+    loaded = true,
+    path = "/Users/teun/.local/share/nvim/site/pack/packer/start/vim-markdown",
+    url = "https://github.com/tpope/vim-markdown"
+  },
   ["vim-prettier"] = {
     loaded = true,
     path = "/Users/teun/.local/share/nvim/site/pack/packer/start/vim-prettier",
     url = "https://github.com/prettier/vim-prettier"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/Users/teun/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

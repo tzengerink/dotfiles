@@ -10,6 +10,7 @@ return require('packer').startup(function(use)
   use 'airblade/vim-gitgutter'
   use 'phaazon/hop.nvim'
   use 'prettier/vim-prettier'
+  use 'tpope/vim-markdown'
 
   -- Colorschemes
   use 'tyrannicaltoucan/vim-deep-space'
