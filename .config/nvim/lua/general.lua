@@ -7,6 +7,7 @@ vim.cmd.set 'number'
 vim.cmd.set 'tabstop=2 shiftwidth=2 expandtab'
 vim.cmd.set 'signcolumn=yes'
 vim.cmd.set 'list'
+vim.cmd.set 'cursorline'
 
 vim.opt.listchars:append({
   eol = '↵',
@@ -18,7 +19,7 @@ vim.opt.listchars:append({
 vim.opt.termguicolors = true
 vim.cmd.backgound = 'dark'
 vim.cmd.syntax 'enable'
-vim.cmd.colorscheme 'nightfox'
+vim.cmd.colorscheme 'iceberg'
 vim.cmd.highlight 'Whitespace guifg=#2c2c2c'
 vim.cmd.highlight 'NonText guifg=#2c2c2c'
 

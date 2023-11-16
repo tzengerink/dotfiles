@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
   use 'tyrannicaltoucan/vim-deep-space'
   use 'EdenEast/nightfox.nvim'
   use 'Mofiqul/vscode.nvim'
+  use 'cocopon/iceberg.vim'
 
   use { 'neoclide/coc.nvim', branch = 'release' }
 
