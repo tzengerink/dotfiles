@@ -45,5 +45,8 @@
   "javascript.suggest.autoImports": false,
 
   "window.autoDetectColorScheme": true,
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.menus": false
 }

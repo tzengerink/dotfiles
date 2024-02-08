@@ -1,3 +1,7 @@
+local function open_tab(node)
+  require("nvim-tree.api").node.open.tab(node)
+end
+
 local function on_nvim_tree_attach(bufnr)
   local api = require "nvim-tree.api"
 
@@ -8,6 +12,7 @@ local function on_nvim_tree_attach(bufnr)
   api.config.mappings.default_on_attach(bufnr)
   vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+  vim.keymap.set('n', 't', open_tab, opts('Open: New Tab'))
 end
 
 require('nvim-tree').setup({

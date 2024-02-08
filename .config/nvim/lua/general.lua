@@ -8,6 +8,7 @@ vim.cmd.set 'tabstop=2 shiftwidth=2 expandtab'
 vim.cmd.set 'signcolumn=yes'
 vim.cmd.set 'list'
 vim.cmd.set 'cursorline'
+vim.cmd.set 'nowrap'
 
 vim.opt.listchars:append({
   eol = '↵',
@@ -22,12 +23,21 @@ vim.cmd.syntax 'enable'
 vim.cmd.colorscheme 'iceberg'
 vim.cmd.highlight 'Whitespace guifg=#2c2c2c'
 vim.cmd.highlight 'NonText guifg=#2c2c2c'
+vim.cmd.highlight 'Search guibg=#2c2c2c guifg=none'
+
+-- TSServer
+-- To setup run:
+--
+--   $> sudo npm install -g typescript typescript-language-server
+--
+require('lspconfig').tsserver.setup {}
 
 -- Telescope
-require('telescope').setup{
+require('telescope').setup {
   defaults = {
     file_ignore_patterns = {
-      "node_modules"
+      "node_modules",
+      "coverage"
     }
   }
 }
