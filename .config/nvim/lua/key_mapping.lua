@@ -17,6 +17,10 @@ keymap('n', 'WJ', ':rightbelow new<CR>', opts)
 keymap('n', 'WL', ':rightbelow vnew<CR>', opts)
 keymap('n', 'WK', ':leftabove new<CR>', opts)
 
+-- Tabs
+keymap('n', '<C-]>', ':tabnext<CR>', opts)
+keymap('n', '<C-[>', ':tabprevious<CR>', opts)
+
 -- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})

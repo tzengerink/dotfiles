@@ -20,7 +20,7 @@ vim.opt.listchars:append({
 vim.opt.termguicolors = true
 vim.cmd.backgound = 'dark'
 vim.cmd.syntax 'enable'
-vim.cmd.colorscheme 'iceberg'
+vim.cmd.colorscheme 'nightfox'
 vim.cmd.highlight 'Whitespace guifg=#2c2c2c'
 vim.cmd.highlight 'NonText guifg=#2c2c2c'
 vim.cmd.highlight 'Search guibg=#2c2c2c guifg=none'
