@@ -3,6 +3,7 @@
 [alias]
   ad = add
   br = branch
+  ca = "commit --amend"
   ci = commit
   co = "checkout -q"
   di = "diff -p"
