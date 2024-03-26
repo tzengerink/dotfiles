@@ -27,6 +27,8 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fc', builtin.commands, {})
 keymap('n', 'gd', '<cmd>lua require"telescope.builtin".lsp_definitions()<CR>', opts)
+keymap('n', 'gv', ':vsplit<CR><cmd>lua require"telescope.builtin".lsp_definitions()<CR>', opts)
+keymap('n', 'gx', ':split<CR><cmd>lua require"telescope.builtin".lsp_definitions()<CR>', opts)
 -- keymap('n', 'gt', '<cmd>lua require"telescope.builtin".lsp_type_definitions()<CR>', opts)
 
 -- Autocomplete
@@ -38,6 +40,9 @@ vim.cmd([[
 
 -- Auto import
 keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+
+-- GitGutter
+keymap('n', '<leader>u', ':GitGutterUndoHunk<CR>', opts);
 
 -- Hop
 local hop = require('hop')

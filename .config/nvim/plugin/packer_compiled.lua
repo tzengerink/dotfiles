@@ -84,10 +84,15 @@ _G.packer_plugins = {
     path = "/Users/teun/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
   },
-  ["iceberg.vim"] = {
+  ["kanagawa.nvim"] = {
     loaded = true,
-    path = "/Users/teun/.local/share/nvim/site/pack/packer/start/iceberg.vim",
-    url = "https://github.com/cocopon/iceberg.vim"
+    path = "/Users/teun/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
+  nerdcommenter = {
+    loaded = true,
+    path = "/Users/teun/.local/share/nvim/site/pack/packer/start/nerdcommenter",
+    url = "https://github.com/preservim/nerdcommenter"
   },
   ["nightfox.nvim"] = {
     loaded = true,
@@ -119,11 +124,6 @@ _G.packer_plugins = {
     path = "/Users/teun/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["vim-deep-space"] = {
-    loaded = true,
-    path = "/Users/teun/.local/share/nvim/site/pack/packer/start/vim-deep-space",
-    url = "https://github.com/tyrannicaltoucan/vim-deep-space"
-  },
   ["vim-gitgutter"] = {
     loaded = true,
     path = "/Users/teun/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
@@ -138,11 +138,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/teun/.local/share/nvim/site/pack/packer/start/vim-prettier",
     url = "https://github.com/prettier/vim-prettier"
-  },
-  ["vscode.nvim"] = {
-    loaded = true,
-    path = "/Users/teun/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

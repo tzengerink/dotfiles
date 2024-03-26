@@ -67,9 +67,8 @@ zle -N do_nothing
 bindkey "^l" do_nothing
 
 ## PROMPT
+local prompt_user='%F%n%f'
 local prompt_dir='$(pre_prompt_dir)'
-local prompt_jobs='$(pre_prompt_jobs)'
-local prompt_info="%B[%n@%m]%b"
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node='$(pre_prompt_node)'
 local prompt_repo='$(pre_prompt_repo)'
@@ -77,9 +76,9 @@ local prompt_shell='$(pre_prompt_shell)'
 local prompt_exit='$(pre_prompt_exit)'
 
 function pre_prompt_exit {
-	local SUCCESS="%{$fg[white]%}*%{$reset_color%}"
-	local ERROR="%{$fg[red]%}*%{$reset_color%}"
-	echo -e "%B%(?.$SUCCESS.$ERROR)%b"
+	local SUCCESS="%{$fg[green]%}%j%{$reset_color%}"
+	local ERROR="%{$fg[red]%}%j%{$reset_color%}"
+	echo -e "%(?.$SUCCESS.$ERROR)"
 }
 
 function pre_prompt_repo {
@@ -88,13 +87,16 @@ function pre_prompt_repo {
 	if [[ -d ".git" ]]; then
 		local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 		local HASH=$(git rev-parse --short HEAD 2>/dev/null)
-		if [[ $BRANCH = "master" || $BRANCH = "main" ]]; then
-			local BRANCH="%B%{$fg[red]%}$BRANCH%{$reset_color%}%B"
+		if [[ $BRANCH = master* || $BRANCH = main* ]]; then
+			local BRANCH="%{$fg[red]%}$BRANCH%{$reset_color%}"
 		fi
-		if [[ $BRANCH = "develop" ]]; then
-			local BRANCH="%B%{$fg[yellow]%}$BRANCH%{$reset_color%}%B"
+		if [[ $BRANCH = develop* ]]; then
+			local BRANCH="%{$fg[yellow]%}$BRANCH%{$reset_color%}"
 		fi
-		echo -e "%{$reset_color%}%B[$BRANCH:%{$reset_color%}%B$HASH]%{$reset_color%}%B"
+		if [[ $BRANCH = feature/* || $BRANCH = refactor/* ]]; then
+			local BRANCH="%{$fg[blue]%}$BRANCH%{$reset_color%}"
+		fi
+		echo -e "%{$reset_color%}·$BRANCH·%{$reset_color%}%F%{$fg[cyan]%}$HASH%{$reset_color%}%f%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -110,31 +112,22 @@ function pre_prompt_dir {
 		DIR="`echo $DIR | awk -F\/ '{print $1,"/",$2,"/__DIRCOUNT__/",$(NF)}' | sed s/\ //g`"
 		DIR=${DIR/__DIRCOUNT__/$STR}
 	fi
-	echo -e "%{$reset_color%}%B[%{$fg[white]%}$DIR%{$reset_color%}%B]%b%{$reset_color%}"
-}
-
-function pre_prompt_jobs {
-	local JOBS="$(jobs -l | wc -l | awk '{print $1}')"
-	if [[ $JOBS != 0 ]]; then
-		echo -e "%{$reset_color%}%B[%{$fg[white]%}%j%{$reset_color%}%B]%b%{$reset_color%}"
-	else
-		echo ""
-	fi
+	echo -e "%{$reset_color%}·%{$fg[magenta]%}$DIR%{$reset_color%}"
 }
 
 function pre_prompt_newline {
-	echo -e "%B\n%b"
+	echo -e "%b\n%b"
 }
 
 function pre_prompt_node {
 	if [[ -d "node_modules" ]] && which node >/dev/null; then
-		echo -e "%{$reset_color%}%B[$(node --version)]%b%{$reset_color%}"
+		echo -e "%{$reset_color%}·%F%{$fg[yellow]%}$(node --version)%f%{$reset_color%}"
 	fi
 }
 
 # Load local config file if available
 [[ -f ~/.localrc ]] && source ~/.localrc
 
-export PROMPT="${prompt_info}${prompt_dir}${prompt_jobs}${prompt_repo}${prompt_newline}${prompt_node}${prompt_exit} "
+export PROMPT="${prompt_user}${prompt_dir}${prompt_repo}${prompt_node}${prompt_newline}${prompt_exit}·> "
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

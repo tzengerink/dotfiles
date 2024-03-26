@@ -9,6 +9,7 @@ vim.cmd.set 'signcolumn=yes'
 vim.cmd.set 'list'
 vim.cmd.set 'cursorline'
 vim.cmd.set 'nowrap'
+vim.cmd.set 'autoread'
 
 vim.opt.listchars:append({
   eol = '↵',
@@ -16,14 +17,23 @@ vim.opt.listchars:append({
   space = '·',
 })
 
--- Syntax highlighting
+-- SYNTAX HIGHLIGHTING
 vim.opt.termguicolors = true
 vim.cmd.backgound = 'dark'
 vim.cmd.syntax 'enable'
-vim.cmd.colorscheme 'nightfox'
-vim.cmd.highlight 'Whitespace guifg=#2c2c2c'
-vim.cmd.highlight 'NonText guifg=#2c2c2c'
-vim.cmd.highlight 'Search guibg=#2c2c2c guifg=none'
+vim.cmd.colorscheme 'github_dark_dimmed'
+-- Generic adjustments
+vim.cmd.highlight 'Whitespace guifg=#333333'
+vim.cmd.highlight 'NonText guifg=#333333'
+vim.cmd.highlight 'Search guibg=#333333 guifg=none'
+vim.cmd.highlight 'LineNR guifg=#666666'
+vim.cmd.highlight 'CursorLine guibg=#333333'
+-- Transparant background
+vim.cmd.highlight 'Normal guibg=none'
+vim.cmd.highlight 'NonText guibg=none'
+vim.cmd.highlight 'Normal ctermbg=none'
+vim.cmd.highlight 'NonText ctermbg=none'
+vim.cmd.highlight 'NormalNC guibg=none'
 
 -- TSServer
 -- To setup run:
@@ -36,11 +46,11 @@ require('lspconfig').tsserver.setup {}
 require('telescope').setup {
   defaults = {
     file_ignore_patterns = {
-      "node_modules",
-      "dist",
-      "coverage"
+      "^./dist/.*",
+      "^./node_modules/.*",
+      "^./coverage/.*",
     }
-  }
+  },
 }
 
 -- Markdown

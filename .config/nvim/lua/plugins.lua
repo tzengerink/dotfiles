@@ -18,10 +18,9 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
 
   -- Colorschemes
-  use 'tyrannicaltoucan/vim-deep-space'
   use 'EdenEast/nightfox.nvim'
-  use 'Mofiqul/vscode.nvim'
-  use 'cocopon/iceberg.vim'
+  use "rebelot/kanagawa.nvim"
+  use 'projekt0n/github-nvim-theme'
 
   use {
     'nvim-telescope/telescope.nvim',

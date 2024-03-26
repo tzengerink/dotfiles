@@ -1,27 +1,32 @@
-[colors.bright]
-black = "#494949"
-blue = "#0486FF"
-cyan = "#5FD8FF"
-green = "#1CD760"
-magenta = "#B05FFF"
-red = "#FF3B30"
-white = "#FFFFFF"
-yellow = "#FFCC00"
-
-[colors.cursor]
-cursor = "#FF01AF"
-text = "CellBackground"
-
-[colors.normal]
-black = "#DDDDDD"
-blue = "#0486FF"
-cyan = "#5FD8FF"
-green = "#1CD760"
-magenta = "#B05FFF"
-red = "#FF3B30"
-white = "#FFFFFF"
-yellow = "#FFCC00"
+# https://github.com/alacritty/alacritty-theme/blob/master/themes/github_dark_high_contrast.toml
 
 [colors.primary]
-background = "#000000"
-foreground = "#FFFFFF"
+background = '#0a0c10'
+foreground = '#f0f3f6'
+
+[colors.normal]
+black = '#7a828e'
+red = '#ff9492'
+green = '#26cd4d'
+yellow = '#f0b72f'
+blue = '#71b7ff'
+magenta = '#cb9eff'
+cyan = '#39c5cf'
+white = '#d9dee3'
+
+[colors.bright]
+black = '#9ea7b3'
+red = '#ffb1af'
+green = '#4ae168'
+yellow = '#f7c843'
+blue = '#91cbff'
+magenta = '#cb9eff'
+cyan = '#39c5cf'
+white = '#d9dee3'
+
+[colors.cursor]
+cursor = "#ff01af"
+text = "CellBackground"
+
+[font]
+size = 10
