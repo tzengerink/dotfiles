@@ -4,12 +4,15 @@ alias -g T='| tail'
 alias -g J='| python3 -mjson.tool'
 alias -g C='| pbcopy'
 
-# Git
-alias g='git'
-
 # Navigation
 alias l='ls -l'
 alias ll='ls -lAh'
-alias lt='ll -rt'              # Sort by date
-alias lx='ll -Bx'              # Sort by extension
-alias lz='ll -rS'              # Sort by size
+alias lt='ll -rt' # Sort by date
+alias lx='ll -Bx' # Sort by extension
+alias lz='ll -rS' # Sort by size
+
+# git
+alias g='git'
+
+# icdiff
+alias di="icdiff --color-map='description:white,separator:none'"

@@ -6,11 +6,12 @@
   ca = "commit --amend"
   ci = commit
   co = "checkout -q"
-  di = "diff -p"
-  dn = "diff --name-only"
+  di = "icdiff -p"
+  #dn = "diff --name-only"
+  #dt = "icdiff"
   fe = "fetch -p"
   lg = "log --pretty=oneline --abbrev-commit"
-  ln = "log --name-only"
+  ln = "lg --name-only"
   ps = push
   pf = "push --force-with-lease"
   pl = pull
@@ -25,48 +26,43 @@
   branch = auto
   status = auto
 [color "branch"]
-  current = green bold
-  local = white bold
-  remote = red bold
-  upstream = blue bold
+  current = green
+  local = white
+  remote = red
+  upstream = blue
 [color "diff"]
-  commit = white bold
+  commit = white
   meta = normal
   frag = normal
-  old = red bold
-  new = green bold
+  old = red
+  new = green
 [color "status"]
   header = normal
-  added = green bold
-  updated = green bold
-  changed = red bold
-  untracked = red bold
-  nobranch = white bold
+  added = green
+  updated = green
+  changed = red
+  untracked = red
+  nobranch = white
 [color "interactive"]
-  prompt = white bold
-  header = white bold
+  prompt = white
+  header = white
   help = normal
-  error = red bold
+  error = red
 [user]
   name = Teun Zengerink
   email = 539075+tzengerink@users.noreply.github.com
 [core]
   excludesfile = ~/.gitignore
   editor = nvim
+  pager = "less -XF"
 [http]
   sslVerify = false
 [commit]
   gpgsign = false
 [diff]
-  tool = vscode
-[difftool "vscode"]
-  prompt = false
-  cmd = code --wait --diff $LOCAL $REMOTE
+  tool = nvimdiff
 [merge]
-  tool = vscode
-[mergetool "vscode"]
-  prompt = false
-  cmd = code --wait $MERGED
+  tool = nvimdiff
 [push]
   default = current
 [pull]
@@ -80,3 +76,5 @@
   required = true
 [advice]
   skippedCherryPicks = false
+[icdiff]
+  options = --show-no-spaces --no-bold --color-map='description:white,separator:none'
