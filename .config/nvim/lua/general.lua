@@ -34,6 +34,8 @@ vim.cmd.highlight 'NonText guibg=none'
 vim.cmd.highlight 'Normal ctermbg=none'
 vim.cmd.highlight 'NonText ctermbg=none'
 vim.cmd.highlight 'NormalNC guibg=none'
+-- Transparant bg for NvimTree
+vim.api.nvim_set_hl(0, "NvimTreeNormal", { link = "Normal" })
 
 -- TSServer
 -- To setup run:
