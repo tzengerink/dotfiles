@@ -19,8 +19,6 @@ return require('packer').startup(function(use)
 
   -- Colorschemes
   use 'EdenEast/nightfox.nvim'
-  use "rebelot/kanagawa.nvim"
-  use 'projekt0n/github-nvim-theme'
 
   use {
     'nvim-telescope/telescope.nvim',

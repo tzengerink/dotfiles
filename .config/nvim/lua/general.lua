@@ -21,21 +21,22 @@ vim.opt.listchars:append({
 vim.opt.termguicolors = true
 vim.cmd.backgound = 'dark'
 vim.cmd.syntax 'enable'
-vim.cmd.colorscheme 'github_dark_dimmed'
+vim.cmd.colorscheme 'nightfox'
 -- Generic adjustments
 vim.cmd.highlight 'Whitespace guifg=#333333'
 vim.cmd.highlight 'NonText guifg=#333333'
 vim.cmd.highlight 'Search guibg=#333333 guifg=none'
 vim.cmd.highlight 'LineNR guifg=#666666'
 vim.cmd.highlight 'CursorLine guibg=#333333'
+vim.cmd.highlight 'StatusLine guibg=#333333'
+vim.cmd.highlight 'StatusLineNC guibg=#333333'
+vim.cmd.highlight 'WinSeparator guifg=#666666'
 -- Transparant background
 vim.cmd.highlight 'Normal guibg=none'
 vim.cmd.highlight 'NonText guibg=none'
 vim.cmd.highlight 'Normal ctermbg=none'
 vim.cmd.highlight 'NonText ctermbg=none'
 vim.cmd.highlight 'NormalNC guibg=none'
--- Transparant bg for NvimTree
-vim.api.nvim_set_hl(0, "NvimTreeNormal", { link = "Normal" })
 
 -- TSServer
 -- To setup run:

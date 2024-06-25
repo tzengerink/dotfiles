@@ -93,7 +93,7 @@ function pre_prompt_repo {
 		if [[ $BRANCH = develop* ]]; then
 			local BRANCH="%{$fg[yellow]%}$BRANCH%{$reset_color%}"
 		fi
-		if [[ $BRANCH = feature/* || $BRANCH = refactor/* ]]; then
+		if [[ $BRANCH = feature/* || $BRANCH = refactor/* || $BRANCH = chore/* || $BRANCH = fix/* ]]; then
 			local BRANCH="%{$fg[blue]%}$BRANCH%{$reset_color%}"
 		fi
 		echo -e "%{$reset_color%}·$BRANCH·%{$reset_color%}%F%{$fg[cyan]%}$HASH%{$reset_color%}%f%{$reset_color%}"
