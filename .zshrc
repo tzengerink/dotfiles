@@ -87,13 +87,13 @@ function pre_prompt_repo {
 	if [[ -d ".git" ]]; then
 		local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 		local HASH=$(git rev-parse --short HEAD 2>/dev/null)
-		if [[ $BRANCH = master* || $BRANCH = main* ]]; then
+    if [[ $BRANCH =~ ^(master|main)$ ]]; then
 			local BRANCH="%{$fg[red]%}$BRANCH%{$reset_color%}"
 		fi
-		if [[ $BRANCH = develop* ]]; then
+    if [[ $BRANCH =~ ^develop$ ]]; then
 			local BRANCH="%{$fg[yellow]%}$BRANCH%{$reset_color%}"
 		fi
-		if [[ $BRANCH = feature/* || $BRANCH = refactor/* || $BRANCH = chore/* || $BRANCH = fix/* ]]; then
+    if [[ $BRANCH =~ ^(feature|feat|refactor|chore|fix|docs)\/ ]]; then
 			local BRANCH="%{$fg[blue]%}$BRANCH%{$reset_color%}"
 		fi
 		echo -e "%{$reset_color%}·$BRANCH·%{$reset_color%}%F%{$fg[cyan]%}$HASH%{$reset_color%}%f%{$reset_color%}"
