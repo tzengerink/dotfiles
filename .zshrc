@@ -86,7 +86,7 @@ function pre_prompt_repo {
 	while [ ! -d ".git" ] && [ ! "`pwd`" = "/" ]; do cd ..; done
 	if [[ -d ".git" ]]; then
 		local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-		local HASH=$(git rev-parse --short HEAD 2>/dev/null)
+		local HASH=$(git rev-parse --short=8 HEAD 2>/dev/null)
     if [[ $BRANCH =~ ^(master|main)$ ]]; then
 			local BRANCH="%{$fg[red]%}$BRANCH%{$reset_color%}"
 		fi

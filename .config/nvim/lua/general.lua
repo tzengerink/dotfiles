@@ -60,3 +60,8 @@ require('telescope').setup {
 vim.cmd([[
   let g:markdown_fenced_languages = ['typescript', 'mermaid']
 ]])
+
+-- Prettier
+vim.cmd([[
+  let g:prettier#config#trailing_comma = 'all'
+]]);
