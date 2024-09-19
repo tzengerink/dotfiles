@@ -10,13 +10,14 @@
   #dn = "diff --name-only"
   #dt = "icdiff"
   fe = "fetch -p"
-  lg = "log --pretty=oneline --abbrev-commit"
+  lg = "log --stat"
   ln = "lg --name-only"
   ps = push
   pf = "push --force-with-lease"
   pl = pull
   rb = rebase
   rc = rebase --continue
+  sh = "show --stat"
   st = "status -s --ignore-submodules=dirty"
   sl = stash list
   ss = stash save
