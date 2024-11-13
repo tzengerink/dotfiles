@@ -43,7 +43,7 @@ vim.cmd.highlight 'NormalNC guibg=none'
 --
 --   $> sudo npm install -g typescript typescript-language-server
 --
-require('lspconfig').tsserver.setup {}
+require('lspconfig').ts_ls.setup {}
 
 -- Telescope
 require('telescope').setup {
