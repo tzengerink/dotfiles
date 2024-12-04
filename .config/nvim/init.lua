@@ -1,5 +1,5 @@
-require('plugin')
+require('config.lazy')
+require('config.nvim-tree')
 require('settings')
-require('plugins/nvim_tree')
 require('commands')
 require('keys')
