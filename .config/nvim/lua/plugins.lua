@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
   use 'prettier/vim-prettier'
   use 'tpope/vim-markdown'
   use 'preservim/nerdcommenter'
+  use 'github/copilot.vim'
 
   -- Language features
   use { 'neoclide/coc.nvim', branch = 'release' }
