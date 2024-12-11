@@ -1,9 +1,8 @@
-[init]
-  templatedir = /Users/teun.zengerink/.acn-security-tools/git-template
 [alias]
   ad = add
   br = branch
   ca = "commit --amend"
+  can = "commit --amend --no-verify"
   ci = commit
   co = "checkout -q"
   di = "icdiff -p"
@@ -14,6 +13,7 @@
   ln = "lg --name-only"
   ps = push
   pf = "push --force-with-lease"
+  pfn = "push --force-with-lease --no-verify"
   pl = pull
   rb = rebase
   rc = rebase --continue

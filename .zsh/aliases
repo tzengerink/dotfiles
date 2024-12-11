@@ -11,8 +11,10 @@ alias lt='ll -rt' # Sort by date
 alias lx='ll -Bx' # Sort by extension
 alias lz='ll -rS' # Sort by size
 
-# git
+# git / github
 alias g='git'
+alias ce='gh copilot explain'
+alias cs='gh copilot suggest'
 
 # icdiff
 alias di="icdiff --color-map='description:white,separator:none'"
