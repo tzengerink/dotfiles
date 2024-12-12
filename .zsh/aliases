@@ -1,10 +1,10 @@
-# Global
+# global
 alias -g L='| less -S'
 alias -g T='| tail'
 alias -g J='| python3 -mjson.tool'
 alias -g C='| pbcopy'
 
-# Navigation
+# navigation
 alias l='ls -l'
 alias ll='ls -lAh'
 alias lt='ll -rt' # Sort by date
@@ -16,5 +16,9 @@ alias g='git'
 alias ce='gh copilot explain'
 alias cs='gh copilot suggest'
 
-# icdiff
+# tools
+alias t="tmux new -A -s NN"
+alias n='nvim'
+alias f='fzf'
+alias d=docker
 alias di="icdiff --color-map='description:white,separator:none'"

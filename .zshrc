@@ -30,8 +30,6 @@ setopt HIST_IGNORE_SPACE     # Ignore entries preceded by a space
 setopt INC_APPEND_HISTORY    # Incrementally append history
 setopt SHARE_HISTORY         # Share the history file across sessions
 
-bindkey "^R" history-incremental-search-backward
-
 # Exports
 export CLICOLOR=1
 export EDITOR='vim'
@@ -50,7 +48,7 @@ fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
 [[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases
 
-# Less
+# less
 export PAGER=less                         # Use less for paging
 export LESS_TERMCAP_mb=$'\e[01;31m'       # Begin blinking
 export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # Begin bold
@@ -61,10 +59,16 @@ export LESS_TERMCAP_ue=$'\e[0m'           # End underline
 export LESS_TERMCAP_us=$'\e[04;38;5;244m' # Begin underline
 lesskey >/dev/null 2>&1
 
-# Disable annoying clear screen shortcut (Ctrl-l)
-do_nothing () { }
-zle -N do_nothing
-bindkey "^l" do_nothing
+# fzf - https://junegunn.github.io/fzf/
+source <(fzf --zsh)
+export FZF_DEFAULT_OPTS="
+  --walker-skip .git,node_modules,dist
+  --tmux 90%"
+export FZF_CTRL_T_OPTS="
+  --preview 'bat --color=always --style=numbers,changes --line-range :500 {}'"
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,dist
+  --preview 'tree -C {}'"
 
 ## PROMPT
 local prompt_user='%F%n%f'
