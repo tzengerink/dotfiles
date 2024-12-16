@@ -5,9 +5,7 @@
   can = "commit --amend --no-verify"
   ci = commit
   co = "checkout -q"
-  di = "icdiff -p"
-  #dn = "diff --name-only"
-  #dt = "icdiff"
+  di = "diff"
   fe = "fetch -p"
   lg = "log --stat"
   ln = "lg --name-only"
@@ -55,7 +53,7 @@
 [core]
   excludesfile = ~/.gitignore
   editor = nvim
-  pager = "less -XF"
+  pager = delta
 [http]
   sslVerify = false
 [commit]
@@ -70,12 +68,33 @@
   rebase = true
 [gpg]
   program = gpg
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
 [advice]
   skippedCherryPicks = false
-[icdiff]
-  options = --show-no-spaces --no-bold --color-map='description:white,separator:none'
+
+[delta "my-custom-theme"]
+  dark = true
+  syntax-theme = base16
+  line-numbers = true
+  line-numbers-left-format = "{nm:>4} "
+  line-numbers-right-format = "{np:>4} "
+  line-numbers-zero-style = 240
+  line-numbers-plus-style = 22
+  line-numbers-minus-style = 52
+  file-style = 255 box
+  file-decoration-style = "none"
+  file-added-label = [+]
+  file-copied-label = [==]
+  file-modified-label = [*]
+  file-removed-label = [-]
+  file-renamed-label = [->]
+  hunk-header-style = raw
+  hunk-header-decoration-style = 240 ul
+  zero-style = syntax
+  plus-style = syntax 22
+  plus-emph-style = syntax 28
+  minus-style = syntax 52
+  minus-emph-style = syntax 88
+[delta]
+  navigate = true
+  side-by-side = true
+  features = my-custom-theme
