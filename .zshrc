@@ -49,7 +49,7 @@ autoload -U ~/.zsh/functions/*(:t)
 [[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases
 
 # less
-export PAGER=less                         # Use less for paging
+export PAGER="less"                       # Use less for paging
 export LESS_TERMCAP_mb=$'\e[01;31m'       # Begin blinking
 export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # Begin bold
 export LESS_TERMCAP_me=$'\e[0m'           # End mode
@@ -71,6 +71,9 @@ export FZF_CTRL_T_OPTS="
 export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,dist
   --preview 'tree -C {}'"
+
+# delta - https://github.com/dandavison/delta
+export DELTA_PAGER="less -+X -+F"
 
 ## PROMPT
 local prompt_user='%F%n%f'

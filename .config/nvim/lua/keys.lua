@@ -23,6 +23,7 @@ keymap('n', '<C-[>', ':tabprevious<CR>', opts)
 -- FZF
 keymap('n', '<Leader>f', ':Files<CR>', { noremap = true, silent = true })
 keymap('n', '<Leader>b', ':Buffer<CR>', { noremap = true, silent = true })
+keymap('n', '<Leader>r', ':RG<CR>', { noremap = true, silent = true })
 
 -- LSP
 keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
