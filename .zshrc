@@ -38,7 +38,7 @@ export LANG=en_US.UTF-8
 export LSCOLORS=HxahBbBbAxBbBbBxBxHxHx
 export LS_COLORS="di=1;;97:ln=1;47;90:so=1;41;91:pi=1;41;91:ex=1;;90:bd=1;41;91:cd=1;41;91:su=0;;91:sg=1;;91:tw=1;;97:ow=1;;97"
 export SUDO_EDITOR='/usr/bin/vi -p -X'
-export TERM=xterm-256color
+# export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
 export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
@@ -64,7 +64,8 @@ source <(fzf --zsh)
 export FZF_DEFAULT_OPTS="
   --walker-skip .git,node_modules,dist
   --layout=default
-  --tmux center,90%,90%"
+  --tmux center,90%,90%
+  --preview 'bat --color=always --style=numbers,changes --line-range :500 {}'"
 export FZF_CTRL_T_OPTS="
   --preview 'bat --color=always --style=numbers,changes --line-range :500 {}'"
 export FZF_ALT_C_OPTS="

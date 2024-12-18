@@ -94,6 +94,9 @@
   plus-emph-style = syntax 28
   minus-style = syntax 52
   minus-emph-style = syntax 88
+  blame-code-style = syntax
+  blame-format = "{author:>18} ({commit:>8}) {timestamp:<13} "
+  blame-palette = 233 235 237 239
 [delta]
   navigate = true
   side-by-side = true

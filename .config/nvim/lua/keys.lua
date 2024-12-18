@@ -25,8 +25,10 @@ keymap('n', '<Leader>f', ':Files<CR>', { noremap = true, silent = true })
 keymap('n', '<Leader>b', ':Buffer<CR>', { noremap = true, silent = true })
 
 -- LSP
+keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 keymap('n', 'gv', ':vsplit<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
 keymap('n', 'gx', ':split<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
+keymap('n', 'gt', ':tabe<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
 keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
 -- Autocomplete
