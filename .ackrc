@@ -1,7 +1,0 @@
---color
---color-match=rgb131
---color-filename=rgb444
---color-lineno=rgb111
-
---ignore-directory=is:coverage
---ignore-directory=is:playwright-report
