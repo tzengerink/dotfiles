@@ -45,10 +45,3 @@ keymap('n', '<leader>u', ':GitGutterUndoHunk<CR>', opts);
 -- Copilot
 vim.g.copilot_no_tab_map = true
 vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
-
--- Prettier
-vim.cmd([[
-  let g:prettier#exec_cmd_async = 1
-  let g:prettier#autoformat = 1
-  let g:prettier#autoformat_require_pragma = 0
-]])

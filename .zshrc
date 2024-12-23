@@ -32,7 +32,7 @@ setopt SHARE_HISTORY         # Share the history file across sessions
 
 # Exports
 export CLICOLOR=1
-export EDITOR='vim'
+export EDITOR='nvim'
 export EMAIL='teun@zengerink.com'
 export LANG=en_US.UTF-8
 export LSCOLORS=HxahBbBbAxBbBbBxBxHxHx
@@ -71,6 +71,20 @@ export FZF_CTRL_T_OPTS="
 export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,dist
   --preview 'tree -C {}'"
+# https://junegunn.github.io/fzf/tips/ripgrep-integration/
+rfn() (
+  RELOAD='reload:rg --column --color=always --smart-case {q} || :'
+  OPENER="$EDITOR {1} +{2}"
+  fzf --disabled --ansi --multi \
+      --bind "start:$RELOAD" \
+      --bind "change:$RELOAD" \
+      --bind "enter:become:$OPENER" \
+      --delimiter : \
+      --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+      --preview-window '~4,+{2}+4/3,<80(up)' \
+      --query "$*"
+)
+bindkey -s '^\' 'rfn\n'
 
 # delta - https://github.com/dandavison/delta
 export DELTA_PAGER="less -+X -+F"
