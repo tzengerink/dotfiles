@@ -25,8 +25,8 @@ cyan = '#39c5cf'
 white = '#d9dee3'
 
 [colors.cursor]
-cursor = "#ff01af"
-text = "CellBackground"
+cursor = '#cb9eff'
+text = 'CellBackground'
 
 [font]
 size = 10

@@ -80,6 +80,8 @@ rfn() (
       --query "$*"
 )
 bindkey -s '^\' 'rfn\n'
+# https://github.com/junegunn/fzf-git.sh
+source ~/.zsh/fzf-git.sh
 
 # delta - https://github.com/dandavison/delta
 export DELTA_PAGER="less -+X -+F"

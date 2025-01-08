@@ -50,6 +50,9 @@ vim.cmd.highlight 'SignColumn guibg=none'
 --
 require('lspconfig').ts_ls.setup {}
 
+-- focus.vim
+require("focus").setup()
+
 -- FZF
 vim.cmd.set 'rtp+=/usr/local/opt/fzf'
 vim.g.fzf_layout = { tmux = "center,90%,90%" }

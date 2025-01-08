@@ -17,7 +17,7 @@ alias ce='gh copilot explain'
 alias cs='gh copilot suggest'
 
 # tools
-alias t="tmux new -A -s NN"
+alias t="tmux new-session -A -s main"
 alias n='nvim'
 alias f='fzf'
 alias d=docker

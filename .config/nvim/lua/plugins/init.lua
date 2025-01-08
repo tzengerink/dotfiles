@@ -5,6 +5,7 @@ return {
   { 'tpope/vim-markdown' },
   { 'preservim/nerdcommenter' },
   { 'github/copilot.vim' },
+  { 'nvim-focus/focus.nvim', version = '*' },
 
   -- FZF
   { 'junegunn/fzf' },
