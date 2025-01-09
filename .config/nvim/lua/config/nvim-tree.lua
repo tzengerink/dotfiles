@@ -26,7 +26,7 @@ require('nvim-tree').setup({
     ignore = false,
   },
   view = {
-    width = 40,
+    width = 60,
   },
   renderer = {
     highlight_git = true,

@@ -50,10 +50,7 @@ vim.cmd.highlight 'LineNr guibg=none'
 vim.cmd.highlight 'SignColumn guibg=none'
 
 -- TSServer
--- To setup run:
---
---   $> sudo npm install -g typescript typescript-language-server
---
+-- sudo npm install -g typescript typescript-language-server
 require('lspconfig').ts_ls.setup {}
 
 -- focus.vim

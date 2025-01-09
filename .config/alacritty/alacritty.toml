@@ -25,7 +25,7 @@ cyan = '#39c5cf'
 white = '#d9dee3'
 
 [colors.cursor]
-cursor = '#cb9eff'
+cursor = '#ff33a4'
 text = 'CellBackground'
 
 [font]

@@ -41,9 +41,9 @@ keymap('n', '<Leader>r', ':RG<CR>', { noremap = true, silent = true })
 keymap('n', '<Leader>g', ':GF?<CR>', { noremap = true, silent = true })
 
 -- GitGutter
-keymap('n', '<leader>u', ':GitGutterUndoHunk<CR>', opts);
-keymap('n', 'J', ':GitGutterNextHunk<CR>', opts);
-keymap('n', 'K', ':GitGutterPrevHunk<CR>', opts);
+keymap('n', '<C-u>', ':GitGutterUndoHunk<CR>', opts);
+keymap('n', '<C-j>', ':GitGutterNextHunk<CR>', opts);
+keymap('n', '<C-k>', ':GitGutterPrevHunk<CR>', opts);
 
 -- Copilot
 vim.g.copilot_no_tab_map = true
