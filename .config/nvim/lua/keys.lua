@@ -20,12 +20,6 @@ keymap('n', 'WK', ':leftabove new<CR>', opts)
 keymap('n', '<C-]>', ':tabnext<CR>', opts)
 keymap('n', '<C-[>', ':tabprevious<CR>', opts)
 
--- FZF
-keymap('n', '<Leader>f', ':Files<CR>', { noremap = true, silent = true })
-keymap('n', '<Leader>b', ':Buffer<CR>', { noremap = true, silent = true })
-keymap('n', '<Leader>r', ':RG<CR>', { noremap = true, silent = true })
-keymap('n', '<Leader>g', ':GF?<CR>', { noremap = true, silent = true })
-
 -- LSP
 keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 keymap('n', 'gv', ':vsplit<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -40,8 +34,16 @@ vim.cmd([[
   inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 ]])
 
+-- FZF
+keymap('n', '<Leader>f', ':Files<CR>', { noremap = true, silent = true })
+keymap('n', '<Leader>b', ':Buffer<CR>', { noremap = true, silent = true })
+keymap('n', '<Leader>r', ':RG<CR>', { noremap = true, silent = true })
+keymap('n', '<Leader>g', ':GF?<CR>', { noremap = true, silent = true })
+
 -- GitGutter
 keymap('n', '<leader>u', ':GitGutterUndoHunk<CR>', opts);
+keymap('n', 'J', ':GitGutterNextHunk<CR>', opts);
+keymap('n', 'K', ':GitGutterPrevHunk<CR>', opts);
 
 -- Copilot
 vim.g.copilot_no_tab_map = true
