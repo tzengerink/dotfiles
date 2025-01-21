@@ -9,3 +9,8 @@ __pycache__
 node_modules
 .nvmrc
 .idea
+
+.config
+!.config/nvim
+!.config/alacritty
+!.config/bat

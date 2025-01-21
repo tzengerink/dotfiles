@@ -90,15 +90,15 @@
   hunk-header-style = raw
   hunk-header-decoration-style = 240 ul
   zero-style = syntax
-  plus-style = syntax 22
-  plus-emph-style = syntax 28
-  minus-style = syntax 52
-  minus-emph-style = syntax 88
+  plus-style = syntax "#0D2C0F"
+  plus-emph-style = syntax "#164D1A"
+  minus-style = syntax "#440B0B"
+  minus-emph-style = syntax "#991818"
   blame-code-style = syntax
   blame-format = "{author:>40} ({commit:>8}) {timestamp:<13} "
   blame-palette = 233 235 237 239
 [delta]
   paging = always
   navigate = true
-  side-by-side = true
+  side-by-side = false
   features = my-custom-theme

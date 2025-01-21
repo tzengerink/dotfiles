@@ -28,5 +28,7 @@ white = '#d9dee3'
 cursor = '#ff33a4'
 text = 'CellBackground'
 
+# https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
 [font]
 size = 10
+normal = { family = 'CommitMono Nerd Font', style = 'Regular' }

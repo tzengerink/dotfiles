@@ -1,5 +1,4 @@
 require('config.lazy')
-require('config.nvim-tree')
-require('settings')
-require('commands')
-require('keys')
+require('config.options')
+require('config.autocmds')
+require('config.keymaps')

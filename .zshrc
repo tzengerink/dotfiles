@@ -43,9 +43,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
 export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
 
-# Function and aliases
-fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)
+# Aliases
 [[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases
 
 # less
