@@ -1,6 +1,7 @@
 return {
   {
     'junegunn/fzf',
+    lazy = false,
     keys = {
       { '<Leader>f', ':Files<CR>', { noremap = true, silent = true } },
       { '<Leader>b', ':Buffer<CR>', { noremap = true, silent = true } },

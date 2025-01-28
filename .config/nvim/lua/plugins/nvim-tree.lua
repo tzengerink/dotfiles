@@ -25,7 +25,7 @@ return {
       renderer = { highlight_git = true },
     },
     keys = {
-      { '<C-n>', function() require("nvim-tree.api").tree.toggle() end, { noremap = true, silent = true } },
+      { '<C-n>', function() require("nvim-tree.api").tree.toggle({ find_file = true, focus = true }) end, { noremap = true, silent = true } },
     }
   },
 }

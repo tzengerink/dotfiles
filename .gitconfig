@@ -78,8 +78,8 @@
   line-numbers-left-format = "{nm:>4} "
   line-numbers-right-format = "{np:>4} "
   line-numbers-zero-style = 240
-  line-numbers-plus-style = 22
-  line-numbers-minus-style = 52
+  line-numbers-plus-style = 2
+  line-numbers-minus-style = 1
   file-style = 255 box
   file-decoration-style = "none"
   file-added-label = [+]

@@ -38,13 +38,9 @@ export LANG=en_US.UTF-8
 export LSCOLORS=HxahBbBbAxBbBbBxBxHxHx
 export LS_COLORS="di=1;;97:ln=1;47;90:so=1;41;91:pi=1;41;91:ex=1;;90:bd=1;41;91:cd=1;41;91:su=0;;91:sg=1;;91:tw=1;;97:ow=1;;97"
 export SUDO_EDITOR='/usr/bin/vi -p -X'
-# export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
 export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
-
-# Aliases
-[[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases
 
 # less
 export PAGER="less"                       # Use less for paging
@@ -63,26 +59,18 @@ export FZF_DEFAULT_OPTS="--layout=default --walker-skip .git,node_modules,dist,c
 export FZF_CTRL_R_OPTS="--height=12"
 export FZF_CTRL_T_OPTS="--tmux center,90%,90% --preview 'bat --color=always --style=numbers,changes --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--layout=reverse --preview 'tree -C {}'"
-# https://junegunn.github.io/fzf/tips/ripgrep-integration/
-rfn() (
-  local RELOAD='reload:rg --column --color=always --smart-case {q} || :'
-  local OPENER="$EDITOR {1} +{2}"
-  fzf --disabled --ansi --multi \
-      --bind "start:$RELOAD" \
-      --bind "change:$RELOAD" \
-      --bind "enter:become:$OPENER" \
-      --delimiter : \
-      --tmux center,90%,90% \
-      --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
-      --preview-window '~4,+{2}+4/3,<80(up)' \
-      --query "$*"
-)
-bindkey -s '^\' 'rfn\n'
+
 # https://github.com/junegunn/fzf-git.sh
 source ~/.zsh/fzf-git.sh
 
 # delta - https://github.com/dandavison/delta
 export DELTA_PAGER="less -+X -+F"
+
+# Aliases
+[[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases
+
+# Load local config file if available
+[[ -f ~/.localrc ]] && source ~/.localrc
 
 ## PROMPT
 local prompt_user='%F%n%f'
@@ -104,7 +92,6 @@ function pre_prompt_repo {
 	while [ ! -d ".git" ] && [ ! "`pwd`" = "/" ]; do cd ..; done
 	if [[ -d ".git" ]]; then
 		local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-		local HASH=$(git rev-parse --short=8 HEAD 2>/dev/null)
     if [[ $BRANCH =~ ^(master|main)$ ]]; then
 			local BRANCH="%{$fg[red]%}$BRANCH%{$reset_color%}"
 		fi
@@ -114,7 +101,7 @@ function pre_prompt_repo {
     if [[ $BRANCH =~ ^(feature|feat|refactor|chore|fix|docs)\/ ]]; then
 			local BRANCH="%{$fg[blue]%}$BRANCH%{$reset_color%}"
 		fi
-		echo -e "%{$reset_color%}·$BRANCH·%{$reset_color%}%F%{$fg[cyan]%}$HASH%{$reset_color%}%f%{$reset_color%}"
+		echo -e "·$BRANCH"
 	else
 		echo ""
 	fi
@@ -143,9 +130,4 @@ function pre_prompt_node {
 	fi
 }
 
-# Load local config file if available
-[[ -f ~/.localrc ]] && source ~/.localrc
-
 export PROMPT="${prompt_user}${prompt_dir}${prompt_repo}${prompt_node}${prompt_newline}${prompt_exit}·> "
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
