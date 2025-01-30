@@ -30,5 +30,5 @@ text = 'CellBackground'
 
 # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
 [font]
-size = 10
+size = 12
 normal = { family = 'CommitMono Nerd Font', style = 'Regular' }

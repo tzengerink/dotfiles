@@ -58,10 +58,6 @@
   sslVerify = false
 [commit]
   gpgsign = false
-[diff]
-  tool = nvimdiff
-[merge]
-  tool = nvimdiff
 [push]
   default = current
 [pull]

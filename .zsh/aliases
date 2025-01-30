@@ -4,21 +4,14 @@ alias -g T='| tail'
 alias -g J='| python3 -mjson.tool'
 alias -g C='| pbcopy'
 
-# navigation
-alias l='ls -l'
-alias ll='ls -lAh'
-alias lt='ll -rt' # Sort by date
-alias lx='ll -Bx' # Sort by extension
-alias lz='ll -rS' # Sort by size
-
 # git / github
 alias g='git'
 alias ce='gh copilot explain'
 alias cs='gh copilot suggest'
 
 # tools
+alias l='lsd -gA'
+alias ll='l -l'
 alias t="tmux new-session -A -s main"
 alias n='nvim'
 alias f='fzf'
-alias d=docker
-alias di="icdiff --color-map='description:white,separator:none'"

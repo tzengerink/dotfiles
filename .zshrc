@@ -35,14 +35,12 @@ export CLICOLOR=1
 export EDITOR='nvim'
 export EMAIL='teun@zengerink.com'
 export LANG=en_US.UTF-8
-export LSCOLORS=HxahBbBbAxBbBbBxBxHxHx
-export LS_COLORS="di=1;;97:ln=1;47;90:so=1;41;91:pi=1;41;91:ex=1;;90:bd=1;41;91:cd=1;41;91:su=0;;91:sg=1;;91:tw=1;;97:ow=1;;97"
 export SUDO_EDITOR='/usr/bin/vi -p -X'
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
 export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
 
-# less
+# Less
 export PAGER="less"                       # Use less for paging
 export LESS_TERMCAP_mb=$'\e[01;31m'       # Begin blinking
 export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # Begin bold
@@ -59,15 +57,15 @@ export FZF_DEFAULT_OPTS="--layout=default --walker-skip .git,node_modules,dist,c
 export FZF_CTRL_R_OPTS="--height=12"
 export FZF_CTRL_T_OPTS="--tmux center,90%,90% --preview 'bat --color=always --style=numbers,changes --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--layout=reverse --preview 'tree -C {}'"
-
 # https://github.com/junegunn/fzf-git.sh
 source ~/.zsh/fzf-git.sh
 
 # delta - https://github.com/dandavison/delta
 export DELTA_PAGER="less -+X -+F"
 
-# Aliases
+# Aliases and functions
 [[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases
+[[ -f ~/.zsh/shrink-path.sh ]] && source ~/.zsh/shrink-path.sh
 
 # Load local config file if available
 [[ -f ~/.localrc ]] && source ~/.localrc
@@ -109,15 +107,7 @@ function pre_prompt_repo {
 }
 
 function pre_prompt_dir {
-	local DIR=${PWD/$HOME/\~}
-	local DIRCOUNT=$((`echo $DIR|sed 's/[^\/]//g'|wc -m`-1))
-	if [[ $DIRCOUNT > 3 ]]; then
-		CNT=$(( $DIRCOUNT - 2 ))
-		STR=`echo $(yes "." | head -n$CNT) | sed s/\ //g`
-		DIR="`echo $DIR | awk -F\/ '{print $1,"/",$2,"/__DIRCOUNT__/",$(NF)}' | sed s/\ //g`"
-		DIR=${DIR/__DIRCOUNT__/$STR}
-	fi
-	echo -e "%{$reset_color%}·%{$fg[magenta]%}$DIR%{$reset_color%}"
+	echo -e "%{$reset_color%}·%{$fg[magenta]%}$(shrink_path -f)%{$reset_color%}"
 }
 
 function pre_prompt_newline {
