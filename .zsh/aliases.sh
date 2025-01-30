@@ -10,8 +10,8 @@ alias ce='gh copilot explain'
 alias cs='gh copilot suggest'
 
 # tools
-alias l='lsd -gA'
-alias ll='l -l'
+alias ls='lsd -gA'
+alias ll='ls -l'
 alias t="tmux new-session -A -s main"
 alias n='nvim'
 alias f='fzf'
