@@ -1,3 +1,5 @@
+# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/shrink-path/shrink-path.plugin.zsh
+#
 # Shrink directory paths, e.g. /home/me/foo/bar/quux -> ~/f/b/quux.
 #
 # For a fish-style working directory in your command prompt, add the following
