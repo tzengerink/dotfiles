@@ -1,4 +1,4 @@
-local prompt_user='%F%n%f'
+local prompt_user='%n'
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node='$(pre_prompt_node)'
