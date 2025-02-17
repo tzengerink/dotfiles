@@ -1,10 +1,14 @@
-local prompt_user='%n  '
+local prompt_user='$(pre_prompt_user)'
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node='$(pre_prompt_node)'
 local prompt_repo='$(pre_prompt_branch)'
 local prompt_shell='$(pre_prompt_shell)'
 local prompt_exit='$(pre_prompt_exit)'
+
+function pre_prompt_user {
+  echo -e "%{$fg[white]%}%n  %{$reset_color%}"
+}
 
 function pre_prompt_exit {
 	local SUCCESS="%{$fg[green]%}%j  %{$reset_color%}"
