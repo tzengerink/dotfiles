@@ -2,7 +2,7 @@ local prompt_user='%n  '
 local prompt_dir='$(pre_prompt_dir)'
 local prompt_newline='$(pre_prompt_newline)'
 local prompt_node='$(pre_prompt_node)'
-local prompt_repo='$(pre_prompt_repo)'
+local prompt_repo='$(pre_prompt_branch)'
 local prompt_shell='$(pre_prompt_shell)'
 local prompt_exit='$(pre_prompt_exit)'
 
@@ -12,19 +12,19 @@ function pre_prompt_exit {
 	echo -e "%(?.$SUCCESS.$ERROR)"
 }
 
-function pre_prompt_repo {
+function pre_prompt_branch {
 	pushd . >/dev/null
 	while [ ! -d ".git" ] && [ ! "`pwd`" = "/" ]; do cd ..; done
 	if [[ -d ".git" ]]; then
 		local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
     if [[ $BRANCH =~ ^(master|main)$ ]]; then
 			local BRANCH="%{$fg[red]%}$BRANCH  %{$reset_color%}"
-		fi
-    if [[ $BRANCH =~ ^develop$ ]]; then
+    elif [[ $BRANCH =~ ^develop$ ]]; then
 			local BRANCH="%{$fg[yellow]%}$BRANCH  %{$reset_color%}"
-		fi
-    if [[ $BRANCH =~ ^(feature|feat|refactor|chore|fix|docs)\/ ]]; then
+    elif [[ $BRANCH =~ ^(feature|feat|refactor|chore|fix|docs)\/ ]]; then
 			local BRANCH="%{$fg[blue]%}$BRANCH  %{$reset_color%}"
+    else
+      local BRANCH="%{$fg[white]%}$BRANCH  %{$reset_color%}"
 		fi
 		echo -e "$BRANCH"
 	else
