@@ -6,6 +6,7 @@
   ci = commit
   co = "checkout -q"
   di = "diff"
+  dis = "-c delta.side-by-side=true diff"
   fe = "fetch -p"
   lg = "log --stat"
   ln = "lg --name-only"

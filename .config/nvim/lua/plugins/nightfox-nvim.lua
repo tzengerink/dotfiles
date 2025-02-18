@@ -2,7 +2,13 @@ return {
   {
     'EdenEast/nightfox.nvim',
     config = function()
-      vim.cmd.colorscheme 'duskfox'
+      require("nightfox").setup({
+        options = {
+          transparent = true,
+          dim_inactive = false,
+        }
+      })
+      vim.cmd.colorscheme 'carbonfox'
     end,
   },
 }
