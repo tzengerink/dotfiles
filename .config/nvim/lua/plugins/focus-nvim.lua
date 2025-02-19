@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd('FileType', {
 return {
   {
     'nvim-focus/focus.nvim',
+    enabled = false, -- TODO: Enable or remove this plugin
     version = '*',
     opts = {
       autoresize = {
