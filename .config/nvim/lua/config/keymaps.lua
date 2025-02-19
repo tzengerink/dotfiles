@@ -1,5 +1,5 @@
 -- TODO: Figure out how to make this work with the plugin system
-local resize_ratio = 0.62
+local resize_ratio = 0.9 -- 0.62 -- golden ratio
 
 _G.toggle_resize = function()
   if vim.t.resized == vim.api.nvim_get_current_buf() then
