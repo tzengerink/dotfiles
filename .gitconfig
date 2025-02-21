@@ -68,6 +68,8 @@
 [advice]
   skippedCherryPicks = false
 
+# https://dandavison.github.io/delta/
+# $> brew install git-delta
 [delta "my-custom-theme"]
   dark = true
   syntax-theme = TwoDark
