@@ -4,7 +4,7 @@ return {
     lazy = false,
     keys = {
       { '<Leader>f', ':Files<CR>', { noremap = true, silent = true } },
-      { '<Leader>b', ':Buffer<CR>', { noremap = true, silent = true } },
+      { '<Leader>b', ':Buffers<CR>', { noremap = true, silent = true } },
       { '<Leader>r', ':RG<CR>', { noremap = true, silent = true } },
       { '<Leader>g', ':GF?<CR>', { noremap = true, silent = true } },
       { '<Leader>h', ':History<CR>', { noremap = true, silent = true } },

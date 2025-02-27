@@ -6,10 +6,10 @@ return {
       require('lspconfig').ts_ls.setup {}
     end,
     keys = {
-      { '<leader>d', '<CMD>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }, },
-      { '<leader>v', '<CMD>vsplit<CR><CMD>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }, },
-      { '<leader>x', '<CMD>split<CR><CMD>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }, },
-      { '<leader>a', '<CMD>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true }, },
+      { 'grn', '<CMD>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true }, },
+      { 'gra', '<CMD>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true }, },
+      { 'grr', '<CMD>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true }, },
+      { 'gri', '<CMD>lua vim.lsp.buf.implementation()<CR>', { noremap = true, silent = true }, },
     },
   },
 }
