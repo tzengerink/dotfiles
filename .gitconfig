@@ -9,18 +9,14 @@
   dis = "-c delta.side-by-side=true diff"
   fe = "fetch -p"
   lg = "log --stat"
-  ln = "lg --name-only"
-  ps = push
   pf = "push --force-with-lease"
   pfn = "push --force-with-lease --no-verify"
   pl = pull
   rb = rebase
   rc = rebase --continue
-  sh = "show --stat"
+  sh = "show"
+  ss = "-c delta.side-by-side=true show"
   st = "status -s --ignore-submodules=dirty"
-  sl = stash list
-  ss = stash save
-  sp = stash pop
 [color]
   ui = auto
   branch = auto
