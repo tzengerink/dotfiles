@@ -23,6 +23,7 @@ return {
       git = { ignore = false },
       view = { width = 60 },
       renderer = { highlight_git = true },
+      filters = { dotfiles = true, git_ignored = true },
     },
     keys = {
       { '<C-n>', function() require("nvim-tree.api").tree.toggle({ find_file = true, focus = true }) end, { noremap = true, silent = true } },
