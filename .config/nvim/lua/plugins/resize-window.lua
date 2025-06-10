@@ -51,4 +51,9 @@ function M.config()
   end
 end
 
-return { name = M.name, dir = M.options.dir, config = M.config }
+return {
+  enabled = false,
+  name = M.name,
+  dir = M.options.dir,
+  config = M.config,
+}
