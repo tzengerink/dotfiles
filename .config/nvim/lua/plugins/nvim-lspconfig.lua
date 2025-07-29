@@ -1,6 +1,7 @@
 return {
   {
     'neovim/nvim-lspconfig',
+    enabled = true,
     init = function()
       -- sudo npm install -g typescript typescript-language-server
       require('lspconfig').ts_ls.setup {}
