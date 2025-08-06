@@ -1,5 +1,17 @@
-# https://github.com/edeneast/nightfox.nvim/raw/main/extra/carbonfox/alacritty.toml
+# Window
+# https://alacritty.org/config-alacritty.html
+[window]
+startup_mode = 'Fullscreen'
+padding = { x = 0, y = 0 }
 
+# Font
+# https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
+[font]
+size = 12
+normal = { family = 'CommitMono Nerd Font', style = 'Regular' }
+
+# Colors
+# https://github.com/edeneast/nightfox.nvim/raw/main/extra/carbonfox/alacritty.toml
 [colors.primary]
 background = "#161616"
 foreground = "#f2f4f8"
@@ -75,8 +87,3 @@ color = "#3ddbd9"
 [[colors.indexed_colors]]
 index = 17
 color = "#ff7eb6"
-
-# https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
-[font]
-size = 12
-normal = { family = 'CommitMono Nerd Font', style = 'Regular' }

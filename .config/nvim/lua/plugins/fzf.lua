@@ -9,6 +9,7 @@ return {
       { '<Leader>g', ':GF?<CR>', { noremap = true, silent = true } },
       { '<Leader>h', ':History<CR>', { noremap = true, silent = true } },
       { '<Leader>j', ':Jumps<CR>', { noremap = true, silent = true } },
+      { '<Leader>m', ':Marks<CR>', { noremap = true, silent = true } },
       { '<Leader>;', ':History:<CR>', { noremap = true, silent = true } },
     },
     config = function()
