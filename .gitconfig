@@ -7,6 +7,7 @@
   co = "checkout -q"
   di = "diff"
   dis = "-c delta.side-by-side=true diff"
+  diss = "dis --staged"
   fe = "fetch -p"
   lg = "log --stat"
   pf = "push --force-with-lease"
