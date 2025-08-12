@@ -3,7 +3,7 @@ return {
     "folke/zen-mode.nvim",
     keys = {
       {
-        "<leader>z",
+        "<LEADER>z",
         function()
           require("zen-mode").toggle()
         end,

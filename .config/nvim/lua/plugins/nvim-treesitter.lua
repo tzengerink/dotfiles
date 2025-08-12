@@ -4,7 +4,6 @@ return {
     build = ":TSUpdate",
     config = function()
       config = require('nvim-treesitter.configs')
-
       config.setup({
         ensure_installed = {
           "lua",
