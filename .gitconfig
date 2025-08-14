@@ -67,7 +67,10 @@
 
 # https://dandavison.github.io/delta/
 # $> brew install git-delta
-[delta "my-custom-theme"]
+[delta]
+  paging = always
+  navigate = true
+  side-by-side = false
   dark = true
   syntax-theme = TwoDark
   line-numbers = true
@@ -85,16 +88,19 @@
   file-renamed-label = [->]
   hunk-header-style = raw
   hunk-header-decoration-style = 240 ul
-  zero-style = syntax
-  plus-style = syntax "#0D2C0F"
-  plus-emph-style = syntax "#164D1A"
-  minus-style = syntax "#440B0B"
-  minus-emph-style = syntax "#991818"
-  blame-code-style = syntax
-  blame-format = "{author:>40} ({commit:>8}) {timestamp:<13} "
   blame-palette = 233 235 237 239
-[delta]
-  paging = always
-  navigate = true
-  side-by-side = false
-  features = my-custom-theme
+  blame-format = "{author:>40} ({commit:>8}) {timestamp:<13} "
+  zero-style = syntax
+  features = tokyonight
+[delta "tokyonight"]
+  minus-style = syntax "#37222c"
+  minus-non-emph-style = syntax "#37222c"
+  minus-emph-style = syntax "#713137"
+  minus-empty-line-marker-style = syntax "#37222c"
+  line-numbers-minus-style = "#914c54"
+  plus-style = syntax "#20303b"
+  plus-non-emph-style = syntax "#20303b"
+  plus-emph-style = syntax "#2c5a66"
+  plus-empty-line-marker-style = syntax "#20303b"
+  line-numbers-plus-style = "#449dab"
+  line-numbers-zero-style = "#3b4261"
