@@ -24,6 +24,12 @@ return {
       view = { width = 60 },
       renderer = { highlight_git = true },
       filters = { dotfiles = true, git_ignored = true },
+      actions = {
+        change_dir = {
+          enable = true,
+          global = true,
+        },
+      },
       sync_root_with_cwd = true,
     },
     keys = {
