@@ -16,17 +16,4 @@ return {
       vim.cmd.colorscheme 'tokyonight'
     end,
   },
-  {
-    'EdenEast/nightfox.nvim',
-    enabled = false,
-    config = function()
-      require("nightfox").setup({
-        options = {
-          transparent = true,
-          dim_inactive = false,
-        }
-      })
-      vim.cmd.colorscheme 'carbonfox'
-    end,
-  },
 }
