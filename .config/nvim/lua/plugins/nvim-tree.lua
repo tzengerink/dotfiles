@@ -31,6 +31,11 @@ return {
         },
       },
       sync_root_with_cwd = true,
+      respect_buf_cwd = true,
+      update_focused_file = {
+        enable = true,
+        update_cwd = true,
+      },
     },
     keys = {
       { '<C-n>', function() require("nvim-tree.api").tree.toggle({ find_file = true, focus = true }) end, { noremap = true, silent = true } },

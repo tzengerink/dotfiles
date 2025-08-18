@@ -1,4 +1,3 @@
-Configuration Files
--------------------
+## Configuration Files
 
 Personal Dotfiles
