@@ -8,6 +8,7 @@
   di = "diff"
   dis = "-c delta.side-by-side=true diff"
   diss = "dis --staged"
+  do = "!f() { nvim -c \"DiffviewOpen $@\"; }; f"
   fe = "fetch -p"
   lg = "log --stat"
   pf = "push --force-with-lease"

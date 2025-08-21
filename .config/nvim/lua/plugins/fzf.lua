@@ -14,13 +14,7 @@ return {
     },
     config = function()
       vim.cmd.set 'rtp+=/usr/local/opt/fzf'
-      vim.g.fzf_layout = {
-        window = {
-          width = 0.95,
-          height = 0.95,
-          border = 'rounded',
-        }
-      }
+      vim.g.fzf_layout = { tmux = 'center,90%,90%' }
     end
   },
   { 'junegunn/fzf.vim' },
