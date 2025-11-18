@@ -1,5 +1,5 @@
 HISTFILE=~/.zsh_history
-HISTSIZE=SAVEHIST=1000
+HISTSIZE=SAVEHIST=25000
 
 setopt EXTENDED_HISTORY      # Display time of use
 setopt HIST_IGNORE_ALL_DUPS  # Ignore duplicate entries

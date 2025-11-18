@@ -17,24 +17,18 @@ function pre_prompt_exit {
 }
 
 function pre_prompt_branch {
-	pushd . >/dev/null
-	while [ ! -d ".git" ] && [ ! "`pwd`" = "/" ]; do cd ..; done
-	if [[ -d ".git" ]]; then
-		local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-    if [[ $BRANCH =~ ^(master|main)$ ]]; then
-			local BRANCH="%{$fg[red]%}$BRANCH  %{$reset_color%}"
-    elif [[ $BRANCH =~ ^develop$ ]]; then
-			local BRANCH="%{$fg[yellow]%}$BRANCH  %{$reset_color%}"
-    elif [[ $BRANCH =~ ^(feature|feat|refactor|chore|fix|docs)\/ ]]; then
-			local BRANCH="%{$fg[blue]%}$BRANCH  %{$reset_color%}"
-    else
-      local BRANCH="%{$fg[white]%}$BRANCH  %{$reset_color%}"
+	local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+	if [[ -n $BRANCH ]]; then
+		if [[ $BRANCH =~ ^(master|main)$ ]]; then
+			echo -e "%{$fg[red]%}$BRANCH  %{$reset_color%}"
+		elif [[ $BRANCH =~ ^develop$ ]]; then
+			echo -e "%{$fg[yellow]%}$BRANCH  %{$reset_color%}"
+		elif [[ $BRANCH =~ ^(feature|feat|refactor|chore|fix|docs)\/ ]]; then
+			echo -e "%{$fg[blue]%}$BRANCH  %{$reset_color%}"
+		else
+			echo -e "%{$fg[white]%}$BRANCH  %{$reset_color%}"
 		fi
-		echo -e "$BRANCH"
-	else
-		echo ""
 	fi
-	popd >/dev/null
 }
 
 function pre_prompt_dir {

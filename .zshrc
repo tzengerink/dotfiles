@@ -18,7 +18,7 @@ setopt PUSHD_TO_HOME  # Blank `pushd` goes to home
 
 # Auto completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # Match uppercase
-zstyle ':completion:*' instert-tab pending           # Disable when pasting tab
+zstyle ':completion:*' insert-tab pending            # Disable when pasting tab
 
 # Exports
 export CLICOLOR=1
@@ -31,7 +31,7 @@ export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
 export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
 
 # Source all scripts in ~/.zsh
-for f in ~/.zsh/*; do source $f; done
+for f in ~/.zsh/*; do [[ -f $f ]] && source $f; done
 
 # Load local config file if available
 [[ -f ~/.localrc ]] && source ~/.localrc

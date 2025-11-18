@@ -10,9 +10,11 @@ node_modules
 .nvmrc
 .idea
 
-.config
-!.config/nvim
-!.config/alacritty
-!.config/bat
+# Ignore all .config except specific directories we want to track
+.config/*
+!.config/nvim/
+!.config/alacritty/
+!.config/bat/
 
+# Ignore tmux plugins (managed by TPM)
 .tmux/plugins
