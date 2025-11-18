@@ -24,7 +24,8 @@ return {
     enabled = true,
     init = function()
       -- sudo npm install -g typescript typescript-language-server
-      require('lspconfig').ts_ls.setup {}
+      vim.lsp.config('ts_ls', {})
+      vim.lsp.enable('ts_ls')
     end,
     keys = {
       { 'grn', '<CMD>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true }, },
