@@ -13,6 +13,7 @@ node_modules
 # Ignore all .config except specific directories we want to track
 .config/*
 !.config/nvim/
+.config/nvim/pack/*
 !.config/alacritty/
 !.config/bat/
 

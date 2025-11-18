@@ -3,6 +3,7 @@ return {
     'neoclide/coc.nvim',
     branch = 'release',
     config = function()
+      -- :CocInstall coc-tsserver
       function _G.check_back_space()
         local col = vim.fn.col('.') - 1
         return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
@@ -21,10 +22,19 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
-    enabled = true,
     init = function()
-      -- sudo npm install -g typescript typescript-language-server
-      vim.lsp.config('ts_ls', {})
+      vim.lsp.config('ts_ls', {
+        -- sudo npm install -g typescript typescript-language-server
+        cmd = { "typescript-language-server", "--stdio" },
+        filetypes = {
+          'javascript',
+          'javascriptreact',
+          'javascript.jsx',
+          'typescript',
+          'typescriptreact',
+          'typescript.tsx',
+        },
+      })
       vim.lsp.enable('ts_ls')
     end,
     keys = {
