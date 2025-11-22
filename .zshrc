@@ -28,7 +28,7 @@ export LANG=en_US.UTF-8
 export SUDO_EDITOR='/usr/bin/vi -p -X'
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
-export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:~/.bin:~/.local/bin:$PATH
 
 # Source all scripts in ~/.zsh
 for f in ~/.zsh/*; do [[ -f $f ]] && source $f; done
