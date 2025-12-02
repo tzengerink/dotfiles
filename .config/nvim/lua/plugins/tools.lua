@@ -1,6 +1,36 @@
 return {
   {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      strategies = {
+        chat = {
+          adapter = "mistral",
+        },
+        inline = {
+          adapter = "mistral",
+        },
+      },
+      display = {
+        chat = {
+          window = {
+            layout = 'vertical',
+            position = 'right',
+            width = 80,
+          },
+        },
+      },
+    },
+    keys = {
+      { '<LEADER>a', '<CMD>CodeCompanionChat Toggle<CR>', { noremap = true, silent = true } },
+      { '<LEADER>A', '<CMD>CodeCompanionActions<CR>', { noremap = true, silent = true } }
+    },
+  },
+  {
     'github/copilot.vim',
+    enabled = false,
     init = function()
       vim.g.copilot_no_tab_map = true
       vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false } )
@@ -17,6 +47,7 @@ return {
   },
   {
     "folke/zen-mode.nvim",
+    event = "VeryLazy",
     keys = {
       {
         "<LEADER>z",
