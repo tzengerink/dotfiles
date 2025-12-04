@@ -18,9 +18,4 @@ return {
     end
   },
   { 'junegunn/fzf.vim' },
-  {
-    "ibhagwan/fzf-lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {}
-  }
 }

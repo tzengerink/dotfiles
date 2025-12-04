@@ -3,6 +3,8 @@ return {
     "olimorris/codecompanion.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "ibhagwan/fzf-lua",
     },
     opts = {
       strategies = {

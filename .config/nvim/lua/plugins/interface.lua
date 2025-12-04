@@ -1,7 +1,9 @@
 return {
-  { "nvim-tree/nvim-web-devicons", opts = {} },
   {
     'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
     opts = {
       on_attach = on_nvim_tree_attach,
       git = { ignore = false },
