@@ -1,9 +1,21 @@
+# Models
 model: mistral/codestral-latest
-dark_mode: true
+weak-model: mistral/mistral-small-latest
+alias:
+  - code:mistral/codestral-latest
+  - large:mistral/mistral-large-latest
+  - medium:mistral/mistral-medium-latest
+  - small:mistral/mistral-small-latest
+
+
+# Configuration
+read: [AGENTS.md]
 vim: true
-show_diffs: false
-gitignore: false
-watch_files: true
-completion_menu_color: "#c0caf5"
-completion_menu_bg_color: "#121212"
-read: AGENTS.md
+show-diffs: false
+gitignore: true
+watch-files: true
+
+# UI
+dark-mode: true
+completion-menu-color: "#c0caf5"
+completion-menu-bg-color: "#121212"

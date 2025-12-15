@@ -19,3 +19,7 @@ node_modules
 
 # Ignore tmux plugins (managed by TPM)
 .tmux/plugins
+
+# Aider
+.aider*
+!.aider.conf.yml
