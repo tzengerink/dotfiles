@@ -1,1 +1,9 @@
+model: mistral/codestral-latest
+dark_mode: true
+vim: true
+show_diffs: false
+gitignore: false
+watch_files: true
+completion_menu_color: "#c0caf5"
+completion_menu_bg_color: "#121212"
 read: AGENTS.md
