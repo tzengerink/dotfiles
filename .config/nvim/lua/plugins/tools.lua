@@ -1,42 +1,35 @@
 return {
   {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "ibhagwan/fzf-lua",
-    },
-    opts = {
-      strategies = {
-        chat = {
-          adapter = "mistral",
-        },
-        inline = {
-          adapter = "mistral",
-        },
-      },
-      display = {
-        chat = {
-          window = {
-            layout = 'vertical',
-            position = 'right',
-            width = 80,
-          },
-        },
-      },
-    },
-    keys = {
-      { '<LEADER>a', '<CMD>CodeCompanionChat Toggle<CR>', { noremap = true, silent = true } },
-      { '<LEADER>A', '<CMD>CodeCompanionActions<CR>', { noremap = true, silent = true } }
-    },
-  },
-  {
     'github/copilot.vim',
     enabled = false,
     init = function()
       vim.g.copilot_no_tab_map = true
       vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false } )
     end,
+  },
+  {
+    "huggingface/llm.nvim",
+    enabled = false,
+    opts = {
+      backend = "ollama",
+      model = "codegemma:2b-code",
+      context_window = 512
+      url = "http://localhost:11434",
+      tokens_to_clear = { "<|file_separator|>" },
+      -- configure fim for qwen2.5-coder models AI!
+      fim = {
+        enabled = true,
+        prefix = "<|fim_prefix|>",
+        middle = "<|fim_middle|>",
+        suffix = "<|fim_suffix|>",
+      },
+      debounce_ms = 500,
+      accept_keymap = "<C-J>",
+      dismiss_keymap = "<C-K>",
+      request_body = {
+        options = { temperature = 0.2, top_p = 0.95 },
+      },
+    },
   },
   {
     'preservim/nerdcommenter',
