@@ -1,12 +1,14 @@
 # Models
-model: mistral/codestral-latest
-weak-model: mistral/mistral-small-latest
+model: mistral/devstral-2512
 alias:
-  - code:mistral/codestral-latest
-  - large:mistral/mistral-large-latest
-  - medium:mistral/mistral-medium-latest
-  - small:mistral/mistral-small-latest
-
+  - dev:mistral/devstral-2512 # Agentic tasks
+  - devm:mistral/devstral-medium-2507 # Agentic tasks
+  - devs:mistral/devstral-small-2507 # Agentic tasks
+  - code:mistral/codestral-latest # Larger codebases
+  - large:mistral/mistral-large-latest # Gen purpose
+  - medium:mistral/mistral-medium-latest # Gen purpose
+  - small:mistral/mistral-small-latest # Gen purpose
+weak-model: mistral/mistral-small-latest
 
 # Configuration
 read: [AGENTS.md]
