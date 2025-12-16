@@ -10,11 +10,14 @@ alias:
   - small:mistral/mistral-small-latest # Gen purpose
 weak-model: mistral/mistral-small-latest
 
+# Git
+auto-commits: false
+show-diffs: false
+gitignore: false
+
 # Configuration
 read: [AGENTS.md]
 vim: true
-show-diffs: false
-gitignore: true
 watch-files: true
 
 # UI
