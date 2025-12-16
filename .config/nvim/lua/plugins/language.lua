@@ -23,8 +23,9 @@ return {
   {
     'neovim/nvim-lspconfig',
     init = function()
+      -- TYPESCRIPT
+      -- sudo npm install -g typescript typescript-language-server
       vim.lsp.config('ts_ls', {
-        -- sudo npm install -g typescript typescript-language-server
         cmd = { "typescript-language-server", "--stdio" },
         filetypes = {
           'javascript',
@@ -36,6 +37,24 @@ return {
         },
       })
       vim.lsp.enable('ts_ls')
+
+      --  PYTHON
+      --  sudo npm install -g pyright
+      vim.lsp.config('pyright', {
+        cmd = { "pyright-langserver", "--stdio" },
+        filetypes = { 'python' },
+        settings = {
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              diagnosticMode = "workspace",
+              useLibraryCodeForTypes = true,
+              typeCheckingMode = "basic",
+            }
+          }
+        }
+      })
+      vim.lsp.enable('pyright')
     end,
     keys = {
       { 'grn', '<CMD>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true }, },
@@ -63,6 +82,7 @@ return {
           "bash",
           "gitignore",
           "dockerfile",
+          "python",
         },
         sync_install = false,
         highlight = { enable = true },
