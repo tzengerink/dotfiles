@@ -4,11 +4,10 @@ return {
     enabled = true,
     lazy = false,
     keys = {
-      --{ '<C-p>', ':Gitsigns preview_hunk<CR>', { noremap = true, silent = true } },
       { '<C-a>', ':Gitsigns stage_hunk<CR>', { noremap = true, silent = true } },
       { '<C-u>', ':Gitsigns reset_hunk<CR>', { noremap = true, silent = true } },
-      --{ '<C-j>', ':Gitsigns next_hunk<CR>', { noremap = true, silent = true } },
-      --{ '<C-k>', ':Gitsigns prev_hunk<CR>', { noremap = true, silent = true } },
+      { '<C-j>', ':Gitsigns next_hunk<CR>', { noremap = true, silent = true } },
+      { '<C-k>', ':Gitsigns prev_hunk<CR>', { noremap = true, silent = true } },
     },
     config = function()
       require('gitsigns').setup({
@@ -16,7 +15,7 @@ return {
         numhl = true,
         linehl = true,
         word_diff = false,
-        current_line_blame = true,
+        current_line_blame = false,
         current_line_blame_opts = {
           virt_text_pos = 'eol',
           delay = 1000,
