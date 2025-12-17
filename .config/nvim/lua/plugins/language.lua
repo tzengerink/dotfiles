@@ -37,25 +37,28 @@ return {
           'typescript.tsx',
         },
       })
-      vim.lsp.enable('ts_ls')
 
-      --  PYTHON
-      --  sudo npm install -g pyright
+      -- PYTHON
+      -- sudo npm install -g pyright
       vim.lsp.config('pyright', {
         cmd = { "pyright-langserver", "--stdio" },
         filetypes = { 'python' },
         settings = {
           python = {
             analysis = {
+              venvPath = vim.fn.getcwd() .. '.venv',
+              pythonPath = vim.fn.getcwd() .. '/.venv/bin/python',
               autoSearchPaths = true,
               diagnosticMode = "workspace",
               useLibraryCodeForTypes = true,
               typeCheckingMode = "basic",
             }
           }
-        }
+        },
       })
-      vim.lsp.enable('pyright')
+
+      vim.lsp.enable('ts_ls')
+      --vim.lsp.enable('pyright')
     end,
     keys = {
       { 'grn', '<CMD>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true }, },
