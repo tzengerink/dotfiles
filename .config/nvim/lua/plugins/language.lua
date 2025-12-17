@@ -1,32 +1,36 @@
 return {
   {
-    'neoclide/coc.nvim',
-    branch = 'release',
-    config = function()
-      -- :CocInstall coc-tsserver
-      -- :CocInstall coc-pyright
-      function _G.check_back_space()
-        local col = vim.fn.col('.') - 1
-        return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
-      end
-
-      local keyset = vim.keymap.set
-      local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-
-      keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
-      keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
-
-      -- Make <CR> to accept selected completion item or notify coc.nvim to format
-      -- <C-g>u breaks current undo, please make your own choice
-      keyset("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
-    end,
-  },
-  {
     'neovim/nvim-lspconfig',
-    init = function()
-      -- TYPESCRIPT
-      -- sudo npm install -g typescript typescript-language-server
+    dependencies = {
+      'hrsh7th/nvim-cmp',         -- Autocompletion plugin
+      'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
+      'hrsh7th/cmp-buffer',       -- Buffer source
+      'hrsh7th/cmp-path',         -- Path source
+      'hrsh7th/cmp-cmdline',      -- Command line source
+    },
+    config = function()
+      local cmp = require('cmp')
+
+      cmp.setup({
+        mapping = cmp.mapping.preset.insert({
+          ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        }),
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+        }, {
+          { name = 'buffer' },
+          { name = 'path' },
+        })
+      })
+
+      -- Set up LSP servers
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      -- TypeScript/JavaScript
+      -- Install with: sudo npm install -g typescript-language-server typescript
       vim.lsp.config('ts_ls', {
+        capabilities = capabilities,
         cmd = { "typescript-language-server", "--stdio" },
         filetypes = {
           'javascript',
@@ -36,47 +40,67 @@ return {
           'typescriptreact',
           'typescript.tsx',
         },
+        on_attach = function(client, bufnr)
+          local opts = { noremap=true, silent=true, buffer=bufnr }
+          vim.keymap.set('n', 'grn', vim.lsp.buf.rename, opts)
+          vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', 'grr', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, opts)
+        end,
       })
 
-      -- PYTHON
-      -- sudo npm install -g pyright
+      -- Python (Pyright)
+      -- Install with: sudo npm install -g pyright
       vim.lsp.config('pyright', {
+        capabilities = capabilities,
         cmd = { "pyright-langserver", "--stdio" },
-        filetypes = { 'python' },
+        on_attach = function(client, bufnr)
+          client.server_capabilities.inlayHintProvider = false
+
+          local opts = { noremap=true, silent=true, buffer=bufnr }
+          vim.keymap.set('n', 'grn', vim.lsp.buf.rename, opts)
+          vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', 'grr', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, opts)
+        end,
         settings = {
+          pyright = {
+            disableLanguageServices = false,
+            disableOrganizeImports = false,
+          },
           python = {
             analysis = {
-              venvPath = vim.fn.getcwd() .. '.venv',
-              pythonPath = vim.fn.getcwd() .. '/.venv/bin/python',
-              autoSearchPaths = true,
-              diagnosticMode = "workspace",
-              useLibraryCodeForTypes = true,
               typeCheckingMode = "basic",
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "workspace",
+              venvPath = vim.fn.getcwd(),
+              pythonPath = vim.fn.getcwd() .. '/.venv/bin/python',
             }
           }
         },
       })
 
+      -- Diagnostic configuration
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+      })
+
       vim.lsp.enable('ts_ls')
-      --vim.lsp.enable('pyright')
+      vim.lsp.enable('pyright')
     end,
-    keys = {
-      { 'grn', '<CMD>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true }, },
-      { 'gra', '<CMD>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true }, },
-      { 'grr', '<CMD>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true }, },
-      { 'gri', '<CMD>lua vim.lsp.buf.implementation()<CR>', { noremap = true, silent = true }, },
-    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      config = require('nvim-treesitter.configs')
+      local config = require('nvim-treesitter.configs')
       config.setup({
         ensure_installed = {
-          "lua",
-          "vim",
-          "vimdoc",
           "typescript",
           "tsx",
           "javascript",
@@ -91,19 +115,18 @@ return {
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
-      });
+      })
     end,
   },
   {
     'stevearc/conform.nvim',
     opts = {
       formatters_by_ft = {
-         javascript = { "prettier" },
-         typescript = { "prettier" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
         python = { "isort", "black" },
       },
       format_on_save = {
-        -- These options will be passed to conform.format()
         timeout_ms = 500,
         lsp_format = "fallback",
       },
