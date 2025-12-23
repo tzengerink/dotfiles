@@ -2,12 +2,10 @@
 model: mistral/devstral-2512
 alias:
   - dev:mistral/devstral-2512 # Agentic tasks
-  - devm:mistral/devstral-medium-2507 # Agentic tasks
-  - devs:mistral/devstral-small-2507 # Agentic tasks
   - code:mistral/codestral-latest # Larger codebases
-  - large:mistral/mistral-large-latest # Gen purpose
-  - medium:mistral/mistral-medium-latest # Gen purpose
-  - small:mistral/mistral-small-latest # Gen purpose
+  - l:mistral/mistral-large-latest # Gen purpose
+  - m:mistral/mistral-medium-latest # Gen purpose
+  - s:mistral/mistral-small-latest # Gen purpose
 weak-model: mistral/mistral-small-latest
 
 # Git
@@ -21,6 +19,13 @@ vim: true
 watch-files: true
 
 # UI
-dark-mode: true
-completion-menu-color: "#c0caf5"
+dark-mode: false
+code-theme: "native"
+user-input-color: "#424868"
+tool-error-color: "#f7768e"
+tool-warning-color: "#e0af68"
+assistant-output-color: "#c0caf5"
+completion-menu-color: "#424868"
 completion-menu-bg-color: "#121212"
+completion-menu-current-color: "#121212"
+completion-menu-current-bg-color: "#424868"

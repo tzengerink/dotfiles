@@ -44,6 +44,7 @@ return {
         },
         on_attach = function(client, bufnr)
           local opts = { noremap=true, silent=true, buffer=bufnr }
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
           vim.keymap.set('n', 'grn', vim.lsp.buf.rename, opts)
           vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', 'grr', vim.lsp.buf.references, opts)
@@ -60,6 +61,7 @@ return {
           client.server_capabilities.inlayHintProvider = false
 
           local opts = { noremap=true, silent=true, buffer=bufnr }
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
           vim.keymap.set('n', 'grn', vim.lsp.buf.rename, opts)
           vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', 'grr', vim.lsp.buf.references, opts)
