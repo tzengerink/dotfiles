@@ -1,6 +1,5 @@
 *.pyc
-*~
-.DS_Store
+*~ .DS_Store
 .py-env
 .node-env
 .svn
@@ -17,6 +16,7 @@ node_modules
 !.config/alacritty/
 !.config/bat/
 !.config/opencode/opencode.json
+!.config/opencode/agent/*
 
 # Ignore tmux plugins (managed by TPM)
 .tmux/plugins

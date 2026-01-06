@@ -1,7 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
+
+  "theme": "tokyonight",
+
   "enabled_providers": ["mistral"],
-  "provider": {},
   "model": "devstral-large-latest",
-  "small_model": "devstral-small-latest"
+  "small_model": "devstral-small-latest",
+
+  "default_agent": "plan"
 }
