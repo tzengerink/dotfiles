@@ -9,6 +9,9 @@ bindkey -v
 set editing-mode vi
 set blink-matching-paren on
 
+# Disable Ctrl+L (clear screen)
+bindkey -r '^L'
+
 # Set options
 setopt AUTO_CD        # When command is a directory `cd` to it
 setopt AUTO_PUSHD     # Previous dir is accessible through `popd`

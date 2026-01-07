@@ -6,5 +6,5 @@ alias -g C='| pbcopy'
 
 # tools
 alias g='git'
-alias t="tmux new-session -A -s main"
+alias t="tmux new-session -A -s main -d \; new-session -A -s side -d \; attach-session -t main"
 alias n='nvim'
