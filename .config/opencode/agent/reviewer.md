@@ -1,7 +1,7 @@
 ---
 description: Reviews code for quality, security, performance, and best practices
 mode: subagent
-model: devstral-large-latest
+model: devstral-2512
 temperature: 0.1
 tools:
   write: false

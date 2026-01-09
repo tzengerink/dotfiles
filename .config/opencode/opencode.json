@@ -4,8 +4,20 @@
   "theme": "tokyonight",
 
   "enabled_providers": ["mistral"],
-  "model": "devstral-large-latest",
-  "small_model": "devstral-small-latest",
+  "model": "devstral-2512",
+  "small_model": "labs-devstral-small-2512",
+
+  "provider": {
+    "mistral": {
+      "models": {
+        "devstral-2512": { "name": "🤖: Devstral 2 Medium" },
+        "labs-devstral-small-2512": { "name": "🤖: Devstral 2 Small" },
+        "mistral-large-latest": { "name": "🤖: Mistral Large" },
+        "mistral-medium-latest": { "name": "🤖: Mistral Medium" },
+        "mistral-small-latest": { "name": "🤖: Mistral Small" },
+      }
+    }
+  },
 
   "default_agent": "plan"
 }

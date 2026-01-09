@@ -21,6 +21,11 @@ normal = { family = 'CommitMono Nerd Font', style = 'Regular' }
 background = '#1a1b26'
 foreground = '#a9b1d6'
 
+# Cursor colors
+[colors.cursor]
+cursor = '#9ece6a'
+text = '#1a1b26'
+
 #Normal colors
 [colors.normal]
 black = '#414868'
