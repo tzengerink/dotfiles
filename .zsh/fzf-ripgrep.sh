@@ -1,4 +1,4 @@
-ripgrep_fzf() (
+fzf_ripgrep_widget() {
   RELOAD='reload:rg --column --color=always --smart-case {q} || :'
   OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
             $EDITOR {1} +{2}
@@ -14,6 +14,8 @@ ripgrep_fzf() (
       --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
       --preview-window '~4,+{2}+4/3,<80(up)' \
       --query "$*"
-)
+  zle reset-prompt
+}
 
-bindkey -s '^f' "ripgrep_fzf\n"
+zle -N fzf_ripgrep_widget
+bindkey '^f' fzf_ripgrep_widget
