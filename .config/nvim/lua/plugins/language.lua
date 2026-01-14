@@ -70,7 +70,7 @@ return {
         settings = {
           pyright = {
             disableLanguageServices = false,
-            disableOrganizeImports = false,
+            disableOrganizeImports = true,
           },
           python = {
             analysis = {
@@ -133,7 +133,7 @@ return {
         markdown = { "prettier" },
         html = { "prettier" },
         css = { "prettier" },
-        python = { "isort", "black" },
+        python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
       },
       format_on_save = {
         timeout_ms = 500,
