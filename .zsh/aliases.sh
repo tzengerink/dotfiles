@@ -8,3 +8,4 @@ alias -g C='| pbcopy'
 alias g='git'
 alias t="tmux new-session -A -s main -d \; new-session -A -s side -d \; attach-session -t main"
 alias n='nvim'
+alias o='opencode --port'

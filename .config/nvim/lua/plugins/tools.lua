@@ -1,5 +1,29 @@
 return {
   {
+    "nickvandyke/opencode.nvim",
+    dependencies = {
+      { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+    },
+    config = function()
+      vim.g.opencode_opts = {
+        provider = {
+          enabled = "tmux",
+          tmux = {
+            options = "-h", -- horizontal split
+          },
+        },
+      }
+
+      vim.o.autoread = true
+      vim.keymap.set({ "n", "x" }, "<C-a>", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode" })
+      vim.keymap.set({ "n", "x" }, "<C-x>", function() require("opencode").select() end, { desc = "Execute opencode action..." })
+    end,
+  },
+  {
+    'preservim/nerdcommenter',
+    event = "VeryLazy",
+  },
+  {
     'github/copilot.vim',
     enabled = false,
     init = function()
@@ -8,16 +32,14 @@ return {
     end,
   },
   {
-    'preservim/nerdcommenter',
-    event = "VeryLazy",
-  },
-  {
     "chentoast/marks.nvim",
+    enabled = false,
     event = "VeryLazy",
     opts = {},
   },
   {
     "folke/zen-mode.nvim",
+    enabled = false,
     event = "VeryLazy",
     keys = {
       {
