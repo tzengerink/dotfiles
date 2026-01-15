@@ -3,6 +3,17 @@
 
   "theme": "tokyonight",
   "default_agent": "plan",
+  "autoupdate": true,
+
+  "watcher": {
+    "ignore": ["node_modules/**", "dist/**", ".git/**"]
+  },
+
+  "tui": {
+    "scroll_speed": 5,
+    "scroll_acceleration": { "enabled": true },
+    "diff_style": "auto"
+  },
 
   "model": "devstral-2512",
   "small_model": "labs-devstral-small-2512",
@@ -14,11 +25,11 @@
   "provider": {
     "mistral": {
       "models": {
-        "devstral-2512": { "name": "🤖: Devstral 2 Medium" },
-        "labs-devstral-small-2512": { "name": "🤖: Devstral 2 Small" },
-        "mistral-large-latest": { "name": "🤖: Mistral Large" },
-        "mistral-medium-latest": { "name": "🤖: Mistral Medium" },
-        "mistral-small-latest": { "name": "🤖: Mistral Small" },
+        "devstral-2512": { "name": "Devstral Medium" },
+        "labs-devstral-small-2512": { "name": "Devstral Small" },
+        "mistral-large-latest": { "name": "Large" },
+        "mistral-medium-latest": { "name": "Medium" },
+        "mistral-small-latest": { "name": "Small" },
       },
     },
   },
