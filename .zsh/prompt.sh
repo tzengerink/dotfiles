@@ -46,6 +46,15 @@ function pre_prompt_python {
 	fi
 }
 
+function pre_prompt_kubectx {
+	if command -v kubectl >/dev/null 2>&1; then
+		local KUBE_CONTEXT=$(kubectl config current-context 2>/dev/null)
+		if [[ -n $KUBE_CONTEXT ]]; then
+			echo -e "%{$fg[cyan]%}$KUBE_CONTEXT  %{$reset_color%}"
+		fi
+	fi
+}
+
 function pre_prompt_node {
 	if [[ -d "node_modules" ]] && which node >/dev/null; then
 		echo -e "%{$reset_color%}%{$fg[yellow]%}$(node --version)  %{$reset_color%}"
