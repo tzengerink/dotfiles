@@ -22,7 +22,7 @@ function pre_prompt_branch {
 	local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 	if [[ -n $BRANCH ]]; then
 		if [[ $BRANCH =~ ^(master|main)$ ]]; then
-      echo -e "%{$fg[red]%}$(echo "$BRANCH" | awk '{print toupper($0)}')  %{$reset_color%}"
+      echo -e "%{$fg[red]%}%{$terminfo[smul]%}$BRANCH%{$terminfo[rmul]%}  %{$reset_color%}"
 		elif [[ $BRANCH =~ ^develop$ ]]; then
 			echo -e "%{$fg[yellow]%}$BRANCH  %{$reset_color%}"
 		elif [[ $BRANCH =~ ^(feature|feat|refactor|chore|fix|docs)\/ ]]; then
@@ -51,7 +51,7 @@ function pre_prompt_kubectx {
 	if command -v kubectl >/dev/null 2>&1; then
 		local KUBE_CONTEXT=$(kubectl config current-context 2>/dev/null)
 		if [[ $KUBE_CONTEXT =~ ^prd$ ]]; then
-      echo -e "%{$fg[red]%}$( echo "$KUBE_CONTEXT" | awk '{print toupper($0)}')  %{$reset_color%}"
+      echo -e "%{$fg[red]%}%{$terminfo[smul]%}$KUBE_CONTEXT%{$terminfo[rmul]%}  %{$reset_color%}"
 		elif [[ $KUBE_CONTEXT =~ ^dev$ ]]; then
 			echo -e "%{$fg[green]%}$KUBE_CONTEXT  %{$reset_color%}"
 		elif [[ -n $KUBE_CONTEXT ]]; then
