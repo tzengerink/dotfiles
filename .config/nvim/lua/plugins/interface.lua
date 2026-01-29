@@ -7,7 +7,7 @@ return {
     opts = {
       on_attach = on_nvim_tree_attach,
       git = { ignore = false },
-      view = { width = 60 },
+      view = { width = 40 },
       renderer = { highlight_git = true },
       filters = { dotfiles = true, git_ignored = true },
       actions = {
