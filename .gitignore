@@ -17,6 +17,7 @@ node_modules
 !.config/bat/
 !.config/opencode/opencode.json
 !.config/opencode/agent/*
+!.config/opencode/skills/*
 
 # Ignore tmux plugins (managed by TPM)
 .tmux/plugins
