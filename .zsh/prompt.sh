@@ -9,7 +9,7 @@ local prompt_shell='$(pre_prompt_shell)'
 local prompt_exit='$(pre_prompt_exit)'
 
 function pre_prompt_user {
-  echo -e "%{$fg[white]%}%n  %{$reset_color%}"
+  echo -e "%{$fg[cyan]%}%n  %{$reset_color%}"
 }
 
 function pre_prompt_exit {
