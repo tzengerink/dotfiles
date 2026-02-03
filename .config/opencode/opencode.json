@@ -21,6 +21,7 @@
   "enabled_providers": [
     "mistral",
     "github-copilot",
+    "google",
   ],
 
   "provider": {
