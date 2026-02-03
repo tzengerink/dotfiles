@@ -40,4 +40,12 @@
       "*": "allow",
     },
   },
+
+  "mcp": {
+    "obsidian": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "@mauricio.wolff/mcp-obsidian@latest", "/Users/teun/repos/notebook"],
+    },
+  },
 }
